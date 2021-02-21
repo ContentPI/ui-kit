@@ -1,14 +1,14 @@
 import { ValueOf } from './global'
 
 export const Color = {
-  Danger: 'danger',
-  Dark: 'dark',
-  Info: 'info',
-  Light: 'light',
-  Primary: 'primary',
-  Secondary: 'secondary',
-  Success: 'success',
-  Warning: 'warning'
+  danger: 'danger',
+  dark: 'dark',
+  info: 'info',
+  light: 'light',
+  primary: 'primary',
+  secondary: 'secondary',
+  success: 'success',
+  warning: 'warning'
 } as const
 
 export type Color = ValueOf<typeof Color>

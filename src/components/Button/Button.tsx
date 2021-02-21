@@ -1,24 +1,31 @@
 // Dependencies
 import React, { FC, ComponentPropsWithoutRef } from 'react'
-import { classNamesGenerator } from '@contentpi/utils'
-import { Size, Variant, Color } from '../../types'
-import { ButtonBase, COMPONENT_CLASS_NAME } from './Button.styled'
+import { cxGenerator } from '@contentpi/utils'
+import { Size, Variant, Color, Shape } from '../../types'
+import { ButtonBase, BASE_CLASS_NAME } from './Button.styled'
 
 interface iProps extends ComponentPropsWithoutRef<'button'> {
-  size?: Size
-  variant?: Variant
   color?: Color
   href?: string
+  shape?: Shape
+  size?: Size
+  variant?: Variant
 }
 
 const Button: FC<iProps> = props => {
-  const { children, size = 'md', variant = 'contained', color = 'light', ...btnProps } = props
+  const {
+    color = 'light',
+    children,
+    shape = '',
+    size = 'md',
+    variant = 'contained',
+    ...btnProps
+  } = props
   const buttonText: any = children
 
-  const classNames = classNamesGenerator({
-    cpn: 'Button',
-    ccn: COMPONENT_CLASS_NAME,
-    data: [size, variant, color]
+  const classNames = cxGenerator({
+    ccn: BASE_CLASS_NAME,
+    data: [size, variant, color, shape]
   })
 
   return (

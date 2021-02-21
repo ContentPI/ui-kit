@@ -1,4 +1,6 @@
 export * from './color'
 export * from './global'
 export * from './size'
+export * from './shape'
+export * from './theme'
 export * from './variant'
