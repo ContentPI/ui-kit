@@ -33,6 +33,46 @@ const buttons: iButton[] = [
     `
   },
   {
+    title: 'Button (<button>)',
+    description: 'A round, square, and regular button',
+    render: (
+      <>
+        <Button>Button</Button>
+        <Button shape="round">Button</Button>
+        <Button shape="square">Button</Button>
+      </>
+    ),
+    code: `
+    <Button>Button</Button>
+    <Button shape="round">Button</Button>
+    <Button shape="square">Button</Button>
+    `
+  },
+  {
+    title: 'Button (<a>)',
+    description: 'A round, square, and regular button',
+    render: (
+      <>
+        <Button href="#">Button</Button>
+        <Button href="#" shape="round">
+          Button
+        </Button>
+        <Button href="#" shape="square">
+          Button
+        </Button>
+      </>
+    ),
+    code: `
+    <Button href="#">Button</Button>
+    <Button href="#" shape="round">
+      Button
+    </Button>
+    <Button href="#" shape="square">
+      Button
+    </Button>
+    `
+  },
+  {
     title: 'Emphasis (<button>)',
     description: 'A button can be formatted to show different levels of emphasis',
     render: (

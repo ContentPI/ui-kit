@@ -2,7 +2,7 @@
 import styled from 'styled-components'
 
 // Contants
-import { Color, Colors, Size, Variant, FontSize, FontWeight } from '../../types'
+import { Color, Colors, Size, Shape, Variant, FontSize, FontWeight } from '../../types'
 
 // Theme
 import { v } from '../../theme'
@@ -28,6 +28,7 @@ const getButtonColorStyles = (colorType: Color, variant?: Variant) => {
     color: ${v(color)};
     background-color: ${v(bg)};
     border-color: ${v(bc)};
+
     &:hover {
       color: ${v(outlined ? 'white' : hover.color)};
       background-color: ${v(hover.bg)};
@@ -79,7 +80,6 @@ const buttonSizeStyles = `
     padding: 2px 12px;
     font-size: ${FontSize.small}px;
     line-height: 1.25rem;
-    border-radius: 3px;
 
     a {
       font-size: ${FontSize.small}px;
@@ -90,14 +90,12 @@ const buttonSizeStyles = `
     padding: 7px 12px;
     font-size: ${FontSize.small + 1}px;
     line-height: 1.25rem;
-    border-radius: 3px;
   }
 
   &.${getClass(Size.large)} {
     padding: 13px 24px;
     font-size: ${FontSize.small + 3}px;
     line-height: 1.25rem;
-    border-radius: 5px;
 
     a {
       font-size: ${FontSize.small + 3}px;
@@ -108,7 +106,6 @@ const buttonSizeStyles = `
     padding: 13px 32px;
     font-size: ${FontSize.medium + 2}px;
     line-height: 2rem;
-    border-radius: 5px;
 
     a {
       font-size: ${FontSize.medium + 2}px;
@@ -116,11 +113,22 @@ const buttonSizeStyles = `
   }
 `
 
+const buttonShapeStyles = `
+  border-radius: 5px;
+
+  &.${getClass(Shape.round)} {
+    border-radius: 30px;
+  }
+
+  &.${getClass(Shape.square)} {
+    border-radius: 0px;
+  }
+`
+
 const buttonStyle = `
   &.${BASE_CLASS_NAME} {
     -webkit-appearance: button;
     background-color: transparent;
-    border-radius: 0.25rem;
     border: 1px solid transparent;
     display: inline-block;
     font-weight: ${FontWeight.normal};
@@ -158,6 +166,7 @@ export const ButtonBase = styled.button`
   ${buttonStyle}
   ${buttonSizeStyles}
   ${buttonVariantStyles}
+  ${buttonShapeStyles}
 `
 export const LinkButtonBase = styled.span`
   a {
@@ -175,4 +184,5 @@ export const LinkButtonBase = styled.span`
   ${buttonStyle}
   ${buttonSizeStyles}
   ${buttonVariantStyles}
+  ${buttonShapeStyles}
 `
