@@ -2,7 +2,7 @@
 import styled, { css } from 'styled-components'
 
 // Contants
-import { Color, Size, Variant } from '../../types'
+import { Color, Colors, Size, Variant } from '../../types'
 
 // Theme
 import { v } from '../../theme'
@@ -15,7 +15,7 @@ const getClass = (className: string) => `${BASE_CLASS_NAME}-${className}`
 const getButtonColorStyles = (color: Color, variant?: Variant) => {
   const outlined = variant === 'outlined' ? '-outlined-' : '-'
 
-  return css`
+  return `
     color: ${v(`${BASE_CLASS_NAME}-${color}${outlined}color`)};
     background-color: ${v(`${BASE_CLASS_NAME}-${color}${outlined}bg`)};
     border-color: ${v(`${BASE_CLASS_NAME}-${color}${outlined}bc`)};
@@ -27,38 +27,32 @@ const getButtonColorStyles = (color: Color, variant?: Variant) => {
   `
 }
 
-const getColorStyles = (color: Color, variant?: Variant) => css`
-  &.${getClass(color)} {
-    ${getButtonColorStyles(color, variant)}
-  }
-`
+const getColorStyles = (variant?: Variant) => {
+  let styles = ''
+
+  Colors.forEach((color: Color) => {
+    styles += `
+      &.${getClass(color)} {
+        ${getButtonColorStyles(color, variant)}
+      }
+    `
+  })
+
+  return styles
+}
 
 // Styles
-const buttonVariantStyles = css`
+const buttonVariantStyles = `
   &.${getClass('contained')} {
-    ${getColorStyles(Color.danger)}
-    ${getColorStyles(Color.dark)}
-    ${getColorStyles(Color.info)}
-    ${getColorStyles(Color.light)}
-    ${getColorStyles(Color.primary)}
-    ${getColorStyles(Color.secondary)}
-    ${getColorStyles(Color.success)}
-    ${getColorStyles(Color.warning)}
+    ${getColorStyles()}
   }
 
   &.${getClass('outlined')} {
-    ${getColorStyles(Color.danger, Variant.outlined)}
-    ${getColorStyles(Color.dark, Variant.outlined)}
-    ${getColorStyles(Color.info, Variant.outlined)}
-    ${getColorStyles(Color.light, Variant.outlined)}
-    ${getColorStyles(Color.primary, Variant.outlined)}
-    ${getColorStyles(Color.secondary, Variant.outlined)}
-    ${getColorStyles(Color.success, Variant.outlined)}
-    ${getColorStyles(Color.warning, Variant.outlined)}
+    ${getColorStyles(Variant.outlined)}
   }
 `
 
-const buttonSizeStyles = css`
+const buttonSizeStyles = `
   margin-right: 5px;
 
   &.${getClass(Size.small)} {

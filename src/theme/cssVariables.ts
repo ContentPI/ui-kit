@@ -25,6 +25,12 @@ export const buttonPalette: ButtonPalette = {
     bc: 'gray-e',
     hover: 'gray-d'
   },
+  link: {
+    color: 'blue-b',
+    bg: 'white',
+    bc: 'white',
+    hover: 'white'
+  },
   primary: {
     color: 'white',
     bg: 'blue-d',

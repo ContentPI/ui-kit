@@ -37,6 +37,7 @@ export type ButtonPalette = {
   dark: ButtonColor
   info: ButtonColor
   light: ButtonColor
+  link: ButtonColor
   primary: ButtonColor
   secondary: ButtonColor
   success: ButtonColor

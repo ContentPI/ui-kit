@@ -44,7 +44,7 @@ const buttons: iButton[] = [
         <Button color="light">Light</Button>
         <Button color="info">Info</Button>
         <Button color="warning">Warning</Button>
-        <Button>Cancel</Button>
+        <Button color="link">Link</Button>
       </>
     ),
     code: `
