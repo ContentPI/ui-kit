@@ -8,3 +8,5 @@ export const Size = {
 } as const
 
 export type Size = ValueOf<typeof Size>
+
+export const Sizes = Object.keys(Size)

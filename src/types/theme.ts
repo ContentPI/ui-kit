@@ -1,4 +1,6 @@
 import { Breakpoints } from '../theme/breakpoints'
+import { FontWeight } from './fontWeight'
+import { FontSize } from './fontSize'
 
 type ColorIntensity = {
   a: string
@@ -20,6 +22,12 @@ type ButtonColor = {
   bg: string
   bc: string
   hover: string
+  outlined: {
+    color: string
+    bg: string
+    bc: string
+    hover: string
+  }
 }
 
 export type Palette = {
@@ -44,20 +52,22 @@ export type ButtonPalette = {
   warning: ButtonColor
 }
 
-export type FontWeight = {
-  lighter: number
-  normal: number
-  semibold: number
-  bold: number
-  heavy: number
-}
-
 export type Style = 'light' | 'dark'
 
 export interface Theme {
   breakpoints: Breakpoints
+  global: {
+    font: {
+      size: FontSize
+      weight: FontWeight
+    }
+  }
   style: {
-    light: any
-    dark: any
+    light: {
+      btn: any
+    }
+    dark: {
+      btn: any
+    }
   }
 }

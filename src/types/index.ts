@@ -1,4 +1,6 @@
 export * from './color'
+export * from './fontSize'
+export * from './fontWeight'
 export * from './global'
 export * from './size'
 export * from './shape'

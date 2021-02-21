@@ -1,10 +1,10 @@
-import { Style, Color } from '../types'
+import { Style, Color, Colors } from '../types'
 import { buttonPalette } from './cssVariables'
 
 export const getButtonColorsVars = () => {
   const styles: any = {}
 
-  Object.keys(Color).forEach((color: Color) => {
+  Colors.forEach((color: Color) => {
     styles[color] = {
       color: buttonPalette[color].color,
       bg: buttonPalette[color].bg,
@@ -13,10 +13,20 @@ export const getButtonColorsVars = () => {
         color: buttonPalette[color].color,
         bg: buttonPalette[color].hover,
         bc: buttonPalette[color].hover
+      },
+      outlined: {
+        color: buttonPalette[color].outlined.color,
+        bg: buttonPalette[color].outlined.bg,
+        bc: buttonPalette[color].outlined.bc,
+        hover: {
+          color: buttonPalette[color].outlined.color,
+          bg: buttonPalette[color].outlined.hover,
+          bc: buttonPalette[color].outlined.hover
+        }
       }
     }
   })
-
+  // --btn-danger-color
   return styles
 }
 

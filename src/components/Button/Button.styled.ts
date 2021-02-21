@@ -1,28 +1,48 @@
 // Dependencies
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 // Contants
-import { Color, Colors, Size, Variant } from '../../types'
+import { Color, Colors, Size, Variant, FontSize, FontWeight } from '../../types'
 
 // Theme
 import { v } from '../../theme'
 
+// Base Class Name
 export const BASE_CLASS_NAME = 'btn'
 
 // Functions
 const getClass = (className: string) => `${BASE_CLASS_NAME}-${className}`
 
-const getButtonColorStyles = (color: Color, variant?: Variant) => {
+const getButtonColorStyles = (colorType: Color, variant?: Variant) => {
   const outlined = variant === 'outlined' ? '-outlined-' : '-'
+  const color = `${BASE_CLASS_NAME}-${colorType}${outlined}color`
+  const bg = `${BASE_CLASS_NAME}-${colorType}${outlined}bg`
+  const bc = `${BASE_CLASS_NAME}-${colorType}${outlined}bc`
+  const hover = {
+    color: `${BASE_CLASS_NAME}-${colorType}${outlined}hover-color`,
+    bg: `${BASE_CLASS_NAME}-${colorType}${outlined}hover-bg`,
+    bc: `${BASE_CLASS_NAME}-${colorType}${outlined}hover-bc`
+  }
 
   return `
-    color: ${v(`${BASE_CLASS_NAME}-${color}${outlined}color`)};
-    background-color: ${v(`${BASE_CLASS_NAME}-${color}${outlined}bg`)};
-    border-color: ${v(`${BASE_CLASS_NAME}-${color}${outlined}bc`)};
+    color: ${v(color)};
+    background-color: ${v(bg)};
+    border-color: ${v(bc)};
     &:hover {
-      color: ${v(`${BASE_CLASS_NAME}-${color}${outlined}hover-color`)};
-      background-color: ${v(`${BASE_CLASS_NAME}-${color}${outlined}hover-bg`)};
-      border-color: ${v(`${BASE_CLASS_NAME}-${color}${outlined}hover-bc`)};
+      color: ${v(outlined ? 'white' : hover.color)};
+      background-color: ${v(hover.bg)};
+      border-color: ${v(hover.bc)};
+
+      a {
+        color: ${v(outlined ? 'white' : hover.color)};
+      }
+    }
+
+    a {
+      color: ${v(color)};
+      &:hover {
+        color: ${v(outlined ? 'white' : hover.color)};
+      }
     }
   `
 }
@@ -57,52 +77,61 @@ const buttonSizeStyles = `
 
   &.${getClass(Size.small)} {
     padding: 2px 12px;
-    font-size: 12px;
+    font-size: ${FontSize.small}px;
     line-height: 1.25rem;
     border-radius: 3px;
+
+    a {
+      font-size: ${FontSize.small}px;
+    }
   }
 
   &.${getClass(Size.medium)} {
     padding: 7px 12px;
-    font-size: 13px;
+    font-size: ${FontSize.small + 1}px;
     line-height: 1.25rem;
     border-radius: 3px;
-    min-width: 60px;
   }
 
   &.${getClass(Size.large)} {
     padding: 13px 24px;
-    font-size: 15px;
+    font-size: ${FontSize.small + 3}px;
     line-height: 1.25rem;
     border-radius: 5px;
+
+    a {
+      font-size: ${FontSize.small + 3}px;
+    }
   }
 
   &.${getClass(Size.xLarge)} {
     padding: 13px 32px;
-    font-size: 18px;
+    font-size: ${FontSize.medium + 2}px;
     line-height: 2rem;
     border-radius: 5px;
+
+    a {
+      font-size: ${FontSize.medium + 2}px;
+    }
   }
 `
 
-const buttonStyle = css`
+const buttonStyle = `
   &.${BASE_CLASS_NAME} {
     -webkit-appearance: button;
     background-color: transparent;
     border-radius: 0.25rem;
     border: 1px solid transparent;
     display: inline-block;
-    font-weight: 400;
+    font-weight: ${FontWeight.normal};
     text-align: center;
     user-select: none;
     vertical-align: middle;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
       border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-
     &:focus {
       outline: none;
     }
-
     &:not(:disabled) {
       cursor: pointer;
     }
@@ -118,6 +147,31 @@ const buttonStyle = css`
 `
 
 export const ButtonBase = styled.button`
+  position: relative;
+
+  img {
+    position: absolute;
+    top: 8px;
+    left: 6px;
+  }
+
+  ${buttonStyle}
+  ${buttonSizeStyles}
+  ${buttonVariantStyles}
+`
+export const LinkButtonBase = styled.span`
+  a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+
+    img {
+      position: absolute;
+      top: 2px;
+      left: -6px;
+    }
+  }
+
   ${buttonStyle}
   ${buttonSizeStyles}
   ${buttonVariantStyles}

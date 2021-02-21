@@ -21,7 +21,11 @@ const webpackConfig: any = {
         test: /\.svg$/,
         oneOf: [
           {
-            include: resolve(__dirname, './src/components/Icon/icons'),
+            include: [resolve(__dirname, './src/components/Spinner/loaders')],
+            use: 'svg-url-loader'
+          },
+          {
+            include: resolve(__dirname, './src/components/Icon'),
             use: '@svgr/webpack'
           }
         ]

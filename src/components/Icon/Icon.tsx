@@ -2,7 +2,7 @@
 import React, { FC, ReactElement } from 'react'
 import { cx } from '@contentpi/utils'
 
-interface iProps {
+interface Props {
   children?: ReactElement | string
   className?: string
   type?: string
@@ -16,7 +16,7 @@ interface iProps {
   onClick?(): void
 }
 
-const Icon: FC<iProps> = props => {
+const Icon: FC<Props> = props => {
   const { type, className = '', children, library = 'fontawesome', width = 24 } = props
   const height = props.height !== width ? width : 24
   const iconProps = { ...props }
