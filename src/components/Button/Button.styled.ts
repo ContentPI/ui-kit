@@ -10,7 +10,6 @@ import { v } from '../../theme'
 export const BASE_CLASS_NAME = 'btn'
 
 // Functions
-const getClass = (className: string) => `${COMPONENT_CLASS_NAME}-${className}`
 const getClass = (className: string) => `${BASE_CLASS_NAME}-${className}`
 
 const getButtonColorStyles = (color: Color, variant?: Variant) => {
