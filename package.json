@@ -1,5 +1,5 @@
 {
-  "name": "ui-kit",
+  "name": "@contentpi/ui-kit",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
