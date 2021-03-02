@@ -79,6 +79,8 @@
     "jsx-a11y/control-has-associated-label": "off",
     "no-use-before-define": "off",
     "no-restricted-syntax": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off"
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "guard-for-in": "off",
+    "@typescript-eslint/ban-ts-comment": "off"
   }
 }
