@@ -4,9 +4,9 @@ export const palette: Palette = {
   white: '#fff',
   black: '#000',
   blue: {
-    a: '#12a4ed',
-    b: '#0f8bc9',
-    c: '#0e83be',
+    a: '#00BDE5',
+    b: '#00b2d6',
+    c: '#00a7c9',
     d: '#1761fd',
     e: '#024dec',
     f: '#0249df',

@@ -27,14 +27,14 @@ export const buttonPalette: ButtonPalette = {
   },
   info: {
     color: 'white',
-    bg: 'blue-a',
-    bc: 'blue-a',
-    hover: 'blue-b',
+    bg: 'blue-d',
+    bc: 'blue-d',
+    hover: 'blue-e',
     outlined: {
-      color: 'blue-a',
+      color: 'blue-d',
       bg: 'white',
-      bc: 'blue-a',
-      hover: 'blue-b'
+      bc: 'blue-d',
+      hover: 'blue-e'
     }
   },
   light: {
@@ -63,14 +63,14 @@ export const buttonPalette: ButtonPalette = {
   },
   primary: {
     color: 'white',
-    bg: 'blue-d',
-    bc: 'blue-d',
-    hover: 'blue-e',
+    bg: 'blue-a',
+    bc: 'blue-a',
+    hover: 'blue-b',
     outlined: {
-      color: 'blue-d',
+      color: 'blue-a',
       bg: 'white',
-      bc: 'blue-d',
-      hover: 'blue-e'
+      bc: 'blue-a',
+      hover: 'blue-b'
     }
   },
   secondary: {
