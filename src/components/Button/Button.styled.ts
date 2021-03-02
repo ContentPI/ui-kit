@@ -8,7 +8,7 @@ import { Color, Colors, Size, Shape, Variant, FontSize, FontWeight } from '../..
 import { v } from '../../theme'
 
 // Base Class Name
-export const BASE_CLASS_NAME = 'btn'
+export const BASE_CLASS_NAME = 'button'
 
 // Functions
 const getClass = (className: string) => `${BASE_CLASS_NAME}-${className}`

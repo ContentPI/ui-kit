@@ -13,10 +13,10 @@ const defaultTheme: Theme = {
   },
   style: {
     light: {
-      btn: getButtonColorsVars()
+      button: getButtonColorsVars()
     },
     dark: {
-      btn: getButtonColorsVars()
+      button: getButtonColorsVars()
     }
   }
 }

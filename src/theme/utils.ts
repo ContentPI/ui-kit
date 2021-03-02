@@ -26,40 +26,31 @@ export const getButtonColorsVars = () => {
       }
     }
   })
-  // --btn-danger-color
+
   return styles
 }
 
 export const v = (variable: string) => `var(--${variable})`
 
-export const createCSSVars = (node: any, prefix = '-', isAssignation = false): any => {
-  const vars: any = {}
+const flatVars = (res: any, key: any, val: any, pre = '-', isAssignation = false): any => {
+  const prefix = [pre, key].filter(v => v).join('-')
 
-  for (const [key, value] of Object.entries(node)) {
-    if (typeof value === 'object') {
-      const nested = createCSSVars(value, `${prefix}-${key}`, isAssignation)
-
-      for (const [nestedKey, nestedValue] of Object.entries(nested)) {
-        if (typeof nestedValue === 'object') {
-          const nested2 = createCSSVars(nestedValue, `${prefix}-${nestedKey}`, isAssignation)
-
-          for (const [nestedKey2, nestedValue2] of Object.entries(nested2)) {
-            vars[nestedKey2] = `${nestedValue2}`
-          }
-        } else {
-          vars[nestedKey] = `${nestedValue}`
-        }
-      }
-    } else {
-      vars[`${prefix}-${key}`] = isAssignation ? `${value};` : `var(--${value});`
-    }
-  }
-
-  return vars
+  return typeof val === 'object'
+    ? Object.keys(val).reduce(
+        (prev, curr) => flatVars(prev, curr, val[curr], prefix, isAssignation),
+        res
+      )
+    : Object.assign(res, { [prefix]: isAssignation ? `${val};` : `var(--${val});` })
 }
 
-export const getCSSVars = (vars: any, prefix = '-', isAssignation = false) =>
-  JSON.stringify(createCSSVars(vars, prefix, isAssignation)).replace(/\{?}?"?,?/g, '')
+export const getCSSVars = (vars: any, prefix = '-', isAssignation = false) => {
+  const variables = Object.keys(vars).reduce(
+    (prev, curr) => flatVars(prev, curr, vars[curr], prefix, isAssignation),
+    {}
+  )
+
+  return JSON.stringify(variables).replace(/\{?}?"?,?/g, '')
+}
 
 export const getRootVars = (vars: any): string => `:root {${getCSSVars(vars, '-', true)}}`
 

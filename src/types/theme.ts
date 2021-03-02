@@ -15,10 +15,10 @@ export interface Theme {
   }
   style: {
     light: {
-      btn: ButtonPalette
+      button: ButtonPalette
     }
     dark: {
-      btn: ButtonPalette
+      button: ButtonPalette
     }
   }
 }
