@@ -1,17 +1,29 @@
 // Dependencies
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
+import Prism from 'prismjs'
+import 'prismjs/components/prism-jsx.min'
 import styled, { createGlobalStyle } from 'styled-components'
 
 // Components
 import Icon from '../src/components/Icon'
 
-// Theme
+// Data
+import buttons, { iButton } from './data/buttons'
 import { getThemeVars } from '../src/theme'
 
-const cssVars = getThemeVars()
-console.log({ cssVars })
+export const Toggle: FC = () => {
+  const [theme, setTheme] = useState('light')
+  const nextTheme = theme === 'light' ? 'dark' : 'light'
+
+  useEffect(() => {
+    document.body.dataset.theme = theme
+  }, [theme])
+
+  return <button onClick={() => setTheme(nextTheme)}>Change to {nextTheme} mode</button>
+}
+
 const GlobalStyle = createGlobalStyle`
-  ${cssVars}
+  ${getThemeVars()}
 `
 
 const StyledApp = styled.div`
@@ -35,14 +47,92 @@ const StyledApp = styled.div`
     padding: 20px;
   }
 `
+
+const StyledBlock = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  .block {
+    min-width: 100%;
+    strong {
+      border-radius: 5px;
+      font-weight: 500;
+      padding: 4px;
+      background: #eee;
+    }
+  }
+  pre {
+    min-width: 750px;
+  }
+`
+const StyledShowCode = styled.div`
+  margin-top: 18px;
+  cursor: pointer;
+`
+
+const StyledPre = styled.pre`
+  display: none;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  background: #333;
+  &.show {
+    display: block;
+  }
+`
+
 const App: FC = () => {
+  const [showCode, setShowCode] = useState<boolean | number>(false)
+
+  const handleShowCode = (code: number) => {
+    if (showCode !== code) {
+      setShowCode(code)
+    } else {
+      setShowCode(false)
+    }
+  }
+
+  useEffect(() => {
+    Prism.highlightAll()
+  }, [])
+
   return (
     <>
       <GlobalStyle />
-
       <StyledApp>
-        <h1>Icon</h1>
-        <Icon type="fas fa-user" />
+        <Toggle />
+
+        <h1>Types </h1>
+
+        <h2>&lt;Button /&gt;</h2>
+
+        {buttons.map(({ title, prop, description, render, code }: iButton, i: number) => (
+          <StyledBlock key={`block-${i}`}>
+            <div className="block">
+              <h3>{title}</h3>
+              <p>
+                {prop ? (
+                  <>
+                    <strong>{prop}</strong>:
+                  </>
+                ) : (
+                  ''
+                )}{' '}
+                {description}
+              </p>
+
+              {render}
+
+              <StyledPre className={showCode === i ? 'show' : ''}>
+                <code className="language-jsx">{code}</code>
+              </StyledPre>
+            </div>
+            <div>
+              <StyledShowCode onClick={() => handleShowCode(i)} title="View Code">
+                <Icon type="code" library="feather" />
+              </StyledShowCode>
+            </div>
+          </StyledBlock>
+        ))}
       </StyledApp>
     </>
   )
