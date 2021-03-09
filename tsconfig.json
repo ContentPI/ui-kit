@@ -12,7 +12,11 @@
     "strictFunctionTypes": false,
     "target": "esnext"
   },
-  "files": ["src/components/Icon/index.ts"],
+  "files": [
+    "src/components/Button/index.ts",
+    "src/components/Icon/index.ts",
+    "src/components/Spinner/index.ts"
+  ],
   "include": ["src/**/*", "sandbox/*"],
   "exclude": ["node_modules", "**/__tests__/*"]
 }
