@@ -8,6 +8,7 @@ import { v, getClass } from '../../theme'
 // Functions
 const getColorStyles = (colorType: Color) => {
   const color = `${BASE_CLASS_NAME}-${colorType}-color`
+  const hover = `${BASE_CLASS_NAME}-${colorType}-hover`
   const bg = `${BASE_CLASS_NAME}-${colorType}-bg`
   const bc = `${BASE_CLASS_NAME}-${colorType}-bc`
 
@@ -15,6 +16,16 @@ const getColorStyles = (colorType: Color) => {
     color: ${v(color)};
     background-color: ${v(bg)};
     border-color: ${v(bc)};
+
+    a {
+      color: ${v(color)};
+      text-decoration: none;
+      font-weight: ${FontWeight.bold};
+
+      &:hover {
+        color: ${v(hover)}
+      }
+    }
   `
 }
 

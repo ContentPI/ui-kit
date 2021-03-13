@@ -8,7 +8,8 @@ export const getAlertColorsVars = () => {
     styles[color] = {
       color: alertPalette[color].color,
       bg: alertPalette[color].bg,
-      bc: alertPalette[color].bc
+      bc: alertPalette[color].bc,
+      hover: alertPalette[color].hover
     }
   })
 

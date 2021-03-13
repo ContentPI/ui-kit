@@ -9,83 +9,265 @@ export const alerts: CodeBlock[] = [
     description: 'Primary Alert',
     render: (
       <>
-        <Alert color="primary">Primary Alert</Alert>
+        <Alert color="primary">Alert</Alert>
         <Alert color="primary" alignment="center">
-          Primary Alert with Center Alignment
+          <>
+            <a href="#">Alert</a> with Center Alignment
+          </>
         </Alert>
         <Alert color="primary" alignment="right">
-          Primary Alert with Right Alignment
+          Alert with Right Alignment
         </Alert>
         <Alert color="primary" shape="regular">
-          Primary Alert with Regular Shape
+          Alert with Regular Shape
         </Alert>
         <Alert color="primary" shape="round">
-          Primary Alert with Round Shape
+          Alert with Round Shape
         </Alert>
       </>
     ),
     code: `
-    <Alert color="primary">Primary Alert</Alert>
+    <Alert color="primary">Alert</Alert>
     <Alert color="primary" alignment="center">
-      Primary Alert with Center Alignment
+      Alert with Center Alignment
     </Alert>
     <Alert color="primary" alignment="right">
-      Primary Alert with Right Alignment
+      Alert with Right Alignment
     </Alert>
     <Alert color="primary" shape="regular">
-      Primary Alert with Regular Shape
+      Alert with Regular Shape
     </Alert>
     <Alert color="primary" shape="round">
-      Primary Alert with Round Shape
+      Alert with Round Shape
     </Alert>
     `
   },
   {
     title: 'Alert',
     description: 'Secondary Alert',
-    render: <Alert color="secondary">This is my alert</Alert>,
+    render: (
+      <>
+        <Alert color="secondary">Alert</Alert>
+        <Alert color="secondary" alignment="center">
+          <>
+            <a href="#">Alert</a> with Center Alignment
+          </>
+        </Alert>
+        <Alert color="secondary" alignment="right">
+          Alert with Right Alignment
+        </Alert>
+        <Alert color="secondary" shape="regular">
+          Alert with Regular Shape
+        </Alert>
+        <Alert color="secondary" shape="round">
+          Alert with Round Shape
+        </Alert>
+      </>
+    ),
     code: `
-    <Alert color="secondary">This is my alert</Alert>
+    <Alert color="secondary">Alert</Alert>
+    <Alert color="secondary" alignment="center">
+      Alert with Center Alignment
+    </Alert>
+    <Alert color="secondary" alignment="right">
+      Alert with Right Alignment
+    </Alert>
+    <Alert color="secondary" shape="regular">
+      Alert with Regular Shape
+    </Alert>
+    <Alert color="secondary" shape="round">
+      Alert with Round Shape
+    </Alert>
     `
   },
   {
     title: 'Alert',
     description: 'Info Alert',
-    render: <Alert color="info">This is my alert</Alert>,
+    render: (
+      <>
+        <Alert color="info">Alert</Alert>
+        <Alert color="info" alignment="center">
+          <>
+            <a href="#">Alert</a> with Center Alignment
+          </>
+        </Alert>
+        <Alert color="info" alignment="right">
+          Alert with Right Alignment
+        </Alert>
+        <Alert color="info" shape="regular">
+          Alert with Regular Shape
+        </Alert>
+        <Alert color="info" shape="round">
+          Alert with Round Shape
+        </Alert>
+      </>
+    ),
     code: `
-    <Alert color="info">This is my alert</Alert>
+    <Alert color="info">Alert</Alert>
+    <Alert color="info" alignment="center">
+      Alert with Center Alignment
+    </Alert>
+    <Alert color="info" alignment="right">
+      Alert with Right Alignment
+    </Alert>
+    <Alert color="info" shape="regular">
+      Alert with Regular Shape
+    </Alert>
+    <Alert color="info" shape="round">
+      Alert with Round Shape
+    </Alert>
     `
   },
   {
     title: 'Alert',
     description: 'Success Alert',
-    render: <Alert color="success">This is my alert</Alert>,
+    render: (
+      <>
+        <Alert color="success">Alert</Alert>
+        <Alert color="success" alignment="center">
+          <>
+            <a href="#">Alert</a> with Center Alignment
+          </>
+        </Alert>
+        <Alert color="success" alignment="right">
+          Alert with Right Alignment
+        </Alert>
+        <Alert color="success" shape="regular">
+          Alert with Regular Shape
+        </Alert>
+        <Alert color="success" shape="round">
+          Alert with Round Shape
+        </Alert>
+      </>
+    ),
     code: `
-    <Alert color="success">This is my alert</Alert>
+    <Alert color="success">Alert</Alert>
+    <Alert color="success" alignment="center">
+      Alert with Center Alignment
+    </Alert>
+    <Alert color="success" alignment="right">
+      Alert with Right Alignment
+    </Alert>
+    <Alert color="success" shape="regular">
+      Alert with Regular Shape
+    </Alert>
+    <Alert color="success" shape="round">
+      Alert with Round Shape
+    </Alert>
     `
   },
   {
     title: 'Alert',
     description: 'Warning Alert',
-    render: <Alert color="warning">This is my alert</Alert>,
+    render: (
+      <>
+        <Alert color="warning">Alert</Alert>
+        <Alert color="warning" alignment="center">
+          <>
+            <a href="#">Alert</a> with Center Alignment
+          </>
+        </Alert>
+        <Alert color="warning" alignment="right">
+          Alert with Right Alignment
+        </Alert>
+        <Alert color="warning" shape="regular">
+          Alert with Regular Shape
+        </Alert>
+        <Alert color="warning" shape="round">
+          Alert with Round Shape
+        </Alert>
+      </>
+    ),
     code: `
-    <Alert color="warning">This is my alert</Alert>
+    <Alert color="warning">Alert</Alert>
+    <Alert color="warning" alignment="center">
+      Alert with Center Alignment
+    </Alert>
+    <Alert color="warning" alignment="right">
+      Alert with Right Alignment
+    </Alert>
+    <Alert color="warning" shape="regular">
+      Alert with Regular Shape
+    </Alert>
+    <Alert color="warning" shape="round">
+      Alert with Round Shape
+    </Alert>
     `
   },
   {
     title: 'Alert',
     description: 'Danger Alert',
-    render: <Alert color="danger">This is my alert</Alert>,
+    render: (
+      <>
+        <Alert color="danger">Alert</Alert>
+        <Alert color="danger" alignment="center">
+          <>
+            <a href="#">Alert</a> with Center Alignment
+          </>
+        </Alert>
+        <Alert color="danger" alignment="right">
+          Alert with Right Alignment
+        </Alert>
+        <Alert color="danger" shape="regular">
+          Alert with Regular Shape
+        </Alert>
+        <Alert color="danger" shape="round">
+          Alert with Round Shape
+        </Alert>
+      </>
+    ),
     code: `
-    <Alert color="danger">This is my alert</Alert>
+    <Alert color="danger">Alert</Alert>
+    <Alert color="danger" alignment="center">
+      Alert with Center Alignment
+    </Alert>
+    <Alert color="danger" alignment="right">
+      Alert with Right Alignment
+    </Alert>
+    <Alert color="danger" shape="regular">
+      Alert with Regular Shape
+    </Alert>
+    <Alert color="danger" shape="round">
+      Alert with Round Shape
+    </Alert>
     `
   },
   {
     title: 'Alert',
     description: 'Light Alert',
-    render: <Alert color="light">This is my alert</Alert>,
+    render: (
+      <>
+        <Alert color="light">Alert</Alert>
+        <Alert color="light" alignment="center">
+          <>
+            <a href="#">Alert</a> with Center Alignment
+          </>
+        </Alert>
+        <Alert color="light" alignment="right">
+          Alert with Right Alignment
+        </Alert>
+        <Alert color="light" shape="regular">
+          Alert with Regular Shape
+        </Alert>
+        <Alert color="light" shape="round">
+          Alert with Round Shape
+        </Alert>
+      </>
+    ),
     code: `
-    <Alert color="light">This is my alert</Alert>
+    <Alert color="light">Alert</Alert>
+    <Alert color="light" alignment="center">
+      Alert with Center Alignment
+    </Alert>
+    <Alert color="light" alignment="right">
+      Alert with Right Alignment
+    </Alert>
+    <Alert color="light" shape="regular">
+      Alert with Regular Shape
+    </Alert>
+    <Alert color="light" shape="round">
+      Alert with Round Shape
+    </Alert>
     `
   }
 ]

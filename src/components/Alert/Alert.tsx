@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, ReactElement } from 'react'
 import { cxGenerator } from '@contentpi/lib'
 
 import { Alignment, Color, Shape } from '../../types'
@@ -6,7 +6,7 @@ import { StyledAlert, BASE_CLASS_NAME } from './Alert.styled'
 
 interface Props {
   alignment?: Alignment
-  children?: string
+  children?: string | ReactElement
   color?: Color
   shape?: Shape
 }

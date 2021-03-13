@@ -4,47 +4,56 @@ export const alertPalette: AlertPalette = {
   danger: {
     color: 'white',
     bg: 'red-a',
-    bc: 'red-b'
+    bc: 'red-b',
+    hover: 'gray-k'
   },
   dark: {
     color: 'white',
     bg: 'gray-i',
-    bc: 'gray-j'
+    bc: 'gray-j',
+    hover: 'gray-k'
   },
   info: {
     color: 'white',
     bg: 'blue-d',
-    bc: 'blue-d'
+    bc: 'blue-d',
+    hover: 'gray-k'
   },
   light: {
     color: 'blue-g',
     bg: 'gray-a',
-    bc: 'gray-e'
+    bc: 'gray-e',
+    hover: 'gray-h'
   },
   link: {
     color: 'blue-b',
     bg: 'white',
-    bc: 'white'
+    bc: 'white',
+    hover: 'gray-k'
   },
   primary: {
     color: 'white',
     bg: 'blue-a',
-    bc: 'blue-a'
+    bc: 'blue-a',
+    hover: 'gray-k'
   },
   secondary: {
     color: 'white',
     bg: 'gray-f',
-    bc: 'gray-g'
+    bc: 'gray-g',
+    hover: 'gray-k'
   },
   success: {
     color: 'white',
     bg: 'green-a',
-    bc: 'green-a'
+    bc: 'green-a',
+    hover: 'gray-k'
   },
   warning: {
     color: 'white',
     bg: 'orange-a',
-    bc: 'orange-a'
+    bc: 'orange-a',
+    hover: 'gray-k'
   }
 }
 
@@ -101,7 +110,7 @@ export const buttonPalette: ButtonPalette = {
     color: 'blue-b',
     bg: 'white',
     bc: 'white',
-    hover: 'white',
+    hover: 'blue-b',
     outlined: {
       color: 'white',
       bg: 'red-a',
