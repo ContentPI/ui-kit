@@ -13,16 +13,16 @@ type ColorIntensity = {
   l?: string
 }
 
-type ButtonColor = {
+type ColorProps = {
   color: string
   bg: string
   bc: string
-  hover: string
-  outlined: {
-    color: string
-    bg: string
-    bc: string
-    hover: string
+  hover?: string
+  outlined?: {
+    color?: string
+    bg?: string
+    bc?: string
+    hover?: string
   }
 }
 
@@ -36,14 +36,26 @@ export type Palette = {
   red: ColorIntensity
 }
 
+export type AlertPalette = {
+  danger: ColorProps
+  dark: ColorProps
+  info: ColorProps
+  light: ColorProps
+  link: ColorProps
+  primary: ColorProps
+  secondary: ColorProps
+  success: ColorProps
+  warning: ColorProps
+}
+
 export type ButtonPalette = {
-  danger: ButtonColor
-  dark: ButtonColor
-  info: ButtonColor
-  light: ButtonColor
-  link: ButtonColor
-  primary: ButtonColor
-  secondary: ButtonColor
-  success: ButtonColor
-  warning: ButtonColor
+  danger: ColorProps
+  dark: ColorProps
+  info: ColorProps
+  light: ColorProps
+  link: ColorProps
+  primary: ColorProps
+  secondary: ColorProps
+  success: ColorProps
+  warning: ColorProps
 }

@@ -1,7 +1,10 @@
 import { Theme, Style, FontWeight, FontSize } from '../types'
-import { getStyleVars, getRootVars, getButtonColorsVars } from './utils'
+import { getStyleVars, getRootVars, getButtonColorsVars, getAlertColorsVars } from './utils'
 import { palette } from './palette'
 
+const alertVars = getAlertColorsVars()
+const buttonVars = getButtonColorsVars()
+console.log({ alertVars })
 const defaultTheme: Theme = {
   global: {
     font: {
@@ -11,10 +14,25 @@ const defaultTheme: Theme = {
   },
   style: {
     light: {
-      button: getButtonColorsVars()
+      alert: {
+        ...alertVars
+      },
+      button: {
+        ...buttonVars
+      }
     },
     dark: {
-      button: getButtonColorsVars()
+      alert: {
+        ...alertVars,
+        primary: {
+          ...alertVars.primary,
+          bg: 'gray-j',
+          bc: 'black'
+        }
+      },
+      button: {
+        ...buttonVars
+      }
     }
   }
 }

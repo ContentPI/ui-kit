@@ -1,6 +1,6 @@
 // Dependencies
 import React, { FC, ReactElement } from 'react'
-import { cx } from '@contentpi/utils'
+import { cx } from '@contentpi/lib'
 
 interface Props {
   children?: ReactElement | string

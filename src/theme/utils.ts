@@ -1,5 +1,19 @@
 import { Style, Color, Colors } from '../types'
-import { buttonPalette } from './cssVariables'
+import { buttonPalette, alertPalette } from './cssVariables'
+
+export const getAlertColorsVars = () => {
+  const styles: any = {}
+
+  Colors.forEach((color: Color) => {
+    styles[color] = {
+      color: alertPalette[color].color,
+      bg: alertPalette[color].bg,
+      bc: alertPalette[color].bc
+    }
+  })
+
+  return styles
+}
 
 export const getButtonColorsVars = () => {
   const styles: any = {}
@@ -15,13 +29,13 @@ export const getButtonColorsVars = () => {
         bc: buttonPalette[color].hover
       },
       outlined: {
-        color: buttonPalette[color].outlined.color,
-        bg: buttonPalette[color].outlined.bg,
-        bc: buttonPalette[color].outlined.bc,
+        color: buttonPalette[color].outlined?.color,
+        bg: buttonPalette[color].outlined?.bg,
+        bc: buttonPalette[color].outlined?.bc,
         hover: {
-          color: buttonPalette[color].outlined.color,
-          bg: buttonPalette[color].outlined.hover,
-          bc: buttonPalette[color].outlined.hover
+          color: buttonPalette[color].outlined?.color,
+          bg: buttonPalette[color].outlined?.hover,
+          bc: buttonPalette[color].outlined?.hover
         }
       }
     }
@@ -31,6 +45,9 @@ export const getButtonColorsVars = () => {
 }
 
 export const v = (variable: string) => `var(--${variable})`
+
+export const getClass = (BASE_CLASS_NAME: string, className: string) =>
+  `${BASE_CLASS_NAME}-${className}`
 
 const createCSSVars = (node: any, cssVars: any, isAssignation = false, nestedKey?: string) => {
   for (const key in node) {

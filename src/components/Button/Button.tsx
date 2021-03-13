@@ -1,8 +1,8 @@
 import React, { FC, ComponentPropsWithoutRef } from 'react'
-import { cxGenerator } from '@contentpi/utils'
+import { cxGenerator } from '@contentpi/lib'
 import Spinner from '../Spinner'
 import { Size, Variant, Color, Shape } from '../../types'
-import { ButtonBase, LinkButtonBase, BASE_CLASS_NAME } from './Button.styled'
+import { StyledButton, StyledLinkButton, BASE_CLASS_NAME } from './Button.styled'
 
 interface Props extends ComponentPropsWithoutRef<'button'> {
   color?: Color
@@ -17,15 +17,15 @@ interface Props extends ComponentPropsWithoutRef<'button'> {
 
 const Button: FC<Props> = props => {
   const {
-    color = 'light',
+    color = Color.light,
     children,
     href = undefined,
     disabled = undefined,
     isLoading = undefined,
     loadingText = undefined,
     shape = '',
-    size = 'md',
-    variant = 'contained',
+    size = Size.medium,
+    variant = Variant.contained,
     ...btnProps
   } = props
   let buttonText: any = children
@@ -54,16 +54,16 @@ const Button: FC<Props> = props => {
     }
 
     return (
-      <LinkButtonBase className={classNames} {...linkBtnProps} disabled={isLoading || disabled}>
+      <StyledLinkButton className={classNames} {...linkBtnProps} disabled={isLoading || disabled}>
         <a {...linkBtnProps}>{buttonText}</a>
-      </LinkButtonBase>
+      </StyledLinkButton>
     )
   }
 
   return (
-    <ButtonBase className={classNames} {...btnProps} disabled={isLoading || disabled}>
+    <StyledButton className={classNames} {...btnProps} disabled={isLoading || disabled}>
       {buttonText}
-    </ButtonBase>
+    </StyledButton>
   )
 }
 

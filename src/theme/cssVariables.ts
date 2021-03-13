@@ -1,4 +1,52 @@
-import { ButtonPalette } from '../types'
+import { ButtonPalette, AlertPalette } from '../types'
+
+export const alertPalette: AlertPalette = {
+  danger: {
+    color: 'white',
+    bg: 'red-a',
+    bc: 'red-b'
+  },
+  dark: {
+    color: 'white',
+    bg: 'gray-i',
+    bc: 'gray-j'
+  },
+  info: {
+    color: 'white',
+    bg: 'blue-d',
+    bc: 'blue-d'
+  },
+  light: {
+    color: 'blue-g',
+    bg: 'gray-a',
+    bc: 'gray-e'
+  },
+  link: {
+    color: 'blue-b',
+    bg: 'white',
+    bc: 'white'
+  },
+  primary: {
+    color: 'white',
+    bg: 'blue-a',
+    bc: 'blue-a'
+  },
+  secondary: {
+    color: 'white',
+    bg: 'gray-f',
+    bc: 'gray-g'
+  },
+  success: {
+    color: 'white',
+    bg: 'green-a',
+    bc: 'green-a'
+  },
+  warning: {
+    color: 'white',
+    bg: 'orange-a',
+    bc: 'orange-a'
+  }
+}
 
 export const buttonPalette: ButtonPalette = {
   danger: {

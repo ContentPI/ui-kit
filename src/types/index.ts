@@ -1,3 +1,4 @@
+export * from './alignment'
 export * from './color'
 export * from './fontSize'
 export * from './fontWeight'

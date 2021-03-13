@@ -1,6 +1,6 @@
 import { FontWeight } from './fontWeight'
 import { FontSize } from './fontSize'
-import { ButtonPalette } from './palette'
+import { AlertPalette, ButtonPalette } from './palette'
 
 export type Style = 'light' | 'dark'
 
@@ -13,9 +13,11 @@ export interface Theme {
   }
   style: {
     light: {
+      alert: AlertPalette
       button: ButtonPalette
     }
     dark: {
+      alert: AlertPalette
       button: ButtonPalette
     }
   }
