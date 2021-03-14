@@ -8,9 +8,11 @@ import { v, getClass } from '../../theme'
 // Functions
 const getColorStyles = (colorType: Color) => {
   const color = `${BASE_CLASS_NAME}-${colorType}-color`
-  const hover = `${BASE_CLASS_NAME}-${colorType}-hover`
   const bg = `${BASE_CLASS_NAME}-${colorType}-bg`
   const bc = `${BASE_CLASS_NAME}-${colorType}-bc`
+  const hover = {
+    color: `${BASE_CLASS_NAME}-${colorType}-hover-color`
+  }
 
   return `
     color: ${v(color)};
@@ -23,7 +25,7 @@ const getColorStyles = (colorType: Color) => {
       font-weight: ${FontWeight.bold};
 
       &:hover {
-        color: ${v(hover)}
+        color: ${v(hover.color)}
       }
     }
   `

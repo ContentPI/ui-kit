@@ -4,7 +4,7 @@ import { palette } from './palette'
 
 const alertVars = getAlertColorsVars()
 const buttonVars = getButtonColorsVars()
-console.log({ alertVars })
+
 const defaultTheme: Theme = {
   global: {
     font: {
@@ -25,9 +25,20 @@ const defaultTheme: Theme = {
       alert: {
         ...alertVars,
         primary: {
-          ...alertVars.primary,
-          bg: 'gray-j',
-          bc: 'black'
+          color: 'white',
+          bg: 'blue-i',
+          bc: 'blue-j',
+          hover: {
+            bg: 'blue-a'
+          }
+        },
+        secondary: {
+          color: 'gray-a',
+          bg: 'gray-m',
+          bc: 'gray-n',
+          hover: {
+            bg: 'gray-f'
+          }
         }
       },
       button: {

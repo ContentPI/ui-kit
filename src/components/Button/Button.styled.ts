@@ -27,17 +27,17 @@ const getColorStyles = (colorType: Color, variant?: Variant) => {
     background-color: ${v(bg)};
     border-color: ${v(bc)};
     &:hover {
-      color: ${v(outlined ? 'white' : hover.color)};
+      color: ${v(hover.color)};
       background-color: ${v(hover.bg)};
       border-color: ${v(hover.bc)};
       a {
-        color: ${v(outlined ? 'white' : hover.color)};
+        color: ${v(hover.color)};
       }
     }
     a {
       color: ${v(color)};
       &:hover {
-        color: ${v(outlined ? 'white' : hover.color)};
+        color: ${v(hover.color)};
       }
     }
   `
@@ -122,7 +122,7 @@ const buttonStyle = `
     background-color: transparent;
     border: 1px solid transparent;
     display: inline-block;
-    font-weight: ${FontWeight.normal};
+    font-weight: ${FontWeight.semibold};
     text-align: center;
     user-select: none;
     vertical-align: middle;

@@ -9,7 +9,9 @@ export const getAlertColorsVars = () => {
       color: alertPalette[color].color,
       bg: alertPalette[color].bg,
       bc: alertPalette[color].bc,
-      hover: alertPalette[color].hover
+      hover: {
+        color: alertPalette[color].hover?.color
+      }
     }
   })
 
@@ -25,18 +27,18 @@ export const getButtonColorsVars = () => {
       bg: buttonPalette[color].bg,
       bc: buttonPalette[color].bc,
       hover: {
-        color: buttonPalette[color].color,
-        bg: buttonPalette[color].hover,
-        bc: buttonPalette[color].hover
+        color: buttonPalette[color].hover?.color,
+        bg: buttonPalette[color].hover?.bg,
+        bc: buttonPalette[color].hover?.bc
       },
       outlined: {
         color: buttonPalette[color].outlined?.color,
         bg: buttonPalette[color].outlined?.bg,
         bc: buttonPalette[color].outlined?.bc,
         hover: {
-          color: buttonPalette[color].outlined?.color,
-          bg: buttonPalette[color].outlined?.hover,
-          bc: buttonPalette[color].outlined?.hover
+          color: buttonPalette[color].outlined?.hover?.color,
+          bg: buttonPalette[color].outlined?.hover?.bg,
+          bc: buttonPalette[color].outlined?.hover?.bc
         }
       }
     }

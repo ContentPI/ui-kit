@@ -4,41 +4,62 @@ export const palette: Palette = {
   white: '#fff',
   black: '#000',
   blue: {
-    a: '#00BDE5',
-    b: '#00b2d6',
-    c: '#00a7c9',
-    d: '#1761fd',
-    e: '#024dec',
-    f: '#0249df',
-    g: '#1d2c48'
+    linkWater: '#D5E1F0',
+    iceberg: '#d1ecf1',
+    onahau: '#CCE5FF',
+    powderBlue: '#bee5eb',
+    frenchPass: '#b8daff',
+    cerulean: '#00BDE5',
+    darkerCerulean: '#00B2D6',
+    pacificBlue: '#00A7C9',
+    easternBlue: '#17a2b8',
+    blueRibbon: '#1761FD',
+    darkerBlueRibbon: '#024DEC',
+    scienceBlue: '#0249DF',
+    congressBlue: '#004085',
+    cloudBurst: '#1D2C48'
   },
   gray: {
-    a: '#f1f5fa',
-    b: '#fcfcfc',
-    c: '#eff3f5',
-    d: '#d5e1f0',
-    e: '#cbdaed',
-    f: '#6c757d',
-    g: '#606870',
-    h: '#505050',
-    i: '#464e56',
-    j: '#343a40',
-    k: '#222',
-    l: '#111'
+    alabaster: '#FCFCFC',
+    mystic: '#EFF3F5',
+    blackSqueeze: '#F1F5FA',
+    iron: '#e2e3e5',
+    darkerIron: '#d6d8db',
+    periwinkleGray: '#CBDAED',
+    gray: '#888888',
+    boulder: '#777777',
+    paleSky: '#6C757D',
+    shuttleGray: '#606870',
+    emperor: '#505050',
+    mako: '#464e56',
+    outerSpace: '#383d41',
+    darkerOuterSpace: '#343a40',
+    mineShaft: '#222',
+    codGray: '#111'
   },
   green: {
-    a: '#03d87f',
-    b: '#02b269',
-    c: '#02a661'
+    caribbeanGreen: '#03d87f',
+    jade: '#02b269',
+    greenHaze: '#02a661',
+    deepSeaGreen: '#0c5460',
+    parsley: '#155724',
+    fringyFlower: '#c3e6cb',
+    zanah: '#D4EDDA'
   },
   orange: {
-    a: '#ffb822',
-    b: '#fbaa00',
-    c: '#eea200'
+    colonialWhite: '#ffeeba',
+    barleyWhite: '#fff3cd',
+    mySin: '#ffb822',
+    webOrange: '#fbaa00',
+    darkerWebOrange: '#eea200',
+    yukonGold: '#856404'
   },
   red: {
-    a: '#f5325c',
-    b: '#f30e3f',
-    c: '#e90b3b'
+    cherub: '#f8d7da',
+    azalea: '#f5c6cb',
+    radicalRed: '#f5325c',
+    redRibbon: '#f30e3f',
+    darkerRedRibbon: '#e90b3b',
+    persianPlum: '#721c24'
   }
 }
