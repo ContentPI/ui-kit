@@ -6,12 +6,12 @@ import { Alignment, Color, Colors, Shape, FontSize, FontWeight } from '../../typ
 import { v, getClass } from '../../theme'
 
 // Functions
-const getColorStyles = (colorType: Color) => {
-  const color = `${BASE_CLASS_NAME}-${colorType}-color`
-  const bg = `${BASE_CLASS_NAME}-${colorType}-bg`
-  const bc = `${BASE_CLASS_NAME}-${colorType}-bc`
+const getColorStyles = () => {
+  const color = `${BASE_CLASS_NAME}-color`
+  const bg = `${BASE_CLASS_NAME}-bg`
+  const bc = `${BASE_CLASS_NAME}-bc`
   const hover = {
-    color: `${BASE_CLASS_NAME}-${colorType}-hover-color`
+    color: `${BASE_CLASS_NAME}-hover-color`
   }
 
   return `
@@ -37,7 +37,7 @@ const getColors = () => {
   Colors.forEach((color: Color) => {
     styles += `
       &.${getClass(BASE_CLASS_NAME, color)} {
-        ${getColorStyles(color)}
+        ${getColorStyles()}
       }
     `
   })

@@ -56,7 +56,7 @@ export type Palette = {
   zanah?: string
 }
 
-type ColorProps = {
+export type ColorProps = {
   color: string
   bg: string
   bc: string
@@ -77,19 +77,7 @@ type ColorProps = {
   }
 }
 
-export type AlertPalette = {
-  danger: ColorProps
-  dark: ColorProps
-  info: ColorProps
-  light: ColorProps
-  link: ColorProps
-  primary: ColorProps
-  secondary: ColorProps
-  success: ColorProps
-  warning: ColorProps
-}
-
-export type ButtonPalette = {
+export type ComponentPalette = {
   danger: ColorProps
   dark: ColorProps
   info: ColorProps

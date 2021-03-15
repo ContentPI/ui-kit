@@ -13,13 +13,13 @@ export const BASE_CLASS_NAME = 'button'
 // Functions
 const getColorStyles = (colorType: Color, variant?: Variant) => {
   const outlined = variant === 'outlined' ? '-outlined-' : '-'
-  const color = `${BASE_CLASS_NAME}-${colorType}${outlined}color`
-  const bg = `${BASE_CLASS_NAME}-${colorType}${outlined}bg`
-  const bc = `${BASE_CLASS_NAME}-${colorType}${outlined}bc`
+  const color = `${BASE_CLASS_NAME}${outlined}color`
+  const bg = `${BASE_CLASS_NAME}${outlined}bg`
+  const bc = `${BASE_CLASS_NAME}${outlined}bc`
   const hover = {
-    color: `${BASE_CLASS_NAME}-${colorType}${outlined}hover-color`,
-    bg: `${BASE_CLASS_NAME}-${colorType}${outlined}hover-bg`,
-    bc: `${BASE_CLASS_NAME}-${colorType}${outlined}hover-bc`
+    color: `${BASE_CLASS_NAME}${outlined}hover-color`,
+    bg: `${BASE_CLASS_NAME}${outlined}hover-bg`,
+    bc: `${BASE_CLASS_NAME}${outlined}hover-bc`
   }
 
   return `

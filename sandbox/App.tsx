@@ -16,14 +16,15 @@ import { alerts, buttons, CodeBlock } from './data'
 const componentsToRender = [...alerts, ...buttons]
 
 export const Toggle: FC = () => {
-  const [theme, setTheme] = useState('light')
-  const nextTheme = theme === 'light' ? 'dark' : 'light'
+  const [theme, setTheme] = useState('theme__light')
+  const nextTheme = theme === 'theme__light' ? 'theme__dark' : 'theme__light'
+  const themeName = nextTheme.split('__')[1]
 
   useEffect(() => {
-    document.body.dataset.theme = theme
+    document.body.className = theme
   }, [theme])
 
-  return <button onClick={() => setTheme(nextTheme)}>Change to {nextTheme} mode</button>
+  return <button onClick={() => setTheme(nextTheme)}>Change to {themeName} mode</button>
 }
 
 const cssVars = getThemeVars()

@@ -1,5 +1,5 @@
 import React, { FC, ComponentPropsWithoutRef } from 'react'
-import { cxGenerator } from '@contentpi/lib'
+import { cxGenerator, cx } from '@contentpi/lib'
 import Spinner from '../Spinner'
 import { Size, Variant, Color, Shape } from '../../types'
 import { StyledButton, StyledLinkButton, BASE_CLASS_NAME } from './Button.styled'
@@ -54,14 +54,22 @@ const Button: FC<Props> = props => {
     }
 
     return (
-      <StyledLinkButton className={classNames} {...linkBtnProps} disabled={isLoading || disabled}>
+      <StyledLinkButton
+        className={cx(`context__${color}`, classNames)}
+        {...linkBtnProps}
+        disabled={isLoading || disabled}
+      >
         <a {...linkBtnProps}>{buttonText}</a>
       </StyledLinkButton>
     )
   }
 
   return (
-    <StyledButton className={classNames} {...btnProps} disabled={isLoading || disabled}>
+    <StyledButton
+      className={cx(`context__${color}`, classNames)}
+      {...btnProps}
+      disabled={isLoading || disabled}
+    >
       {buttonText}
     </StyledButton>
   )

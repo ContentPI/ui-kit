@@ -1,6 +1,6 @@
-import { ButtonPalette, AlertPalette } from '../types'
+import { ComponentPalette } from '../types'
 
-export const alertPalette: AlertPalette = {
+export const alertPalette: ComponentPalette = {
   danger: {
     color: 'persianPlum',
     bg: 'cherub',
@@ -75,7 +75,7 @@ export const alertPalette: AlertPalette = {
   }
 }
 
-export const buttonPalette: ButtonPalette = {
+export const buttonPalette: ComponentPalette = {
   danger: {
     color: 'white',
     bg: 'radicalRed',
