@@ -4,6 +4,8 @@ import Prism from 'prismjs'
 import 'prismjs/components/prism-jsx.min'
 import styled, { createGlobalStyle } from 'styled-components'
 
+import { defaultTheme } from '../src/proposal/theme'
+
 // Components
 import Icon from '../src/components/Icon'
 
@@ -12,6 +14,8 @@ import { getThemeVars } from '../src/theme'
 
 // Data
 import buttons, { iButton } from './data/buttons'
+
+console.log({ defaultTheme })
 
 export const Toggle: FC = () => {
   const [theme, setTheme] = useState('light')
