@@ -92,7 +92,13 @@ export const getStyleVars = (styleName: Style, style: any): string => {
     '--button-color': v(buttonPalette.color),
     '--button-hover-color': v(buttonPalette.hover?.color),
     '--button-hover-bg': v(buttonPalette.hover?.bg),
-    '--button-hover-bc': v(buttonPalette.hover?.bc)
+    '--button-hover-bc': v(buttonPalette.hover?.bc),
+    '--button-outlined-color': v(buttonPalette.outlined?.color),
+    '--button-outlined-bg': v(buttonPalette.outlined?.bg),
+    '--button-outlined-bc': v(buttonPalette.outlined?.bc),
+    '--button-outlined-hover-color': v(buttonPalette.outlined?.hover?.color),
+    '--button-outlined-hover-bg': v(buttonPalette.outlined?.hover?.bg),
+    '--button-outlined-hover-bc': v(buttonPalette.outlined?.hover?.bc)
   })
 
   const cssVars: any = {
