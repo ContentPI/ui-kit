@@ -11,7 +11,7 @@ import { v, getClass } from '../../theme'
 export const BASE_CLASS_NAME = 'button'
 
 // Functions
-const getColorStyles = (colorType: Color, variant?: Variant) => {
+const getColorStyles = (variant?: Variant) => {
   const outlined = variant === 'outlined' ? '-outlined-' : '-'
   const color = `${BASE_CLASS_NAME}${outlined}color`
   const bg = `${BASE_CLASS_NAME}${outlined}bg`
@@ -43,27 +43,13 @@ const getColorStyles = (colorType: Color, variant?: Variant) => {
   `
 }
 
-const getColors = (variant?: Variant) => {
-  let styles = ''
-
-  Colors.forEach((color: Color) => {
-    styles += `
-      &.${getClass(BASE_CLASS_NAME, color)} {
-        ${getColorStyles(color, variant)}
-      }
-    `
-  })
-
-  return styles
-}
-
 // Styles
 const buttonVariantStyles = `
   &.${getClass(BASE_CLASS_NAME, 'contained')} {
-    ${getColors()}
+    ${getColorStyles()}
   }
   &.${getClass(BASE_CLASS_NAME, 'outlined')} {
-    ${getColors(Variant.outlined)}
+    ${getColorStyles(Variant.outlined)}
   }
 `
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Alignment, Color, Colors, Shape, FontSize, FontWeight } from '../../types'
+import { Alignment, Shape, FontSize, FontWeight } from '../../types'
 
 // Theme
 import { v, getClass } from '../../theme'
@@ -29,20 +29,6 @@ const getColorStyles = () => {
       }
     }
   `
-}
-
-const getColors = () => {
-  let styles = ''
-
-  Colors.forEach((color: Color) => {
-    styles += `
-      &.${getClass(BASE_CLASS_NAME, color)} {
-        ${getColorStyles()}
-      }
-    `
-  })
-
-  return styles
 }
 
 // Base Class Name
@@ -79,5 +65,5 @@ export const StyledAlert = styled.div`
     border-radius: 0;
   }
 
-  ${getColors()}
+  ${getColorStyles()}
 `

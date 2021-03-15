@@ -29,7 +29,7 @@ const Button: FC<Props> = props => {
     ...btnProps
   } = props
   let buttonText: any = children
-  const buttonData = [size, variant, color, shape]
+  const buttonData = [size, variant, shape]
 
   if (isLoading || disabled) {
     buttonData.push('disabled')

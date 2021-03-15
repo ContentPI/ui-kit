@@ -21,7 +21,7 @@ const Alert: FC<Props> = props => {
 
   const classNames = cxGenerator({
     ccn: BASE_CLASS_NAME,
-    data: [color, alignment, shape]
+    data: [alignment, shape]
   })
 
   return (
