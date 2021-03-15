@@ -269,5 +269,43 @@ export const alerts: CodeBlock[] = [
       Alert with Round Shape
     </Alert>
     `
+  },
+  {
+    title: 'Alert',
+    description: 'Dark Alert',
+    render: (
+      <>
+        <Alert color="dark">Alert</Alert>
+        <Alert color="dark" alignment="center">
+          <>
+            <a href="#">Alert</a> with Center Alignment
+          </>
+        </Alert>
+        <Alert color="dark" alignment="right">
+          Alert with Right Alignment
+        </Alert>
+        <Alert color="dark" shape="regular">
+          Alert with Regular Shape
+        </Alert>
+        <Alert color="dark" shape="round">
+          Alert with Round Shape
+        </Alert>
+      </>
+    ),
+    code: `
+    <Alert color="dark">Alert</Alert>
+    <Alert color="dark" alignment="center">
+      Alert with Center Alignment
+    </Alert>
+    <Alert color="dark" alignment="right">
+      Alert with Right Alignment
+    </Alert>
+    <Alert color="dark" shape="regular">
+      Alert with Regular Shape
+    </Alert>
+    <Alert color="dark" shape="round">
+      Alert with Round Shape
+    </Alert>
+    `
   }
 ]

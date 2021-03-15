@@ -26,18 +26,58 @@ const defaultTheme: Theme = {
         ...alertVars,
         primary: {
           color: 'white',
-          bg: 'blue-i',
-          bc: 'blue-j',
+          bg: 'azureRadiance',
+          bc: 'azureRadiance',
           hover: {
-            bg: 'blue-a'
+            color: 'onahau'
           }
         },
         secondary: {
-          color: 'gray-a',
-          bg: 'gray-m',
-          bc: 'gray-n',
+          color: 'white',
+          bg: 'paleSky',
+          bc: 'paleSky',
           hover: {
-            bg: 'gray-f'
+            color: 'iron'
+          }
+        },
+        info: {
+          color: 'white',
+          bg: 'easternBlue',
+          bc: 'easternBlue',
+          hover: {
+            color: 'iceberg'
+          }
+        },
+        success: {
+          color: 'white',
+          bg: 'eucalyptus',
+          bc: 'eucalyptus',
+          hover: {
+            color: 'zanah'
+          }
+        },
+        warning: {
+          color: 'white',
+          bg: 'amber',
+          bc: 'amber',
+          hover: {
+            color: 'barleyWhite'
+          }
+        },
+        danger: {
+          color: 'white',
+          bg: 'punch',
+          bc: 'punch',
+          hover: {
+            color: 'cherub'
+          }
+        },
+        dark: {
+          color: 'white',
+          bg: 'black',
+          bc: 'black',
+          hover: {
+            color: 'darkerIron'
           }
         }
       },

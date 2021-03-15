@@ -2,75 +2,75 @@ import { ButtonPalette, AlertPalette } from '../types'
 
 export const alertPalette: AlertPalette = {
   danger: {
-    color: 'red-persianPlum',
-    bg: 'red-cherub',
-    bc: 'red-azalea',
+    color: 'persianPlum',
+    bg: 'cherub',
+    bc: 'azalea',
     hover: {
-      color: 'gray-mineShaft'
+      color: 'mineShaft'
     }
   },
   dark: {
     color: 'white',
-    bg: 'blue-onahau',
-    bc: 'blue-frenchPass',
+    bg: 'darkerOuterSpace',
+    bc: 'darkerOuterSpace',
     hover: {
-      color: 'gray-mineShaft'
+      color: 'darkerIron'
     }
   },
   info: {
-    color: 'green-deepSeaGreen',
-    bg: 'blue-iceberg',
-    bc: 'blue-powderBlue',
+    color: 'deepSeaGreen',
+    bg: 'iceberg',
+    bc: 'powderBlue',
     hover: {
-      color: 'gray-mineShaft'
+      color: 'mineShaft'
     }
   },
   light: {
-    color: 'gray-mako',
-    bg: 'gray-alabaster',
-    bc: 'gray-mystic',
+    color: 'mako',
+    bg: 'alabaster',
+    bc: 'mystic',
     hover: {
-      color: 'gray-mineShaft'
+      color: 'mineShaft'
     }
   },
   link: {
-    color: 'blue-powderBlue',
+    color: 'powderBlue',
     bg: 'white',
     bc: 'white',
     hover: {
-      color: 'gray-mineShaft'
+      color: 'mineShaft'
     }
   },
   primary: {
-    color: 'blue-congressBlue',
-    bg: 'blue-onahau',
-    bc: 'blue-frenchPass',
+    color: 'congressBlue',
+    bg: 'onahau',
+    bc: 'frenchPass',
     hover: {
-      color: 'blue-cloudBurst'
+      color: 'cloudBurst'
     }
   },
   secondary: {
-    color: 'gray-outerSpace',
-    bg: 'gray-iron',
-    bc: 'gray-darkerIron',
+    color: 'outerSpace',
+    bg: 'iron',
+    bc: 'darkerIron',
     hover: {
-      color: 'gray-mineShaft'
+      color: 'mineShaft'
     }
   },
   success: {
-    color: 'green-parsley',
-    bg: 'green-zanah',
-    bc: 'green-fringyFlower',
+    color: 'parsley',
+    bg: 'zanah',
+    bc: 'fringyFlower',
     hover: {
-      color: 'gray-mineShaft'
+      color: 'mineShaft'
     }
   },
   warning: {
-    color: 'orange-yukonGold',
-    bg: 'orange-barleyWhite',
-    bc: 'orange-colonialWhite',
+    color: 'yukonGold',
+    bg: 'barleyWhite',
+    bc: 'colonialWhite',
     hover: {
-      color: 'gray-mineShaft'
+      color: 'mineShaft'
     }
   }
 }
@@ -78,77 +78,77 @@ export const alertPalette: AlertPalette = {
 export const buttonPalette: ButtonPalette = {
   danger: {
     color: 'white',
-    bg: 'red-radicalRed',
-    bc: 'red-radicalRed',
+    bg: 'radicalRed',
+    bc: 'radicalRed',
     hover: {
-      bc: 'red-radicalRed',
-      bg: 'red-darkerRedRibbon',
+      bc: 'radicalRed',
+      bg: 'darkerRedRibbon',
       color: 'white'
     },
     outlined: {
-      color: 'red-radicalRed',
+      color: 'radicalRed',
       bg: 'white',
-      bc: 'red-radicalRed',
+      bc: 'radicalRed',
       hover: {
-        bc: 'red-radicalRed',
-        bg: 'red-radicalRed',
+        bc: 'radicalRed',
+        bg: 'radicalRed',
         color: 'white'
       }
     }
   },
   dark: {
     color: 'white',
-    bg: 'gray-darkerOuterSpace',
-    bc: 'gray-codGray',
+    bg: 'darkerOuterSpace',
+    bc: 'codGray',
     hover: {
       bc: 'black',
       bg: 'black',
       color: 'white'
     },
     outlined: {
-      color: 'gray-darkerOuterSpace',
+      color: 'darkerOuterSpace',
       bg: 'white',
-      bc: 'gray-paleSky',
+      bc: 'paleSky',
       hover: {
-        bc: 'gray-darkerOuterSpace',
-        bg: 'gray-darkerOuterSpace',
+        bc: 'darkerOuterSpace',
+        bg: 'darkerOuterSpace',
         color: 'white'
       }
     }
   },
   info: {
     color: 'white',
-    bg: 'blue-pacificBlue',
-    bc: 'blue-pacificBlue',
+    bg: 'pacificBlue',
+    bc: 'pacificBlue',
     hover: {
-      bc: 'blue-pacificBlue',
-      bg: 'blue-easternBlue',
+      bc: 'pacificBlue',
+      bg: 'easternBlue',
       color: 'white'
     },
     outlined: {
-      color: 'blue-pacificBlue',
+      color: 'pacificBlue',
       bg: 'white',
-      bc: 'blue-pacificBlue',
+      bc: 'pacificBlue',
       hover: {
-        bc: 'blue-pacificBlue',
-        bg: 'blue-pacificBlue',
+        bc: 'pacificBlue',
+        bg: 'pacificBlue',
         color: 'white'
       }
     }
   },
   light: {
-    color: 'gray-mako',
-    bg: 'gray-blackSqueeze',
-    bc: 'gray-blackSqueeze',
+    color: 'mako',
+    bg: 'blackSqueeze',
+    bc: 'blackSqueeze',
     hover: {
-      bc: 'gray-iron',
-      bg: 'gray-iron',
-      color: 'gray-mako'
+      bc: 'iron',
+      bg: 'iron',
+      color: 'mako'
     },
     outlined: {
-      color: 'gray-mako',
+      color: 'mako',
       bg: 'white',
-      bc: 'gray-darkerIron',
+      bc: 'darkerIron',
       hover: {
         bg: 'gray-blackSqueeze',
         bc: 'gray-darkerIron',
@@ -157,13 +157,13 @@ export const buttonPalette: ButtonPalette = {
     }
   },
   link: {
-    color: 'blue-cerulean',
+    color: 'cerulean',
     bg: 'white',
     bc: 'white',
     hover: {
       bc: 'white',
       bg: 'white',
-      color: 'blue-darkerCerulean'
+      color: 'darkerCerulean'
     },
     outlined: {
       color: 'blue-cerulean',
@@ -173,80 +173,80 @@ export const buttonPalette: ButtonPalette = {
   },
   primary: {
     color: 'white',
-    bg: 'blue-cerulean',
-    bc: 'blue-cerulean',
+    bg: 'cerulean',
+    bc: 'cerulean',
     hover: {
-      bc: 'blue-cerulean',
-      bg: 'blue-darkerCerulean',
+      bc: 'cerulean',
+      bg: 'darkerCerulean',
       color: 'white'
     },
     outlined: {
-      color: 'blue-cerulean',
+      color: 'cerulean',
       bg: 'white',
-      bc: 'blue-cerulean',
+      bc: 'cerulean',
       hover: {
-        bc: 'blue-cerulean',
-        bg: 'blue-darkerCerulean',
+        bc: 'cerulean',
+        bg: 'darkerCerulean',
         color: 'white'
       }
     }
   },
   secondary: {
     color: 'white',
-    bg: 'gray-shuttleGray',
-    bc: 'gray-shuttleGray',
+    bg: 'shuttleGray',
+    bc: 'shuttleGray',
     hover: {
-      bc: 'gray-shuttleGray',
-      bg: 'gray-paleSky',
+      bc: 'shuttleGray',
+      bg: 'paleSky',
       color: 'white'
     },
     outlined: {
-      color: 'gray-shuttleGray',
+      color: 'shuttleGray',
       bg: 'white',
-      bc: 'gray-shuttleGray',
+      bc: 'shuttleGray',
       hover: {
-        bg: 'gray-shuttleGray',
-        bc: 'gray-shuttleGray',
+        bg: 'shuttleGray',
+        bc: 'shuttleGray',
         color: 'white'
       }
     }
   },
   success: {
     color: 'white',
-    bg: 'green-caribbeanGreen',
-    bc: 'green-caribbeanGreen',
+    bg: 'caribbeanGreen',
+    bc: 'caribbeanGreen',
     hover: {
-      bc: 'green-jade',
-      bg: 'green-jade',
+      bc: 'jade',
+      bg: 'jade',
       color: 'white'
     },
     outlined: {
-      color: 'green-caribbeanGreen',
+      color: 'caribbeanGreen',
       bg: 'white',
-      bc: 'green-caribbeanGreen',
+      bc: 'caribbeanGreen',
       hover: {
-        bc: 'green-caribbeanGreen',
-        bg: 'green-caribbeanGreen',
+        bc: 'caribbeanGreen',
+        bg: 'caribbeanGreen',
         color: 'white'
       }
     }
   },
   warning: {
     color: 'white',
-    bg: 'orange-mySin',
-    bc: 'orange-mySin',
+    bg: 'mySin',
+    bc: 'mySin',
     hover: {
-      bc: 'orange-darkerWebOrange',
-      bg: 'orange-darkerWebOrange',
+      bc: 'darkerWebOrange',
+      bg: 'darkerWebOrange',
       color: 'white'
     },
     outlined: {
-      color: 'orange-mySin',
+      color: 'mySin',
       bg: 'white',
-      bc: 'orange-mySin',
+      bc: 'mySin',
       hover: {
-        bc: 'orange-mySin',
-        bg: 'orange-mySin',
+        bc: 'mySin',
+        bg: 'mySin',
         color: 'white'
       }
     }

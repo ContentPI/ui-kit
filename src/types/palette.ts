@@ -1,7 +1,10 @@
-type ColorIntensity = {
+export type Palette = {
   alabaster?: string
+  amber?: string
   azalea?: string
+  azureRadiance?: string
   barleyWhite?: string
+  black: string
   blackSqueeze?: string
   blueRibbon?: string
   boulder?: string
@@ -21,6 +24,7 @@ type ColorIntensity = {
   deepSeaGreen?: string
   easternBlue?: string
   emperor?: string
+  eucalyptus?: string
   frenchPass?: string
   fringyFlower?: string
   gray?: string
@@ -41,11 +45,13 @@ type ColorIntensity = {
   periwinkleGray?: string
   persianPlum?: string
   powderBlue?: string
+  punch?: string
   radicalRed?: string
   redRibbon?: string
   scienceBlue?: string
   shuttleGray?: string
   webOrange?: string
+  white: string
   yukonGold?: string
   zanah?: string
 }
@@ -69,16 +75,6 @@ type ColorProps = {
       color?: string
     }
   }
-}
-
-export type Palette = {
-  white: string
-  black: string
-  blue: ColorIntensity
-  gray: ColorIntensity
-  green: ColorIntensity
-  orange: ColorIntensity
-  red: ColorIntensity
 }
 
 export type AlertPalette = {
