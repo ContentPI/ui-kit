@@ -5,42 +5,52 @@ import styled from 'styled-components'
 import { Color, Colors, Size, Shape, Variant, FontSize, FontWeight } from '../../types'
 
 // Theme
-import { v, getClass } from '../../theme'
+import { getClass } from '../../theme'
+import variables from '../../theme/cssVariables'
 
 // Base Class Name
 export const BASE_CLASS_NAME = 'button'
 
 // Functions
-const getColorStyles = (variant?: Variant) => {
-  const outlined = variant === 'outlined' ? '-outlined-' : '-'
-  const color = `${BASE_CLASS_NAME}${outlined}color`
-  const bg = `${BASE_CLASS_NAME}${outlined}bg`
-  const bc = `${BASE_CLASS_NAME}${outlined}bc`
-  const hover = {
-    color: `${BASE_CLASS_NAME}${outlined}hover-color`,
-    bg: `${BASE_CLASS_NAME}${outlined}hover-bg`,
-    bc: `${BASE_CLASS_NAME}${outlined}hover-bc`
-  }
+const getColors = (colorType: Color, variant?: Variant) => {
+  const { dark, main, light, contrastText } = variables[colorType]
+  const isOutlined = variant === 'outlined'
+  const color = isOutlined ? main : contrastText
+  const backgroundColor = isOutlined ? 'transparent' : main
 
   return `
-    color: ${v(color)};
-    background-color: ${v(bg)};
-    border-color: ${v(bc)};
+    color: ${colorType === 'light' ? contrastText : color};
+    background-color: ${backgroundColor};
+    border-color: ${colorType === 'light' ? contrastText : main};
     &:hover {
-      color: ${v(hover.color)};
-      background-color: ${v(hover.bg)};
-      border-color: ${v(hover.bc)};
+      color: ${colorType === 'link' ? light : contrastText};
+      background-color: ${dark};
+      border-color: ${dark};
       a {
-        color: ${v(hover.color)};
+        color: ${contrastText};
       }
     }
     a {
-      color: ${v(color)};
+      color: ${colorType === 'light' ? contrastText : color};
       &:hover {
-        color: ${v(hover.color)};
+        color: ${colorType === 'link' ? light : contrastText};
       }
     }
   `
+}
+
+const getColorStyles = (variant?: Variant) => {
+  let styles = ''
+
+  Colors.forEach((color: Color) => {
+    styles += `
+      &.${getClass(BASE_CLASS_NAME, color)} {
+        ${getColors(color, variant)}
+      }
+    `
+  })
+
+  return styles
 }
 
 // Styles

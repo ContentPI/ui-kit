@@ -1,5 +1,5 @@
 import React, { FC, ReactElement } from 'react'
-import { cxGenerator, cx } from '@contentpi/lib'
+import { cxGenerator } from '@contentpi/lib'
 
 import { Alignment, Color, Shape } from '../../types'
 import { StyledAlert, BASE_CLASS_NAME } from './Alert.styled'
@@ -21,11 +21,11 @@ const Alert: FC<Props> = props => {
 
   const classNames = cxGenerator({
     ccn: BASE_CLASS_NAME,
-    data: [alignment, shape]
+    data: [color, alignment, shape]
   })
 
   return (
-    <StyledAlert {...props} className={cx(`context__${color}`, classNames)}>
+    <StyledAlert {...props} className={classNames}>
       {children}
     </StyledAlert>
   )

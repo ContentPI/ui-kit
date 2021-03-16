@@ -1,9 +1,6 @@
 import { Theme, Style, FontWeight, FontSize } from '../types'
-import { getStyleVars, getRootVars, getButtonColorsVars, getAlertColorsVars } from './utils'
+import { getStyleVars, getRootVars } from './utils'
 import { palette } from './palette'
-
-const alertVars = getAlertColorsVars()
-const buttonVars = getButtonColorsVars()
 
 const defaultTheme: Theme = {
   global: {
@@ -14,76 +11,10 @@ const defaultTheme: Theme = {
   },
   style: {
     light: {
-      alert: {
-        ...alertVars
-      },
-      button: {
-        ...buttonVars
-      }
+      ...palette
     },
     dark: {
-      alert: {
-        ...alertVars,
-        primary: {
-          color: 'white',
-          bg: 'azureRadiance',
-          bc: 'azureRadiance',
-          hover: {
-            color: 'onahau'
-          }
-        },
-        secondary: {
-          color: 'white',
-          bg: 'paleSky',
-          bc: 'paleSky',
-          hover: {
-            color: 'iron'
-          }
-        },
-        info: {
-          color: 'white',
-          bg: 'easternBlue',
-          bc: 'easternBlue',
-          hover: {
-            color: 'iceberg'
-          }
-        },
-        success: {
-          color: 'white',
-          bg: 'eucalyptus',
-          bc: 'eucalyptus',
-          hover: {
-            color: 'zanah'
-          }
-        },
-        warning: {
-          color: 'white',
-          bg: 'amber',
-          bc: 'amber',
-          hover: {
-            color: 'barleyWhite'
-          }
-        },
-        danger: {
-          color: 'white',
-          bg: 'punch',
-          bc: 'punch',
-          hover: {
-            color: 'cherub'
-          }
-        },
-        dark: {
-          color: 'white',
-          bg: 'black',
-          bc: 'black',
-          hover: {
-            color: 'darkerIron'
-          }
-        }
-      },
-      button: {
-        ...buttonVars
-      }
+      ...palette
     }
   }
 }

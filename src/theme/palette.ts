@@ -1,59 +1,104 @@
 import { Palette } from '../types'
+import colors from './colors'
+
+const {
+  alabaster,
+  barleyWhite,
+  blackSqueeze,
+  caribbeanGreen,
+  cerulean,
+  cherub,
+  codGray,
+  congressBlue,
+  easternBlue,
+  gallery,
+  greenHaze,
+  iceberg,
+  iron,
+  lighterCerulean,
+  lipstick,
+  mako,
+  mineShaft,
+  mySin,
+  onahau,
+  outerSpace,
+  pacificBlue,
+  paleSky,
+  shuttleGray,
+  transparent,
+  violetRed,
+  webOrange,
+  white,
+  whiteLilac,
+  zanah
+} = colors
 
 export const palette: Palette = {
-  alabaster: '#FCFCFC',
-  amber: '#ffc107',
-  azalea: '#f5c6cb',
-  azureRadiance: '#007bff',
-  barleyWhite: '#fff3cd',
-  black: '#000',
-  blackSqueeze: '#F1F5FA',
-  blueRibbon: '#1761FD',
-  boulder: '#777777',
-  caribbeanGreen: '#03d87f',
-  cerulean: '#00BDE5',
-  cherub: '#f8d7da',
-  cloudBurst: '#1D2C48',
-  codGray: '#111',
-  colonialWhite: '#ffeeba',
-  congressBlue: '#004085',
-  darkerBlueRibbon: '#024DEC',
-  darkerCerulean: '#00B2D6',
-  darkerIron: '#d6d8db',
-  darkerOuterSpace: '#343a40',
-  darkerRedRibbon: '#e90b3b',
-  darkerWebOrange: '#eea200',
-  deepSeaGreen: '#0c5460',
-  easternBlue: '#17a2b8',
-  emperor: '#505050',
-  eucalyptus: '#28A745',
-  frenchPass: '#b8daff',
-  fringyFlower: '#c3e6cb',
-  gray: '#888888',
-  greenHaze: '#02a661',
-  iceberg: '#d1ecf1',
-  iron: '#e2e3e5',
-  jade: '#02b269',
-  linkWater: '#D5E1F0',
-  mako: '#464e56',
-  mineShaft: '#222',
-  mySin: '#ffb822',
-  mystic: '#EFF3F5',
-  onahau: '#CCE5FF',
-  outerSpace: '#383d41',
-  pacificBlue: '#00A7C9',
-  paleSky: '#6C757D',
-  parsley: '#155724',
-  periwinkleGray: '#CBDAED',
-  persianPlum: '#721c24',
-  powderBlue: '#bee5eb',
-  punch: '#dc3545',
-  radicalRed: '#f5325c',
-  redRibbon: '#f30e3f',
-  scienceBlue: '#0249DF',
-  shuttleGray: '#606870',
-  webOrange: '#fbaa00',
-  white: '#fff',
-  yukonGold: '#856404',
-  zanah: '#D4EDDA'
+  background: {
+    paper: white,
+    default: whiteLilac
+  },
+  primary: {
+    alternativeText: congressBlue,
+    contrastText: white,
+    dark: cerulean,
+    light: onahau,
+    main: lighterCerulean
+  },
+  secondary: {
+    alternativeText: mineShaft,
+    contrastText: white,
+    dark: paleSky,
+    light: iron,
+    main: shuttleGray
+  },
+  info: {
+    alternativeText: mineShaft,
+    contrastText: white,
+    dark: easternBlue,
+    light: iceberg,
+    main: pacificBlue
+  },
+  success: {
+    alternativeText: mineShaft,
+    contrastText: white,
+    dark: greenHaze,
+    light: zanah,
+    main: caribbeanGreen
+  },
+  warning: {
+    alternativeText: mineShaft,
+    contrastText: white,
+    dark: webOrange,
+    light: barleyWhite,
+    main: mySin
+  },
+  danger: {
+    alternativeText: mineShaft,
+    contrastText: white,
+    dark: lipstick,
+    light: cherub,
+    main: violetRed
+  },
+  dark: {
+    alternativeText: gallery,
+    contrastText: white,
+    dark: codGray,
+    light: outerSpace,
+    main: outerSpace
+  },
+  light: {
+    alternativeText: outerSpace,
+    contrastText: mako,
+    dark: iron,
+    light: alabaster,
+    main: blackSqueeze
+  },
+  link: {
+    alternativeText: mineShaft,
+    contrastText: lighterCerulean,
+    dark: transparent,
+    light: outerSpace,
+    main: transparent
+  }
 }

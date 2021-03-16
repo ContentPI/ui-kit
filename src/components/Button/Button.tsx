@@ -29,7 +29,7 @@ const Button: FC<Props> = props => {
     ...btnProps
   } = props
   let buttonText: any = children
-  const buttonData = [size, variant, shape]
+  const buttonData = [color, size, variant, shape]
 
   if (isLoading || disabled) {
     buttonData.push('disabled')
@@ -54,22 +54,14 @@ const Button: FC<Props> = props => {
     }
 
     return (
-      <StyledLinkButton
-        className={cx(`context__${color}`, classNames)}
-        {...linkBtnProps}
-        disabled={isLoading || disabled}
-      >
+      <StyledLinkButton className={classNames} {...linkBtnProps} disabled={isLoading || disabled}>
         <a {...linkBtnProps}>{buttonText}</a>
       </StyledLinkButton>
     )
   }
 
   return (
-    <StyledButton
-      className={cx(`context__${color}`, classNames)}
-      {...btnProps}
-      disabled={isLoading || disabled}
-    >
+    <StyledButton className={classNames} {...btnProps} disabled={isLoading || disabled}>
       {buttonText}
     </StyledButton>
   )

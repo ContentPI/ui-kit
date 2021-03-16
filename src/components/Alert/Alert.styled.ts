@@ -1,34 +1,46 @@
 import styled from 'styled-components'
 
-import { Alignment, Shape, FontSize, FontWeight } from '../../types'
+import { Alignment, Color, Colors, Shape, FontSize, FontWeight } from '../../types'
+import variables from '../../theme/cssVariables'
 
 // Theme
-import { v, getClass } from '../../theme'
+import { getClass } from '../../theme'
 
 // Functions
-const getColorStyles = () => {
-  const color = `${BASE_CLASS_NAME}-color`
-  const bg = `${BASE_CLASS_NAME}-bg`
-  const bc = `${BASE_CLASS_NAME}-bc`
-  const hover = {
-    color: `${BASE_CLASS_NAME}-hover-color`
-  }
+const getColors = (colorType: Color) => {
+  const { alternativeText, dark, light, contrastText } = variables[colorType]
+
+  const color = alternativeText
+  const backgroundColor = light
 
   return `
-    color: ${v(color)};
-    background-color: ${v(bg)};
-    border-color: ${v(bc)};
+    color: ${color};
+    background-color: ${backgroundColor};
 
     a {
-      color: ${v(color)};
+      color: ${color};
       text-decoration: none;
       font-weight: ${FontWeight.bold};
 
       &:hover {
-        color: ${v(hover.color)}
+        color: ${colorType === 'dark' ? contrastText : dark}
       }
     }
   `
+}
+
+const getColorStyles = () => {
+  let styles = ''
+
+  Colors.forEach((color: Color) => {
+    styles += `
+      &.${getClass(BASE_CLASS_NAME, color)} {
+        ${getColors(color)}
+      }
+    `
+  })
+
+  return styles
 }
 
 // Base Class Name
