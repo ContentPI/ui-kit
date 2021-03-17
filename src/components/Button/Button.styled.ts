@@ -5,41 +5,38 @@ import styled from 'styled-components'
 import { Color, Colors, Size, Shape, Variant, FontSize, FontWeight } from '../../types'
 
 // Theme
-import { v } from '../../theme'
+import { getClass } from '../../theme'
+import variables from '../../theme/cssVariables'
 
 // Base Class Name
 export const BASE_CLASS_NAME = 'button'
 
 // Functions
-const getClass = (className: string) => `${BASE_CLASS_NAME}-${className}`
-
-const getButtonColorStyles = (colorType: Color, variant?: Variant) => {
-  const outlined = variant === 'outlined' ? '-outlined-' : '-'
-  const color = `${BASE_CLASS_NAME}-${colorType}${outlined}color`
-  const bg = `${BASE_CLASS_NAME}-${colorType}${outlined}bg`
-  const bc = `${BASE_CLASS_NAME}-${colorType}${outlined}bc`
-  const hover = {
-    color: `${BASE_CLASS_NAME}-${colorType}${outlined}hover-color`,
-    bg: `${BASE_CLASS_NAME}-${colorType}${outlined}hover-bg`,
-    bc: `${BASE_CLASS_NAME}-${colorType}${outlined}hover-bc`
-  }
+const getColors = (colorType: Color, variant?: Variant) => {
+  const { dark, main, light, contrastText } = variables[colorType]
+  const isOutlined = variant === 'outlined'
+  const color = isOutlined ? main : contrastText
+  const backgroundColor = isOutlined ? 'transparent' : main
 
   return `
-    color: ${v(color)};
-    background-color: ${v(bg)};
-    border-color: ${v(bc)};
+    color: ${colorType === 'light' ? contrastText : color};
+    background-color: ${backgroundColor};
+    ${isOutlined ? `border-color: ${colorType === 'light' ? contrastText : main};` : ''}
+
     &:hover {
-      color: ${v(outlined ? 'white' : hover.color)};
-      background-color: ${v(hover.bg)};
-      border-color: ${v(hover.bc)};
+      color: ${colorType === 'link' ? light : contrastText};
+      background-color: ${dark};
+      ${isOutlined ? `border-color: ${dark};` : ''}
+
       a {
-        color: ${v(outlined ? 'white' : hover.color)};
+        color: ${contrastText};
       }
     }
+
     a {
-      color: ${v(color)};
+      color: ${colorType === 'light' ? contrastText : color};
       &:hover {
-        color: ${v(outlined ? 'white' : hover.color)};
+        color: ${colorType === 'link' ? light : contrastText};
       }
     }
   `
@@ -50,8 +47,8 @@ const getColorStyles = (variant?: Variant) => {
 
   Colors.forEach((color: Color) => {
     styles += `
-      &.${getClass(color)} {
-        ${getButtonColorStyles(color, variant)}
+      &.${getClass(BASE_CLASS_NAME, color)} {
+        ${getColors(color, variant)}
       }
     `
   })
@@ -61,17 +58,18 @@ const getColorStyles = (variant?: Variant) => {
 
 // Styles
 const buttonVariantStyles = `
-  &.${getClass('contained')} {
+  &.${getClass(BASE_CLASS_NAME, 'contained')} {
     ${getColorStyles()}
   }
-  &.${getClass('outlined')} {
+  &.${getClass(BASE_CLASS_NAME, 'outlined')} {
     ${getColorStyles(Variant.outlined)}
   }
 `
-
+console.log('buttonVariantStyles', buttonVariantStyles)
 const buttonSizeStyles = `
   margin-right: 5px;
-  &.${getClass(Size.small)} {
+
+  &.${getClass(BASE_CLASS_NAME, Size.small)} {
     padding: 2px 12px;
     font-size: ${FontSize.small}px;
     line-height: 1.25rem;
@@ -79,12 +77,12 @@ const buttonSizeStyles = `
       font-size: ${FontSize.small}px;
     }
   }
-  &.${getClass(Size.medium)} {
+  &.${getClass(BASE_CLASS_NAME, Size.medium)} {
     padding: 7px 12px;
     font-size: ${FontSize.small + 1}px;
     line-height: 1.25rem;
   }
-  &.${getClass(Size.large)} {
+  &.${getClass(BASE_CLASS_NAME, Size.large)} {
     padding: 13px 24px;
     font-size: ${FontSize.small + 3}px;
     line-height: 1.25rem;
@@ -92,7 +90,7 @@ const buttonSizeStyles = `
       font-size: ${FontSize.small + 3}px;
     }
   }
-  &.${getClass(Size.xLarge)} {
+  &.${getClass(BASE_CLASS_NAME, Size.xLarge)} {
     padding: 13px 32px;
     font-size: ${FontSize.medium + 2}px;
     line-height: 2rem;
@@ -104,10 +102,10 @@ const buttonSizeStyles = `
 
 const buttonShapeStyles = `
   border-radius: 3px;
-  &.${getClass(Shape.round)} {
+  &.${getClass(BASE_CLASS_NAME, Shape.round)} {
     border-radius: 30px;
   }
-  &.${getClass(Shape.square)} {
+  &.${getClass(BASE_CLASS_NAME, Shape.square)} {
     border-radius: 0px;
   }
 `
@@ -118,7 +116,7 @@ const buttonStyle = `
     background-color: transparent;
     border: 1px solid transparent;
     display: inline-block;
-    font-weight: ${FontWeight.normal};
+    font-weight: ${FontWeight.semibold};
     text-align: center;
     user-select: none;
     vertical-align: middle;
@@ -141,7 +139,7 @@ const buttonStyle = `
   }
 `
 
-export const ButtonBase = styled.button`
+export const StyledButton = styled.button`
   position: relative;
   img {
     position: absolute;
@@ -153,7 +151,8 @@ export const ButtonBase = styled.button`
   ${buttonVariantStyles}
   ${buttonShapeStyles}
 `
-export const LinkButtonBase = styled.span`
+
+export const StyledLinkButton = styled.span`
   a {
     position: relative;
     display: inline-block;

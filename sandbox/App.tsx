@@ -1,5 +1,5 @@
 // Dependencies
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect, useState, memo } from 'react'
 import Prism from 'prismjs'
 import 'prismjs/components/prism-jsx.min'
 import styled, { createGlobalStyle } from 'styled-components'
@@ -13,7 +13,9 @@ import Icon from '../src/components/Icon'
 import { getThemeVars } from '../src/theme'
 
 // Data
-import buttons, { iButton } from './data/buttons'
+import { buttons, CodeBlock } from './data'
+
+const componentsToRender = [...buttons]
 
 console.log({ defaultTheme })
 
@@ -100,8 +102,41 @@ const App: FC = () => {
   }
 
   useEffect(() => {
-    Prism.highlightAll()
-  }, [])
+    if (showCode >= 0) {
+      Prism.highlightAll()
+    }
+  }, [showCode])
+
+  const CodeBlock = memo(({ title, prop, description, render, code, i }: any) => {
+    return (
+      <StyledBlock key={`block-${i}`}>
+        <div className="block">
+          <h3>{title}</h3>
+          <p>
+            {prop ? (
+              <>
+                <strong>{prop}</strong>:
+              </>
+            ) : (
+              ''
+            )}{' '}
+            {description}
+          </p>
+
+          {render}
+
+          <StyledPre className={showCode === i ? 'show' : ''}>
+            <code className="language-jsx">{code}</code>
+          </StyledPre>
+        </div>
+        <div>
+          <StyledShowCode onClick={() => handleShowCode(i)} title="View Code">
+            <Icon type="code" library="feather" />
+          </StyledShowCode>
+        </div>
+      </StyledBlock>
+    )
+  })
 
   return (
     <>
@@ -110,37 +145,9 @@ const App: FC = () => {
       <StyledApp>
         <Toggle />
         <h1>Components</h1>
-        <h2>Button</h2>
-        {buttons.map(({ title, prop, description, render, code }: iButton, i: number) => (
-          <StyledBlock key={`block-${i}`}>
-            <div className="block">
-              <h3>{title}</h3>
-              <p>
-                {prop ? (
-                  <>
-                    <strong>{prop}</strong>:
-                  </>
-                ) : (
-                  ''
-                )}{' '}
-                {description}
-              </p>
-
-              {render}
-
-              <StyledPre className={showCode === i ? 'show' : ''}>
-                <code className="language-jsx">{code}</code>
-              </StyledPre>
-            </div>
-            <div>
-              <StyledShowCode onClick={() => handleShowCode(i)} title="View Code">
-                <Icon type="code" library="feather" />
-              </StyledShowCode>
-            </div>
-          </StyledBlock>
+        {componentsToRender.map((props: CodeBlock, i: number) => (
+          <CodeBlock key={`code-${i}`} {...props} i={i} />
         ))}
-        <h2>Icon</h2>
-        <Icon type="fas fa-user" />
       </StyledApp>
     </>
   )

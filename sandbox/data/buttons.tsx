@@ -1,16 +1,9 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 
+import { CodeBlock } from './types'
 import Button from '../../src/components/Button'
 
-export interface iButton {
-  title: string
-  prop?: string
-  description: string
-  render: ReactElement
-  code: string
-}
-
-const buttons: iButton[] = [
+export const buttons: CodeBlock[] = [
   {
     title: 'Button (<button>)',
     description: 'A standard button',
@@ -652,5 +645,3 @@ const buttons: iButton[] = [
     `
   }
 ]
-
-export default buttons
