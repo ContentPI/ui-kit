@@ -1,44 +1,109 @@
-import { Palette } from '../types'
+import { Palette, Style } from '../types'
+import colors from './colors'
 
-export const palette: Palette = {
-  white: '#fff',
-  black: '#000',
-  blue: {
-    a: '#00BDE5',
-    b: '#00b2d6',
-    c: '#00a7c9',
-    d: '#1761fd',
-    e: '#024dec',
-    f: '#0249df',
-    g: '#1d2c48'
-  },
-  gray: {
-    a: '#f1f5fa',
-    b: '#fcfcfc',
-    c: '#eff3f5',
-    d: '#d5e1f0',
-    e: '#cbdaed',
-    f: '#6c757d',
-    g: '#606870',
-    h: '#505050',
-    i: '#464e56',
-    j: '#343a40',
-    k: '#222',
-    l: '#111'
-  },
-  green: {
-    a: '#03d87f',
-    b: '#02b269',
-    c: '#02a661'
-  },
-  orange: {
-    a: '#ffb822',
-    b: '#fbaa00',
-    c: '#eea200'
-  },
-  red: {
-    a: '#f5325c',
-    b: '#f30e3f',
-    c: '#e90b3b'
+const {
+  alabaster,
+  barleyWhite,
+  black,
+  blackSqueeze,
+  caribbeanGreen,
+  cerulean,
+  cherub,
+  codGray,
+  congressBlue,
+  easternBlue,
+  gallery,
+  greenHaze,
+  iceberg,
+  iron,
+  lighterCerulean,
+  lipstick,
+  mako,
+  mineShaft,
+  mySin,
+  onahau,
+  outerSpace,
+  pacificBlue,
+  paleSky,
+  shuttleGray,
+  transparent,
+  violetRed,
+  webOrange,
+  white,
+  whiteLilac,
+  zanah
+} = colors
+
+export const palette = (style: Style): Palette => {
+  const assignColor = (colorA: string, colorB: string) => (style === 'light' ? colorA : colorB)
+
+  return {
+    background: {
+      paper: assignColor(white, black),
+      default: assignColor(whiteLilac, black)
+    },
+    primary: {
+      alternativeText: assignColor(congressBlue, black),
+      contrastText: assignColor(white, black),
+      dark: assignColor(cerulean, black),
+      light: assignColor(onahau, black),
+      main: assignColor(lighterCerulean, black)
+    },
+    secondary: {
+      alternativeText: assignColor(mineShaft, black),
+      contrastText: assignColor(white, black),
+      dark: assignColor(paleSky, black),
+      light: assignColor(iron, black),
+      main: assignColor(shuttleGray, black)
+    },
+    info: {
+      alternativeText: assignColor(mineShaft, black),
+      contrastText: assignColor(white, black),
+      dark: assignColor(easternBlue, black),
+      light: assignColor(iceberg, black),
+      main: assignColor(pacificBlue, black)
+    },
+    success: {
+      alternativeText: assignColor(mineShaft, black),
+      contrastText: assignColor(white, black),
+      dark: assignColor(greenHaze, black),
+      light: assignColor(zanah, black),
+      main: assignColor(caribbeanGreen, black)
+    },
+    warning: {
+      alternativeText: assignColor(mineShaft, black),
+      contrastText: assignColor(white, black),
+      dark: assignColor(webOrange, black),
+      light: assignColor(barleyWhite, black),
+      main: assignColor(mySin, black)
+    },
+    danger: {
+      alternativeText: assignColor(mineShaft, black),
+      contrastText: assignColor(white, black),
+      dark: assignColor(lipstick, black),
+      light: assignColor(cherub, black),
+      main: assignColor(violetRed, black)
+    },
+    dark: {
+      alternativeText: assignColor(gallery, black),
+      contrastText: assignColor(white, black),
+      dark: assignColor(codGray, black),
+      light: assignColor(outerSpace, black),
+      main: assignColor(outerSpace, black)
+    },
+    light: {
+      alternativeText: assignColor(outerSpace, black),
+      contrastText: assignColor(mako, black),
+      dark: assignColor(iron, black),
+      light: assignColor(alabaster, black),
+      main: assignColor(blackSqueeze, black)
+    },
+    link: {
+      alternativeText: assignColor(mineShaft, black),
+      contrastText: assignColor(lighterCerulean, black),
+      dark: assignColor(transparent, black),
+      light: assignColor(outerSpace, black),
+      main: assignColor(transparent, black)
+    }
   }
 }
