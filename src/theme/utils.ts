@@ -1,34 +1,7 @@
-import { Style, Color, Colors } from '../types'
-import { buttonPalette } from './cssVariables'
+import { Style } from '../types'
 
-export const getButtonColorsVars = () => {
-  const styles: any = {}
-
-  Colors.forEach((color: Color) => {
-    styles[color] = {
-      color: buttonPalette[color].color,
-      bg: buttonPalette[color].bg,
-      bc: buttonPalette[color].bc,
-      hover: {
-        color: buttonPalette[color].color,
-        bg: buttonPalette[color].hover,
-        bc: buttonPalette[color].hover
-      },
-      outlined: {
-        color: buttonPalette[color].outlined.color,
-        bg: buttonPalette[color].outlined.bg,
-        bc: buttonPalette[color].outlined.bc,
-        hover: {
-          color: buttonPalette[color].outlined.color,
-          bg: buttonPalette[color].outlined.hover,
-          bc: buttonPalette[color].outlined.hover
-        }
-      }
-    }
-  })
-
-  return styles
-}
+export const getClass = (BASE_CLASS_NAME: string, className: string) =>
+  `${BASE_CLASS_NAME}-${className}`
 
 export const v = (variable: string) => `var(--${variable})`
 
@@ -59,4 +32,4 @@ export const getCSSVars = (vars: any, isAssignation = false) => {
 export const getRootVars = (vars: any): string => `:root {${getCSSVars(vars, true)}}`
 
 export const getStyleVars = (styleName: Style, style: any): string =>
-  `body[data-theme="${styleName}"]{${getCSSVars(style)}}`
+  `body[data-theme="${styleName}"]{${getCSSVars(style, true)}}`

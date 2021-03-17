@@ -1,5 +1,5 @@
 import { Theme, Style, FontWeight, FontSize } from '../types'
-import { getStyleVars, getRootVars, getButtonColorsVars } from './utils'
+import { getStyleVars, getRootVars } from './utils'
 import { palette } from './palette'
 
 const defaultTheme: Theme = {
@@ -10,12 +10,8 @@ const defaultTheme: Theme = {
     }
   },
   style: {
-    light: {
-      button: getButtonColorsVars()
-    },
-    dark: {
-      button: getButtonColorsVars()
-    }
+    light: palette('light'),
+    dark: palette('dark')
   }
 }
 
