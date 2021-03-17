@@ -10,12 +10,8 @@ const defaultTheme: Theme = {
     }
   },
   style: {
-    light: {
-      ...palette
-    },
-    dark: {
-      ...palette
-    }
+    light: palette('light'),
+    dark: palette('dark')
   }
 }
 

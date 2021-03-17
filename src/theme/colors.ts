@@ -1,6 +1,7 @@
 const colors = {
   alabaster: '#F9F9F9',
   barleyWhite: '#fff3cd',
+  black: '#000',
   blackSqueeze: '#F1F5FA',
   caribbeanGreen: '#00BA88',
   cerulean: '#00B2D6',

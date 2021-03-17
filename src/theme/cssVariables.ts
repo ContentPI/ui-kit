@@ -2,7 +2,7 @@ import { forEach } from '@contentpi/lib'
 import { palette } from './palette'
 
 const variables: any = {}
-const newPalette: any = palette
+const newPalette: any = palette('light')
 
 forEach(newPalette, (color: string) => {
   variables[color] = {}

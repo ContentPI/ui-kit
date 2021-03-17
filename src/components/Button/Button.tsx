@@ -1,5 +1,5 @@
 import React, { FC, ComponentPropsWithoutRef } from 'react'
-import { cxGenerator, cx } from '@contentpi/lib'
+import { cxGenerator } from '@contentpi/lib'
 import Spinner from '../Spinner'
 import { Size, Variant, Color, Shape } from '../../types'
 import { StyledButton, StyledLinkButton, BASE_CLASS_NAME } from './Button.styled'
@@ -28,6 +28,7 @@ const Button: FC<Props> = props => {
     variant = Variant.contained,
     ...btnProps
   } = props
+
   let buttonText: any = children
   const buttonData = [color, size, variant, shape]
 
