@@ -58,6 +58,12 @@ const theme: Theme = {
   }
 }
 
+export const themeCssVars = generateVarNames({ values: theme })
+export const colorCssVars = themeCssVars.palette
+export const generateTheme = generateThemeVars({
+  light: theme
+})
+
 console.log({
   test: generateThemeVars({
     light: theme,

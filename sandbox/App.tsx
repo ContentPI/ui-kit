@@ -5,9 +5,11 @@ import 'prismjs/components/prism-jsx.min'
 import styled, { createGlobalStyle } from 'styled-components'
 
 import { defaultTheme } from '../src/proposal/theme'
+import { generateTheme } from '../src/proposal/theme/theme'
 
 // Components
 import Icon from '../src/components/Icon'
+import MyBtn from '../src/proposal/theme/components/Button'
 
 // Theme
 import { getThemeVars } from '../src/theme'
@@ -34,6 +36,7 @@ const cssVars = getThemeVars()
 
 const GlobalStyle = createGlobalStyle`
   ${cssVars}
+  ${generateTheme}
 `
 
 const StyledApp = styled.div`
@@ -145,6 +148,15 @@ const App: FC = () => {
       <StyledApp>
         <Toggle />
         <h1>Components</h1>
+        <MyBtn size="xl" color="primary">
+          Btn
+        </MyBtn>
+        <MyBtn size="xl" color="success" variant="outlined">
+          Btn
+        </MyBtn>
+        <MyBtn size="xl" color="danger" variant="text">
+          Btn
+        </MyBtn>
         {componentsToRender.map((props: CodeBlock, i: number) => (
           <CodeBlock key={`code-${i}`} {...props} i={i} />
         ))}
