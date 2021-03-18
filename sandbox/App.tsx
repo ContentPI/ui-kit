@@ -154,6 +154,7 @@ const App: FC = () => {
         <MyBtn size="xl" color="danger" variant="text">
           Btn
         </MyBtn>
+
         {componentsToRender.map((props: CodeBlock, i: number) => (
           <CodeBlock key={`code-${i}`} {...props} i={i} />
         ))}
