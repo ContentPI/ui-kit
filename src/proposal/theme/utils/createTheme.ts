@@ -1,9 +1,11 @@
+import Theme from '../types'
+
 interface CommonProps {
-  values: Record<string, any>
+  values: Theme
   prefix?: string
 }
 
-export const generateVarNames = ({ values, prefix = '-' }: CommonProps) => {
+export const generateVarNames = ({ values, prefix = '-' }: CommonProps): Theme => {
   const vars: any[] = []
   for (const [key, value] of Object.entries(values)) {
     if (typeof value === 'object') {
@@ -12,8 +14,10 @@ export const generateVarNames = ({ values, prefix = '-' }: CommonProps) => {
       vars.push([key, `var(${prefix}-${key})`])
     }
   }
+  const themeObject = Object.fromEntries(vars)
+  const themeVars: Theme = { ...values, ...themeObject }
 
-  return Object.fromEntries(vars)
+  return themeVars
 }
 
 export const convertToCssVars = ({ values, prefix = '-' }: CommonProps) => {

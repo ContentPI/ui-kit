@@ -1,15 +1,15 @@
 export interface IHeading {
   fontFamily: string
-  fontWeight: number
+  fontWeight: number | string
   fontSize: string
-  lineHeight: number
+  lineHeight: number | string
   letterSpacing: string
 }
 
 export default interface ITypography {
-  htmlFontSize: 16
-  fontFamily: ''
-  fontSize: 14
+  htmlFontSize: number | string
+  fontFamily: string
+  fontSize: number | string
   h1: IHeading
   h2: IHeading
   h3: IHeading

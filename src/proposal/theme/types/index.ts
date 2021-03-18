@@ -5,7 +5,7 @@ import IPalette from './palette'
 
 export default interface Theme {
   breakpoints?: IBreakpoints
-  palette: IPalette
+  palette?: IPalette
   typography?: ITypography
-  shape: IShape
+  shape?: IShape
 }

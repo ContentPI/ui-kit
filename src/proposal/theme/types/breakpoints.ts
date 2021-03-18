@@ -5,17 +5,17 @@ export const units = ['px', 'rem'] as const
 export type Units = typeof units[number]
 
 export interface IKeys {
-  xs: number
-  sm: number
-  md: number
-  lg: number
-  xl: number
+  xs: number | string
+  sm: number | string
+  md: number | string
+  lg: number | string
+  xl: number | string
 }
 
 export default interface IBreakpoints {
   keys: IKeys
   unit: Units
-  step: number
+  step: number | string
   up: (key: MediaQueries) => string
   down: (key: MediaQueries) => string
   between: (start: MediaQueries, end: MediaQueries) => string
