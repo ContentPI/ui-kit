@@ -13,18 +13,18 @@ export const BASE_CLASS_NAME = 'button'
 
 // Functions
 const getColors = (colorType: Color, variant?: Variant) => {
-  const { dark, main, light, contrastText } = variables[colorType]
+  const { dark, main, contrastText } = variables[colorType]
   const isOutlined = variant === 'outlined'
   const color = isOutlined ? main : contrastText
   const backgroundColor = isOutlined ? 'transparent' : main
 
   return `
-    color: ${colorType === 'light' ? contrastText : color};
+    color: ${color};
     background-color: ${backgroundColor};
-    ${isOutlined ? `border-color: ${colorType === 'light' ? contrastText : main};` : ''}
+    ${isOutlined ? `border-color: ${main};` : ''}
 
     &:hover {
-      color: ${colorType === 'link' ? light : contrastText};
+      color: ${contrastText};
       background-color: ${dark};
       ${isOutlined ? `border-color: ${dark};` : ''}
 
@@ -34,9 +34,9 @@ const getColors = (colorType: Color, variant?: Variant) => {
     }
 
     a {
-      color: ${colorType === 'light' ? contrastText : color};
+      color: ${color};
       &:hover {
-        color: ${colorType === 'link' ? light : contrastText};
+        color: ${contrastText};
       }
     }
   `
@@ -65,7 +65,7 @@ const buttonVariantStyles = `
     ${getColorStyles(Variant.outlined)}
   }
 `
-console.log('buttonVariantStyles', buttonVariantStyles)
+
 const buttonSizeStyles = `
   margin-right: 5px;
 
