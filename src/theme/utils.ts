@@ -1,4 +1,4 @@
-import { Style } from '../types'
+// import { Style } from '../types'
 
 export const getClass = (BASE_CLASS_NAME: string, className: string) =>
   `${BASE_CLASS_NAME}-${className}`
@@ -31,5 +31,5 @@ export const getCSSVars = (vars: any, isAssignation = false) => {
 
 export const getRootVars = (vars: any): string => `:root {${getCSSVars(vars, true)}}`
 
-export const getStyleVars = (styleName: Style, style: any): string =>
-  `body[data-theme="${styleName}"]{${getCSSVars(style, true)}}`
+// export const getStyleVars = (styleName: Style, style: any): string =>
+//   `body[data-theme="${styleName}"]{${getCSSVars(style, true)}}`

@@ -1,25 +1,29 @@
-type Colors = {
-  alternativeText: string
-  contrastText: string
-  dark: string
-  light: string
-  main: string
-}
-
-type Background = {
+export interface IBackground {
   paper: string
   default: string
 }
 
-export type Palette = {
-  background: Background
-  primary: Colors
-  secondary: Colors
-  info: Colors
-  success: Colors
-  warning: Colors
-  danger: Colors
-  dark: Colors
-  light: Colors
-  link: Colors
+export interface ITextColors {
+  primary: string
+  secondary: string
+  disabled: string
+  hint: string
+}
+
+export interface IColor {
+  main: string
+  light: string
+  dark: string
+  contrastText: string
+}
+
+export default interface IPalette {
+  background: IBackground
+  primary: IColor
+  info: IColor
+  success: IColor
+  warning: IColor
+  danger: IColor
+  text: ITextColors
+  divider: string
 }

@@ -1,5 +1,3 @@
-import { ValueOf } from './global'
-
 export const Color = {
   danger: 'danger',
   info: 'info',
@@ -8,6 +6,8 @@ export const Color = {
   success: 'success',
   warning: 'warning'
 } as const
+
+type ValueOf<T> = T[keyof T]
 
 export type Color = ValueOf<typeof Color>
 

@@ -10,13 +10,13 @@
     "outDir": "./dist",
     "strict": true,
     "strictFunctionTypes": false,
-    "target": "esnext"
+    "target": "esnext",
+    "paths": {
+      "@Components": ["src/components/index.ts"],
+      "@Theme": ["src/theme/index.ts"],
+      "@Types": ["src/types/index.ts"]
+    }
   },
-  "files": [
-    "src/components/Button/index.ts",
-    "src/components/Icon/index.ts",
-    "src/components/Spinner/index.ts"
-  ],
   "include": ["src/**/*", "sandbox/*"],
-  "exclude": ["node_modules", "**/__tests__/*"]
+  "exclude": ["node_modules", "**/__tests__/*", ".vscode"]
 }

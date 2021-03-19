@@ -36,7 +36,10 @@ const webpackConfig: any = {
     extensions: ['*', '.ts', '.tsx', '.js', '.jsx'],
     alias: {
       react: resolve(__dirname, './node_modules/react'),
-      'react-dom': resolve(__dirname, './node_modules/react-dom')
+      'react-dom': resolve(__dirname, './node_modules/react-dom'),
+      '@Components': resolve(__dirname, 'src', 'components'),
+      '@Theme': resolve(__dirname, 'src', 'theme'),
+      '@Types': resolve(__dirname, 'src', 'types')
     },
     fallback: { crypto: false }
   }

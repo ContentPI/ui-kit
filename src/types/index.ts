@@ -1,9 +1,11 @@
-export * from './color'
-export * from './fontSize'
-export * from './fontWeight'
-export * from './global'
-export * from './size'
-export * from './palette'
-export * from './shape'
-export * from './theme'
-export * from './variant'
+import IBreakpoints from './breakpoints'
+import ITypography from './typography'
+import IShape from './shape'
+import IPalette from './palette'
+
+export default interface Theme {
+  breakpoints?: IBreakpoints
+  palette?: IPalette
+  typography?: ITypography
+  shape?: IShape
+}
