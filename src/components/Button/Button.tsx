@@ -17,7 +17,7 @@ interface Props extends ComponentPropsWithoutRef<'button'> {
 
 const Button: FC<Props> = props => {
   const {
-    color = Color.light,
+    color = Color.primary,
     children,
     href = undefined,
     disabled = undefined,
