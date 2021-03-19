@@ -1,7 +1,7 @@
 import Theme from '../types'
+import { generateVarNames, generateThemeVars } from './utils'
 
-// Utils
-// import { generateVarNames, generateThemeVars } from '../proposal/theme/utils/createTheme'
+const globalFontFamily = "'Poppins'"
 
 export const theme: Theme = {
   palette: {
@@ -47,26 +47,112 @@ export const theme: Theme = {
     },
     divider: 'rgba(0, 0, 0, 0.12)'
   },
+  typography: {
+    htmlFontSize: 16,
+    fontFamily: globalFontFamily,
+    fontSize: 16,
+    h1: {
+      fontFamily: globalFontFamily,
+      fontWeight: 700,
+      fontSize: '2.25rem',
+      lineHeight: 48,
+      letterSpacing: '0.75px'
+    },
+    h2: {
+      fontFamily: globalFontFamily,
+      fontWeight: 700,
+      fontSize: '2rem',
+      lineHeight: 40,
+      letterSpacing: '0.75px'
+    },
+    h3: {
+      fontFamily: globalFontFamily,
+      fontWeight: 700,
+      fontSize: '1.875rem',
+      lineHeight: 48,
+      letterSpacing: '0.75px'
+    },
+    h4: {
+      fontFamily: globalFontFamily,
+      fontWeight: 700,
+      fontSize: '1.625rem',
+      lineHeight: 32,
+      letterSpacing: '0.75px'
+    },
+    h5: {
+      fontFamily: globalFontFamily,
+      fontWeight: 700,
+      fontSize: '1.375rem',
+      lineHeight: 32,
+      letterSpacing: '0.75px'
+    },
+    h6: {
+      fontFamily: globalFontFamily,
+      fontWeight: 700,
+      fontSize: '1.125rem',
+      lineHeight: 24,
+      letterSpacing: '0.75px'
+    },
+    subtitle1: {
+      fontFamily: globalFontFamily,
+      fontWeight: 600,
+      fontSize: '0.938rem',
+      lineHeight: 24,
+      letterSpacing: '0.75px'
+    },
+    subtitle2: {
+      fontFamily: globalFontFamily,
+      fontWeight: 600,
+      fontSize: '0.813rem',
+      lineHeight: 24,
+      letterSpacing: '0.75px'
+    },
+    paragraph1: {
+      fontFamily: globalFontFamily,
+      fontWeight: 400,
+      fontSize: '0.938rem',
+      lineHeight: 20,
+      letterSpacing: '0.75px'
+    },
+    paragraph2: {
+      fontFamily: globalFontFamily,
+      fontWeight: 400,
+      fontSize: '0.813rem',
+      lineHeight: 16,
+      letterSpacing: '0.75px'
+    },
+    caption1: {
+      fontFamily: globalFontFamily,
+      fontWeight: 400,
+      fontSize: '0.75rem',
+      lineHeight: 16,
+      letterSpacing: '0.75px'
+    },
+    caption2: {
+      fontFamily: globalFontFamily,
+      fontWeight: 600,
+      fontSize: '0.75rem',
+      lineHeight: 16,
+      letterSpacing: '0.75px'
+    },
+    label: {
+      fontFamily: globalFontFamily,
+      fontWeight: 700,
+      fontSize: '0.75rem',
+      lineHeight: 16,
+      letterSpacing: '0.75px'
+    }
+  },
   shape: {
-    borderRadius: 4
+    unitBase: 4
   }
 }
 
-// export const themeCssVars = generateVarNames({ values: theme })
-// export const colorCssVars = themeCssVars.palette
-// export const generateTheme = generateThemeVars({
-//   light: theme
-// })
+export const themeCssVars = generateVarNames({ values: theme })
 
-// console.log({
-//   test: generateThemeVars({
-//     light: theme,
-//     dark: {
-//       color: 'red',
-//       bg: 'blue'
-//     }
-//   }),
-//   data: generateVarNames({ values: theme })
-// })
+export const themesCss = generateThemeVars({
+  light: theme,
+  dark: theme
+})
 
 export default theme

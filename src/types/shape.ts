@@ -1,3 +1,3 @@
 export default interface IShape {
-  borderRadius: number | string
+  unitBase: number | string
 }

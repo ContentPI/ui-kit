@@ -3,14 +3,15 @@ import React, { FC } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 
 import { Button as MyBtn } from '@Components'
-import { theme } from '@Theme'
+import { themesCss } from '@Theme'
 
 // Components
 
 // Theme
-console.log({ theme })
 
-const GlobalStyle = createGlobalStyle``
+const GlobalStyle = createGlobalStyle`
+  ${themesCss}
+`
 
 const StyledApp = styled.div`
   font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
