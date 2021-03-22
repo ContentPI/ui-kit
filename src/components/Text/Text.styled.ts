@@ -14,12 +14,7 @@ const getClass = (BASE_CLASS_NAME: string, className: string) => `${BASE_CLASS_N
 
 // Functions
 const getVariantCss = (variant: Typography) => {
-  const cssProps: CSSObject = {
-    fontFamily: "'Poppins'",
-    fontWeight: 'bold',
-    margin: 0,
-    letterSpacing: '0.75px'
-  }
+  const cssProps: CSSObject = {}
 
   switch (variant) {
     case Typography.h1:
@@ -115,6 +110,10 @@ console.log(textVariantStyles())
 
 export const TextBase = styled.p`
   &.${BASE_CLASS_NAME} {
+    font-family: 'Poppins';
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 0.75px;
   }
   ${textVariantStyles()}
 `
