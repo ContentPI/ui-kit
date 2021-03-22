@@ -3,7 +3,7 @@ import React, { FC, ComponentPropsWithoutRef } from 'react'
 import { cxGenerator } from '@contentpi/lib'
 
 // Types
-import { ButtonVariants, ButtonSize, StatusColor } from '@Types'
+import { ButtonVariant, ButtonSize, StatusColor } from '@Types'
 
 // Styles
 import { ButtonBase, BASE_CLASS_NAME } from './Button.styled'
@@ -11,7 +11,7 @@ import { ButtonBase, BASE_CLASS_NAME } from './Button.styled'
 interface iProps extends ComponentPropsWithoutRef<'button'> {
   color?: StatusColor
   size?: ButtonSize
-  variant?: ButtonVariants
+  variant?: ButtonVariant
 }
 
 const Button: FC<iProps> = props => {
@@ -19,7 +19,7 @@ const Button: FC<iProps> = props => {
     children,
     color = StatusColor.primary,
     size = ButtonSize.medium,
-    variant = ButtonVariants.contained,
+    variant = ButtonVariant.contained,
     ...btnProps
   } = props
   const classNames = cxGenerator({

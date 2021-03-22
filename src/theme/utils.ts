@@ -1,3 +1,4 @@
+import { themeCssVars } from '@Theme'
 import Theme from '@Types'
 
 export const getClass = (BASE_CLASS_NAME: string, className: string) =>
@@ -70,4 +71,18 @@ export const generateThemeVars = (themes: Record<string, any>) => {
   })
 
   return allCss
+}
+
+const calc = (unit: string, multiply: number) => `calc(${unit} * ${multiply})`
+
+export const calcSpace = (number: number) => calc(String(themeCssVars.shape?.unitBase), number)
+
+export const calcPadding = (left: number, top?: number, right?: number, bottom?: number) => {
+  const padding = []
+  if (left) padding.push(calcSpace(left))
+  if (top) padding.push(calcSpace(top))
+  if (right) padding.push(calcSpace(right))
+  if (bottom) padding.push(calcSpace(bottom))
+
+  return padding.join(' ')
 }

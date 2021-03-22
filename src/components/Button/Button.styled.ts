@@ -2,10 +2,17 @@
 import styled, { css, CSSObject } from 'styled-components'
 
 // Theme
-import { themeCssVars } from '@Theme'
+import { themeCssVars, calcSpace, calcPadding } from '@Theme'
 
 // Types
-import { StatusColor, StatusColors, ButtonVariants, ButtonSize, ButtonSizes } from '@Types'
+import {
+  ButtonSize,
+  ButtonSizes,
+  ButtonVariant,
+  ButtonVariants,
+  StatusColor,
+  StatusColors
+} from '@Types'
 
 // Base Class Name
 export const BASE_CLASS_NAME = 'button'
@@ -13,12 +20,12 @@ export const BASE_CLASS_NAME = 'button'
 const getClass = (BASE_CLASS_NAME: string, className: string) => `${BASE_CLASS_NAME}-${className}`
 
 // Functions
-const getVariantCss = (colorType: StatusColor, variant: ButtonVariants) => {
+const getVariantCss = (colorType: StatusColor, variant: ButtonVariant) => {
   const { dark, main, contrastText } = themeCssVars.palette[colorType]
   const cssProps: CSSObject = {}
 
   switch (variant) {
-    case ButtonVariants.contained:
+    case ButtonVariant.contained:
       cssProps.color = contrastText
       cssProps.backgroundColor = main
       cssProps.borderColor = main
@@ -28,7 +35,7 @@ const getVariantCss = (colorType: StatusColor, variant: ButtonVariants) => {
       }
 
       break
-    case ButtonVariants.outlined:
+    case ButtonVariant.outlined:
       cssProps.color = main
       cssProps.backgroundColor = 'transparent'
       cssProps.borderColor = main
@@ -38,7 +45,7 @@ const getVariantCss = (colorType: StatusColor, variant: ButtonVariants) => {
         backgroundColor: main
       }
       break
-    case ButtonVariants.text:
+    case ButtonVariant.text:
       cssProps.backgroundColor = '#fff'
       break
   }
@@ -47,58 +54,39 @@ const getVariantCss = (colorType: StatusColor, variant: ButtonVariants) => {
   return cssVariant.join('')
 }
 
-const unitBase = 4
-const calc = (unit: number, multiply: number) => `${unitBase * multiply}px`
-const space = (number: number) => calc(unitBase, number)
-
 const getSizesCss = (size: ButtonSize) => {
-  const cssProps: CSSObject = {}
+  const cssProps: CSSObject = {
+    fontFamily: "'Poppins'",
+    fontWeight: 600,
+    letterSpacing: '0.75px',
+    borderRadius: calcSpace(2)
+  }
 
   switch (size) {
     case ButtonSize.tiny:
-      cssProps.padding = `${space(1.5)} ${space(3)}`
+      cssProps.padding = `${calcPadding(1.5, 3)}`
       cssProps.fontSize = '10px'
-      cssProps.fontFamily = "'Poppins'"
-      cssProps.fontWeight = 600
       cssProps.lineHeight = '12px'
-      cssProps.letterSpacing = '0.75px'
-      cssProps.borderRadius = space(2)
       break
     case ButtonSize.small:
-      cssProps.padding = `${space(2)} ${space(4)}`
+      cssProps.padding = `${calcPadding(2, 4)}`
       cssProps.fontSize = '12px'
-      cssProps.fontFamily = "'Poppins'"
-      cssProps.fontWeight = 600
       cssProps.lineHeight = '16px'
-      cssProps.letterSpacing = '0.75px'
-      cssProps.borderRadius = space(2)
       break
     case ButtonSize.medium:
-      cssProps.padding = `${space(3)} ${space(5)}`
+      cssProps.padding = `${calcPadding(3, 5)}`
       cssProps.fontSize = '14px'
-      cssProps.fontFamily = "'Poppins'"
-      cssProps.fontWeight = 600
       cssProps.lineHeight = '16px'
-      cssProps.letterSpacing = '0.75px'
-      cssProps.borderRadius = space(2)
       break
     case ButtonSize.large:
-      cssProps.padding = `${space(3.5)} ${space(5)}`
+      cssProps.padding = `${calcPadding(3.5, 5)}`
       cssProps.fontSize = '16px'
-      cssProps.fontFamily = "'Poppins'"
-      cssProps.fontWeight = 600
       cssProps.lineHeight = '20px'
-      cssProps.letterSpacing = '0.75px'
-      cssProps.borderRadius = space(2)
       break
     case ButtonSize.giant:
-      cssProps.padding = `${space(4)} ${space(6)}`
+      cssProps.padding = `${calcPadding(4, 6)}`
       cssProps.fontSize = '18px'
-      cssProps.fontFamily = "'Poppins'"
-      cssProps.fontWeight = 600
       cssProps.lineHeight = '24px'
-      cssProps.letterSpacing = '0.75px'
-      cssProps.borderRadius = space(2)
       break
   }
 
@@ -106,7 +94,7 @@ const getSizesCss = (size: ButtonSize) => {
   return cssVariant.join('')
 }
 
-const getVariantStyles = (variant: ButtonVariants) => {
+const getVariantStyles = (variant: ButtonVariant) => {
   let styles = ''
   StatusColors.forEach((color: StatusColor) => {
     styles += `
@@ -120,32 +108,31 @@ const getVariantStyles = (variant: ButtonVariants) => {
 }
 
 // Styles
-const buttonVariantStyles = `
-  &.${getClass(BASE_CLASS_NAME, ButtonVariants.contained)} {
-    ${getVariantStyles(ButtonVariants.contained)}
-  }
-  &.${getClass(BASE_CLASS_NAME, ButtonVariants.outlined)} {
-    ${getVariantStyles(ButtonVariants.outlined)}
-  }
-`
+const buttonVariantStyles = () => {
+  let styles = ''
+  ButtonVariants.forEach((variant: ButtonVariant) => {
+    styles += `
+      &.${getClass(BASE_CLASS_NAME, variant)} {
+        ${getVariantStyles(variant)}
+      }
+    `
+  })
 
-const buttonSizesStyles = `
-  &.${getClass(BASE_CLASS_NAME, ButtonSize.tiny)} {
-    ${getSizesCss(ButtonSize.tiny)}
-  }
-  &.${getClass(BASE_CLASS_NAME, ButtonSize.small)} {
-    ${getSizesCss(ButtonSize.small)}
-  }
-  &.${getClass(BASE_CLASS_NAME, ButtonSize.medium)} {
-    ${getSizesCss(ButtonSize.medium)}
-  }
-  &.${getClass(BASE_CLASS_NAME, ButtonSize.large)} {
-    ${getSizesCss(ButtonSize.large)}
-  }
-  &.${getClass(BASE_CLASS_NAME, ButtonSize.giant)} {
-    ${getSizesCss(ButtonSize.giant)}
-  }
-`
+  return styles
+}
+
+const buttonSizesStyles = () => {
+  let styles = ''
+  ButtonSizes.forEach((size: ButtonSize) => {
+    styles += `
+      &.${getClass(BASE_CLASS_NAME, size)} {
+        ${getSizesCss(size)}
+      }
+    `
+  })
+
+  return styles
+}
 
 export const ButtonBase = styled.button`
   &.${BASE_CLASS_NAME} {
@@ -164,6 +151,6 @@ export const ButtonBase = styled.button`
       opacity: 0.5;
     }
   }
-  ${buttonVariantStyles}
-  ${buttonSizesStyles}
+  ${buttonVariantStyles()}
+  ${buttonSizesStyles()}
 `
