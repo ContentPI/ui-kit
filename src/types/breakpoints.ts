@@ -12,7 +12,7 @@ export interface IKeys {
   xl: number | string
 }
 
-export default interface IBreakpoints {
+export interface IBreakpoints {
   keys: IKeys
   unit: Units
   step: number | string

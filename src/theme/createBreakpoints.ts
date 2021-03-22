@@ -1,4 +1,4 @@
-import IBreakpoints, { units } from '../types/breakpoints'
+import { IBreakpoints, units } from '@Types'
 
 const mediaQueries = ['xs', 'sm', 'md', 'lg', 'xl'] as const
 type MediaQueries = typeof mediaQueries[number]

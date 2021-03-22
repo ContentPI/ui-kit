@@ -1,6 +1,8 @@
 export interface IBackground {
   paper: string
-  default: string
+  main: string
+  light: string
+  dark: string
 }
 
 export interface ITextColors {
@@ -17,13 +19,11 @@ export interface IColor {
   contrastText: string
 }
 
-export default interface IPalette {
-  background: IBackground
+export interface IPalette {
   primary: IColor
   info: IColor
   success: IColor
   warning: IColor
   danger: IColor
   text: ITextColors
-  divider: string
 }

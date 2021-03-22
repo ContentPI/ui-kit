@@ -6,10 +6,11 @@ export const Variant = {
 } as const
 export type Variant = ValueOf<typeof Variant>
 
-export const ButtonVariants = {
+export const ButtonVariant = {
   contained: 'contained',
   outlined: 'outlined',
   text: 'text'
 } as const
 
-export type ButtonVariants = ValueOf<typeof ButtonVariants>
+export type ButtonVariant = ValueOf<typeof ButtonVariant>
+export const ButtonVariants = Object.keys(ButtonVariant)

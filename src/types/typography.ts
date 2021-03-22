@@ -6,7 +6,7 @@ export interface IHeading {
   letterSpacing: string
 }
 
-export default interface ITypography {
+export interface ITypography {
   htmlFontSize: number | string
   fontFamily: string
   fontSize: number | string
@@ -24,3 +24,22 @@ export default interface ITypography {
   caption2: IHeading
   label: IHeading
 }
+
+type ValueOf<T> = T[keyof T]
+
+export const Typographys = {
+  h1: 'h1',
+  h2: 'h2',
+  h3: 'h3',
+  h4: 'h4',
+  h5: 'h5',
+  h6: 'h6',
+  subtitle1: 'subtitle1',
+  subtitle2: 'subtitle2',
+  paragraph1: 'paragraph1',
+  paragraph2: 'paragraph2',
+  caption1: 'caption1',
+  caption2: 'caption2',
+  label: 'label'
+} as const
+export type Typographys = ValueOf<typeof Typographys>
