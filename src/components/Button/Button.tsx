@@ -1,21 +1,30 @@
 // Dependencies
 import React, { FC, ComponentPropsWithoutRef } from 'react'
 import { cxGenerator } from '@contentpi/lib'
-import { ButtonBase, COMPONENT_CLASS_NAME } from './Button.styled'
+
+// Types
+import { ButtonVariants, ButtonSize, StatusColor } from '@Types'
+
+// Styles
+import { ButtonBase, BASE_CLASS_NAME } from './Button.styled'
 
 interface iProps extends ComponentPropsWithoutRef<'button'> {
-  propa?: any
-  // size?: ButtonSizes
-  // variant?: ButtonVariants
-  // TODO: Falta agregar colores dinamicos
-  // color?: Colors
+  color?: StatusColor
+  size?: ButtonSize
+  variant?: ButtonVariants
 }
 
 const Button: FC<iProps> = props => {
-  const { children, ...btnProps } = props
+  const {
+    children,
+    color = StatusColor.primary,
+    size = ButtonSize.medium,
+    variant = ButtonVariants.contained,
+    ...btnProps
+  } = props
   const classNames = cxGenerator({
-    ccn: COMPONENT_CLASS_NAME,
-    data: []
+    ccn: BASE_CLASS_NAME,
+    data: [color, variant, size]
   })
 
   return (

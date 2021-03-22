@@ -1,41 +1,154 @@
 // Dependencies
-import styled from 'styled-components'
+import styled, { css, CSSObject } from 'styled-components'
 
-export const COMPONENT_CLASS_NAME = 'button'
+// Theme
+import { themeCssVars } from '@Theme'
+
+// Types
+import { StatusColor, StatusColors, ButtonVariants, ButtonSize, ButtonSizes } from '@Types'
+
+// Base Class Name
+export const BASE_CLASS_NAME = 'button'
+
+const getClass = (BASE_CLASS_NAME: string, className: string) => `${BASE_CLASS_NAME}-${className}`
 
 // Functions
-// const getColors = (colorType: Color, variant?: ButtonVariants) => {
-//   const { dark, main, contrastText } = variables[colorType]
-//   const isOutlined = variant === 'outlined'
-//   const color = isOutlined ? main : contrastText
-//   const backgroundColor = isOutlined ? 'transparent' : main
+const getVariantCss = (colorType: StatusColor, variant: ButtonVariants) => {
+  const { dark, main, contrastText } = themeCssVars.palette[colorType]
+  const cssProps: CSSObject = {}
 
-//   return css`
-//     color: ${color};
-//     background-color: ${backgroundColor};
-//     ${isOutlined ? `border-color: ${main};` : ''}
+  switch (variant) {
+    case ButtonVariants.contained:
+      cssProps.color = contrastText
+      cssProps.backgroundColor = main
+      cssProps.borderColor = main
 
-//     &:hover {
-//       color: ${contrastText};
-//       background-color: ${dark};
-//       ${isOutlined ? `border-color: ${dark};` : ''}
+      cssProps['&:hover'] = {
+        backgroundColor: dark
+      }
 
-//       a {
-//         color: ${contrastText};
-//       }
-//     }
+      break
+    case ButtonVariants.outlined:
+      cssProps.color = main
+      cssProps.backgroundColor = 'transparent'
+      cssProps.borderColor = main
 
-//     a {
-//       color: ${color};
-//       &:hover {
-//         color: ${contrastText};
-//       }
-//     }
-//   `
-// }
+      cssProps['&:hover'] = {
+        color: contrastText,
+        backgroundColor: main
+      }
+      break
+    case ButtonVariants.text:
+      cssProps.backgroundColor = '#fff'
+      break
+  }
+
+  const cssVariant = css(cssProps)
+  return cssVariant.join('')
+}
+
+const unitBase = 4
+const calc = (unit: number, multiply: number) => `${unitBase * multiply}px`
+const space = (number: number) => calc(unitBase, number)
+
+const getSizesCss = (size: ButtonSize) => {
+  const cssProps: CSSObject = {}
+
+  switch (size) {
+    case ButtonSize.tiny:
+      cssProps.padding = `${space(1.5)} ${space(3)}`
+      cssProps.fontSize = '10px'
+      cssProps.fontFamily = "'Poppins'"
+      cssProps.fontWeight = 600
+      cssProps.lineHeight = '12px'
+      cssProps.letterSpacing = '0.75px'
+      cssProps.borderRadius = space(2)
+      break
+    case ButtonSize.small:
+      cssProps.padding = `${space(2)} ${space(4)}`
+      cssProps.fontSize = '12px'
+      cssProps.fontFamily = "'Poppins'"
+      cssProps.fontWeight = 600
+      cssProps.lineHeight = '16px'
+      cssProps.letterSpacing = '0.75px'
+      cssProps.borderRadius = space(2)
+      break
+    case ButtonSize.medium:
+      cssProps.padding = `${space(3)} ${space(5)}`
+      cssProps.fontSize = '14px'
+      cssProps.fontFamily = "'Poppins'"
+      cssProps.fontWeight = 600
+      cssProps.lineHeight = '16px'
+      cssProps.letterSpacing = '0.75px'
+      cssProps.borderRadius = space(2)
+      break
+    case ButtonSize.large:
+      cssProps.padding = `${space(3.5)} ${space(5)}`
+      cssProps.fontSize = '16px'
+      cssProps.fontFamily = "'Poppins'"
+      cssProps.fontWeight = 600
+      cssProps.lineHeight = '20px'
+      cssProps.letterSpacing = '0.75px'
+      cssProps.borderRadius = space(2)
+      break
+    case ButtonSize.giant:
+      cssProps.padding = `${space(4)} ${space(6)}`
+      cssProps.fontSize = '18px'
+      cssProps.fontFamily = "'Poppins'"
+      cssProps.fontWeight = 600
+      cssProps.lineHeight = '24px'
+      cssProps.letterSpacing = '0.75px'
+      cssProps.borderRadius = space(2)
+      break
+  }
+
+  const cssVariant = css(cssProps)
+  return cssVariant.join('')
+}
+
+const getVariantStyles = (variant: ButtonVariants) => {
+  let styles = ''
+  StatusColors.forEach((color: StatusColor) => {
+    styles += `
+      &.${getClass(BASE_CLASS_NAME, color)} {
+        ${getVariantCss(color, variant)}
+      }
+    `
+  })
+
+  return styles
+}
+
+// Styles
+const buttonVariantStyles = `
+  &.${getClass(BASE_CLASS_NAME, ButtonVariants.contained)} {
+    ${getVariantStyles(ButtonVariants.contained)}
+  }
+  &.${getClass(BASE_CLASS_NAME, ButtonVariants.outlined)} {
+    ${getVariantStyles(ButtonVariants.outlined)}
+  }
+`
+
+const buttonSizesStyles = `
+  &.${getClass(BASE_CLASS_NAME, ButtonSize.tiny)} {
+    ${getSizesCss(ButtonSize.tiny)}
+  }
+  &.${getClass(BASE_CLASS_NAME, ButtonSize.small)} {
+    ${getSizesCss(ButtonSize.small)}
+  }
+  &.${getClass(BASE_CLASS_NAME, ButtonSize.medium)} {
+    ${getSizesCss(ButtonSize.medium)}
+  }
+  &.${getClass(BASE_CLASS_NAME, ButtonSize.large)} {
+    ${getSizesCss(ButtonSize.large)}
+  }
+  &.${getClass(BASE_CLASS_NAME, ButtonSize.giant)} {
+    ${getSizesCss(ButtonSize.giant)}
+  }
+`
 
 export const ButtonBase = styled.button`
-  &.${COMPONENT_CLASS_NAME} {
+  &.${BASE_CLASS_NAME} {
     user-select: none;
     border: 1px solid transparent;
     font-weight: 700;
@@ -51,4 +164,6 @@ export const ButtonBase = styled.button`
       opacity: 0.5;
     }
   }
+  ${buttonVariantStyles}
+  ${buttonSizesStyles}
 `
