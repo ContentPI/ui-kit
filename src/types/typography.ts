@@ -27,7 +27,7 @@ export interface ITypography {
 
 type ValueOf<T> = T[keyof T]
 
-export const Typographys = {
+export const Typography = {
   h1: 'h1',
   h2: 'h2',
   h3: 'h3',
@@ -42,4 +42,21 @@ export const Typographys = {
   caption2: 'caption2',
   label: 'label'
 } as const
-export type Typographys = ValueOf<typeof Typographys>
+export type Typography = ValueOf<typeof Typography>
+export const Typographys = Object.keys(Typography)
+
+export const TypographyTag: Record<Typography, keyof JSX.IntrinsicElements> = {
+  h1: 'h1',
+  h2: 'h2',
+  h3: 'h3',
+  h4: 'h4',
+  h5: 'h5',
+  h6: 'h6',
+  subtitle1: 'p',
+  subtitle2: 'p',
+  paragraph1: 'p',
+  paragraph2: 'p',
+  caption1: 'span',
+  caption2: 'span',
+  label: 'label'
+}
