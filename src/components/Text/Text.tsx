@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 import { cxGenerator } from '@contentpi/lib'
 
 // Types
-import { StatusColor, Typography, TypographyTag } from '@Types'
+import { StatusColor, Typography, TypographyTag } from '@types'
 
 // Styles
 import { TextBase, BASE_CLASS_NAME } from './Text.styled'

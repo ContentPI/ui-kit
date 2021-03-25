@@ -1,4 +1,4 @@
-import Theme, { IPalette, ITypography, IShape } from '@Types'
+import Theme, { IPalette, ITypography, IShape } from '@types'
 import { generateVarNames, generateThemeVars } from './utils'
 
 const globalFontFamily = "'Poppins'"

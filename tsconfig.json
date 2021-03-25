@@ -12,9 +12,9 @@
     "strictFunctionTypes": false,
     "target": "esnext",
     "paths": {
-      "@Components": ["src/components/index.ts"],
-      "@Theme": ["src/theme/index.ts"],
-      "@Types": ["src/types/index.ts"]
+      "@components": ["src/components/index.ts"],
+      "@theme": ["src/theme/index.ts"],
+      "@types": ["src/types/index.ts"]
     }
   },
   "include": ["src/**/*", "sandbox/*"],

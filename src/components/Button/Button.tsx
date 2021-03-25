@@ -3,7 +3,7 @@ import React, { FC, ComponentPropsWithoutRef } from 'react'
 import { cxGenerator } from '@contentpi/lib'
 
 // Types
-import { ButtonVariant, ButtonSize, StatusColor } from '@Types'
+import { ButtonVariant, ButtonSize, StatusColor } from '@types'
 
 // Styles
 import { ButtonBase, BASE_CLASS_NAME } from './Button.styled'

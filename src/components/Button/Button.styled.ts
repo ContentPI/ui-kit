@@ -2,7 +2,7 @@
 import styled, { css, CSSObject } from 'styled-components'
 
 // Theme
-import { themeCssVars, calcSpace, calcPadding } from '@Theme'
+import { themeCssVars, calcSpace, calcPadding } from '@theme'
 
 // Types
 import {
@@ -12,7 +12,7 @@ import {
   ButtonVariants,
   StatusColor,
   StatusColors
-} from '@Types'
+} from '@types'
 
 // Base Class Name
 export const BASE_CLASS_NAME = 'button'
@@ -50,13 +50,14 @@ const getVariantCss = (colorType: StatusColor, variant: ButtonVariant) => {
       break
   }
 
-  const cssVariant = css(cssProps)
-  return cssVariant.join('')
+  // Todo create util
+  const cssVariant = css(cssProps).join('')
+  return cssVariant
 }
 
 const getSizesCss = (size: ButtonSize) => {
   const cssProps: CSSObject = {
-    fontFamily: "'Poppins'",
+    fontFamily: 'Poppins',
     fontWeight: 600,
     letterSpacing: '0.75px',
     borderRadius: calcSpace(2)
@@ -90,8 +91,8 @@ const getSizesCss = (size: ButtonSize) => {
       break
   }
 
-  const cssVariant = css(cssProps)
-  return cssVariant.join('')
+  const cssVariant = css(cssProps).join('')
+  return cssVariant
 }
 
 const getVariantStyles = (variant: ButtonVariant) => {
@@ -108,6 +109,7 @@ const getVariantStyles = (variant: ButtonVariant) => {
 }
 
 // Styles
+// TODO: create func for this method (DRY)
 const buttonVariantStyles = () => {
   let styles = ''
   ButtonVariants.forEach((variant: ButtonVariant) => {

@@ -2,10 +2,10 @@
 import styled, { css, CSSObject } from 'styled-components'
 
 // Theme
-import { themeCssVars, calcSpace, calcPadding } from '@Theme'
+import { themeCssVars, calcSpace, calcPadding } from '@theme'
 
 // Types
-import { Typography, Typographys } from '@Types'
+import { Typography, Typographys } from '@types'
 
 // Base Class Name
 export const BASE_CLASS_NAME = 'text'
@@ -92,6 +92,12 @@ const getVariantCss = (variant: Typography) => {
   const cssVariant = css(cssProps)
   return cssVariant.join('')
 }
+
+// const getColorCss = (colorType: TextColors) => {
+//   const { } = themeCssVars.palette.text[colorType]
+
+//   return ''
+// }
 
 const textVariantStyles = () => {
   let styles = ''
