@@ -1,5 +1,5 @@
 // Dependencies
-import styled, { css, CSSObject } from 'styled-components'
+import styled, { CSSObject } from 'styled-components'
 
 // Theme
 import { themeCssVars, calcSpace, calcPadding, generateCss, generateStyles } from '@theme'
