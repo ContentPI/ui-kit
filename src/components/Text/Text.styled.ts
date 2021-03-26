@@ -106,7 +106,7 @@ const getVariantCss = (variant: Typography) => {
 
   const cssStyles = css`
     font-size: ${cssProps.fontSize};
-    font-weight: ${cssProps.fontFamily};
+    font-weight: ${cssProps.fontWeight};
     line-height: ${cssProps.lineHeight};
     ${cssProps.textTransform &&
     css`
