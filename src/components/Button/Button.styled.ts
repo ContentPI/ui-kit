@@ -2,7 +2,7 @@
 import styled, { CSSObject } from 'styled-components'
 
 // Theme
-import { themeCssVars, calcSpace, calcPadding, generateCss, generateStyles } from '@theme'
+import { themeCssVars, calc, generateCss, generateStyles, CalcType } from '@theme'
 
 // Types
 import {
@@ -56,32 +56,32 @@ const getSizesCss = (size: ButtonSize) => {
     fontFamily: 'Poppins',
     fontWeight: 600,
     letterSpacing: '0.75px',
-    borderRadius: calcSpace(2)
+    borderRadius: calc(CalcType.spacing, 2)
   }
 
   switch (size) {
     case ButtonSize.tiny:
-      cssProps.padding = `${calcPadding(1.5, 3)}`
+      cssProps.padding = `${calc(CalcType.padding, [1.5, 3])}`
       cssProps.fontSize = '10px'
       cssProps.lineHeight = '12px'
       break
     case ButtonSize.small:
-      cssProps.padding = `${calcPadding(2, 4)}`
+      cssProps.padding = `${calc(CalcType.padding, [2, 4])}`
       cssProps.fontSize = '12px'
       cssProps.lineHeight = '16px'
       break
     case ButtonSize.medium:
-      cssProps.padding = `${calcPadding(3, 5)}`
+      cssProps.padding = `${calc(CalcType.padding, [3, 5])}`
       cssProps.fontSize = '14px'
       cssProps.lineHeight = '16px'
       break
     case ButtonSize.large:
-      cssProps.padding = `${calcPadding(3.5, 5)}`
+      cssProps.padding = `${calc(CalcType.padding, [3.5, 5])}`
       cssProps.fontSize = '16px'
       cssProps.lineHeight = '20px'
       break
     case ButtonSize.giant:
-      cssProps.padding = `${calcPadding(4, 6)}`
+      cssProps.padding = `${calc(CalcType.padding, [4, 6])}`
       cssProps.fontSize = '18px'
       cssProps.lineHeight = '24px'
       break
