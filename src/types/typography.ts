@@ -1,3 +1,5 @@
+import { ValueOf } from '@types'
+
 export interface IHeading {
   fontFamily?: string
   fontWeight?: number | string
@@ -25,8 +27,6 @@ export interface ITypography {
   caption2: IHeading
   label: IHeading
 }
-
-type ValueOf<T> = T[keyof T]
 
 export const Typography = {
   h1: 'h1',
