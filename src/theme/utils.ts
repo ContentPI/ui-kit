@@ -1,7 +1,7 @@
 import { css, CSSObject } from 'styled-components'
 
 import { themeCssVars } from '@theme'
-import Theme from '@types'
+import Theme, { ValueOf } from '@types'
 
 export const getClass = (BASE_CLASS_NAME: string, className: string) =>
   `${BASE_CLASS_NAME}-${className}`
@@ -75,20 +75,47 @@ export const generateThemeVars = (themes: Record<string, any>) => {
   return allCss
 }
 
-const _calc = (unit: string, multiply: number) => `calc(${unit} * ${multiply})`
-// const calc = (type,object) => {}
+const _calc = (number: number) => `calc(${themeCssVars.shape?.unitBase} * ${number})`
 
-export const calcSpace = (number: number) => _calc(String(themeCssVars.shape?.unitBase), number)
+export const CalcType = {
+  spacing: 'spacing',
+  padding: 'padding'
+} as const
 
-// TODO: fix padding props (top,right,bottom,left)
-export const calcPadding = (left: number, top?: number, right?: number, bottom?: number) => {
-  const padding = []
-  if (left) padding.push(calcSpace(left))
-  if (top) padding.push(calcSpace(top))
-  if (right) padding.push(calcSpace(right))
-  if (bottom) padding.push(calcSpace(bottom))
+export type CalcType = ValueOf<typeof CalcType>
+export const CalcTypes = Object.keys(CalcType)
 
-  return padding.join(' ')
+export const calc = (type: CalcType, data: number | number[]) => {
+  let calcData = ''
+
+  switch (type) {
+    case CalcType.spacing:
+      if (typeof data === 'number') {
+        calcData = _calc(data)
+      }
+      break
+
+    case CalcType.padding:
+      if (Array.isArray(data)) {
+        const padding = []
+
+        const top = data[0]
+        const right = data[1]
+        const bottom = data[2]
+        const left = data[3]
+
+        if (top) padding.push(_calc(top))
+        if (right) padding.push(_calc(right))
+        if (bottom) padding.push(_calc(bottom))
+        if (left) padding.push(_calc(left))
+
+        calcData = padding.join(' ')
+      }
+
+      break
+  }
+
+  return calcData
 }
 
 export const generateCss = (cssStyles: CSSObject) => css(cssStyles).join('')
