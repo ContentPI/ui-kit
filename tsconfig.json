@@ -15,7 +15,8 @@
       "@components": ["src/components/index.ts"],
       "@theme": ["src/theme/index.ts"],
       "@types": ["src/types/index.ts"]
-    }
+    },
+    "typeRoots": ["node_modules/@types", "src/@types"]
   },
   "include": ["src/**/*", "sandbox/*"],
   "exclude": ["node_modules", "**/__tests__/*", ".vscode"]
