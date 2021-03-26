@@ -1,11 +1,4 @@
-export interface IBackground {
-  paper: string
-  main: string
-  light: string
-  dark: string
-}
-
-export interface ITextColors {
+export interface ITextColor {
   textPrimary: string
   textSecondary: string
   textDisabled: string
@@ -25,5 +18,14 @@ export interface IPalette {
   success: IColor
   warning: IColor
   danger: IColor
-  text: ITextColors
+  text: ITextColor
+}
+
+export interface IPaletteGlobal {
+  primary?: IColor
+  info?: IColor
+  success?: IColor
+  warning?: IColor
+  danger?: IColor
+  text?: ITextColor
 }

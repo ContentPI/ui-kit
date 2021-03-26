@@ -1,9 +1,9 @@
-import Theme, { IPalette, ITypography, IShape } from '@types'
-import { generateVarNames, generateThemeVars } from './utils'
+import Theme, { IPalette, ITypography, IShape, IGlobal } from '@types'
+import { generateVarNames, generateThemeVars, getRootVars } from './utils'
 
 const globalFontFamily = "'Poppins'"
 
-export const palette: IPalette = {
+const palette: IPalette = {
   primary: {
     main: '#00BDE5',
     light: '#00BDE5',
@@ -41,7 +41,7 @@ export const palette: IPalette = {
     textHint: '#768191'
   }
 }
-export const typography: ITypography = {
+const typography: ITypography = {
   htmlFontSize: 16,
   fontFamily: globalFontFamily,
   fontSize: 16,
@@ -138,11 +138,20 @@ export const typography: ITypography = {
     textTransform: 'uppercase'
   }
 }
-export const shape: IShape = {
+const shape: IShape = {
   unitBase: '4px'
+}
+const global: IGlobal = {
+  background: {
+    paper: '#fff',
+    main: '#F3F5FA',
+    light: '#FAFAFC',
+    dark: '#F7FAFE'
+  }
 }
 
 export const theme: Theme = {
+  global,
   palette,
   typography,
   shape
@@ -150,17 +159,26 @@ export const theme: Theme = {
 
 export const themeCssVars = generateVarNames({ values: theme })
 
-export const themesCss = generateThemeVars({
-  light: theme,
-  dark: theme
+const dark: IGlobal = {
+  background: {
+    paper: '#fff',
+    main: '#121621',
+    light: '#191E2B',
+    dark: '#171C28'
+  },
+  palette: {
+    text: {
+      textPrimary: '#fff',
+      textSecondary: '#fff',
+      textDisabled: '#fff',
+      textHint: '#fff'
+    }
+  }
+}
+
+export const themeRootVars = getRootVars(theme)
+export const themeVariants = generateThemeVars({
+  dark
 })
 
 export default theme
-
-// background: {
-//   paper: '#fff',
-//   main: '#F3F5FA',
-//   light: '#FAFAFC',
-//   dark: '#F7FAFE'
-// },
-// divider: 'rgba(0, 0, 0, 0.12)'
