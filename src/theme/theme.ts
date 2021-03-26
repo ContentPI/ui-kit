@@ -49,92 +49,93 @@ export const typography: ITypography = {
     fontFamily: globalFontFamily,
     fontWeight: 700,
     fontSize: '2.25rem',
-    lineHeight: 48,
+    lineHeight: '48px',
     letterSpacing: '0.75px'
   },
   h2: {
     fontFamily: globalFontFamily,
     fontWeight: 700,
     fontSize: '2rem',
-    lineHeight: 40,
+    lineHeight: '40px',
     letterSpacing: '0.75px'
   },
   h3: {
     fontFamily: globalFontFamily,
     fontWeight: 700,
     fontSize: '1.875rem',
-    lineHeight: 48,
+    lineHeight: '48px',
     letterSpacing: '0.75px'
   },
   h4: {
     fontFamily: globalFontFamily,
     fontWeight: 700,
     fontSize: '1.625rem',
-    lineHeight: 32,
+    lineHeight: '32px',
     letterSpacing: '0.75px'
   },
   h5: {
     fontFamily: globalFontFamily,
     fontWeight: 700,
     fontSize: '1.375rem',
-    lineHeight: 32,
+    lineHeight: '32px',
     letterSpacing: '0.75px'
   },
   h6: {
     fontFamily: globalFontFamily,
     fontWeight: 700,
     fontSize: '1.125rem',
-    lineHeight: 24,
+    lineHeight: '24px',
     letterSpacing: '0.75px'
   },
   subtitle1: {
     fontFamily: globalFontFamily,
     fontWeight: 600,
     fontSize: '0.938rem',
-    lineHeight: 24,
+    lineHeight: '24px',
     letterSpacing: '0.75px'
   },
   subtitle2: {
     fontFamily: globalFontFamily,
     fontWeight: 600,
     fontSize: '0.813rem',
-    lineHeight: 24,
+    lineHeight: '24px',
     letterSpacing: '0.75px'
   },
   paragraph1: {
     fontFamily: globalFontFamily,
     fontWeight: 400,
     fontSize: '0.938rem',
-    lineHeight: 20,
+    lineHeight: '20px',
     letterSpacing: '0.75px'
   },
   paragraph2: {
     fontFamily: globalFontFamily,
     fontWeight: 400,
     fontSize: '0.813rem',
-    lineHeight: 16,
+    lineHeight: '16px',
     letterSpacing: '0.75px'
   },
   caption1: {
     fontFamily: globalFontFamily,
     fontWeight: 400,
     fontSize: '0.75rem',
-    lineHeight: 16,
+    lineHeight: '16px',
     letterSpacing: '0.75px'
   },
   caption2: {
     fontFamily: globalFontFamily,
     fontWeight: 600,
     fontSize: '0.75rem',
-    lineHeight: 16,
+    lineHeight: '16px',
     letterSpacing: '0.75px'
   },
   label: {
     fontFamily: globalFontFamily,
     fontWeight: 700,
     fontSize: '0.75rem',
-    lineHeight: 16,
-    letterSpacing: '0.75px'
+    lineHeight: '16px',
+    letterSpacing: '0.75px',
+    textTransform: 'uppercase'
   }
 }
 export const shape: IShape = {

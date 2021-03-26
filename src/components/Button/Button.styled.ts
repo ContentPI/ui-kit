@@ -2,7 +2,7 @@
 import styled, { css, CSSObject } from 'styled-components'
 
 // Theme
-import { themeCssVars, calcSpace, calcPadding } from '@theme'
+import { themeCssVars, calcSpace, calcPadding, generateCss, generateStyles } from '@theme'
 
 // Types
 import {
@@ -16,8 +16,6 @@ import {
 
 // Base Class Name
 export const BASE_CLASS_NAME = 'button'
-
-const getClass = (BASE_CLASS_NAME: string, className: string) => `${BASE_CLASS_NAME}-${className}`
 
 // Functions
 const getVariantCss = (colorType: StatusColor, variant: ButtonVariant) => {
@@ -50,9 +48,7 @@ const getVariantCss = (colorType: StatusColor, variant: ButtonVariant) => {
       break
   }
 
-  // Todo create util
-  const cssVariant = css(cssProps).join('')
-  return cssVariant
+  return generateCss(cssProps)
 }
 
 const getSizesCss = (size: ButtonSize) => {
@@ -91,48 +87,24 @@ const getSizesCss = (size: ButtonSize) => {
       break
   }
 
-  const cssVariant = css(cssProps).join('')
-  return cssVariant
+  return generateCss(cssProps)
 }
 
 const getVariantStyles = (variant: ButtonVariant) => {
-  let styles = ''
-  StatusColors.forEach((color: StatusColor) => {
-    styles += `
-      &.${getClass(BASE_CLASS_NAME, color)} {
-        ${getVariantCss(color, variant)}
-      }
-    `
-  })
-
+  const styles = generateStyles(StatusColors, BASE_CLASS_NAME, (color: StatusColor) =>
+    getVariantCss(color, variant)
+  )
   return styles
 }
 
 // Styles
-// TODO: create func for this method (DRY)
 const buttonVariantStyles = () => {
-  let styles = ''
-  ButtonVariants.forEach((variant: ButtonVariant) => {
-    styles += `
-      &.${getClass(BASE_CLASS_NAME, variant)} {
-        ${getVariantStyles(variant)}
-      }
-    `
-  })
-
+  const styles = generateStyles(ButtonVariants, BASE_CLASS_NAME, getVariantStyles)
   return styles
 }
 
 const buttonSizesStyles = () => {
-  let styles = ''
-  ButtonSizes.forEach((size: ButtonSize) => {
-    styles += `
-      &.${getClass(BASE_CLASS_NAME, size)} {
-        ${getSizesCss(size)}
-      }
-    `
-  })
-
+  const styles = generateStyles(ButtonSizes, BASE_CLASS_NAME, getSizesCss)
   return styles
 }
 

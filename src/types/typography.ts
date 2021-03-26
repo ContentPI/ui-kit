@@ -1,9 +1,10 @@
 export interface IHeading {
-  fontFamily: string
-  fontWeight: number | string
-  fontSize: string
-  lineHeight: number | string
-  letterSpacing: string
+  fontFamily?: string
+  fontWeight?: number | string
+  fontSize?: string
+  lineHeight?: number | string
+  letterSpacing?: string
+  textTransform?: string
 }
 
 export interface ITypography {

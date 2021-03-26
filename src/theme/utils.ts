@@ -1,3 +1,5 @@
+import { css, CSSObject } from 'styled-components'
+
 import { themeCssVars } from '@theme'
 import Theme from '@types'
 
@@ -87,4 +89,24 @@ export const calcPadding = (left: number, top?: number, right?: number, bottom?:
   if (bottom) padding.push(calcSpace(bottom))
 
   return padding.join(' ')
+}
+
+export const generateCss = (cssStyles: CSSObject) => css(cssStyles).join('')
+
+export const generateStyles = (
+  data: string[],
+  baseName: string,
+  cb: (...args: any[]) => string
+) => {
+  const styles = data
+    .map((name: string) => {
+      return `
+      &.${getClass(baseName, name)} {
+        ${cb(name)}
+      }
+    `
+    })
+    .join('')
+
+  return styles
 }
