@@ -2,13 +2,13 @@
 import styled, { css, CSSObject } from 'styled-components'
 
 // Theme
-import { themeCssVars, calcSpace, calcPadding } from '@theme'
+import { themeCssVars } from '@theme'
 
 // Types
-import { Typography, Typographys } from '@types'
+import { Typography, Typographys, StatusColor, StatusColors, TextColor, TextColors } from '@types'
 
 // Base Class Name
-export const BASE_CLASS_NAME = 'text'
+export const BASE_CLASS_NAME = 'typography'
 
 const getClass = (BASE_CLASS_NAME: string, className: string) => `${BASE_CLASS_NAME}-${className}`
 
@@ -93,11 +93,27 @@ const getVariantCss = (variant: Typography) => {
   return cssVariant.join('')
 }
 
-// const getColorCss = (colorType: TextColors) => {
-//   const { } = themeCssVars.palette.text[colorType]
+const getColorCss = (colorType: TextColor) => {
+  const color = themeCssVars.palette.text[colorType]
+  const cssProps: CSSObject = {
+    color
+  }
 
-//   return ''
-// }
+  // Todo create util
+  const cssVariant = css(cssProps).join('')
+  return cssVariant
+}
+
+const getStatusColorCss = (colorType: StatusColor) => {
+  const { main } = themeCssVars.palette[colorType]
+  const cssProps: CSSObject = {
+    color: main
+  }
+
+  // Todo create util
+  const cssStatusColor = css(cssProps).join('')
+  return cssStatusColor
+}
 
 const textVariantStyles = () => {
   let styles = ''
@@ -112,7 +128,31 @@ const textVariantStyles = () => {
   return styles
 }
 
-console.log(textVariantStyles())
+const textStatusColorStyles = () => {
+  let styles = ''
+  StatusColors.forEach((color: StatusColor) => {
+    styles += `
+      &.${getClass(BASE_CLASS_NAME, color)} {
+        ${getStatusColorCss(color)}
+      }
+    `
+  })
+
+  return styles
+}
+
+const textColorStyles = () => {
+  let styles = ''
+  TextColors.forEach((color: TextColor) => {
+    styles += `
+      &.${getClass(BASE_CLASS_NAME, color)} {
+        ${getColorCss(color)}
+      }
+    `
+  })
+
+  return styles
+}
 
 export const TextBase = styled.p`
   &.${BASE_CLASS_NAME} {
@@ -122,4 +162,6 @@ export const TextBase = styled.p`
     letter-spacing: 0.75px;
   }
   ${textVariantStyles()}
+  ${textColorStyles()}
+  ${textStatusColorStyles()}
 `

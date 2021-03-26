@@ -6,10 +6,10 @@ export interface IBackground {
 }
 
 export interface ITextColors {
-  primary: string
-  secondary: string
-  disabled: string
-  hint: string
+  textPrimary: string
+  textSecondary: string
+  textDisabled: string
+  textHint: string
 }
 
 export interface IColor {

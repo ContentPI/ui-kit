@@ -3,28 +3,30 @@ import React, { FC } from 'react'
 import { cxGenerator } from '@contentpi/lib'
 
 // Types
-import { StatusColor, Typography, TypographyTag } from '@types'
+import { StatusColor, Typography, TypographyTag, TextColor } from '@types'
 
 // Styles
 import { TextBase, BASE_CLASS_NAME } from './Text.styled'
 
 interface TextProps {
-  color?: StatusColor
-  variant?: Typography
+  color?: TextColor
   component?: keyof JSX.IntrinsicElements
+  status?: StatusColor
+  variant?: Typography
 }
 
 const Text: FC<TextProps> = props => {
   const {
     children,
-    color = StatusColor.primary,
-    variant = Typography.paragraph1,
+    color = TextColor.textPrimary,
     component = undefined,
+    status = '',
+    variant = Typography.paragraph1,
     ...btnProps
   } = props
   const classNames = cxGenerator({
     ccn: BASE_CLASS_NAME,
-    data: [color, variant]
+    data: [color, status, variant]
   })
 
   const cpmTag = component || TypographyTag[variant]

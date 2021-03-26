@@ -35,10 +35,10 @@ export const palette: IPalette = {
     contrastText: '#fff'
   },
   text: {
-    primary: '#1E1F22',
-    secondary: '#768191',
-    disabled: '#768191',
-    hint: '#768191'
+    textPrimary: '#1E1F22',
+    textSecondary: '#768191',
+    textDisabled: '#768191',
+    textHint: '#768191'
   }
 }
 export const typography: ITypography = {
@@ -155,3 +155,11 @@ export const themesCss = generateThemeVars({
 })
 
 export default theme
+
+// background: {
+//   paper: '#fff',
+//   main: '#F3F5FA',
+//   light: '#FAFAFC',
+//   dark: '#F7FAFE'
+// },
+// divider: 'rgba(0, 0, 0, 0.12)'
