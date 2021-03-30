@@ -89,19 +89,24 @@ const fontStyles = css`
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 800;
-    src: url('${Poppins800WoffEot}'); /* IE9 Compat Modes */
-    src: local(''), url('${Poppins800WoffEot}') format('embedded-opentype'),
-      /* IE6-IE8 */ url('${Poppins800WoffTwo}') format('woff2'),
+    src:
       /* Super Modern Browsers */ url('${Poppins800Woff}') format('woff'),
-      /* Modern Browsers */ url('${Poppins800Ttf}') format('truetype'),
-      /* Safari, Android, iOS */ url('${Poppins800Svg}') format('svg'); /* Legacy iOS */
+      /* Modern Browsers */ url('${Poppins800Ttf}') format('truetype');
   }
 `
+
+const htmlReset = css`
+  * {
+    outline: none;
+  }
+`
+
 const GlobalStyles = createGlobalStyle`
-    ${fontStyles}
-    
-    ${themeRootVars}
-    ${themeVariants}
+  ${htmlReset}
+  ${fontStyles}
+  
+  ${themeRootVars}
+  ${themeVariants}
 `
 
 export default GlobalStyles
