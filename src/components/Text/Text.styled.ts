@@ -155,8 +155,9 @@ export const TextBase = styled.p`
     font-family: 'Poppins';
     font-weight: bold;
     margin: 0;
-    letter-spacing: 0.75px;
+    display: block;
   }
+
   ${textVariantStyles()}
   ${textColorStyles()}
   ${textStatusColorStyles()}

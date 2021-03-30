@@ -22,7 +22,7 @@ const Text: FC<TextProps> = props => {
     component = undefined,
     status = '',
     variant = Typography.paragraph1,
-    ...btnProps
+    ...restProps
   } = props
   const classNames = cxGenerator({
     ccn: BASE_CLASS_NAME,
@@ -32,7 +32,7 @@ const Text: FC<TextProps> = props => {
   const cpmTag = component || TypographyTag[variant]
 
   return (
-    <TextBase as={cpmTag} className={classNames} {...btnProps}>
+    <TextBase as={cpmTag} className={classNames} {...restProps}>
       {children}
     </TextBase>
   )
