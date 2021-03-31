@@ -1,7 +1,7 @@
 import { css, createGlobalStyle } from 'styled-components'
 
 // Theme
-import { themeRootVars, themeVariants } from '@theme'
+import { themeRootVars, themeCssVars, themeVariants } from '@theme'
 
 // Fonts
 import Poppins400Woff from '../../fonts/poppins-v15-latin-regular.woff'
@@ -71,6 +71,21 @@ const fontStyles = css`
 const htmlReset = css`
   * {
     outline: none;
+  }
+
+  body {
+    margin: 0;
+    background-color: ${themeCssVars.global?.background.dark};
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
   }
 `
 
