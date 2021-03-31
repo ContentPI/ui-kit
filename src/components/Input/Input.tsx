@@ -1,28 +1,72 @@
 // Dependencies
-import React, { FC, ComponentPropsWithoutRef } from 'react'
+import React, { FC, ComponentPropsWithoutRef, useState } from 'react'
 import { cxGenerator } from '@contentpi/lib'
+
+// Icons
+import { Eye, EyeOff } from 'react-feather'
 
 // Types
 import { StatusColor } from '@types'
 
 // Styles
-import { InputBase, BASE_CLASS_NAME } from './Input.styled'
+import { InputWrapper, InputBase, BASE_CLASS_NAME, InputIcon } from './Input.styled'
 
-interface iProps extends ComponentPropsWithoutRef<'input'> {
+export interface InputProps extends ComponentPropsWithoutRef<'input'> {
   status?: StatusColor
+  leftIcon?: React.ElementType
+  rightIcon?: React.ElementType
 }
 
-const Input: FC<iProps> = props => {
-  const { children, status = '', ...restProps } = props
+const Input: FC<InputProps> = props => {
+  const { status = '', type = 'text', leftIcon, rightIcon, ...restProps } = props
+
+  const [hasFocus, setHasFocus] = useState(false)
+  const [showValue, setShowValue] = useState(false)
+
+  const isPassword = type === 'password'
+  const inputType = showValue ? 'text' : type
+  const focusClass = hasFocus ? 'focus' : ''
+
   const classNames = cxGenerator({
     ccn: BASE_CLASS_NAME,
-    data: [status]
+    data: [status, focusClass]
   })
 
+  const handleShowPassword = () => {
+    setShowValue(prev => !prev)
+  }
+
+  const iconProps = {
+    size: 20
+  }
+
+  const LeftIcon = leftIcon
+  const RightIcon = (isPassword && (showValue ? Eye : EyeOff)) || rightIcon
+
   return (
-    <InputBase className={classNames} {...restProps}>
-      {children}
-    </InputBase>
+    <InputWrapper className={classNames}>
+      {LeftIcon && (
+        <InputIcon className="left">
+          <LeftIcon {...iconProps} />
+        </InputIcon>
+      )}
+      <InputBase
+        type={inputType}
+        onFocus={() => setHasFocus(true)}
+        onBlur={() => setHasFocus(false)}
+        {...restProps}
+      />
+      {RightIcon &&
+        (isPassword ? (
+          <InputIcon className="right pointer" as="button" onClick={handleShowPassword}>
+            <RightIcon {...iconProps} />
+          </InputIcon>
+        ) : (
+          <InputIcon className="right">
+            <RightIcon {...iconProps} />
+          </InputIcon>
+        ))}
+    </InputWrapper>
   )
 }
 

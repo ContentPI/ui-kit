@@ -31,7 +31,7 @@ const getColorStyles = () => {
   return styles
 }
 
-export const InputBase = styled.input`
+export const InputWrapper = styled.div`
   width: 250px;
   padding: ${calc(CalcType.padding, [3.5, 4])};
   margin: ${calc(CalcType.spacing, [2, 0])};
@@ -41,20 +41,62 @@ export const InputBase = styled.input`
   box-sizing: border-box;
   box-shadow: 0px 7px 64px rgba(0, 0, 0, 0.07);
   border-radius: ${calc(CalcType.spacing, 2)};
-  font-size: 14px;
-  line-height: 20px;
-
-  font-family: 'Poppins';
 
   &::placeholder {
     color: ${themeCssVars.palette.text.textPlaceholder};
     opacity: 1;
   }
 
-  &:focus,
-  :hover {
+  &:hover {
+    border-color: ${themeCssVars.palette.primary.main};
+  }
+
+  &.${BASE_CLASS_NAME}-focus {
     border-color: ${themeCssVars.palette.primary.main};
   }
 
   ${getColorStyles}
+
+  display: flex;
+  align-items: center;
+`
+
+export const InputBase = styled.input`
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  line-height: 20px;
+
+  font-family: 'Poppins';
+
+  ${getColorStyles}
+`
+
+export const InputIcon = styled.div`
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+
+  height: ${calc(CalcType.spacing, 5)};
+  width: ${calc(CalcType.spacing, 5)};
+
+  &.left {
+    margin-left: 0;
+    margin-right: ${calc(CalcType.spacing, 2)};
+  }
+  &.right {
+    margin-left: ${calc(CalcType.spacing, 2)};
+    margin-right: 0;
+  }
+  &.pointer {
+    cursor: pointer;
+  }
+
+  & > svg {
+    color: ${themeCssVars.palette.text.textSecondary};
+    min-height: 18px;
+    min-width: 18px;
+  }
 `
