@@ -3,6 +3,7 @@ export interface ITextColor {
   textSecondary: string
   textDisabled: string
   textHint: string
+  textPlaceholder: string
 }
 
 export interface IColor {

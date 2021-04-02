@@ -35,10 +35,12 @@ const palette: IPalette = {
     contrastText: '#fff'
   },
   text: {
-    textPrimary: '#1E1F22',
+    // textPrimary: '#1E1F22',
+    textPrimary: '#2E3A49',
     textSecondary: '#768191',
     textDisabled: '#768191',
-    textHint: '#768191'
+    textHint: '#cdd9ed',
+    textPlaceholder: '#D0C9D6'
   }
 }
 const typography: ITypography = {
@@ -97,7 +99,7 @@ const typography: ITypography = {
   subtitle2: {
     fontFamily: globalFontFamily,
     fontWeight: 600,
-    fontSize: '0.813rem',
+    fontSize: '0.875rem',
     lineHeight: '24px',
     letterSpacing: '0.75px'
   },
@@ -124,18 +126,16 @@ const typography: ITypography = {
   },
   caption2: {
     fontFamily: globalFontFamily,
-    fontWeight: 600,
+    fontWeight: 500,
     fontSize: '0.75rem',
-    lineHeight: '16px',
-    letterSpacing: '0.75px'
+    lineHeight: '18px'
   },
   label: {
     fontFamily: globalFontFamily,
-    fontWeight: 700,
-    fontSize: '0.75rem',
-    lineHeight: '16px',
-    letterSpacing: '0.75px',
-    textTransform: 'uppercase'
+    fontWeight: 600,
+    fontSize: '0.875rem',
+    lineHeight: '24px',
+    letterSpacing: '0.75px'
   }
 }
 const shape: IShape = {
@@ -171,7 +171,8 @@ const dark: IGlobal = {
       textPrimary: '#fff',
       textSecondary: '#fff',
       textDisabled: '#fff',
-      textHint: '#fff'
+      textHint: '#fff',
+      textPlaceholder: '#fff'
     }
   }
 }
