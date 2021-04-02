@@ -57,7 +57,15 @@ export const TypographyTag: Record<Typography, keyof JSX.IntrinsicElements> = {
   subtitle2: 'p',
   paragraph1: 'p',
   paragraph2: 'p',
-  caption1: 'span',
+  caption1: 'small',
   caption2: 'span',
   label: 'label'
 }
+
+export const TextAlign = {
+  left: 'left',
+  right: 'right',
+  center: 'center'
+} as const
+export type TextAlign = ValueOf<typeof TextAlign>
+export const TextAligns = Object.keys(TextAlign)
