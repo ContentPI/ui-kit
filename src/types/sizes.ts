@@ -1,11 +1,10 @@
 import { ValueOf } from '@types'
 
 export const ButtonSize = {
-  giant: 'giant',
-  large: 'large',
-  medium: 'medium',
-  small: 'small',
-  tiny: 'tiny'
+  xl: 'xl',
+  lg: 'lg',
+  md: 'md',
+  sm: 'sm'
 } as const
 
 export type ButtonSize = ValueOf<typeof ButtonSize>

@@ -18,7 +18,7 @@ const Button: FC<iProps> = props => {
   const {
     children,
     color = StatusColor.primary,
-    size = ButtonSize.medium,
+    size = ButtonSize.md,
     variant = ButtonVariant.contained,
     ...btnProps
   } = props
