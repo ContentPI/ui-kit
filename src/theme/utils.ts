@@ -104,10 +104,10 @@ export const calc = (type: CalcType, data: number | number[]) => {
         const bottom = data[2]
         const left = data[3]
 
-        if (top) padding.push(_calc(top))
-        if (right) padding.push(_calc(right))
-        if (bottom) padding.push(_calc(bottom))
-        if (left) padding.push(_calc(left))
+        if (top === 0 || top) padding.push(_calc(top))
+        if (right === 0 || right) padding.push(_calc(right))
+        if (bottom === 0 || bottom) padding.push(_calc(bottom))
+        if (left === 0 || left) padding.push(_calc(left))
 
         calcData = padding.join(' ')
       }
