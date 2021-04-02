@@ -46,7 +46,7 @@ const Input: FC<InputProps> = props => {
   return (
     <InputWrapper className={classNames}>
       {LeftIcon && (
-        <InputIcon className="left">
+        <InputIcon className="icon-left">
           <LeftIcon {...iconProps} />
         </InputIcon>
       )}
@@ -58,11 +58,11 @@ const Input: FC<InputProps> = props => {
       />
       {RightIcon &&
         (isPassword ? (
-          <InputIcon className="right pointer" as="button" onClick={handleShowPassword}>
+          <InputIcon className="icon-right pointer" as="button" onClick={handleShowPassword}>
             <RightIcon {...iconProps} />
           </InputIcon>
         ) : (
-          <InputIcon className="right">
+          <InputIcon className="icon-right">
             <RightIcon {...iconProps} />
           </InputIcon>
         ))}

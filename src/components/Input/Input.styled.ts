@@ -33,7 +33,7 @@ const getColorStyles = () => {
 
 export const InputWrapper = styled.div`
   width: 250px;
-  padding: ${calc(CalcType.padding, [3.5, 4])};
+  padding: ${calc(CalcType.padding, [3.25, 4])};
   margin: ${calc(CalcType.spacing, [2, 0])};
 
   background: ${themeCssVars.global?.background.paper};
@@ -82,11 +82,11 @@ export const InputIcon = styled.div`
   height: ${calc(CalcType.spacing, 5)};
   width: ${calc(CalcType.spacing, 5)};
 
-  &.left {
+  &.icon-left {
     margin-left: 0;
     margin-right: ${calc(CalcType.spacing, 2)};
   }
-  &.right {
+  &.icon-right {
     margin-left: ${calc(CalcType.spacing, 2)};
     margin-right: 0;
   }
