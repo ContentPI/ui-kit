@@ -112,12 +112,18 @@ export const ButtonBase = styled.button`
     vertical-align: middle;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
       border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
     &:not(:disabled) {
       cursor: pointer;
     }
+
     &:disabled {
       pointer-events: none;
       opacity: 0.5;
+    }
+
+    &.${BASE_CLASS_NAME}-full-width {
+      width: 100%;
     }
   }
   ${buttonVariantStyles()}

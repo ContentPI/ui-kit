@@ -12,13 +12,14 @@ import { StatusColor } from '@types'
 import { InputWrapper, InputBase, BASE_CLASS_NAME, InputIcon } from './Input.styled'
 
 export interface InputProps extends ComponentPropsWithoutRef<'input'> {
-  status?: StatusColor
+  fullWidth?: boolean
   leftIcon?: React.ElementType
   rightIcon?: React.ElementType
+  status?: StatusColor
 }
 
 const Input: FC<InputProps> = props => {
-  const { status = '', type = 'text', leftIcon, rightIcon, ...restProps } = props
+  const { status = '', type = 'text', leftIcon, rightIcon, fullWidth = false, ...restProps } = props
 
   const [hasFocus, setHasFocus] = useState(false)
   const [showValue, setShowValue] = useState(false)
@@ -26,10 +27,11 @@ const Input: FC<InputProps> = props => {
   const isPassword = type === 'password'
   const inputType = showValue ? 'text' : type
   const focusClass = hasFocus ? 'focus' : ''
+  const fullWidthClass = fullWidth ? 'full-width' : ''
 
   const classNames = cxGenerator({
     ccn: BASE_CLASS_NAME,
-    data: [status, focusClass]
+    data: [status, focusClass, fullWidthClass]
   })
 
   const handleShowPassword = () => {

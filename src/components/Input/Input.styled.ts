@@ -55,6 +55,10 @@ export const InputWrapper = styled.div`
     border-color: ${themeCssVars.palette.primary.main};
   }
 
+  &.${BASE_CLASS_NAME}-full-width {
+    width: 100%;
+  }
+
   ${getColorStyles}
 
   display: flex;
