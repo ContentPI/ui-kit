@@ -11,9 +11,17 @@ import { InputWrapper } from '../Input/Input.styled'
 export const BASE_CLASS_NAME = 'textField'
 
 export const TextFieldBase = styled.div`
-  margin-bottom: ${calc(CalcType.spacing, 4)};
-
   & > ${InputWrapper} {
-    margin: ${calc(CalcType.padding, [2, 0])};
+    margin-top: ${calc(CalcType.spacing, 2)};
+  }
+
+  &.${BASE_CLASS_NAME}-full-width {
+    width: 100%;
+  }
+
+  &.${BASE_CLASS_NAME}-helper-text {
+    & > :last-child {
+      margin-top: ${calc(CalcType.spacing, 2)};
+    }
   }
 `
