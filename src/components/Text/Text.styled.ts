@@ -6,13 +6,15 @@ import { themeCssVars, generateCss, generateStyles } from '@theme'
 
 // Types
 import {
-  Typography,
-  Typographys,
+  IHeading,
   StatusColor,
   StatusColors,
+  TextAlign,
+  TextAligns,
   TextColor,
   TextColors,
-  IHeading
+  Typography,
+  Typographys
 } from '@types'
 
 // Base Class Name
@@ -135,6 +137,14 @@ const getStatusColorCss = (colorType: StatusColor) => {
   return generateCss(cssProps)
 }
 
+const getAlignCss = (align: TextAlign) => {
+  const cssProps: CSSObject = {
+    textAlign: align
+  }
+
+  return generateCss(cssProps)
+}
+
 const textVariantStyles = () => {
   const styles = generateStyles(Typographys, BASE_CLASS_NAME, getVariantCss)
   return styles
@@ -150,6 +160,11 @@ const textColorStyles = () => {
   return styles
 }
 
+const textAlignStyles = () => {
+  const styles = generateStyles(TextAligns, BASE_CLASS_NAME, getAlignCss)
+  return styles
+}
+
 export const TextBase = styled.p`
   &.${BASE_CLASS_NAME} {
     font-family: 'Poppins';
@@ -161,4 +176,5 @@ export const TextBase = styled.p`
   ${textVariantStyles()}
   ${textColorStyles()}
   ${textStatusColorStyles()}
+  ${textAlignStyles()}
 `
