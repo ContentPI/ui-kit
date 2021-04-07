@@ -5,10 +5,15 @@ import { cxGenerator } from '@contentpi/lib'
 // Styles
 import { PaperBase, BASE_CLASS_NAME } from './Paper.styled'
 
-const Paper: FC = ({ children }) => {
+interface PaperProps {
+  className?: string
+}
+
+const Paper: FC<PaperProps> = ({ children, className }) => {
   const classNames = cxGenerator({
     ccn: BASE_CLASS_NAME,
-    data: []
+    data: [],
+    className
   })
 
   return <PaperBase className={classNames}>{children}</PaperBase>
