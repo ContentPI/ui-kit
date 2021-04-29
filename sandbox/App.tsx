@@ -8,7 +8,7 @@ import styled, { createGlobalStyle } from 'styled-components'
 import Icon from '../src/components/Icon'
 
 // Theme
-import { getThemeVars } from '../src/theme'
+import { themeVariants, themeRootVars } from '../src/theme'
 
 // Data
 import { buttons, CodeBlock } from './data'
@@ -26,10 +26,9 @@ export const Toggle: FC = () => {
   return <button onClick={() => setTheme(nextTheme)}>Change to {nextTheme} mode</button>
 }
 
-const cssVars = getThemeVars()
-
 const GlobalStyle = createGlobalStyle`
-  ${cssVars}
+  ${themeRootVars}
+  ${themeVariants}
 `
 
 const StyledApp = styled.div`

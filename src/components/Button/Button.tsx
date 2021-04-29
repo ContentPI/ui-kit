@@ -1,21 +1,29 @@
+// Dependencies
 import React, { FC, ComponentPropsWithoutRef } from 'react'
 import { cxGenerator } from '@contentpi/lib'
+
+// Types
+import { ButtonVariant, ButtonSize, StatusColor, Size, Variant, Color, Shape } from '@types'
+
+// Components
 import Spinner from '../Spinner'
-import { Size, Variant, Color, Shape } from '../../types'
+
+// Styles
 import { StyledButton, StyledLinkButton, BASE_CLASS_NAME } from './Button.styled'
 
-interface Props extends ComponentPropsWithoutRef<'button'> {
-  color?: Color
+interface IProps extends ComponentPropsWithoutRef<'button'> {
+  color?: StatusColor
+  fullWidth?: boolean
+  size?: ButtonSize
+  variant?: ButtonVariant
   href?: string
   shape?: Shape
-  size?: Size
-  variant?: Variant
   disabled?: boolean
   isLoading?: boolean
   loadingText?: string
 }
 
-const Button: FC<Props> = props => {
+const Button: FC<IProps> = props => {
   const {
     color = Color.primary,
     children,
@@ -26,10 +34,12 @@ const Button: FC<Props> = props => {
     shape = '',
     size = Size.medium,
     variant = Variant.contained,
+    fullWidth = false,
     ...btnProps
   } = props
   let buttonText: any = children
-  const buttonData = [color, size, variant, color, shape]
+  const fullWidthClass = fullWidth ? 'full-width' : ''
+  const buttonData = [color, size, variant, color, shape, fullWidthClass]
 
   if (isLoading || disabled) {
     buttonData.push('disabled')

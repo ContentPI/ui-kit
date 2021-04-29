@@ -1,27 +1,21 @@
-import { Theme, Style, FontWeight, FontSize } from '../types'
-import { getStyleVars, getRootVars } from './utils'
-import { palette } from './palette'
+import { Theme } from '@types'
+import palette, { dark } from './palette'
+import global from './global'
+import typography from './typography'
+import unit from './unit'
+import { generateVarNames, generateThemeVars, getRootVars } from './utils'
 
-const defaultTheme: Theme = {
-  global: {
-    font: {
-      size: FontSize,
-      weight: FontWeight
-    }
-  },
-  style: {
-    light: palette('light'),
-    dark: palette('dark')
-  }
+export const theme: Theme = {
+  global,
+  palette,
+  typography,
+  unit
 }
 
-export const getThemeVars = (): string => {
-  const availableStyles = Object.keys(defaultTheme.style)
-  let styleVars = ''
+export const themeCssVars = generateVarNames({ values: theme })
+export const themeRootVars = getRootVars(theme)
+export const themeVariants = generateThemeVars({
+  dark
+})
 
-  availableStyles.forEach((style: Style) => {
-    styleVars += getStyleVars(style, defaultTheme.style[style])
-  })
-
-  return getRootVars(palette) + getRootVars(defaultTheme.global) + styleVars
-}
+export default theme

@@ -1,18 +1,13 @@
-import { FontWeight } from './fontWeight'
-import { FontSize } from './fontSize'
-import { Palette } from './palette'
-
-export type Style = 'light' | 'dark'
+import { IBreakpoints } from './breakpoints'
+import { IGlobal } from './global'
+import { IPalette } from './palette'
+import { IUnit } from './unit'
+import { ITypography } from './typography'
 
 export interface Theme {
-  global: {
-    font: {
-      size: FontSize
-      weight: FontWeight
-    }
-  }
-  style: {
-    light: Palette
-    dark: Palette
-  }
+  breakpoints?: IBreakpoints
+  global?: IGlobal
+  palette: IPalette
+  unit?: IUnit
+  typography?: ITypography
 }

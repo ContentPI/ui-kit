@@ -105,7 +105,6 @@ export const buttons: CodeBlock[] = [
         <Button color="success">Success</Button>
         <Button color="warning">Warning</Button>
         <Button color="danger">Danger</Button>
-        <Button color="link">Link</Button>
       </>
     ),
     code: `
@@ -114,7 +113,6 @@ export const buttons: CodeBlock[] = [
     <Button color="success">Success</Button>
     <Button color="warning">Warning</Button>
     <Button color="danger">Danger</Button>
-    <Button color="link">Link</Button>
     `
   },
   {
@@ -138,9 +136,6 @@ export const buttons: CodeBlock[] = [
         <Button color="danger" href="#">
           Danger
         </Button>
-        <Button color="link" href="#">
-          Link
-        </Button>
       </>
     ),
     code: `
@@ -149,7 +144,6 @@ export const buttons: CodeBlock[] = [
     <Button color="success" href="#">Success</Button>
     <Button color="warning" href="#">Warning</Button>
     <Button color="danger" href="#">Danger</Button>
-    <Button color="link" href="#">Link</Button>
     `
   },
   {
