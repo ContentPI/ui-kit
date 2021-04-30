@@ -1,11 +1,11 @@
 import { ValueOf } from '@types'
 
 export const Size = {
-  xSmall: 'xs',
-  small: 'sm',
-  medium: 'md',
-  large: 'lg',
-  xLarge: 'xl'
+  xSmall: 'xSmall',
+  small: 'small',
+  medium: 'medium',
+  large: 'large',
+  xLarge: 'xLarge'
 } as const
 
 export const ButtonSize = {
