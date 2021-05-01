@@ -5,6 +5,10 @@ export const initialProps = {
 }
 
 export default {
+  children: {
+    type: 'text',
+    value: ''
+  },
   color: {
     type: 'dropdown',
     value: ['primary', 'info', 'success', 'warning', 'danger', 'text']

@@ -1,5 +1,5 @@
 // Dependencies
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 
 // Components
