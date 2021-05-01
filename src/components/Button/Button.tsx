@@ -11,7 +11,7 @@ import Spinner from '../Spinner'
 // Styles
 import { StyledButton, StyledLinkButton, BASE_CLASS_NAME } from './Button.styled'
 
-interface IProps extends ComponentPropsWithoutRef<'button'> {
+export interface IProps extends ComponentPropsWithoutRef<'button'> {
   color?: StatusColor
   fullWidth?: boolean
   size?: ButtonSize

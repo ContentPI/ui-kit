@@ -1,5 +1,5 @@
 // Dependencies
-import React, { FC, useState, useRef } from 'react'
+import React, { FC, Fragment, useState } from 'react'
 
 // Components
 import Input from '../Input'
@@ -10,7 +10,8 @@ import {
   StyledPreviewArea,
   StyledPreviewProps,
   StyledPreviewCode,
-  StyledTag
+  StyledYellow,
+  StyledWhite
 } from './Preview.styled'
 
 interface IProps {
@@ -22,9 +23,14 @@ const getAttributes = (props: any) => {
   let str = ''
 
   Object.keys(props).forEach((prop: any) => {
-    if (prop !== 'children') {
-      str += `
-    ${prop}="${props[prop]}"`
+    if (prop !== 'children' && props[prop]) {
+      if (props[prop] === true) {
+        str += `
+    <span class="red">${prop}</span>`
+      } else {
+        str += `
+    <span class="red">${prop}</span><span class="white">="</span><span class="green">${props[prop]}</span><span class="white">"</span>`
+      }
     }
   })
 
@@ -36,8 +42,6 @@ const Preview: FC<IProps> = ({ components, initialProps }) => {
   const Component = components[0].component
   const propsDefinitions = components[0].props
   const fields = Object.keys(propsDefinitions)
-
-  const codeElement = useRef<HTMLElement | null>(null)
 
   const handleChange = (e: any) => {
     const {
@@ -66,21 +70,24 @@ const Preview: FC<IProps> = ({ components, initialProps }) => {
         <Component {...props} />
 
         <StyledPreviewCode>
-          <code className="language-jsx" ref={codeElement}>
-            <StyledTag>&nbsp; &lt;{Component.name}</StyledTag>
-            {getAttributes(props)}
+          <div className="language-jsx">
+            &nbsp; <StyledWhite>&lt;</StyledWhite>
+            <StyledYellow>{Component.name}</StyledYellow>
+            <span dangerouslySetInnerHTML={{ __html: getAttributes(props) }} />
             {!props.children ? '/' : <> {'\n'}</>}
-            &nbsp; <StyledTag>&gt;</StyledTag> {'\n'}
+            &nbsp; <StyledWhite>&gt;</StyledWhite> {'\n'}
             &nbsp;&nbsp;&nbsp;&nbsp;{props.children ? props.children : ''} {'\n'}
             &nbsp;{' '}
             {props.children ? (
               <>
-                <StyledTag>&lt;/{Component.name}&gt;</StyledTag>
+                <StyledWhite>&lt;/</StyledWhite>
+                <StyledYellow>{Component.name}</StyledYellow>
+                <StyledWhite>&gt;</StyledWhite>
               </>
             ) : (
               ''
             )}
-          </code>
+          </div>
         </StyledPreviewCode>
       </StyledPreviewArea>
       <StyledPreviewProps>
@@ -91,7 +98,7 @@ const Preview: FC<IProps> = ({ components, initialProps }) => {
 
             if (type === 'text') {
               return (
-                <li>
+                <li key={field}>
                   <p>
                     <strong>{field}</strong>
                   </p>
@@ -104,7 +111,7 @@ const Preview: FC<IProps> = ({ components, initialProps }) => {
 
             if (type === 'boolean') {
               return (
-                <li>
+                <li key={field}>
                   <p>
                     <strong>{field}</strong>
                   </p>
@@ -117,14 +124,14 @@ const Preview: FC<IProps> = ({ components, initialProps }) => {
 
             if (type === 'dropdown') {
               return (
-                <li>
+                <li key={field}>
                   <p>
                     <strong>{field}</strong>
                   </p>
                   <p>
                     <select name={field} onChange={handleChange}>
                       {value.map((v: any) => (
-                        <option>{v}</option>
+                        <option key={v}>{v}</option>
                       ))}
                     </select>
                   </p>
@@ -132,7 +139,7 @@ const Preview: FC<IProps> = ({ components, initialProps }) => {
               )
             }
 
-            return <li>{field}</li>
+            return <li key={field}>{field}</li>
           })}
         </ul>
       </StyledPreviewProps>
