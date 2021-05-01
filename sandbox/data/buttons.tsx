@@ -105,7 +105,6 @@ export const buttons: CodeBlock[] = [
         <Button color="success">Success</Button>
         <Button color="warning">Warning</Button>
         <Button color="danger">Danger</Button>
-        <Button color="link">Link</Button>
       </>
     ),
     code: `
@@ -114,7 +113,6 @@ export const buttons: CodeBlock[] = [
     <Button color="success">Success</Button>
     <Button color="warning">Warning</Button>
     <Button color="danger">Danger</Button>
-    <Button color="link">Link</Button>
     `
   },
   {
@@ -138,9 +136,6 @@ export const buttons: CodeBlock[] = [
         <Button color="danger" href="#">
           Danger
         </Button>
-        <Button color="link" href="#">
-          Link
-        </Button>
       </>
     ),
     code: `
@@ -149,7 +144,6 @@ export const buttons: CodeBlock[] = [
     <Button color="success" href="#">Success</Button>
     <Button color="warning" href="#">Warning</Button>
     <Button color="danger" href="#">Danger</Button>
-    <Button color="link" href="#">Link</Button>
     `
   },
   {
@@ -303,44 +297,44 @@ export const buttons: CodeBlock[] = [
     render: (
       <>
         <p>
-          <Button color="primary" size="sm">
+          <Button color="primary" size="small">
             Small Size
           </Button>
-          <Button color="primary" size="md">
+          <Button color="primary" size="medium">
             Regular Size
           </Button>
-          <Button color="primary" size="lg">
+          <Button color="primary" size="large">
             Large Size
           </Button>
-          <Button color="primary" size="xl">
+          <Button color="primary" size="xLarge">
             ExtraLarge Size
           </Button>
         </p>
         <p>
-          <Button color="primary" size="sm" variant="outlined">
+          <Button color="primary" size="small" variant="outlined">
             Small Size
           </Button>
-          <Button color="primary" size="md" variant="outlined">
+          <Button color="primary" size="medium" variant="outlined">
             Regular Size
           </Button>
-          <Button color="primary" size="lg" variant="outlined">
+          <Button color="primary" size="large" variant="outlined">
             Large Size
           </Button>
-          <Button color="primary" size="xl" variant="outlined">
+          <Button color="primary" size="xLarge" variant="outlined">
             ExtraLarge Size
           </Button>
         </p>
       </>
     ),
     code: `
-    <Button color="primary" size="sm">Small Size</Button>
-    <Button color="primary" size="md">Regular Size</Button>
-    <Button color="primary" size="lg">Large Size</Button>
-    <Button color="primary" size="xl">ExtraLarge Size</Button>
-    <Button color="primary" variant="outlined" size="sm">Primary</Button>
-    <Button color="primary" variant="outlined" size="md">Primary</Button>
-    <Button color="primary" variant="outlined" size="lg">Primary</Button>
-    <Button color="primary" variant="outlined" size="xl">Primary</Button>
+    <Button color="primary" size="small">Small Size</Button>
+    <Button color="primary" size="medium">Regular Size</Button>
+    <Button color="primary" size="large">Large Size</Button>
+    <Button color="primary" size="xLarge">ExtraLarge Size</Button>
+    <Button color="primary" variant="outlined" size="small">Primary</Button>
+    <Button color="primary" variant="outlined" size="medium">Primary</Button>
+    <Button color="primary" variant="outlined" size="large">Primary</Button>
+    <Button color="primary" variant="outlined" size="xLarge">Primary</Button>
     `
   },
   {
@@ -350,45 +344,45 @@ export const buttons: CodeBlock[] = [
     render: (
       <>
         <p>
-          <Button color="primary" size="sm" href="#">
+          <Button color="primary" size="small" href="#">
             Small Size
           </Button>
-          <Button color="primary" size="md" href="#">
+          <Button color="primary" size="medium" href="#">
             Regular Size
           </Button>
-          <Button color="primary" size="lg" href="#">
+          <Button color="primary" size="large" href="#">
             Large Size
           </Button>
-          <Button color="primary" size="xl" href="#">
+          <Button color="primary" size="xLarge" href="#">
             ExtraLarge Size
           </Button>
         </p>
         <br />
         <p>
-          <Button color="primary" size="sm" variant="outlined" href="#">
+          <Button color="primary" size="small" variant="outlined" href="#">
             Small Size
           </Button>
-          <Button color="primary" size="md" variant="outlined" href="#">
+          <Button color="primary" size="medium" variant="outlined" href="#">
             Regular Size
           </Button>
-          <Button color="primary" size="lg" variant="outlined" href="#">
+          <Button color="primary" size="large" variant="outlined" href="#">
             Large Size
           </Button>
-          <Button color="primary" size="xl" variant="outlined" href="#">
+          <Button color="primary" size="xLarge" variant="outlined" href="#">
             ExtraLarge Size
           </Button>
         </p>
       </>
     ),
     code: `
-    <Button color="primary" size="sm" href="#">Small Size</Button>
-    <Button color="primary" size="md" href="#">Regular Size</Button>
-    <Button color="primary" size="lg" href="#">Large Size</Button>
-    <Button color="primary" size="xl" href="#">ExtraLarge Size</Button>
-    <Button color="primary" variant="outlined" size="sm" href="#">Primary</Button>
-    <Button color="primary" variant="outlined" size="md" href="#">Primary</Button>
-    <Button color="primary" variant="outlined" size="lg" href="#">Primary</Button>
-    <Button color="primary" variant="outlined" size="xl" href="#">Primary</Button>
+    <Button color="primary" size="small" href="#">Small Size</Button>
+    <Button color="primary" size="medium" href="#">Regular Size</Button>
+    <Button color="primary" size="large" href="#">Large Size</Button>
+    <Button color="primary" size="xLarge" href="#">ExtraLarge Size</Button>
+    <Button color="primary" variant="outlined" size="small" href="#">Primary</Button>
+    <Button color="primary" variant="outlined" size="medium" href="#">Primary</Button>
+    <Button color="primary" variant="outlined" size="large" href="#">Primary</Button>
+    <Button color="primary" variant="outlined" size="xLarge" href="#">Primary</Button>
     `
   },
   {

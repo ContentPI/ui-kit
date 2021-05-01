@@ -18,6 +18,18 @@ const webpackConfig: any = {
         use: 'ts-loader'
       },
       {
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/'
+            }
+          }
+        ]
+      },
+      {
         test: /\.svg$/,
         oneOf: [
           {
@@ -36,7 +48,10 @@ const webpackConfig: any = {
     extensions: ['*', '.ts', '.tsx', '.js', '.jsx'],
     alias: {
       react: resolve(__dirname, './node_modules/react'),
-      'react-dom': resolve(__dirname, './node_modules/react-dom')
+      'react-dom': resolve(__dirname, './node_modules/react-dom'),
+      '@components': resolve(__dirname, 'src', 'components'),
+      '@theme': resolve(__dirname, 'src', 'theme'),
+      '@types': resolve(__dirname, 'src', 'types')
     },
     fallback: { crypto: false }
   }

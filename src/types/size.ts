@@ -1,12 +1,19 @@
-import { ValueOf } from './global'
+import { ValueOf } from '@types'
 
 export const Size = {
-  small: 'sm',
-  medium: 'md',
-  large: 'lg',
-  xLarge: 'xl'
+  xSmall: 'xSmall',
+  small: 'small',
+  medium: 'medium',
+  large: 'large',
+  xLarge: 'xLarge'
+} as const
+
+export const ButtonSize = {
+  ...Size
 } as const
 
 export type Size = ValueOf<typeof Size>
-
 export const Sizes = Object.keys(Size)
+
+export type ButtonSize = ValueOf<typeof ButtonSize>
+export const ButtonSizes = Object.keys(Size)

@@ -1,11 +1,14 @@
-import { Palette, Style } from '../types'
+import { IPalette, IGlobal } from '@types'
 import colors from './colors'
 
 const {
   alabaster,
+  anakiwa,
   barleyWhite,
   black,
+  bondiBlue,
   blackSqueeze,
+  brightTurquoise,
   caribbeanGreen,
   cerulean,
   cherub,
@@ -19,91 +22,94 @@ const {
   lighterCerulean,
   lipstick,
   mako,
+  mirage,
   mineShaft,
   mySin,
   onahau,
   outerSpace,
   pacificBlue,
   paleSky,
+  shark,
   shuttleGray,
   transparent,
   violetRed,
+  vulcan,
   webOrange,
   white,
   whiteLilac,
-  zanah
+  zanah,
+  turquoise,
+  saffron,
+  grandis,
+  chelseaGem,
+  tickleMePink,
+  oxfordBlue,
+  slateGray,
+  periwinkleGray,
+  graySuit
 } = colors
 
-export const palette = (style: Style): Palette => {
-  const assignColor = (colorA: string, colorB: string) => (style === 'light' ? colorA : colorB)
-
-  return {
-    background: {
-      paper: assignColor(white, black),
-      default: assignColor(whiteLilac, black)
-    },
-    primary: {
-      alternativeText: assignColor(congressBlue, black),
-      contrastText: assignColor(white, black),
-      dark: assignColor(cerulean, black),
-      light: assignColor(onahau, black),
-      main: assignColor(lighterCerulean, black)
-    },
-    secondary: {
-      alternativeText: assignColor(mineShaft, black),
-      contrastText: assignColor(white, black),
-      dark: assignColor(paleSky, black),
-      light: assignColor(iron, black),
-      main: assignColor(shuttleGray, black)
-    },
-    info: {
-      alternativeText: assignColor(mineShaft, black),
-      contrastText: assignColor(white, black),
-      dark: assignColor(easternBlue, black),
-      light: assignColor(iceberg, black),
-      main: assignColor(pacificBlue, black)
-    },
-    success: {
-      alternativeText: assignColor(mineShaft, black),
-      contrastText: assignColor(white, black),
-      dark: assignColor(greenHaze, black),
-      light: assignColor(zanah, black),
-      main: assignColor(caribbeanGreen, black)
-    },
-    warning: {
-      alternativeText: assignColor(mineShaft, black),
-      contrastText: assignColor(white, black),
-      dark: assignColor(webOrange, black),
-      light: assignColor(barleyWhite, black),
-      main: assignColor(mySin, black)
-    },
-    danger: {
-      alternativeText: assignColor(mineShaft, black),
-      contrastText: assignColor(white, black),
-      dark: assignColor(lipstick, black),
-      light: assignColor(cherub, black),
-      main: assignColor(violetRed, black)
-    },
-    dark: {
-      alternativeText: assignColor(gallery, black),
-      contrastText: assignColor(white, black),
-      dark: assignColor(codGray, black),
-      light: assignColor(outerSpace, black),
-      main: assignColor(outerSpace, black)
-    },
-    light: {
-      alternativeText: assignColor(outerSpace, black),
-      contrastText: assignColor(mako, black),
-      dark: assignColor(iron, black),
-      light: assignColor(alabaster, black),
-      main: assignColor(blackSqueeze, black)
-    },
-    link: {
-      alternativeText: assignColor(mineShaft, black),
-      contrastText: assignColor(lighterCerulean, black),
-      dark: assignColor(transparent, black),
-      light: assignColor(outerSpace, black),
-      main: assignColor(transparent, black)
+export const dark: IGlobal = {
+  background: {
+    paper: white,
+    main: vulcan,
+    light: mirage,
+    dark: shark
+  },
+  palette: {
+    text: {
+      primary: white,
+      secondary: white,
+      disabled: white,
+      hint: white,
+      placeholder: white
     }
   }
 }
+
+const palette: IPalette = {
+  primary: {
+    alternativeText: congressBlue,
+    main: lighterCerulean,
+    light: onahau,
+    dark: cerulean,
+    contrastText: white
+  },
+  info: {
+    alternativeText: mineShaft,
+    main: pacificBlue,
+    light: iceberg,
+    dark: easternBlue,
+    contrastText: white
+  },
+  success: {
+    alternativeText: brightTurquoise,
+    main: caribbeanGreen,
+    light: turquoise,
+    dark: greenHaze,
+    contrastText: white
+  },
+  warning: {
+    alternativeText: mineShaft,
+    main: saffron,
+    light: grandis,
+    dark: webOrange,
+    contrastText: white
+  },
+  danger: {
+    alternativeText: mineShaft,
+    main: violetRed,
+    light: cherub,
+    dark: lipstick,
+    contrastText: white
+  },
+  text: {
+    primary: oxfordBlue,
+    secondary: slateGray,
+    disabled: slateGray,
+    hint: periwinkleGray,
+    placeholder: graySuit
+  }
+}
+
+export default palette
