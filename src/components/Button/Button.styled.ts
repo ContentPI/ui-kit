@@ -29,9 +29,13 @@ const getVariantCss = (colorType: StatusColor, variant: ButtonVariant) => {
     case ButtonVariant.contained:
       cssProps.color = contrastText
       cssProps.backgroundColor = main
-      cssProps.borderColor = main
       cssProps['&:hover'] = {
-        backgroundColor: dark
+        backgroundColor: dark,
+        color: contrastText
+      }
+
+      cssProps['&:hover a'] = {
+        color: contrastText
       }
 
       break
@@ -47,6 +51,7 @@ const getVariantCss = (colorType: StatusColor, variant: ButtonVariant) => {
       break
     case ButtonVariant.text:
       cssProps.backgroundColor = 'white'
+
       break
   }
 
@@ -138,11 +143,13 @@ export const buttonStyle = `
 
 export const StyledButton = styled.button`
   position: relative;
+
   img {
     position: absolute;
     top: 11px;
     left: 14px;
   }
+
   ${buttonStyle}
   ${buttonVariantStyles()}
   ${buttonSizesStyles()}
@@ -157,12 +164,14 @@ export const StyledLinkButton = styled.span`
     position: relative;
     display: inline-block;
     text-decoration: none;
+
     img {
       position: absolute;
       top: -1px;
       left: -6px;
     }
   }
+
   ${buttonStyle}
   ${buttonVariantStyles()}
   ${buttonSizesStyles()}

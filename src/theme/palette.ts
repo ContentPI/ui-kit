@@ -69,17 +69,17 @@ export const dark: IGlobal = {
 
 const palette: IPalette = {
   primary: {
-    alternativeText: lighterCerulean,
+    alternativeText: congressBlue,
     main: lighterCerulean,
-    light: lighterCerulean,
-    dark: lighterCerulean,
+    light: onahau,
+    dark: cerulean,
     contrastText: white
   },
   info: {
-    alternativeText: brightTurquoise,
-    main: brightTurquoise,
-    light: anakiwa,
-    dark: bondiBlue,
+    alternativeText: mineShaft,
+    main: pacificBlue,
+    light: iceberg,
+    dark: easternBlue,
     contrastText: white
   },
   success: {
@@ -90,16 +90,16 @@ const palette: IPalette = {
     contrastText: white
   },
   warning: {
-    alternativeText: saffron,
+    alternativeText: mineShaft,
     main: saffron,
     light: grandis,
-    dark: chelseaGem,
+    dark: webOrange,
     contrastText: white
   },
   danger: {
-    alternativeText: violetRed,
+    alternativeText: mineShaft,
     main: violetRed,
-    light: tickleMePink,
+    light: cherub,
     dark: lipstick,
     contrastText: white
   },
