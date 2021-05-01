@@ -1,7 +1,6 @@
 export const initialProps = {
   children: 'Button',
-  color: 'danger',
-  href: '#'
+  color: 'danger'
 }
 
 export default {
@@ -9,17 +8,17 @@ export default {
     type: 'text',
     value: ''
   },
-  color: {
-    type: 'dropdown',
-    value: ['primary', 'info', 'success', 'warning', 'danger', 'text']
-  },
   href: {
     type: 'text',
     value: ''
   },
-  disabled: {
-    type: 'boolean',
-    value: false
+  loadingText: {
+    type: 'text',
+    value: 'Creating'
+  },
+  color: {
+    type: 'dropdown',
+    value: ['primary', 'info', 'success', 'warning', 'danger', 'text']
   },
   variant: {
     type: 'dropdown',
@@ -29,9 +28,13 @@ export default {
     type: 'dropdown',
     value: ['small', 'medium', 'large', 'xLarge']
   },
-  loadingText: {
-    type: 'text',
-    value: 'Creating'
+  shape: {
+    type: 'dropdown',
+    value: ['regular', 'round', 'square']
+  },
+  disabled: {
+    type: 'boolean',
+    value: false
   },
   isLoading: {
     type: 'boolean',
@@ -40,9 +43,5 @@ export default {
   fullWidth: {
     type: 'boolean',
     value: false
-  },
-  shape: {
-    type: 'dropdown',
-    value: ['regular', 'round', 'square']
   }
 }

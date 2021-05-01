@@ -66,83 +66,88 @@ const Preview: FC<IProps> = ({ components, initialProps }) => {
 
   return (
     <StyledPreview>
-      <StyledPreviewArea>
-        <Component {...props} />
+      <div style={{ display: 'flex' }}>
+        <StyledPreviewArea>
+          <Component {...props} />
+        </StyledPreviewArea>
+        <StyledPreviewProps>
+          <h2>Props</h2>
+          <ul>
+            {fields.map((field: any) => {
+              const { type, value } = propsDefinitions[field]
 
-        <StyledPreviewCode>
-          <div className="language-jsx">
-            &nbsp; <StyledWhite>&lt;</StyledWhite>
-            <StyledYellow>{Component.name}</StyledYellow>
-            <span dangerouslySetInnerHTML={{ __html: getAttributes(props) }} />
-            {!props.children ? '/' : <> {'\n'}</>}
-            &nbsp; <StyledWhite>&gt;</StyledWhite> {'\n'}
-            &nbsp;&nbsp;&nbsp;&nbsp;{props.children ? props.children : ''} {'\n'}
-            &nbsp;{' '}
-            {props.children ? (
-              <>
-                <StyledWhite>&lt;/</StyledWhite>
-                <StyledYellow>{Component.name}</StyledYellow>
-                <StyledWhite>&gt;</StyledWhite>
-              </>
-            ) : (
-              ''
-            )}
-          </div>
-        </StyledPreviewCode>
-      </StyledPreviewArea>
-      <StyledPreviewProps>
-        <h2>Props</h2>
-        <ul>
-          {fields.map((field: any) => {
-            const { type, value } = propsDefinitions[field]
+              if (type === 'text') {
+                return (
+                  <li key={field}>
+                    <p>
+                      <strong>{field}</strong>
+                    </p>
+                    <div>
+                      <input
+                        name={field}
+                        type="text"
+                        onChange={handleChange}
+                        value={props[field]}
+                      />
+                    </div>
+                  </li>
+                )
+              }
 
-            if (type === 'text') {
-              return (
-                <li key={field}>
-                  <p>
-                    <strong>{field}</strong>
-                  </p>
-                  <div>
-                    <Input name={field} type="text" onChange={handleChange} value={props[field]} />
-                  </div>
-                </li>
-              )
-            }
+              if (type === 'boolean') {
+                return (
+                  <li key={field}>
+                    <p>
+                      <strong>{field}</strong>{' '}
+                      <input name={field} type="checkbox" onChange={handleChange} />
+                    </p>
+                  </li>
+                )
+              }
 
-            if (type === 'boolean') {
-              return (
-                <li key={field}>
-                  <p>
-                    <strong>{field}</strong>
-                  </p>
-                  <p>
-                    <input name={field} type="checkbox" onChange={handleChange} />
-                  </p>
-                </li>
-              )
-            }
+              if (type === 'dropdown') {
+                return (
+                  <li key={field}>
+                    <p>
+                      <strong>{field}</strong>
+                    </p>
+                    <div>
+                      <select name={field} onChange={handleChange}>
+                        {value.map((v: any) => (
+                          <option key={v}>{v}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </li>
+                )
+              }
 
-            if (type === 'dropdown') {
-              return (
-                <li key={field}>
-                  <p>
-                    <strong>{field}</strong>
-                  </p>
-                  <p>
-                    <select name={field} onChange={handleChange}>
-                      {value.map((v: any) => (
-                        <option key={v}>{v}</option>
-                      ))}
-                    </select>
-                  </p>
-                </li>
-              )
-            }
+              return <li key={field}>{field}</li>
+            })}
+          </ul>
+        </StyledPreviewProps>
+      </div>
 
-            return <li key={field}>{field}</li>
-          })}
-        </ul>
-      </StyledPreviewProps>
+      <StyledPreviewCode>
+        <div className="language-jsx">
+          &nbsp; <StyledWhite>&lt;</StyledWhite>
+          <StyledYellow>{Component.name}</StyledYellow>
+          <span dangerouslySetInnerHTML={{ __html: getAttributes(props) }} />
+          {!props.children ? '/' : <> {'\n'}</>}
+          &nbsp; <StyledWhite>&gt;</StyledWhite> {'\n'}
+          &nbsp;&nbsp;&nbsp;&nbsp;{props.children ? props.children : ''} {'\n'}
+          &nbsp;{' '}
+          {props.children ? (
+            <>
+              <StyledWhite>&lt;/</StyledWhite>
+              <StyledYellow>{Component.name}</StyledYellow>
+              <StyledWhite>&gt;</StyledWhite>
+            </>
+          ) : (
+            ''
+          )}
+        </div>
+      </StyledPreviewCode>
     </StyledPreview>
   )
 }
