@@ -1,8 +1,5 @@
 // Dependencies
-import React, { FC, Fragment, useState } from 'react'
-
-// Components
-import Input from '../Input'
+import React, { FC, useState } from 'react'
 
 // Styles
 import {
@@ -15,8 +12,9 @@ import {
 } from './Preview.styled'
 
 interface IProps {
+  currentComponent: any
   components: any
-  initialProps: any
+  componentIndex: number
 }
 
 const getAttributes = (props: any) => {
@@ -37,10 +35,11 @@ const getAttributes = (props: any) => {
   return str
 }
 
-const Preview: FC<IProps> = ({ components, initialProps }) => {
+const Preview: FC<IProps> = ({ currentComponent, components, componentIndex }) => {
+  const { component: Component, props: propsDefinitions, initialProps } = currentComponent
+
   const [props, setProps] = useState<any>(initialProps)
-  const Component = components[0].component
-  const propsDefinitions = components[0].props
+
   const fields = Object.keys(propsDefinitions)
 
   const handleChange = (e: any) => {
@@ -64,9 +63,29 @@ const Preview: FC<IProps> = ({ components, initialProps }) => {
     }))
   }
 
+  const handleComponentChange = (e: any) => {
+    const {
+      target: { value }
+    } = e
+
+    const currentComponent = components.findIndex((c: any) => c.component.name === value)
+
+    window.location.href = `/${currentComponent}`
+  }
+
   return (
     <StyledPreview>
       <div style={{ display: 'flex' }}>
+        <h1>
+          {Component.name}{' '}
+          <select name="currentComponent" onChange={handleComponentChange}>
+            {components.map((c: any, index: number) => (
+              <option key={c.component.name} selected={Number(componentIndex) === index}>
+                {c.component.name}
+              </option>
+            ))}
+          </select>
+        </h1>
         <StyledPreviewArea>
           <Component {...props} />
         </StyledPreviewArea>
@@ -133,14 +152,20 @@ const Preview: FC<IProps> = ({ components, initialProps }) => {
           &nbsp; <StyledWhite>&lt;</StyledWhite>
           <StyledYellow>{Component.name}</StyledYellow>
           <span dangerouslySetInnerHTML={{ __html: getAttributes(props) }} />
-          {!props.children ? '/' : <> {'\n'}</>}
-          &nbsp; <StyledWhite>&gt;</StyledWhite> {'\n'}
+          {!props.children ? (
+            <>
+              {'\n'}&nbsp;&nbsp;<StyledWhite>/</StyledWhite>
+            </>
+          ) : (
+            <> {'\n'} &nbsp;</>
+          )}
+          <StyledWhite>&gt;</StyledWhite> {'\n'}
           &nbsp;&nbsp;&nbsp;&nbsp;{props.children ? props.children : ''} {'\n'}
           &nbsp;{' '}
           {props.children ? (
             <>
               <StyledWhite>&lt;/</StyledWhite>
-              <StyledYellow>{Component.name}</StyledYellow>
+              {props.children ? <StyledYellow>{Component.name}</StyledYellow> : ''}
               <StyledWhite>&gt;</StyledWhite>
             </>
           ) : (

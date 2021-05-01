@@ -14,6 +14,26 @@ export const StyledPreview = styled.div`
   justify-content: space-between;
   width: 1024px;
   margin: 0 auto;
+  position: relative;
+
+  h1 {
+    margin: 0;
+    padding: 0;
+    background-color: ${mineShaft};
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    position: absolute;
+    padding-top: 10px;
+    padding-bottom: 9px;
+    widht: 500px;
+    display: block;
+    left: 0;
+    right: 260px;
+    z-index: 1;
+  }
 `
 
 export const StyledPreviewArea = styled.div`
@@ -24,10 +44,6 @@ export const StyledPreviewArea = styled.div`
   justify-content: center;
   position: relative;
   padding: 30px;
-`
-
-export const StyledPreviewAreaWrapper = styled.div`
-  border: 1px solid red;
 `
 
 export const StyledPreviewProps = styled.div`
@@ -59,6 +75,7 @@ export const StyledPreviewProps = styled.div`
 
     li {
       p {
+        margin: 0;
         background-color: ${iron};
         padding-left: 10px;
         font-size: 14px;
@@ -77,7 +94,7 @@ export const StyledPreviewCode = styled.pre`
   font-family: 'Ubuntu Mono', sans-serif;
   color: ${white};
   background: ${mineShaft};
-  height: auto;
+  min-height: 60px;
   padding-top: 20px;
   padding-bottom: 20px;
   margin: 0;

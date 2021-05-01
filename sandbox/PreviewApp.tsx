@@ -1,15 +1,19 @@
 // Dependencies
-import React, { FC, useEffect } from 'react'
+import React, { FC } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 // Components
 import Preview from '../src/components/Preview'
 import Button from '../src/components/Button'
+import Input from '../src/components/Input'
 
 // Props
 import buttonProps, {
   initialProps as buttonInitialProps
 } from '../src/components/Button/Button.props'
+
+import inputProps, { initialProps as inputInitialProps } from '../src/components/Input/Input.props'
 
 // Theme
 import { themeVariants, themeRootVars } from '../src/theme'
@@ -44,7 +48,13 @@ const PreviewApp: FC = () => {
   const components = [
     {
       component: Button,
-      props: buttonProps
+      props: buttonProps,
+      initialProps: buttonInitialProps
+    },
+    {
+      component: Input,
+      props: inputProps,
+      initialProps: inputInitialProps
     }
   ]
 
@@ -52,7 +62,30 @@ const PreviewApp: FC = () => {
     <>
       <GlobalStyle />
       <StyledApp>
-        <Preview components={components} initialProps={buttonInitialProps} />
+        <Router>
+          <Switch>
+            <Route
+              path="/:currentComponent"
+              exact
+              children={(props: any) => (
+                <Preview
+                  componentIndex={props.match?.params.currentComponent || 0}
+                  currentComponent={components[props.match?.params.currentComponent || 0]}
+                  components={components}
+                />
+              )}
+            />
+            <Route
+              children={(props: any) => (
+                <Preview
+                  componentIndex={props.match?.params.currentComponent || 0}
+                  currentComponent={components[props.match?.params.currentComponent || 0]}
+                  components={components}
+                />
+              )}
+            />
+          </Switch>
+        </Router>
       </StyledApp>
     </>
   )
