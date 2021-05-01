@@ -65,6 +65,7 @@ export const InputBase = styled.input`
   border: none;
   font-size: 14px;
   line-height: 20px;
+  outline: none;
   ${getColorStyles}
 `
 
@@ -75,6 +76,7 @@ export const InputIcon = styled.div`
   background-color: transparent;
   height: ${calc(CalcType.spacing, 5)};
   width: ${calc(CalcType.spacing, 5)};
+
   &.icon-left {
     margin-left: 0;
     margin-right: ${calc(CalcType.spacing, 2)};
