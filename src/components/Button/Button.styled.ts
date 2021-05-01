@@ -114,27 +114,25 @@ const buttonShapeStyles = `
 `
 
 export const buttonStyle = `
-  &.${BASE_CLASS_NAME} {
-    user-select: none;
-    font-weight: ${FontWeight.semibold};
-    border: 1px solid transparent;
-    text-align: center;
-    vertical-align: middle;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  user-select: none;
+  font-weight: ${FontWeight.semibold};
+  border: 1px solid transparent;
+  text-align: center;
+  vertical-align: middle;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
-    &:not(:disabled) {
-      cursor: pointer;
-    }
+  &:not(:disabled) {
+    cursor: pointer;
+  }
 
-    &.${BASE_CLASS_NAME}-disabled {
-      pointer-events: none;
-      opacity: 0.5;
-    }
+  &.${BASE_CLASS_NAME}-disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
 
-    &.${BASE_CLASS_NAME}-full-width {
-      width: 100%;
-    }
+  &.${BASE_CLASS_NAME}-full-width {
+    width: 100%;
   }
 `
 
@@ -142,27 +140,31 @@ export const StyledButton = styled.button`
   position: relative;
   img {
     position: absolute;
-    top: 8px;
-    left: 6px;
+    top: 11px;
+    left: 14px;
   }
   ${buttonStyle}
   ${buttonVariantStyles()}
   ${buttonSizesStyles()}
   ${buttonShapeStyles}
 `
+
 export const StyledLinkButton = styled.span`
+  margin-right: 5px;
+
   a {
+    color: inherit;
     position: relative;
     display: inline-block;
     text-decoration: none;
     img {
       position: absolute;
-      top: 2px;
+      top: -1px;
       left: -6px;
     }
-    ${buttonStyle}
-    ${buttonVariantStyles()}
-    ${buttonSizesStyles()}
-    ${buttonShapeStyles}
   }
+  ${buttonStyle}
+  ${buttonVariantStyles()}
+  ${buttonSizesStyles()}
+  ${buttonShapeStyles}
 `
