@@ -119,25 +119,27 @@ const buttonShapeStyles = `
 `
 
 export const buttonStyle = `
-  user-select: none;
-  font-weight: ${FontWeight.semibold};
-  border: 1px solid transparent;
-  text-align: center;
-  vertical-align: middle;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  &.${BASE_CLASS_NAME} {
+    user-select: none;
+    font-weight: ${FontWeight.semibold};
+    border: 1px solid transparent;
+    text-align: center;
+    vertical-align: middle;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
-  &:not(:disabled) {
-    cursor: pointer;
-  }
+    &:not(:disabled) {
+      cursor: pointer;
+    }
 
-  &.${BASE_CLASS_NAME}-disabled {
-    pointer-events: none;
-    opacity: 0.5;
-  }
+    &.${BASE_CLASS_NAME}-disabled {
+      pointer-events: none;
+      opacity: 0.5;
+    }
 
-  &.${BASE_CLASS_NAME}-full-width {
-    width: 100%;
+    &.${BASE_CLASS_NAME}-full-width {
+      width: 100%;
+    }
   }
 `
 
