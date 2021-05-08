@@ -5,13 +5,16 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 // Components
 import Preview from '../src/components/Preview'
+
 import Button, {
   Props as buttonProps,
   initialProps as buttonInitialProps
 } from '../src/components/Button'
-import Input from '../src/components/Input'
 
-import inputProps, { initialProps as inputInitialProps } from '../src/components/Input/Input.props'
+import Input, {
+  Props as inputProps,
+  initialProps as inputInitialProps
+} from '../src/components/Input'
 
 // Theme
 import { themeVariants, themeRootVars } from '../src/theme'

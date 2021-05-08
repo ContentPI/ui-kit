@@ -1,2 +1,1 @@
-export { default } from './Input'
-export { IProps } from './Input'
+export { default, IProps, Props, initialProps } from './Input'
