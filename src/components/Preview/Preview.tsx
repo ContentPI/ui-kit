@@ -93,9 +93,9 @@ const Preview: FC<IProps> = ({ currentComponent, components, componentIndex }) =
           <h2>Props</h2>
           <ul>
             {fields.map((field: any) => {
-              const { type, value } = propsDefinitions[field]
+              const value = propsDefinitions[field]
 
-              if (type === 'text') {
+              if (typeof value === 'string') {
                 return (
                   <li key={field}>
                     <p>
@@ -113,7 +113,7 @@ const Preview: FC<IProps> = ({ currentComponent, components, componentIndex }) =
                 )
               }
 
-              if (type === 'boolean') {
+              if (typeof value === 'boolean') {
                 return (
                   <li key={field}>
                     <p>
@@ -124,7 +124,7 @@ const Preview: FC<IProps> = ({ currentComponent, components, componentIndex }) =
                 )
               }
 
-              if (type === 'dropdown') {
+              if (value.length > 0) {
                 return (
                   <li key={field}>
                     <p>

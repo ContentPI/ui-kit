@@ -152,6 +152,34 @@ export const StyledButton = styled.button`
     left: 14px;
   }
 
+  &.${BASE_CLASS_NAME}-xSmall {
+    img {
+      top: -1px;
+      left: 4px;
+    }
+  }
+
+  &.${BASE_CLASS_NAME}-small {
+    img {
+      top: 7px;
+      left: 10px;
+    }
+  }
+
+  &.${BASE_CLASS_NAME}-large {
+    img {
+      top: 15px;
+      left: 14px;
+    }
+  }
+
+  &.${BASE_CLASS_NAME}-large {
+    img {
+      top: 20px;
+      left: 14px;
+    }
+  }
+
   ${buttonStyle}
   ${buttonVariantStyles()}
   ${buttonSizesStyles()}

@@ -3,7 +3,19 @@ import React, { FC, ComponentPropsWithoutRef } from 'react'
 import { cxGenerator } from '@contentpi/lib'
 
 // Types
-import { ButtonVariant, ButtonSize, StatusColor, Size, Variant, Color, Shape } from '@types'
+import {
+  ButtonVariant,
+  ButtonSize,
+  StatusColor,
+  Size,
+  Variant,
+  Color,
+  Shape,
+  ButtonSizes,
+  StatusColors,
+  ButtonVariants,
+  Shapes
+} from '@types'
 
 // Components
 import Spinner from '../Spinner'
@@ -21,6 +33,24 @@ export interface IProps extends ComponentPropsWithoutRef<'button'> {
   disabled?: boolean
   isLoading?: boolean
   loadingText?: string
+}
+
+export const Props = {
+  children: '',
+  href: '',
+  loadingText: '',
+  color: StatusColors,
+  variant: ButtonVariants,
+  size: ButtonSizes,
+  shape: Shapes,
+  disabled: false,
+  isLoading: false,
+  fullWidth: false
+}
+
+export const initialProps = {
+  children: 'Button',
+  color: 'danger'
 }
 
 const Button: FC<IProps> = props => {

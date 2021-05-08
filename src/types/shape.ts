@@ -7,3 +7,4 @@ export const Shape = {
 } as const
 
 export type Shape = ValueOf<typeof Shape>
+export const Shapes = Object.keys(Shape)
