@@ -16,6 +16,11 @@ import Input, {
   initialProps as inputInitialProps
 } from '../src/components/Input'
 
+import RenderIf, {
+  Props as renderIfProps,
+  initialProps as renderIfInitialProps
+} from '../src/components/RenderIf'
+
 // Theme
 import { themeVariants, themeRootVars } from '../src/theme'
 
@@ -56,6 +61,11 @@ const PreviewApp: FC = () => {
       component: Input,
       props: inputProps,
       initialProps: inputInitialProps
+    },
+    {
+      component: RenderIf,
+      props: renderIfProps,
+      initialProps: renderIfInitialProps
     }
   ]
 
