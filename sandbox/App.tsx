@@ -1,19 +1,20 @@
 // Dependencies
 import React, { FC } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 // Components
 import Preview from '../src/components/Preview'
-import Button from '../src/components/Button'
-import Input from '../src/components/Input'
 
-// Props
-import buttonProps, {
+import Button, {
+  Props as buttonProps,
   initialProps as buttonInitialProps
-} from '../src/components/Button/Button.props'
+} from '../src/components/Button'
 
-import inputProps, { initialProps as inputInitialProps } from '../src/components/Input/Input.props'
+import Input, {
+  Props as inputProps,
+  initialProps as inputInitialProps
+} from '../src/components/Input'
 
 // Theme
 import { themeVariants, themeRootVars } from '../src/theme'
