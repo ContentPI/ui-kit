@@ -31,7 +31,7 @@ export const StyledPreview = styled.div`
     widht: 500px;
     display: block;
     left: 0;
-    right: 260px;
+    right: 230px;
     z-index: 1;
   }
 `

@@ -21,6 +21,11 @@ import RenderIf, {
   initialProps as renderIfInitialProps
 } from '../src/components/RenderIf'
 
+import Pagination, {
+  Props as paginationProps,
+  initialProps as paginationInitialProps
+} from '../src/components/Pagination'
+
 // Theme
 import { themeVariants, themeRootVars } from '../src/theme'
 
@@ -35,13 +40,16 @@ const StyledApp = styled.div`
   background-color: #fff;
   margin: 0 auto;
   padding-bottom: 500px;
+
   h2 {
     font-weight: 600;
     margin: 0;
   }
+
   button {
     margin-right: 5px;
   }
+
   .spinners {
     display: flex;
     justify-content: space-between;
@@ -66,6 +74,11 @@ const PreviewApp: FC = () => {
       component: RenderIf,
       props: renderIfProps,
       initialProps: renderIfInitialProps
+    },
+    {
+      component: Pagination,
+      props: paginationProps,
+      initialProps: paginationInitialProps
     }
   ]
 

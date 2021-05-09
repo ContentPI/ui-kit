@@ -25,6 +25,9 @@ const getAttributes = (props: any) => {
       if (props[prop] === true) {
         str += `
     <span class="red">${prop}</span>`
+      } else if (!isNaN(props[prop])) {
+        str += `
+    <span class="red">${prop}</span><span class="white">={</span><span class="green">${props[prop]}</span><span class="white">}</span>`
       } else {
         str += `
     <span class="red">${prop}</span><span class="white">="</span><span class="green">${props[prop]}</span><span class="white">"</span>`
@@ -95,7 +98,7 @@ const Preview: FC<IProps> = ({ currentComponent, components, componentIndex }) =
             {fields.map((field: any) => {
               const value = propsDefinitions[field]
 
-              if (typeof value === 'string') {
+              if (typeof value === 'string' || typeof value === 'number') {
                 return (
                   <li key={field}>
                     <p>
@@ -124,7 +127,7 @@ const Preview: FC<IProps> = ({ currentComponent, components, componentIndex }) =
                 )
               }
 
-              if (value.length > 0) {
+              if (value && value.length > 0) {
                 return (
                   <li key={field}>
                     <p>
