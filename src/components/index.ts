@@ -1,4 +1,5 @@
 export { default as Button } from './Button'
+export { default as Font } from './Font'
 export { default as GlobalStyles } from './GlobalStyles'
 export { default as Input } from './Input'
 export { default as Paper } from './Paper'

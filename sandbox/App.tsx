@@ -1,9 +1,11 @@
 // Dependencies
 import React, { FC } from 'react'
-import styled, { createGlobalStyle } from 'styled-components'
+import styled from 'styled-components'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 // Components
+import GlobalStyles from '../src/components/GlobalStyles'
+import Font from '../src/components/Font'
 import Preview from '../src/components/Preview'
 
 import Button, {
@@ -26,18 +28,9 @@ import Pagination, {
   initialProps as paginationInitialProps
 } from '../src/components/Pagination'
 
-// Theme
-import { themeVariants, themeRootVars } from '../src/theme'
-
-const GlobalStyle = createGlobalStyle`
-  ${themeRootVars}
-  ${themeVariants}
-`
-
 const StyledApp = styled.div`
   font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 1rem;
-  background-color: #fff;
   margin: 0 auto;
   padding-bottom: 500px;
 
@@ -84,8 +77,13 @@ const PreviewApp: FC = () => {
 
   return (
     <>
-      <GlobalStyle />
+      <GlobalStyles />
+      <h2>hello world</h2>
+      <Font>
+        <h2>hello world with custom font</h2>
+      </Font>
       <StyledApp>
+        <h2>hello world</h2>
         <Router>
           <Switch>
             <Route
