@@ -24,6 +24,19 @@ interface ITextFieldBaseProps {
 interface TextFieldInputProps extends ITextFieldBaseProps, InputProps {}
 interface TextFieldAreaProps extends ITextFieldBaseProps, ITextAreaProps {}
 
+export const Props = {
+  label: '',
+  helperText: '',
+  error: false,
+  fullWidth: false,
+  textArea: false,
+  type: ''
+}
+
+export const initialProps = {
+  type: 'text'
+}
+
 const TextField: FC<TextFieldInputProps & TextFieldAreaProps> = props => {
   const {
     label,
@@ -53,7 +66,7 @@ const TextField: FC<TextFieldInputProps & TextFieldAreaProps> = props => {
       )}
 
       {isInput ? (
-        <Input status={status} fullWidth={fullWidth} {...restProps} />
+        <Input status={status} fullWidth={fullWidth} type={type} {...restProps} />
       ) : (
         <TextArea status={status} fullWidth={fullWidth} {...restProps} />
       )}
