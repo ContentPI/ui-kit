@@ -25,10 +25,7 @@ const getAttributes = (props: any) => {
       if (props[prop] === true) {
         str += `
     <span class="red">${prop}</span>`
-      } else if (typeof props[prop] === 'function') {
-        str += `
-    <span class="red">${prop}</span><span class="white">={</span><span class="green">${props[prop]}</span><span class="white">}</span>`
-      } else if (!isNaN(props[prop])) {
+      } else if (!isNaN(props[prop]) || typeof props[prop] === 'function') {
         str += `
     <span class="red">${prop}</span><span class="white">={</span><span class="green">${props[prop]}</span><span class="white">}</span>`
       } else {
