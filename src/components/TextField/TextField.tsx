@@ -27,10 +27,11 @@ interface TextFieldAreaProps extends ITextFieldBaseProps, ITextAreaProps {}
 export const Props = {
   label: '',
   helperText: '',
+  placeholder: '',
+  type: '',
   error: false,
   fullWidth: false,
-  textArea: false,
-  type: ''
+  textArea: false
 }
 
 export const initialProps = {
