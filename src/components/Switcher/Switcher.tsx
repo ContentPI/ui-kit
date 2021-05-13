@@ -1,5 +1,5 @@
 // Dependencies
-import React, { FC, ReactElement, ChangeEvent, MouseEvent } from 'react'
+import React, { FC, ChangeEvent, MouseEvent } from 'react'
 
 // Styles
 import {
