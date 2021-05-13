@@ -3,25 +3,38 @@ import React, { FC } from 'react'
 import { cxGenerator } from '@contentpi/lib'
 
 // Components
-import { Input, Text } from '@components'
+import { Input, TextArea, Text } from '@components'
 
 // Types
 import { StatusColor } from '@types'
 import { IProps as InputProps } from '../Input'
+import { ITextAreaProps } from '../TextArea'
 
 // Styles
 import { TextFieldBase, BASE_CLASS_NAME } from './TextField.styled'
 
-interface IProps extends InputProps {
+interface ITextFieldBaseProps {
   label?: string
   helperText?: string
   error?: boolean
   fullWidth?: boolean
+  textArea?: boolean
 }
 
-const TextField: FC<IProps> = props => {
-  const { label, helperText, error, fullWidth = false, ...restProps } = props
+interface TextFieldInputProps extends ITextFieldBaseProps, InputProps {}
+interface TextFieldAreaProps extends ITextFieldBaseProps, ITextAreaProps {}
 
+const TextField: FC<TextFieldInputProps & TextFieldAreaProps> = props => {
+  const {
+    label,
+    helperText,
+    error,
+    fullWidth = false,
+    textArea = false,
+    type = 'text',
+    ...restProps
+  } = props
+  const isInput = !textArea && type
   const status: StatusColor | undefined = error ? 'danger' : undefined
   const fullWidthClass = fullWidth ? 'full-width' : ''
   const helperTextClass = helperText ? 'helper-text' : ''
@@ -39,7 +52,11 @@ const TextField: FC<IProps> = props => {
         </Text>
       )}
 
-      <Input status={status} fullWidth={fullWidth} {...restProps} />
+      {isInput ? (
+        <Input status={status} fullWidth={fullWidth} {...restProps} />
+      ) : (
+        <TextArea status={status} fullWidth={fullWidth} {...restProps} />
+      )}
 
       {helperText && (
         <Text variant="caption1" color="secondary" status={status}>
