@@ -26,6 +26,11 @@ import Pagination, {
   initialProps as paginationInitialProps
 } from '../src/components/Pagination'
 
+import Switcher, {
+  Props as switcherProps,
+  initialProps as switcherInitialProps
+} from '../src/components/Switcher'
+
 // Theme
 import { themeVariants, themeRootVars } from '../src/theme'
 
@@ -79,6 +84,11 @@ const PreviewApp: FC = () => {
       component: Pagination,
       props: paginationProps,
       initialProps: paginationInitialProps
+    },
+    {
+      component: Switcher,
+      props: switcherProps,
+      initialProps: switcherInitialProps
     }
   ]
 

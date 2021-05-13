@@ -2,7 +2,7 @@
 import styled from 'styled-components'
 
 // Colors
-import colors from '../../theme/colors'
+import { colors } from '../../theme/colors'
 
 const { white, grandis, easternBlue, greenHaze, slateGray, mineShaft, iron, outerSpace } = colors
 
