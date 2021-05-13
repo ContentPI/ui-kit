@@ -37,29 +37,21 @@ export const initialProps = {
   onClick: () => console.log('Click')
 }
 
-const Switcher: FC<IProps> = ({
-  label = '',
-  type,
-  readOnly,
-  onChange,
-  checked = false
-}): ReactElement => {
-  return (
-    <>
-      <StyledSwitcher>
-        <StyledLabel>
-          <StyledInput type="checkbox" onChange={onChange} checked={checked} readOnly={readOnly} />
-          {type === 'round' ? (
-            <StyledRoundSpan className="slider" />
-          ) : (
-            <StyledSquareSpan className="slider" />
-          )}
-        </StyledLabel>
-        &nbsp;
-        <StyledText>{label}</StyledText>
-      </StyledSwitcher>
-    </>
-  )
-}
+const Switcher: FC<IProps> = ({ label = '', type, readOnly, onChange, checked = false }) => (
+  <>
+    <StyledSwitcher>
+      <StyledLabel>
+        <StyledInput type="checkbox" onChange={onChange} checked={checked} readOnly={readOnly} />
+        {type === 'round' ? (
+          <StyledRoundSpan className="slider" />
+        ) : (
+          <StyledSquareSpan className="slider" />
+        )}
+      </StyledLabel>
+      &nbsp;
+      <StyledText>{label}</StyledText>
+    </StyledSwitcher>
+  </>
+)
 
 export default Switcher
