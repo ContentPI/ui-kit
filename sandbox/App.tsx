@@ -16,6 +16,11 @@ import Input, {
   initialProps as inputInitialProps
 } from '../src/components/Input'
 
+import TextField, {
+  Props as textFieldProps,
+  initialProps as textFieldInitialProps
+} from '../src/components/TextField'
+
 import RenderIf, {
   Props as renderIfProps,
   initialProps as renderIfInitialProps
@@ -69,6 +74,11 @@ const PreviewApp: FC = () => {
       component: Input,
       props: inputProps,
       initialProps: inputInitialProps
+    },
+    {
+      component: TextField,
+      props: textFieldProps,
+      initialProps: textFieldInitialProps
     },
     {
       component: RenderIf,
