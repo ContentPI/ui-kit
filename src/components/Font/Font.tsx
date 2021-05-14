@@ -1,5 +1,5 @@
-import React from 'react'
-import styled, { css } from 'styled-components'
+import React, { FC } from 'react'
+import styled from 'styled-components'
 
 // Fonts
 import Poppins400Woff from '../../fonts/poppins-v15-latin-regular.woff'
@@ -17,9 +17,13 @@ import Poppins700Ttf from '../../fonts/poppins-v15-latin-700.ttf'
 import Poppins800Woff from '../../fonts/poppins-v15-latin-800.woff'
 import Poppins800Ttf from '../../fonts/poppins-v15-latin-800.ttf'
 
+export const initialProps = {
+  children: 'Text with custom props'
+}
+
 const fontFamily = 'Poppins'
 
-const fontStyles = css`
+const FontWrapper = styled.div`
   @font-face {
     font-family: ${fontFamily};
     font-style: normal;
@@ -54,15 +58,10 @@ const fontStyles = css`
     font-weight: 800;
     src: url('${Poppins800Woff}') format('woff'), url('${Poppins800Ttf}') format('truetype');
   }
-`
-
-const FontWrapper = styled.div`
-  ${fontStyles}
 
   font-family: ${fontFamily};
 `
-
-const Font: React.FC = ({ children }) => {
+const Font: FC = ({ children }) => {
   return <FontWrapper>{children}</FontWrapper>
 }
 

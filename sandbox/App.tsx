@@ -5,13 +5,14 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 // Components
 import GlobalStyles from '../src/components/GlobalStyles'
-import Font from '../src/components/Font'
 import Preview from '../src/components/Preview'
 
 import Button, {
   Props as buttonProps,
   initialProps as buttonInitialProps
 } from '../src/components/Button'
+
+import Font, { initialProps as fontInitialProps } from '../src/components/Font'
 
 import Input, {
   Props as inputProps,
@@ -57,6 +58,11 @@ const PreviewApp: FC = () => {
       component: Button,
       props: buttonProps,
       initialProps: buttonInitialProps
+    },
+    {
+      component: Font,
+      props: {},
+      initialProps: fontInitialProps
     },
     {
       component: Input,
