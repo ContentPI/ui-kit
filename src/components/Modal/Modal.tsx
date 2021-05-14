@@ -1,15 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
-
-const uuid = () => {
-  const id = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
-    const r = Math.random() * 16
-    const v = c === 'x' ? r : (r && 0x3) || 0x8
-    return v.toString(16)
-  })
-
-  return id.substring(3, 10)
-}
+import { v4 as uuidv4 } from 'uuid'
 
 const generateWrapper = (id: string) => {
   const wrapper = document.createElement('div')
@@ -33,7 +24,7 @@ interface IModalProps {
 }
 
 const Modal: React.FC<IModalProps> = ({ open = false, children }) => {
-  const [modalId] = useState(uuid())
+  const [modalId] = useState(uuidv4())
   const wrapper = generateWrapper(modalId)
 
   useEffect(() => {
