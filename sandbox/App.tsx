@@ -16,6 +16,11 @@ import Input, {
   initialProps as inputInitialProps
 } from '../src/components/Input'
 
+import TextArea, {
+  Props as textAreaProps,
+  initialProps as textAreaInitialProps
+} from '../src/components/TextArea'
+
 import TextField, {
   Props as textFieldProps,
   initialProps as textFieldInitialProps
@@ -74,6 +79,11 @@ const PreviewApp: FC = () => {
       component: Input,
       props: inputProps,
       initialProps: inputInitialProps
+    },
+    {
+      component: TextArea,
+      props: textAreaProps,
+      initialProps: textAreaInitialProps
     },
     {
       component: TextField,

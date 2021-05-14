@@ -14,14 +14,16 @@ export interface ITextAreaProps extends ComponentPropsWithoutRef<'textarea'> {
 }
 
 export const Props = {
-  fullWidth: '',
   status: '',
-  value: ''
+  value: '',
+  cols: 0,
+  rows: 0,
+  fullWidth: false
 }
 
 export const initialProps = {
-  type: 'text',
-  value: 'Placeholder'
+  cols: 30,
+  rows: 2
 }
 
 const TextArea: FC<ITextAreaProps> = props => {
