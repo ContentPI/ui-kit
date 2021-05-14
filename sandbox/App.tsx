@@ -29,6 +29,11 @@ import Pagination, {
   initialProps as paginationInitialProps
 } from '../src/components/Pagination'
 
+import Switcher, {
+  Props as switcherProps,
+  initialProps as switcherInitialProps
+} from '../src/components/Switcher'
+
 const StyledApp = styled.div`
   font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 1rem;
@@ -78,18 +83,18 @@ const PreviewApp: FC = () => {
       component: Pagination,
       props: paginationProps,
       initialProps: paginationInitialProps
+    },
+    {
+      component: Switcher,
+      props: switcherProps,
+      initialProps: switcherInitialProps
     }
   ]
 
   return (
     <>
       <GlobalStyles />
-      <h2>hello world</h2>
-      <Font>
-        <h2>hello world with custom font</h2>
-      </Font>
       <StyledApp>
-        <h2>hello world</h2>
         <Router>
           <Switch>
             <Route
