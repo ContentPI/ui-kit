@@ -17,6 +17,8 @@ jobs:
           registry-url: https://registry.npmjs.org
       - run: npm install
       - run: chmod u+x script.sh
+      - run: git config --global user.email "foggdev@gmail.com"
+      - run: git config --global user.name "Versioning Bot"
       - run: npm run versioning
       - name: publish
         run: npm publish
