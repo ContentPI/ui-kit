@@ -2,7 +2,7 @@ name: release
 on:
   push:
     branches:
-      - main
+      - dev
 jobs:
   release:
     name: publish
@@ -14,9 +14,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14
-          registry-url: https://registry.npmjs.org
       - run: npm install
-      - name: publish
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      - run: chmod u+x script.sh
+      - run: git config --global user.email "foggdev@gmail.com"
+      - run: git config --global user.name "Versioning Bot"
+      - run: npm run versioning
