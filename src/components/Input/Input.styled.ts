@@ -64,8 +64,10 @@ export const InputBase = styled.input`
   background: transparent;
   border: none;
   font-size: 14px;
+  font-family: inherit;
   line-height: 20px;
   outline: none;
+  resize: none;
   ${getColorStyles}
 `
 
