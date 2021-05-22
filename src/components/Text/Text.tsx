@@ -29,7 +29,7 @@ const Text: FC<IProps> = props => {
 
   const classNames = cxGenerator({
     ccn: BASE_CLASS_NAME,
-    data: [color, status, variant, align]
+    data: [status || color, variant, align]
   })
 
   const cpmTag = component || TypographyTag[variant]
