@@ -31,6 +31,8 @@ import Switcher, {
   initialProps as switcherInitialProps
 } from '../src/components/Switcher'
 
+import Breadcrumb, { initialProps as BreadcrumbInitialProps } from '../src/components/Breadcrumb'
+
 // Theme
 import { themeVariants, themeRootVars } from '../src/theme'
 
@@ -89,6 +91,11 @@ const PreviewApp: FC = () => {
       component: Switcher,
       props: switcherProps,
       initialProps: switcherInitialProps
+    },
+    {
+      component: Breadcrumb,
+      props: {},
+      initialProps: BreadcrumbInitialProps
     }
   ]
 
