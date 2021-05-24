@@ -1,1 +1,1 @@
-export { default } from './TextField'
+export { default, Props, initialProps } from './TextField'

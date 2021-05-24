@@ -3,23 +3,28 @@ import React, { FC, useState } from 'react'
 import { cxGenerator } from '@contentpi/lib'
 
 // Components
-import { Input, Text } from '@components'
+import { Input, TextArea, Text } from '@components'
 
 // Types
 import { StatusColor } from '@types'
 import { IProps as InputProps } from '../Input'
+import { ITextAreaProps } from '../TextArea'
 
 // Styles
 import { TextFieldBase, TextFieldHelpersWrapper, BASE_CLASS_NAME } from './TextField.styled'
 
-interface IProps extends InputProps {
+interface ITextFieldBaseProps {
   label?: string
   helperText?: string
   error?: boolean
   fullWidth?: boolean
+  textArea?: boolean
   minLength?: number
   maxLength?: number
 }
+
+interface TextFieldInputProps extends ITextFieldBaseProps, InputProps {}
+interface TextFieldAreaProps extends ITextFieldBaseProps, ITextAreaProps {}
 
 type ILength = {
   min?: number | undefined
@@ -49,19 +54,35 @@ const ValidateLength = ({ length, value }: IValidateLength): string | null => {
   return null
 }
 
-const TextField: FC<IProps> = props => {
+export const Props = {
+  label: '',
+  helperText: '',
+  placeholder: '',
+  type: '',
+  error: false,
+  fullWidth: false,
+  textArea: false
+}
+
+export const initialProps = {
+  type: 'text'
+}
+
+const TextField: FC<TextFieldInputProps & TextFieldAreaProps> = props => {
   const {
     label,
     helperText,
     error,
-    status,
     fullWidth = false,
+    textArea = false,
+    type = 'text',
     minLength = undefined,
     maxLength = undefined,
     value = '',
     ...restProps
   } = props
-
+  const isInput = !textArea && type
+  const status: StatusColor | undefined = error ? 'danger' : undefined
   const fullWidthClass = fullWidth ? 'full-width' : ''
   const helperTextClass = helperText ? 'helper-text' : ''
   const [inputValue, setInputValue] = useState(value)
@@ -88,12 +109,18 @@ const TextField: FC<IProps> = props => {
           {label}
         </Text>
       )}
-      <Input
-        status={statusColor}
-        fullWidth={fullWidth}
-        onChange={e => setInputValue(e.target.value)}
-        {...restProps}
-      />
+
+      {isInput ? (
+        <Input
+          status={status}
+          fullWidth={fullWidth}
+          type={type}
+          onChange={e => setInputValue(e.target.value)}
+          {...restProps}
+        />
+      ) : (
+        <TextArea status={status} fullWidth={fullWidth} {...restProps} />
+      )}
 
       {(maxLength || errorMsg || helperText) && (
         <TextFieldHelpersWrapper>

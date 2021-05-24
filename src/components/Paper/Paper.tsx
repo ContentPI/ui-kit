@@ -1,6 +1,6 @@
 // Dependencies
 import React, { FC } from 'react'
-import { cx, cxGenerator } from '@contentpi/lib'
+import { cxGenerator } from '@contentpi/lib'
 
 // Styles
 import { PaperBase, BASE_CLASS_NAME } from './Paper.styled'
