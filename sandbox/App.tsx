@@ -41,6 +41,8 @@ import Switcher, {
   initialProps as switcherInitialProps
 } from '../src/components/Switcher'
 
+import File, { Props as fileProps, initialProps as fileInitialProps } from '../src/components/File'
+
 // Theme
 import { themeVariants, themeRootVars } from '../src/theme'
 
@@ -109,6 +111,11 @@ const PreviewApp: FC = () => {
       component: Switcher,
       props: switcherProps,
       initialProps: switcherInitialProps
+    },
+    {
+      component: File,
+      props: fileProps,
+      initialProps: fileInitialProps
     }
   ]
 

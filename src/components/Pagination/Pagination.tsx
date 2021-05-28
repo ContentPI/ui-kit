@@ -1,9 +1,11 @@
 // Dependencies
 import React, { FC, ReactNode, ReactElement } from 'react'
-import styled from 'styled-components'
 
 // Components
 import Icon from '../Icon'
+
+// Styles
+import { StyledPagination, StyledLi, StyledLink } from './Pagination.styled'
 
 export interface IProps {
   page: number
@@ -28,44 +30,6 @@ export const initialProps = {
   rowsPerPage: 10,
   href: '/blog/'
 }
-
-const StyledUl = styled.ul`
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  margin: 500 auto;
-  margin-top: 90px;
-  margin-bottom: 50px;
-  width: 100%;
-`
-
-const StyledLi = styled.li`
-  margin: 5px;
-  a {
-    color: #777;
-    text-decoration: none;
-  }
-`
-
-const StyledLink = styled.span`
-  padding: 15px 20px;
-  border-radius: 5px;
-
-  &:hover {
-    background: #555;
-    color: #fff;
-  }
-
-  &.active {
-    background: #00aeef;
-    color: white;
-    &:hover {
-      background: #23bff3;
-      color: white;
-    }
-  }
-`
 
 const Pagination: FC<IProps> = ({ Link, href, as, rowsPerPage, page, total }) => {
   const maxElementsPerPage = rowsPerPage || 10
@@ -238,11 +202,11 @@ const Pagination: FC<IProps> = ({ Link, href, as, rowsPerPage, page, total }) =>
     }
 
     return (
-      <StyledUl className="Pagination">
+      <StyledPagination className="Pagination">
         {pagePrevious}
         {pageNav}
         {pageNext}
-      </StyledUl>
+      </StyledPagination>
     )
   }
 
