@@ -44,6 +44,16 @@ import Switcher, {
 
 import Breadcrumb, { initialProps as BreadcrumbInitialProps } from '../src/components/Breadcrumb'
 
+import Badge, { initialProps as BadgeInitialProps } from '../src/components/Badge'
+
+// Theme
+import { themeVariants, themeRootVars } from '../src/theme'
+
+const GlobalStyle = createGlobalStyle`
+  ${themeRootVars}
+  ${themeVariants}
+`
+
 const StyledApp = styled.div`
   font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 1rem;
@@ -108,6 +118,11 @@ const PreviewApp: FC = () => {
       component: Breadcrumb,
       props: {},
       initialProps: BreadcrumbInitialProps
+    },
+    {
+      component: Badge,
+      props: {},
+      initialProps: BadgeInitialProps
     }
   ]
 
