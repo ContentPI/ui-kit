@@ -14,6 +14,8 @@ import { InputWrapper } from '../Input/Input.styled'
 export const BASE_CLASS_NAME = 'textField'
 
 export const TextFieldBase = styled.div`
+  width: 250px;
+
   & > ${InputWrapper} {
     margin-top: ${calc(CalcType.spacing, 2)};
   }
@@ -27,4 +29,9 @@ export const TextFieldBase = styled.div`
       margin-top: ${calc(CalcType.spacing, 2)};
     }
   }
+`
+
+export const TextFieldHelpersWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
 `
