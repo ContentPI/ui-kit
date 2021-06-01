@@ -42,7 +42,12 @@ import Switcher, {
   initialProps as switcherInitialProps
 } from '../src/components/Switcher'
 
-import Breadcrumb, { initialProps as BreadcrumbInitialProps } from '../src/components/Breadcrumb'
+import Toast, {
+  Props as toastProps,
+  initialProps as toastInitialProps
+} from '../src/components/Toast'
+
+import Breadcrumb, { initialProps as breadcrumbInitialProps } from '../src/components/Breadcrumb'
 
 import Badge, {
   Props as badgeProps,
@@ -116,7 +121,7 @@ const PreviewApp: FC = () => {
     {
       component: Breadcrumb,
       props: {},
-      initialProps: BreadcrumbInitialProps
+      initialProps: breadcrumbInitialProps
     },
     {
       component: Badge,
@@ -132,6 +137,11 @@ const PreviewApp: FC = () => {
       component: Table,
       props: {},
       initialProps: {}
+    },
+    {
+      component: Toast,
+      props: toastProps,
+      initialProps: toastInitialProps
     }
   ]
 
