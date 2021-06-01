@@ -4,17 +4,20 @@ import React, { FC, useState } from 'react'
 // Styles
 import {
   StyledPreview,
+  StyledContainer,
   StyledPreviewArea,
+  StyledComponentWrapper,
   StyledPreviewProps,
   StyledPreviewCode,
   StyledYellow,
-  StyledWhite
+  StyledWhite,
+  StyledMenu,
+  StyledMenuItem
 } from './Preview.styled'
 
 interface IProps {
   currentComponent: any
   components: any
-  componentIndex: number
 }
 
 const getAttributes = (props: any) => {
@@ -38,7 +41,7 @@ const getAttributes = (props: any) => {
   return str
 }
 
-const Preview: FC<IProps> = ({ currentComponent, components, componentIndex }) => {
+const Preview: FC<IProps> = ({ currentComponent, components }) => {
   const { component: Component, props: propsDefinitions, initialProps } = currentComponent
 
   const [props, setProps] = useState<any>(initialProps)
@@ -66,116 +69,106 @@ const Preview: FC<IProps> = ({ currentComponent, components, componentIndex }) =
     }))
   }
 
-  const handleComponentChange = (e: any) => {
-    const {
-      target: { value }
-    } = e
-
-    const currentComponent = components.findIndex((c: any) => c.component.name === value)
-
-    window.location.href = `/${currentComponent}`
-  }
-
   return (
     <StyledPreview>
-      <div style={{ display: 'flex' }}>
-        <h1>
-          {Component.name}{' '}
-          <select name="currentComponent" onChange={handleComponentChange}>
-            {components.map((c: any, index: number) => (
-              <option key={c.component.name} selected={Number(componentIndex) === index}>
-                {c.component.name}
-              </option>
-            ))}
-          </select>
-        </h1>
+      <StyledMenu>
+        {components.map((c: any, index: string) => (
+          <StyledMenuItem key={c.component.name} href={index}>
+            {c.component.name}
+          </StyledMenuItem>
+        ))}
+      </StyledMenu>
+      <StyledContainer>
+        <h1>{Component.name}</h1>
         <StyledPreviewArea>
-          <Component {...props} />
+          <StyledComponentWrapper>
+            <Component {...props} />
+          </StyledComponentWrapper>
+          <StyledPreviewProps>
+            <h2>Props</h2>
+            <ul>
+              {fields.map((field: any) => {
+                const value = propsDefinitions[field]
+
+                if (typeof value === 'string' || typeof value === 'number') {
+                  return (
+                    <li key={field}>
+                      <p>
+                        <strong>{field}</strong>
+                      </p>
+                      <div>
+                        <input
+                          name={field}
+                          type="text"
+                          onChange={handleChange}
+                          value={props[field]}
+                        />
+                      </div>
+                    </li>
+                  )
+                }
+
+                if (typeof value === 'boolean') {
+                  return (
+                    <li key={field}>
+                      <p>
+                        <strong>{field}</strong>{' '}
+                        <input name={field} type="checkbox" onChange={handleChange} />
+                      </p>
+                    </li>
+                  )
+                }
+
+                if (value && value.length > 0) {
+                  return (
+                    <li key={field}>
+                      <p>
+                        <strong>{field}</strong>
+                      </p>
+                      <div>
+                        <select name={field} onChange={handleChange}>
+                          {value.map((v: any) => (
+                            <option key={v}>{v}</option>
+                          ))}
+                        </select>
+                      </div>
+                    </li>
+                  )
+                }
+
+                return <li key={field}>{field}</li>
+              })}
+            </ul>
+          </StyledPreviewProps>
         </StyledPreviewArea>
-        <StyledPreviewProps>
-          <h2>Props</h2>
-          <ul>
-            {fields.map((field: any) => {
-              const value = propsDefinitions[field]
 
-              if (typeof value === 'string' || typeof value === 'number') {
-                return (
-                  <li key={field}>
-                    <p>
-                      <strong>{field}</strong>
-                    </p>
-                    <div>
-                      <input
-                        name={field}
-                        type="text"
-                        onChange={handleChange}
-                        value={props[field]}
-                      />
-                    </div>
-                  </li>
-                )
-              }
-
-              if (typeof value === 'boolean') {
-                return (
-                  <li key={field}>
-                    <p>
-                      <strong>{field}</strong>{' '}
-                      <input name={field} type="checkbox" onChange={handleChange} />
-                    </p>
-                  </li>
-                )
-              }
-
-              if (value && value.length > 0) {
-                return (
-                  <li key={field}>
-                    <p>
-                      <strong>{field}</strong>
-                    </p>
-                    <div>
-                      <select name={field} onChange={handleChange}>
-                        {value.map((v: any) => (
-                          <option key={v}>{v}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </li>
-                )
-              }
-
-              return <li key={field}>{field}</li>
-            })}
-          </ul>
-        </StyledPreviewProps>
-      </div>
-
-      <StyledPreviewCode>
-        <div className="language-jsx">
-          &nbsp; <StyledWhite>&lt;</StyledWhite>
-          <StyledYellow>{Component.name}</StyledYellow>
-          <span dangerouslySetInnerHTML={{ __html: getAttributes(props) }} />
-          {!props.children ? (
-            <>
-              {'\n'}&nbsp;&nbsp;<StyledWhite>/</StyledWhite>
-            </>
-          ) : (
-            <> {'\n'} &nbsp;</>
-          )}
-          <StyledWhite>&gt;</StyledWhite> {'\n'}
-          &nbsp;&nbsp;&nbsp;&nbsp;{props.children ? props.children : ''} {'\n'}
-          &nbsp;{' '}
-          {props.children ? (
-            <>
-              <StyledWhite>&lt;/</StyledWhite>
-              {props.children ? <StyledYellow>{Component.name}</StyledYellow> : ''}
-              <StyledWhite>&gt;</StyledWhite>
-            </>
-          ) : (
-            ''
-          )}
-        </div>
-      </StyledPreviewCode>
+        <StyledPreviewCode>
+          <div className="language-jsx">
+            &nbsp; <StyledWhite>&lt;</StyledWhite>
+            <StyledYellow>{Component.name}</StyledYellow>
+            <span dangerouslySetInnerHTML={{ __html: getAttributes(props) }} />
+            {!props.children ? (
+              <>
+                {'\n'}&nbsp;&nbsp;<StyledWhite>/</StyledWhite>
+              </>
+            ) : (
+              <> {'\n'} &nbsp;</>
+            )}
+            <StyledWhite>&gt;</StyledWhite> {'\n'}
+            &nbsp;&nbsp;&nbsp;&nbsp;{props.children ? props.children : ''} {'\n'}
+            &nbsp;{' '}
+            {props.children ? (
+              <>
+                <StyledWhite>&lt;/</StyledWhite>
+                {props.children ? <StyledYellow>{Component.name}</StyledYellow> : ''}
+                <StyledWhite>&gt;</StyledWhite>
+              </>
+            ) : (
+              ''
+            )}
+          </div>
+        </StyledPreviewCode>
+      </StyledContainer>
     </StyledPreview>
   )
 }

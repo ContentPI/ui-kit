@@ -1,6 +1,7 @@
 // Dependencies
 import React, { FC } from 'react'
-import styled, { createGlobalStyle } from 'styled-components'
+import styled from 'styled-components'
+import { GlobalStyles } from '@components'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 // Components
@@ -58,7 +59,6 @@ const StyledApp = styled.div`
   font-size: 1rem;
   background-color: #fff;
   margin: 0 auto;
-  padding-bottom: 500px;
 
   h2 {
     font-weight: 600;
@@ -128,7 +128,7 @@ const PreviewApp: FC = () => {
 
   return (
     <>
-      <GlobalStyle />
+      <GlobalStyles />
       <StyledApp>
         <Router>
           <Switch>
@@ -137,7 +137,6 @@ const PreviewApp: FC = () => {
               exact
               children={(props: any) => (
                 <Preview
-                  componentIndex={props.match?.params.currentComponent || 0}
                   currentComponent={components[props.match?.params.currentComponent || 0]}
                   components={components}
                 />
@@ -146,7 +145,6 @@ const PreviewApp: FC = () => {
             <Route
               children={(props: any) => (
                 <Preview
-                  componentIndex={props.match?.params.currentComponent || 0}
                   currentComponent={components[props.match?.params.currentComponent || 0]}
                   components={components}
                 />
