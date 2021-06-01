@@ -1,6 +1,7 @@
 // Dependencies
 import React, { FC } from 'react'
-import styled, { createGlobalStyle } from 'styled-components'
+import styled from 'styled-components'
+import { GlobalStyles } from '@components'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 // Components
@@ -43,20 +44,11 @@ import Switcher, {
 
 import Breadcrumb, { initialProps as BreadcrumbInitialProps } from '../src/components/Breadcrumb'
 
-// Theme
-import { themeVariants, themeRootVars } from '../src/theme'
-
-const GlobalStyle = createGlobalStyle`
-  ${themeRootVars}
-  ${themeVariants}
-`
-
 const StyledApp = styled.div`
   font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 1rem;
   background-color: #fff;
   margin: 0 auto;
-  padding-bottom: 500px;
 
   h2 {
     font-weight: 600;
@@ -121,7 +113,7 @@ const PreviewApp: FC = () => {
 
   return (
     <>
-      <GlobalStyle />
+      <GlobalStyles />
       <StyledApp>
         <Router>
           <Switch>
@@ -130,7 +122,6 @@ const PreviewApp: FC = () => {
               exact
               children={(props: any) => (
                 <Preview
-                  componentIndex={props.match?.params.currentComponent || 0}
                   currentComponent={components[props.match?.params.currentComponent || 0]}
                   components={components}
                 />
@@ -139,7 +130,6 @@ const PreviewApp: FC = () => {
             <Route
               children={(props: any) => (
                 <Preview
-                  componentIndex={props.match?.params.currentComponent || 0}
                   currentComponent={components[props.match?.params.currentComponent || 0]}
                   components={components}
                 />
