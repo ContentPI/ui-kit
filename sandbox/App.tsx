@@ -46,13 +46,7 @@ import Breadcrumb, { initialProps as BreadcrumbInitialProps } from '../src/compo
 
 import Badge, { initialProps as BadgeInitialProps } from '../src/components/Badge'
 
-// Theme
-import { themeVariants, themeRootVars } from '../src/theme'
-
-const GlobalStyle = createGlobalStyle`
-  ${themeRootVars}
-  ${themeVariants}
-`
+import Table from '../src/components/Table'
 
 const StyledApp = styled.div`
   font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -123,6 +117,11 @@ const PreviewApp: FC = () => {
       component: Badge,
       props: {},
       initialProps: BadgeInitialProps
+    },
+    {
+      component: Table,
+      props: {},
+      initialProps: {}
     }
   ]
 
