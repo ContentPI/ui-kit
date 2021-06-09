@@ -2,7 +2,7 @@
 import styled, { css, CSSObject } from 'styled-components'
 
 // Theme
-import { themeCssVars, generateCss, generateStyles } from '@theme'
+import { themeCssVars, generateCss, generateStyles } from '../../theme'
 
 // Types
 import {
@@ -16,7 +16,7 @@ import {
   TextColors,
   Typography,
   Typographys
-} from '@types'
+} from '../../types'
 
 // Base Class Name
 export const BASE_CLASS_NAME = 'typography'

@@ -60,9 +60,7 @@ const webpackConfig: any = {
     extensions: ['*', '.ts', '.tsx', '.js', '.jsx'],
     alias: {
       react: resolve(__dirname, './node_modules/react'),
-      'react-dom': resolve(__dirname, './node_modules/react-dom'),
-      '@theme': resolve(__dirname, 'src', 'theme'),
-      '@types': resolve(__dirname, 'src', 'types')
+      'react-dom': resolve(__dirname, './node_modules/react-dom')
     },
     fallback: {
       buffer: require.resolve('buffer/'),

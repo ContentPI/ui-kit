@@ -1,4 +1,4 @@
-import { ITypography } from '@types'
+import { ITypography } from '../types'
 
 const globalFontFamily = "'Poppins'"
 

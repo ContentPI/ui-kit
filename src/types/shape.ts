@@ -1,4 +1,4 @@
-import { ValueOf } from '@types'
+import { ValueOf } from '../types'
 
 export const Shape = {
   regular: 'regular',

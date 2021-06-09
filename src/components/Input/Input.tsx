@@ -6,7 +6,7 @@ import { cxGenerator } from '@contentpi/lib'
 import { Eye, EyeOff } from 'react-feather'
 
 // Types
-import { StatusColor } from '@types'
+import { StatusColor } from '../../types'
 
 // Styles
 import { InputWrapper, InputBase, BASE_CLASS_NAME, InputIcon } from './Input.styled'

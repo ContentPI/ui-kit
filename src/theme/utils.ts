@@ -2,10 +2,10 @@
 import { css, CSSObject } from 'styled-components'
 
 // Theme
-import { themeCssVars } from '@theme'
+import { themeCssVars } from '../theme'
 
 // Types
-import { Theme, CalcType } from '@types'
+import { Theme, CalcType } from '../types'
 
 type CommonProps = {
   values: Theme

@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { cxGenerator } from '@contentpi/lib'
-import { Color } from '@types'
+import { Color } from '../../types'
 import { BadgeBase, BASE_CLASS_NAME } from './Badge.styled'
 
 export const initialProps = {

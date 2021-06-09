@@ -1,4 +1,4 @@
-import { IGlobal } from '@types'
+import { IGlobal } from '../types'
 
 const global: IGlobal = {
   background: {

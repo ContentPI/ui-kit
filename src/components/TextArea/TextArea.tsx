@@ -3,7 +3,7 @@ import React, { FC, ComponentPropsWithoutRef, useState } from 'react'
 import { cxGenerator } from '@contentpi/lib'
 
 // Types
-import { StatusColor } from '@types'
+import { StatusColor } from '../../types'
 
 // Styles
 import { InputWrapper, InputBase, BASE_CLASS_NAME } from '../Input/Input.styled'

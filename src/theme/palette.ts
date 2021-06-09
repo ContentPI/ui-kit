@@ -1,4 +1,4 @@
-import { IPalette, IGlobal } from '@types'
+import { IPalette, IGlobal } from '../types'
 import { colors } from './colors'
 
 const {
