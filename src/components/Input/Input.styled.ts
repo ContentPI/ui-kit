@@ -59,7 +59,7 @@ export const InputWrapper = styled.div`
   align-items: center;
 `
 
-export const InputBase = styled.input`
+export const InputBase = styled.input<any>`
   width: 100%;
   background: transparent;
   border: none;
