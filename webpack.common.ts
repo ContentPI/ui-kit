@@ -14,8 +14,11 @@ const webpackConfig: any = {
     rules: [
       {
         test: /\.(tsx|ts)$/,
+        loader: 'ts-loader',
         exclude: /node_modules/,
-        use: 'ts-loader'
+        options: {
+          transpileOnly: true
+        }
       },
       {
         test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,

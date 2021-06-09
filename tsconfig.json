@@ -8,15 +8,15 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "./dist",
+    "skipLibCheck": true,
     "strict": true,
     "strictFunctionTypes": false,
     "target": "esnext",
-    "skipLibCheck": true,
+    "typeRoots": ["node_modules/@types", "src/@types"],
     "paths": {
       "@theme": ["src/theme/index.ts"],
       "@types": ["src/types/index.ts"]
-    },
-    "typeRoots": ["node_modules/@types", "src/@types"]
+    }
   },
   "files": [
     "src/components/Badge/index.ts",
@@ -32,7 +32,8 @@
     "src/components/Spinner/index.ts",
     "src/components/Switcher/index.ts",
     "src/components/Text/index.ts",
-    "src/components/TextField/index.ts"
+    "src/components/TextField/index.ts",
+    "src/index.ts"
   ],
   "include": ["src/**/*", "sandbox/*"],
   "exclude": ["node_modules", "**/__tests__/*", ".vscode"]
