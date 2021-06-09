@@ -8,9 +8,9 @@ import TextArea from '../TextArea'
 import Text from '../Text'
 
 // Types
-import { StatusColor } from '@types'
 import { IProps as InputProps } from '../Input'
 import { ITextAreaProps } from '../TextArea'
+import { StatusColor } from '../../types'
 
 // Styles
 import { TextFieldBase, TextFieldHelpersWrapper, BASE_CLASS_NAME } from './TextField.styled'
