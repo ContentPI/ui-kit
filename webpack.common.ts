@@ -1,4 +1,5 @@
 import { resolve } from 'path'
+import createStyledComponentsTransformer from 'typescript-styled-components-plugin'
 
 const webpackConfig: any = {
   entry: './src/index.ts',
@@ -13,14 +14,6 @@ const webpackConfig: any = {
   module: {
     rules: [
       {
-        test: /\.(tsx|ts)$/,
-        loader: 'ts-loader',
-        exclude: /node_modules/,
-        options: {
-          transpileOnly: true
-        }
-      },
-      {
         test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
           {
@@ -31,6 +24,22 @@ const webpackConfig: any = {
             }
           }
         ]
+      },
+      {
+        test: /\.(tsx|ts)$/,
+        exclude: /node_modules/,
+        loader: 'ts-loader',
+        options: {
+          getCustomTransformers: (program: any) => ({
+            before: [
+              createStyledComponentsTransformer(program, {
+                setComponentId: true,
+                setDisplayName: true,
+                minify: true
+              })
+            ]
+          })
+        }
       },
       {
         test: /\.svg$/,
@@ -55,7 +64,11 @@ const webpackConfig: any = {
       '@theme': resolve(__dirname, 'src', 'theme'),
       '@types': resolve(__dirname, 'src', 'types')
     },
-    fallback: { crypto: false }
+    fallback: {
+      buffer: require.resolve('buffer/'),
+      crypto: require.resolve('crypto-browserify'),
+      stream: require.resolve('stream-browserify')
+    }
   },
   externals: {
     react: {
