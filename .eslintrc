@@ -81,6 +81,7 @@
     "no-restricted-syntax": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "guard-for-in": "off",
-    "@typescript-eslint/ban-ts-comment": "off"
+    "@typescript-eslint/ban-ts-comment": "off",
+    "implicit-arrow-linebreak": "off"
   }
 }
