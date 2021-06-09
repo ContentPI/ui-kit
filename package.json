@@ -1,6 +1,6 @@
 {
   "name": "@contentpi/ui-kit",
-  "version": "1.3.9",
+  "version": "1.3.10",
   "main": "dist/index.js",
   "scripts": {
     "sandbox": "webpack serve --config webpack.development.ts",
