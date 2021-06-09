@@ -1,11 +1,11 @@
 // Dependencies
 import React, { FC } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
-import { GlobalStyles } from '@components'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 // Components
 import Preview from '../src/components/Preview'
+import GlobalStyles from '../src/components/GlobalStyles'
 
 import Button, {
   Props as buttonProps,
@@ -45,14 +45,6 @@ import Switcher, {
 import Breadcrumb, { initialProps as BreadcrumbInitialProps } from '../src/components/Breadcrumb'
 
 import Badge, { initialProps as BadgeInitialProps } from '../src/components/Badge'
-
-// Theme
-import { themeVariants, themeRootVars } from '../src/theme'
-
-const GlobalStyle = createGlobalStyle`
-  ${themeRootVars}
-  ${themeVariants}
-`
 
 const StyledApp = styled.div`
   font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;

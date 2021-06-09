@@ -82,6 +82,7 @@
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "guard-for-in": "off",
     "@typescript-eslint/ban-ts-comment": "off",
-    "implicit-arrow-linebreak": "off"
+    "implicit-arrow-linebreak": "off",
+    "import/no-duplicates": "off"
   }
 }

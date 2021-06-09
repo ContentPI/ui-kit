@@ -49,7 +49,6 @@ const webpackConfig: any = {
     alias: {
       react: resolve(__dirname, './node_modules/react'),
       'react-dom': resolve(__dirname, './node_modules/react-dom'),
-      '@components': resolve(__dirname, 'src', 'components'),
       '@theme': resolve(__dirname, 'src', 'theme'),
       '@types': resolve(__dirname, 'src', 'types')
     },

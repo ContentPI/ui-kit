@@ -3,7 +3,9 @@ import React, { FC, useState } from 'react'
 import { cxGenerator } from '@contentpi/lib'
 
 // Components
-import { Input, TextArea, Text } from '@components'
+import Input from '../Input'
+import TextArea from '../TextArea'
+import Text from '../Text'
 
 // Types
 import { StatusColor } from '@types'

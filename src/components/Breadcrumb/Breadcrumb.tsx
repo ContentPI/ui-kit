@@ -3,7 +3,7 @@ import React, { FC, Fragment } from 'react'
 import { cxGenerator } from '@contentpi/lib'
 
 // Components
-import { Text } from '@components'
+import Text from '../Text'
 
 // Styles
 import { BreadcrumbBase, BreadcrumbDivider, BASE_CLASS_NAME } from './Breadcrumb.styled'

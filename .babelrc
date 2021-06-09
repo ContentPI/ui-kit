@@ -6,7 +6,6 @@
       {
         "root": ["./"],
         "alias": {
-          "@components": ["./src/components/index.ts"],
           "@theme": ["src/theme/index.ts"],
           "@types": ["src/types/index.ts"]
         }
