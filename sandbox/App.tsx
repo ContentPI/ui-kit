@@ -1,6 +1,6 @@
 // Dependencies
 import React, { FC } from 'react'
-import styled, { createGlobalStyle } from 'styled-components'
+import styled from 'styled-components'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 // Components
