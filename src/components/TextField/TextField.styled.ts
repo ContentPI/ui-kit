@@ -2,10 +2,10 @@
 import styled from 'styled-components'
 
 // Theme
-import { calc } from '@theme'
+import { calc } from '../../theme'
 
 // Types
-import { CalcType } from '@types'
+import { CalcType } from '../../types'
 
 // Components
 import { InputWrapper } from '../Input/Input.styled'

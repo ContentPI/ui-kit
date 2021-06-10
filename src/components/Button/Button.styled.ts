@@ -2,7 +2,7 @@
 import styled, { CSSObject } from 'styled-components'
 
 // Theme
-import { themeCssVars, calc, getClass, generateCss, generateStyles } from '@theme'
+import { themeCssVars, calc, getClass, generateCss, generateStyles } from '../../theme'
 
 // Types
 import {
@@ -15,7 +15,7 @@ import {
   CalcType,
   Shape,
   FontWeight
-} from '@types'
+} from '../../types'
 
 // Base Class Name
 export const BASE_CLASS_NAME = 'button'

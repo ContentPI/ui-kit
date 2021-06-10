@@ -1,4 +1,5 @@
 import { resolve } from 'path'
+import createStyledComponentsTransformer from 'typescript-styled-components-plugin'
 
 const webpackConfig: any = {
   entry: './src/index.ts',
@@ -13,11 +14,6 @@ const webpackConfig: any = {
   module: {
     rules: [
       {
-        test: /\.(tsx|ts)$/,
-        exclude: /node_modules/,
-        use: 'ts-loader'
-      },
-      {
         test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
           {
@@ -28,6 +24,22 @@ const webpackConfig: any = {
             }
           }
         ]
+      },
+      {
+        test: /\.(tsx|ts)$/,
+        exclude: /node_modules/,
+        loader: 'ts-loader',
+        options: {
+          getCustomTransformers: (program: any) => ({
+            before: [
+              createStyledComponentsTransformer(program, {
+                setComponentId: true,
+                setDisplayName: true,
+                minify: true
+              })
+            ]
+          })
+        }
       },
       {
         test: /\.svg$/,
@@ -48,12 +60,27 @@ const webpackConfig: any = {
     extensions: ['*', '.ts', '.tsx', '.js', '.jsx'],
     alias: {
       react: resolve(__dirname, './node_modules/react'),
-      'react-dom': resolve(__dirname, './node_modules/react-dom'),
-      '@components': resolve(__dirname, 'src', 'components'),
-      '@theme': resolve(__dirname, 'src', 'theme'),
-      '@types': resolve(__dirname, 'src', 'types')
+      'react-dom': resolve(__dirname, './node_modules/react-dom')
     },
-    fallback: { crypto: false }
+    fallback: {
+      buffer: require.resolve('buffer/'),
+      crypto: require.resolve('crypto-browserify'),
+      stream: require.resolve('stream-browserify')
+    }
+  },
+  externals: {
+    react: {
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'React',
+      root: 'React'
+    },
+    'react-dom': {
+      commonjs: 'react-dom',
+      commonjs2: 'react-dom',
+      amd: 'ReactDOM',
+      root: 'ReactDOM'
+    }
   }
 }
 

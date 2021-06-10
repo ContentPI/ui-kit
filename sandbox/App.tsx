@@ -1,11 +1,11 @@
 // Dependencies
 import React, { FC } from 'react'
 import styled from 'styled-components'
-import { GlobalStyles } from '@components'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 // Components
 import Preview from '../src/components/Preview'
+import GlobalStyles from '../src/components/GlobalStyles'
 
 import Button, {
   Props as buttonProps,

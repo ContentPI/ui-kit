@@ -2,10 +2,10 @@
 import styled from 'styled-components'
 
 // Theme
-import { themeCssVars, calc } from '@theme'
+import { themeCssVars, calc } from '../../theme'
 
 // Types
-import { CalcType } from '@types'
+import { CalcType } from '../../types'
 
 // Base Class Name
 export const BASE_CLASS_NAME = 'paper'

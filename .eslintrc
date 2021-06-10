@@ -1,12 +1,11 @@
 {
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "prettier"],
+  "plugins": ["@typescript-eslint"],
   "extends": [
     "airbnb",
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
+    "plugin:@typescript-eslint/recommended"
   ],
   "env": {
     "browser": true,
@@ -82,6 +81,8 @@
     "no-restricted-syntax": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "guard-for-in": "off",
-    "@typescript-eslint/ban-ts-comment": "off"
+    "@typescript-eslint/ban-ts-comment": "off",
+    "implicit-arrow-linebreak": "off",
+    "import/no-duplicates": "off"
   }
 }

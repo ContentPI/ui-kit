@@ -1,16 +1,3 @@
 {
-  "presets": ["@babel/preset-env", "@babel/preset-react"],
-  "plugins": [
-    [
-      "module-resolver",
-      {
-        "root": ["./"],
-        "alias": {
-          "@components": ["./src/components/index.ts"],
-          "@theme": ["src/theme/index.ts"],
-          "@types": ["src/types/index.ts"]
-        }
-      }
-    ]
-  ]
+  "presets": ["@babel/preset-env", "@babel/preset-react"]
 }

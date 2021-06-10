@@ -15,7 +15,7 @@ import {
   StatusColors,
   ButtonVariants,
   Shapes
-} from '@types'
+} from '../../types'
 
 // Components
 import Spinner from '../Spinner'

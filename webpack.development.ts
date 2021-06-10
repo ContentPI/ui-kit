@@ -2,6 +2,7 @@ import { resolve } from 'path'
 import { merge } from 'webpack-merge'
 import webpack from 'webpack'
 import HtmlWebPackPlugin from 'html-webpack-plugin'
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import common from './webpack.common'
 
 export default merge(common, {
@@ -16,6 +17,7 @@ export default merge(common, {
     port: 3000
   },
   plugins: [
+    new ForkTsCheckerWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebPackPlugin({
       title: 'Sandbox',

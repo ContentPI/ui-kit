@@ -1,7 +1,7 @@
 import { css, createGlobalStyle } from 'styled-components'
 
 // Theme
-import { themeRootVars, themeCssVars, themeVariants } from '@theme'
+import { themeRootVars, themeCssVars, themeVariants } from '../../theme'
 
 // Fonts
 import Poppins400Woff from '../../fonts/poppins-v15-latin-regular.woff'

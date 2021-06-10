@@ -2,10 +2,10 @@
 import styled, { CSSObject } from 'styled-components'
 
 // Theme
-import { themeCssVars, calc, generateCss, generateStyles } from '@theme'
+import { themeCssVars, calc, generateCss, generateStyles } from '../../theme'
 
 // Types
-import { CalcType, StatusColor, StatusColors } from '@types'
+import { CalcType, StatusColor, StatusColors } from '../../types'
 
 // Base Class Name
 export const BASE_CLASS_NAME = 'input'
@@ -59,7 +59,7 @@ export const InputWrapper = styled.div`
   align-items: center;
 `
 
-export const InputBase = styled.input`
+export const InputBase = styled.input<any>`
   width: 100%;
   background: transparent;
   border: none;

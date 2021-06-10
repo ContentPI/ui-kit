@@ -1,4 +1,4 @@
-import { Theme } from '@types'
+import { Theme } from '../types'
 import palette, { dark } from './palette'
 import global from './global'
 import typography from './typography'

@@ -1,7 +1,9 @@
 // Dependencies
-import { generateCss, generateStyles, themeCssVars, calc } from '@theme'
-import { StatusColor, StatusColors, CalcType } from '@types'
 import styled, { CSSObject } from 'styled-components'
+
+// Types
+import { generateCss, generateStyles, themeCssVars, calc } from '../../theme'
+import { StatusColor, StatusColors, CalcType } from '../../types'
 
 // Base Class Name
 export const BASE_CLASS_NAME = 'badge'

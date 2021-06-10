@@ -21,8 +21,6 @@ export const StyledPreview = styled.div`
   border: 1px solid ${mineShaft};
   display: grid;
   grid-template-columns: 250px 1fr;
-  /* flex-direction: column;
-  justify-content: space-between; */
   width: 100%;
   height: 100vh;
 
@@ -59,10 +57,6 @@ export const StyledContainer = styled.div`
 export const StyledPreviewArea = styled.div`
   width: 100%;
   height: 100%;
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative; */
   display: grid;
   grid-template-columns: 1fr 220px;
 `
