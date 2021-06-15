@@ -1,7 +1,6 @@
 // Dependencies
+import { colors } from 'src/theme'
 import styled from 'styled-components'
-
-import { colors } from '@theme'
 
 // Base Class Name
 export const BASE_CLASS_NAME = 'table'
