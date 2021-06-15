@@ -2,7 +2,7 @@
 import styled from 'styled-components'
 
 // Theme
-import { themeCssVars } from 'src/theme'
+import { themeCssVars } from '../../theme'
 
 // Base Class Name
 export const BASE_CLASS_NAME = 'radio'
