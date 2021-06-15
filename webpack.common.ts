@@ -67,20 +67,6 @@ const webpackConfig: any = {
       crypto: require.resolve('crypto-browserify'),
       stream: require.resolve('stream-browserify')
     }
-  },
-  externals: {
-    react: {
-      commonjs: 'react',
-      commonjs2: 'react',
-      amd: 'React',
-      root: 'React'
-    },
-    'react-dom': {
-      commonjs: 'react-dom',
-      commonjs2: 'react-dom',
-      amd: 'ReactDOM',
-      root: 'ReactDOM'
-    }
   }
 }
 
