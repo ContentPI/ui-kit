@@ -8,3 +8,12 @@ export const Shape = {
 
 export type Shape = ValueOf<typeof Shape>
 export const Shapes = Object.keys(Shape)
+
+export interface IShapeTheme {
+  unitBase: string
+}
+
+export const ShapesTheme = {
+  unitBase: 'unitBase'
+} as const
+export type ShapesTheme = ValueOf<typeof Shapes>

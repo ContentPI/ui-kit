@@ -1,17 +1,17 @@
-import { IBreakpoints, sizeUnits } from '../types'
+import { IBreakpoints, units } from '../types'
 
-const mediaQueries = ['xSmall', 'small', 'medium', 'large', 'xLarge'] as const
+const mediaQueries = ['xs', 'sm', 'md', 'lg', 'xl'] as const
 type MediaQueries = typeof mediaQueries[number]
 
 const breakpointsDefaultConfig = {
   keys: {
-    xSmall: 0,
-    small: 576,
-    medium: 768,
-    large: 992,
-    xLarge: 1200
+    xs: 0,
+    sm: 576,
+    md: 768,
+    lg: 992,
+    xl: 1200
   },
-  unit: sizeUnits[0],
+  unit: units[0],
   step: 5,
   up: (key: MediaQueries) => `${key}`,
   down: (key: MediaQueries) => `${key}`,

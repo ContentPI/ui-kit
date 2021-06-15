@@ -37,12 +37,12 @@ export const InputWrapper = styled.div`
   padding: ${calc(CalcType.padding, [3.25, 4])};
   margin: ${calc(CalcType.spacing, [2, 0])};
   background: ${themeCssVars.global?.background.paper};
-  border: 1px solid ${themeCssVars.palette.text.hint};
+  border: 1px solid ${themeCssVars.palette.text.textHint};
   box-sizing: border-box;
   box-shadow: 0px 7px 64px rgba(0, 0, 0, 0.07);
   border-radius: ${calc(CalcType.spacing, 2)};
   &::placeholder {
-    color: ${themeCssVars.palette.text.placeholder};
+    color: ${themeCssVars.palette.text.textPlaceholder};
     opacity: 1;
   }
   &:hover {
@@ -91,7 +91,7 @@ export const InputIcon = styled.div`
     cursor: pointer;
   }
   & > svg {
-    color: ${themeCssVars.palette.text.secondary};
+    color: ${themeCssVars.palette.text.textSecondary};
     min-height: 18px;
     min-width: 18px;
   }

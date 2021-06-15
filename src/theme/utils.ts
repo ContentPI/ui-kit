@@ -2,7 +2,7 @@
 import { css, CSSObject } from 'styled-components'
 
 // Theme
-import { themeCssVars } from '../theme'
+import { themeCssVars } from './theme'
 
 // Types
 import { Theme, CalcType } from '../types'
@@ -35,7 +35,6 @@ const createCSSVars = (node: any, cssVars: any, isAssignation = false, nestedKey
 
 export const getCSSVars = (vars: any, isAssignation = false) => {
   const cssVars: Record<string, any> = {}
-
   createCSSVars(vars, cssVars, isAssignation)
 
   const cleanCss = Object.keys(cssVars)
@@ -77,7 +76,7 @@ export const generateThemeVars = (themes: Record<string, any>) => {
   return allCss
 }
 
-const _calc = (number: number) => `calc(${themeCssVars.unit?.unitBase} * ${number})`
+const _calc = (number: number) => `calc(${themeCssVars.shape?.unitBase} * ${number})`
 
 export const calc = (type: CalcType, data: number | number[]) => {
   let calcData = ''

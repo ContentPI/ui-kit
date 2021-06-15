@@ -23,11 +23,19 @@ export type StatusColor = ValueOf<typeof StatusColor>
 export const StatusColors = Object.keys(Color)
 
 export const TextColor = {
-  primary: 'primary',
-  secondary: 'secondary',
-  disabled: 'disabled',
-  hint: 'hint'
+  textPrimary: 'textPrimary',
+  textSecondary: 'textSecondary',
+  textDisabled: 'textDisabled',
+  textHint: 'textHint'
 } as const
-
 export type TextColor = ValueOf<typeof TextColor>
 export const TextColors = Object.keys(TextColor)
+
+export const BackgroundColor = {
+  paper: 'paper',
+  main: 'main',
+  light: 'light',
+  dark: 'dark'
+} as const
+export type BackgroundColor = ValueOf<typeof BackgroundColor>
+export const BackgroundColors = Object.keys(BackgroundColor)

@@ -50,20 +50,20 @@ const Breadcrumb: FC<IProps> = props => {
       <Fragment key={item.title}>
         {Link ? (
           <Link href={item.link}>
-            <Text variant="subtitle2" color={isLast ? 'primary' : 'disabled'}>
+            <Text variant="subtitle2" color={isLast ? 'textPrimary' : 'textDisabled'}>
               {item.title}
             </Text>
           </Link>
         ) : (
           <a href={item.link}>
-            <Text variant="subtitle2" color={isLast ? 'primary' : 'disabled'}>
+            <Text variant="subtitle2" color={isLast ? 'textPrimary' : 'textDisabled'}>
               {item.title}
             </Text>
           </a>
         )}
         {!isLast && (
           <BreadcrumbDivider>
-            <Text variant="subtitle2" color="disabled">
+            <Text variant="subtitle2" color="textDisabled">
               /
             </Text>
           </BreadcrumbDivider>

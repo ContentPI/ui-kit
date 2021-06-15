@@ -126,11 +126,11 @@ const TextField: FC<TextFieldInputProps & TextFieldAreaProps> = props => {
 
       {(maxLength || errorMsg || helperText) && (
         <TextFieldHelpersWrapper>
-          <Text variant="caption1" color="secondary" status={statusColor}>
+          <Text variant="caption1" color="textSecondary" status={statusColor}>
             {errorMsg || helperText}
           </Text>
           {maxLength && (
-            <Text variant="caption1" color="secondary" status={statusColor}>
+            <Text variant="caption1" color="textSecondary" status={statusColor}>
               {maxLength && `${formatValue.length}/${maxLength}`}
             </Text>
           )}
