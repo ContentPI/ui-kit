@@ -51,6 +51,8 @@ import Badge, {
 
 import Table from '../src/components/Table'
 
+import Radio from '../src/components/Radio'
+
 const StyledApp = styled.div`
   font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 1rem;
@@ -120,6 +122,11 @@ const PreviewApp: FC = () => {
       component: Badge,
       props: badgeProps,
       initialProps: BadgeInitialProps
+    },
+    {
+      component: Radio,
+      props: {},
+      initialProps: {}
     },
     {
       component: Table,
