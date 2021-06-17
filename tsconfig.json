@@ -30,7 +30,7 @@
     "src/components/Switcher/index.ts",
     "src/components/Text/index.ts",
     "src/components/TextField/index.ts",
-    "src/components/Notification/NotificationProvider.tsx",
+    "src/components/Notification/index.ts",
     "src/index.ts"
   ],
   "include": ["src/**/*", "sandbox/*"],
