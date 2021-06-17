@@ -1,9 +1,9 @@
 // Dependencies
 import React, { FC, createContext, ReactElement } from 'react'
-import { ToastProvider, useToasts as useNotifications } from 'react-toast-notifications'
+import { ToastProvider, useToasts } from 'react-toast-notifications'
 
 interface INotificationContext {
-  useNotifications: any
+  useToasts: any
 }
 
 type Props = {
@@ -21,7 +21,7 @@ type Props = {
 
 // Creating context
 export const NotificationContext = createContext<INotificationContext>({
-  useNotifications: () => null
+  useToasts: () => null
 })
 
 const NotificationProvider: FC<Props> = ({
@@ -30,8 +30,9 @@ const NotificationProvider: FC<Props> = ({
   duration = 5000,
   keep = false
 }) => {
+  console.log('USE TOASTS FROM UI-KIT', useToasts)
   const context = {
-    useNotifications
+    useToasts
   }
 
   return (
