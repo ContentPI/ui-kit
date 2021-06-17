@@ -1,9 +1,9 @@
 // Dependencies
 import React, { FC, createContext, ReactElement } from 'react'
-import { ToastProvider, useToasts, AddToast } from 'react-toast-notifications'
+import { ToastProvider, useToasts as useNotifications } from 'react-toast-notifications'
 
 interface INotificationContext {
-  addNotification: AddToast
+  useNotifications: any
 }
 
 type Props = {
@@ -21,7 +21,7 @@ type Props = {
 
 // Creating context
 export const NotificationContext = createContext<INotificationContext>({
-  addNotification: () => null
+  useNotifications: () => null
 })
 
 const NotificationProvider: FC<Props> = ({
@@ -30,10 +30,8 @@ const NotificationProvider: FC<Props> = ({
   duration = 5000,
   keep = false
 }) => {
-  const { addToast: addNotification } = useToasts()
-
   const context = {
-    addNotification
+    useNotifications
   }
 
   return (
