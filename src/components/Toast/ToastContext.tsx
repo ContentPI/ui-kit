@@ -24,7 +24,7 @@ export const ToastContext = createContext<Context>({
 const ToastProvider: FC<ProviderProps> = ({
   children,
   maxToasts = 10,
-  duration = 5000,
+  duration = 10000,
   position = 'bottom right'
 }) => {
   const [toasts, setToasts] = useState<any>([])
@@ -74,13 +74,11 @@ const ToastProvider: FC<ProviderProps> = ({
   }, [toasts, duration])
 
   const createToast = (props: IProps) => {
-    const toaskKey = uuidv4()
-    props.content += toaskKey
-
-    const newToasts = [<Toast key={toaskKey} {...props} />, ...toasts]
+    const toastKey = uuidv4()
+    const newToasts = [<Toast key={toastKey} id={toastKey} {...props} />, ...toasts]
 
     if (newToasts.length > maxToasts) {
-      const newQueue = [<Toast key={toaskKey} {...props} />, ...queue]
+      const newQueue = [<Toast key={toastKey} id={toastKey} {...props} />, ...queue]
       setQueue(newQueue)
     } else {
       setToasts(newToasts)

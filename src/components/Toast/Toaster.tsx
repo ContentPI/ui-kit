@@ -7,7 +7,7 @@ import useToast from './useToast'
 const Toaster: FC = () => {
   const { toasts, position } = useToast()
 
-  return <ToastsBox className={`show ${position}`}>{toasts}</ToastsBox>
+  return <ToastsBox className={`${position}`}>{toasts}</ToastsBox>
 }
 
 export default Toaster

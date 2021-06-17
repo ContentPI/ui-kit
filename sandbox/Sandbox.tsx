@@ -40,7 +40,8 @@ const Sandbox: FC = () => {
           href="#"
           onClick={() => {
             createToast({
-              content: 'Hola Carlos!...'
+              color: 'warning',
+              content: 'Hola Carlos!... esto tiene mucho tetooooo sdasdasd asdasdasd'
             })
           }}
         >
@@ -53,6 +54,7 @@ const Sandbox: FC = () => {
           href="#"
           onClick={() => {
             createToast({
+              color: 'error',
               content: 'Hola criss..'
             })
           }}
@@ -68,7 +70,7 @@ const Sandbox: FC = () => {
 
 const App: FC = () => {
   return (
-    <ToastProvider maxToasts={5} position="top right" duration={2000}>
+    <ToastProvider maxToasts={5} position="top right" duration={5000}>
       <Sandbox />
     </ToastProvider>
   )
