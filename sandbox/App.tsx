@@ -46,6 +46,11 @@ import Breadcrumb, { initialProps as BreadcrumbInitialProps } from '../src/compo
 
 import Badge, { initialProps as BadgeInitialProps } from '../src/components/Badge'
 
+import Radio, {
+  Props as radioProps,
+  initialProps as radioInitialProps
+} from '../src/components/Radio'
+
 const StyledApp = styled.div`
   font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 1rem;
@@ -115,6 +120,11 @@ const PreviewApp: FC = () => {
       component: Badge,
       props: {},
       initialProps: BadgeInitialProps
+    },
+    {
+      component: Radio,
+      props: radioProps,
+      initialProps: radioInitialProps
     }
   ]
 
