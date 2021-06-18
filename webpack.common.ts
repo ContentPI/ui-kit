@@ -1,5 +1,6 @@
 import { resolve } from 'path'
 import createStyledComponentsTransformer from 'typescript-styled-components-plugin'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
 const webpackConfig: any = {
   entry: './src/index.ts',
@@ -11,6 +12,11 @@ const webpackConfig: any = {
     umdNamedDefine: true,
     globalObject: 'this'
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'fonts.css'
+    })
+  ],
   module: {
     rules: [
       {
@@ -20,10 +26,15 @@ const webpackConfig: any = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'fonts/'
+              outputPath: 'fonts/',
+              esModule: false
             }
           }
         ]
+      },
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
       {
         test: /\.(tsx|ts)$/,
