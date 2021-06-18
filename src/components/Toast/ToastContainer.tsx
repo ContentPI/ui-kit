@@ -7,7 +7,7 @@ import { gutter } from './ToastElement'
 export type Props = {
   children?: Node
   hasToasts: boolean
-  position: Position
+  placement: Position
 }
 
 const StyledContainer = styled.div`
@@ -56,6 +56,6 @@ const StyledContainer = styled.div`
   }
 `
 
-export const ToastContainer: FC<Props> = ({ hasToasts, position, ...props }) => (
-  <StyledContainer className={`${position} ${!hasToasts ? 'noToasts' : ''}`} {...props} />
+export const ToastContainer: FC<Props> = ({ hasToasts, placement, ...props }) => (
+  <StyledContainer className={`${placement} ${!hasToasts ? 'noToasts' : ''}`} {...props} />
 )

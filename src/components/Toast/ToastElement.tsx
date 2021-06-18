@@ -146,10 +146,7 @@ const ToastElement = ({
   return (
     <div
       ref={elementRef}
-      style={{ height }}
-      style={{
-        transition: `height ${transitionDuration - 100}ms 100ms`
-      }}
+      style={{ height, transition: `height ${transitionDuration - 100}ms 100ms` }}
     >
       <div
         className={`react-toast-notifications__toast react-toast-notifications__toast--${appearance}`}
