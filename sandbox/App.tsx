@@ -53,6 +53,11 @@ import Table from '../src/components/Table'
 
 import Radio from '../src/components/Radio'
 
+import Checkbox, {
+  Props as checkboxProps,
+  initialProps as checkboxInitialProps
+} from '../src/components/Checkbox'
+
 const StyledApp = styled.div`
   font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 1rem;
@@ -132,6 +137,11 @@ const PreviewApp: FC = () => {
       component: Table,
       props: {},
       initialProps: {}
+    },
+    {
+      component: Checkbox,
+      props: checkboxProps,
+      initialProps: checkboxInitialProps
     }
   ]
 
