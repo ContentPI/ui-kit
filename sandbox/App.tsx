@@ -44,7 +44,12 @@ import Switcher, {
 
 import Breadcrumb, { initialProps as BreadcrumbInitialProps } from '../src/components/Breadcrumb'
 
-import Badge, { initialProps as BadgeInitialProps } from '../src/components/Badge'
+import Badge, {
+  Props as badgeProps,
+  initialProps as BadgeInitialProps
+} from '../src/components/Badge'
+
+import Table from '../src/components/Table'
 
 import Radio, {
   Props as radioProps,
@@ -118,13 +123,18 @@ const PreviewApp: FC = () => {
     },
     {
       component: Badge,
-      props: {},
+      props: badgeProps,
       initialProps: BadgeInitialProps
     },
     {
       component: Radio,
       props: radioProps,
       initialProps: radioInitialProps
+    },
+    {
+      component: Table,
+      props: {},
+      initialProps: {}
     }
   ]
 
