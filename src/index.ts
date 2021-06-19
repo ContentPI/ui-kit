@@ -1,5 +1,3 @@
-import './fonts.css'
-
 export { default as Breadcrumb } from './components/Breadcrumb'
 export { default as Button } from './components/Button'
 export { default as GlobalStyles } from './components/GlobalStyles'
