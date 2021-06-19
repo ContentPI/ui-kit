@@ -33,7 +33,6 @@ const getColorStyles = () => {
 }
 
 export const InputWrapper = styled.div`
-  width: 250px;
   padding: ${calc(CalcType.padding, [3.25, 4])};
   margin: ${calc(CalcType.spacing, [2, 0])};
   background: ${themeCssVars.global?.background.paper};
