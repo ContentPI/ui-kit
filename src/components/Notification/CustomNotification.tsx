@@ -59,7 +59,7 @@ const StyledNotification = styled.div`
   }
 `
 
-const StyledRight = styled.div`
+const StyledClose = styled.div`
   margin-left: 5px;
   img {
     width: 10px;
@@ -71,12 +71,22 @@ const StyledRight = styled.div`
   }
 `
 
+const StyledIcon = styled.div`
+  img {
+    width: 30px;
+    height: 30px;
+  }
+`
+
 const CustomNotification: FC<Props> = ({ appearance, children, onDismiss }) => (
   <StyledNotification className={`notification ${appearance}`}>
+    <StyledIcon>
+      <img onClick={() => onDismiss()} alt="Close" src={require(`../../icons/${appearance}.svg`)} />
+    </StyledIcon>
     {children}
-    <StyledRight>
+    <StyledClose>
       <img onClick={() => onDismiss()} alt="Close" src={require('../../icons/close.svg')} />
-    </StyledRight>
+    </StyledClose>
   </StyledNotification>
 )
 
