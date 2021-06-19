@@ -17,6 +17,7 @@ const NotificationWrapper: FC<Props> = ({ id, message, type }) => {
   const { addToast } = useToasts()
 
   useEffect(() => {
+    console.log('ID fron UI-KIT ===', id)
     addToast(message, { appearance: type })
   }, [id])
 
