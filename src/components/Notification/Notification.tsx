@@ -9,6 +9,7 @@ type Props = {
   message: string
   type: AppearanceTypes
   position?: Placement
+  duration?: number
 }
 
 const NotificationWrapper: FC<Props> = ({ message, type }) => {
@@ -24,9 +25,14 @@ const NotificationWrapper: FC<Props> = ({ message, type }) => {
   return null
 }
 
-const Notification: FC<Props> = ({ message, type, position = 'top-right' }) => {
+const Notification: FC<Props> = ({ message, type, position = 'top-right', duration = 5000 }) => {
   return (
-    <ToastProvider components={{ Toast: CustomNotification }} autoDismiss placement={position}>
+    <ToastProvider
+      components={{ Toast: CustomNotification }}
+      autoDismiss
+      placement={position}
+      autoDismissTimeout={duration}
+    >
       <NotificationWrapper message={message} type={type} />
     </ToastProvider>
   )
