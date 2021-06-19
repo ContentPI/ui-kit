@@ -12,26 +12,23 @@ type Props = {
 
 const NotificationWrapper: FC<Props> = ({ message, type }) => {
   const { addToast } = useToasts()
-  const [executed, setExecuted] = useState(false)
+  const notification = document.querySelector('.notification')
 
   useEffect(() => {
-    if (!executed) {
+    if (!notification) {
       addToast(message, { appearance: type })
-      setExecuted(true)
     }
-
-    return () => {
-      setExecuted(false)
-    }
-  }, [executed])
+  }, [notification])
 
   return null
 }
 
-const Notification: FC<Props> = ({ message, type }) => (
-  <ToastProvider components={{ Toast: CustomNotification }}>
-    <NotificationWrapper message={message} type={type} />
-  </ToastProvider>
-)
+const Notification: FC<Props> = ({ message, type }) => {
+  return (
+    <ToastProvider components={{ Toast: CustomNotification }} autoDismiss>
+      <NotificationWrapper message={message} type={type} />
+    </ToastProvider>
+  )
+}
 
 export default Notification

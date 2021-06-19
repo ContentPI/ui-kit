@@ -15,7 +15,9 @@ type Props = {
   transitionState: TransitionState
 }
 const CustomNotification: FC<Props> = ({ appearance, children }) => (
-  <div style={{ background: appearance === 'error' ? 'red' : 'green' }}>{children}</div>
+  <div className="notification" style={{ background: appearance === 'error' ? 'red' : 'green' }}>
+    {children}
+  </div>
 )
 
 export default CustomNotification
