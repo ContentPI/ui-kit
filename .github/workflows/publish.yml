@@ -20,7 +20,5 @@ jobs:
       - run: git config --global user.email "foggdev@gmail.com"
       - run: git config --global user.name "Versioning Bot"
       - run: npm run versioning
-      - name: publish
-        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
