@@ -1,5 +1,5 @@
 // Dependencies
-import React, { FC, useEffect } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { ToastProvider, useToasts, AppearanceTypes } from 'react-toast-notifications'
 
 // Custom Notification
@@ -12,10 +12,18 @@ type Props = {
 
 const NotificationWrapper: FC<Props> = ({ message, type }) => {
   const { addToast } = useToasts()
+  const [executed, setExecuted] = useState(false)
 
   useEffect(() => {
-    addToast(message, { appearance: type })
-  })
+    if (!executed) {
+      addToast(message, { appearance: type })
+      setExecuted(true)
+    }
+
+    return () => {
+      setExecuted(false)
+    }
+  }, [executed])
 
   return null
 }
