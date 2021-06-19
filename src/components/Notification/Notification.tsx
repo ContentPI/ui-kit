@@ -19,16 +19,10 @@ type Props = {
 const NotificationWrapper: FC<Props> = ({ id, message, type }) => {
   const { addToast } = useToasts()
   const prevProps: any = usePrevious({ id })
-  console.log({ prevProps, id })
-  useEffect(() => {
-    if (!prevProps) {
-      addToast(message, { appearance: type })
-    }
 
+  useEffect(() => {
     if (prevProps && prevProps.id !== id) {
-      console.log('Different ID', id)
       addToast(message, { appearance: type })
-      console.log('AFTER ADD TOAST')
     }
   }, [id, prevProps])
 
