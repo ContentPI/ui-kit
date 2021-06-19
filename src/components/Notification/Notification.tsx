@@ -29,17 +29,11 @@ const NotificationWrapper: FC<Props> = ({ id, message, type }) => {
   return null
 }
 
-const Notification: FC<Props> = ({
-  id,
-  message,
-  type,
-  position = 'top-right',
-  duration = 5000
-}) => {
+const Notification: FC<Props> = ({ id, message, type, position = 'top-right', duration = 0 }) => {
   return (
     <ToastProvider
       components={{ Toast: CustomNotification }}
-      autoDismiss
+      autoDismiss={duration > 0}
       placement={position}
       autoDismissTimeout={duration}
     >
