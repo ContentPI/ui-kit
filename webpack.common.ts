@@ -14,6 +14,15 @@ const webpackConfig: any = {
   module: {
     rules: [
       {
+        test: /\.svg$/,
+        oneOf: [
+          {
+            include: [resolve(__dirname, './src/icons')],
+            use: 'svg-url-loader'
+          }
+        ]
+      },
+      {
         test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
           {
