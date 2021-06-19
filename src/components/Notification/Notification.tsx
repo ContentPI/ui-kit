@@ -5,6 +5,9 @@ import { ToastProvider, useToasts, AppearanceTypes, Placement } from 'react-toas
 // Custom Notification
 import CustomNotification from './CustomNotification'
 
+// Hooks
+import usePrevious from '../../usePrevious'
+
 type Props = {
   id: number
   message: string
@@ -15,10 +18,14 @@ type Props = {
 
 const NotificationWrapper: FC<Props> = ({ id, message, type }) => {
   const { addToast } = useToasts()
+  const prevProps: any = usePrevious({ id })
 
   useEffect(() => {
-    console.log('ID fron UI-KIT ===', id)
-    addToast(message, { appearance: type })
+    if (prevProps.id !== id) {
+      console.log('Different ID', id)
+      addToast(message, { appearance: type })
+      console.log('AFTER ADD TOAST')
+    }
   }, [id])
 
   return null
