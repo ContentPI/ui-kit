@@ -1,5 +1,6 @@
 import React, { FC, ReactNode } from 'react'
 import { AppearanceTypes, Placement, TransitionState } from 'react-toast-notifications'
+import styled from 'styled-components'
 
 type Props = {
   appearance: AppearanceTypes
@@ -14,10 +15,50 @@ type Props = {
   transitionDuration: number
   transitionState: TransitionState
 }
+
+const StyledNotification = styled.div`
+  background: #fff;
+  transition: 0.3s ease;
+  position: relative;
+  pointer-events: auto;
+  overflow: hidden;
+  margin: 0 0 6px;
+  padding: 30px;
+  margin-bottom: 15px;
+  width: 300px;
+  max-height: 100px;
+  border-radius: 3px 3px 3px 3px;
+  box-shadow: 0 0 10px #999;
+  color: #000;
+  opacity: 0.9;
+  background-position: 15px;
+  background-repeat: no-repeat;
+
+  &:hover {
+    box-shadow: 0 0 12px #fff;
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .error {
+    background-color: #c74144;
+  }
+
+  .success {
+    background-color: #4aa155;
+  }
+
+  .warning {
+    background-color: #df954b;
+  }
+
+  &.info {
+    background-color: #3cabc6;
+  }
+`
+
 const CustomNotification: FC<Props> = ({ appearance, children }) => (
-  <div className="notification" style={{ background: appearance === 'error' ? 'red' : 'green' }}>
-    {children}
-  </div>
+  <StyledNotification className={`notification ${appearance}`}>{children}</StyledNotification>
 )
 
 export default CustomNotification
