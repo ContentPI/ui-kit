@@ -43,19 +43,19 @@ const StyledNotification = styled.div`
   }
 
   &.error {
-    background-color: #c74144;
+    background-color: #f44237;
   }
 
   &.success {
-    background-color: #4aa155;
+    background-color: #4baf4f;
   }
 
   &.warning {
-    background-color: #df954b;
+    background-color: #ff9800;
   }
 
   &.info {
-    background-color: #3cabc6;
+    background-color: #00bde5;
   }
 `
 
