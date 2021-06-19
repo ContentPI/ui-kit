@@ -29,7 +29,7 @@ const StyledNotification = styled.div`
   max-height: 100px;
   border-radius: 3px 3px 3px 3px;
   box-shadow: 0 0 10px #999;
-  color: #000;
+  color: #fff;
   opacity: 0.9;
   background-position: 15px;
   background-repeat: no-repeat;
@@ -40,15 +40,15 @@ const StyledNotification = styled.div`
     cursor: pointer;
   }
 
-  .error {
+  &.error {
     background-color: #c74144;
   }
 
-  .success {
+  &.success {
     background-color: #4aa155;
   }
 
-  .warning {
+  &.warning {
     background-color: #df954b;
   }
 
