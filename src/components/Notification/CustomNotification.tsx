@@ -80,10 +80,17 @@ const StyledIcon = styled.div`
 
 const CustomNotification: FC<Props> = ({ appearance, children, onDismiss }) => (
   <StyledNotification className={`notification ${appearance}`}>
-    <StyledIcon>
-      <img onClick={() => onDismiss()} alt="Close" src={require(`../../icons/${appearance}.svg`)} />
-    </StyledIcon>
-    {children}
+    <div>
+      <StyledIcon>
+        <img
+          onClick={() => onDismiss()}
+          alt="Close"
+          src={require(`../../icons/${appearance}.svg`)}
+        />
+      </StyledIcon>
+
+      {children}
+    </div>
     <StyledClose>
       <img onClick={() => onDismiss()} alt="Close" src={require('../../icons/close.svg')} />
     </StyledClose>
