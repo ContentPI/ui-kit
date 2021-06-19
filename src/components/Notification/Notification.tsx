@@ -14,13 +14,10 @@ type Props = {
 
 const NotificationWrapper: FC<Props> = ({ message, type }) => {
   const { addToast } = useToasts()
-  const notification = document.querySelector('.notification')
 
   useEffect(() => {
-    if (!notification) {
-      addToast(message, { appearance: type })
-    }
-  }, [notification])
+    addToast(message, { appearance: type })
+  }, [])
 
   return null
 }
