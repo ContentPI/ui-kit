@@ -20,9 +20,12 @@ if [[ "$lastCommit" == *"$major"* ]]; then
   exit
 fi
 
+if [[ "$lastCommit" == *"$fix"* ]]; then
+  execute=`npm version patch`
+  echo "Creating a major version: $execute"
+  push=`git push origin main -f`
+  echo "$push"
+  exit
+fi
 
-execute=`npm version patch`
-echo "Creating a fix version: $execute"
-push=`git push origin main -f`
-echo "$push"
 exit
