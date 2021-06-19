@@ -33,6 +33,8 @@ const StyledNotification = styled.div`
   opacity: 0.9;
   background-position: 15px;
   background-repeat: no-repeat;
+  display: flex;
+  justify-content: space-between;
 
   &:hover {
     box-shadow: 0 0 12px #fff;
@@ -58,6 +60,7 @@ const StyledNotification = styled.div`
 `
 
 const StyledRight = styled.div`
+  margin-left: 5px;
   img {
     width: 10px;
     opacity: 0.3;
