@@ -1,5 +1,5 @@
 export const colors = {
-  alabaster: '#F9F9F9',
+  alabaster: '#FAFAFA',
   anakiwa: '#82E9FF',
   barleyWhite: '#fff3cd',
   black: '#000',

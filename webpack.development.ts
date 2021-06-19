@@ -14,7 +14,7 @@ export default merge(common, {
     contentBase: resolve(__dirname, './dist'),
     compress: true,
     hot: true,
-    port: 3000
+    port: 3003
   },
   plugins: [
     new ForkTsCheckerWebpackPlugin(),

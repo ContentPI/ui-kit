@@ -9,6 +9,8 @@ if [[ "$lastCommit" == *"$feat"* ]]; then
   echo "Creating a feature version: $execute"
   push=`git push origin main -f`
   echo "$push"
+  publish=`npm publish`
+  echo "$publish"
   exit
 fi
 
@@ -17,12 +19,19 @@ if [[ "$lastCommit" == *"$major"* ]]; then
   echo "Creating a major version: $execute"
   push=`git push origin main -f`
   echo "$push"
+  publish=`npm publish`
+  echo "$publish"
   exit
 fi
 
+if [[ "$lastCommit" == *"$fix"* ]]; then
+  execute=`npm version patch`
+  echo "Creating a major version: $execute"
+  push=`git push origin main -f`
+  echo "$push"
+  publish=`npm publish`
+  echo "$publish"
+  exit
+fi
 
-execute=`npm version patch`
-echo "Creating a fix version: $execute"
-push=`git push origin main -f`
-echo "$push"
 exit

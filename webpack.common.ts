@@ -14,13 +14,23 @@ const webpackConfig: any = {
   module: {
     rules: [
       {
+        test: /\.svg$/,
+        oneOf: [
+          {
+            include: [resolve(__dirname, './src/icons')],
+            use: 'svg-url-loader'
+          }
+        ]
+      },
+      {
         test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
           {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'fonts/'
+              outputPath: 'fonts/',
+              esModule: false
             }
           }
         ]
@@ -66,20 +76,6 @@ const webpackConfig: any = {
       buffer: require.resolve('buffer/'),
       crypto: require.resolve('crypto-browserify'),
       stream: require.resolve('stream-browserify')
-    }
-  },
-  externals: {
-    react: {
-      commonjs: 'react',
-      commonjs2: 'react',
-      amd: 'React',
-      root: 'React'
-    },
-    'react-dom': {
-      commonjs: 'react-dom',
-      commonjs2: 'react-dom',
-      amd: 'ReactDOM',
-      root: 'ReactDOM'
     }
   }
 }
