@@ -57,8 +57,24 @@ const StyledNotification = styled.div`
   }
 `
 
-const CustomNotification: FC<Props> = ({ appearance, children }) => (
-  <StyledNotification className={`notification ${appearance}`}>{children}</StyledNotification>
+const StyledRight = styled.div`
+  img {
+    width: 10px;
+    opacity: 0.3;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+`
+
+const CustomNotification: FC<Props> = ({ appearance, children, onDismiss }) => (
+  <StyledNotification className={`notification ${appearance}`}>
+    {children}
+    <StyledRight>
+      <img onClick={() => onDismiss()} alt="Close" src={require('../../icons/close.svg')} />
+    </StyledRight>
+  </StyledNotification>
 )
 
 export default CustomNotification
