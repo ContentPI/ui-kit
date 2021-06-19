@@ -17,24 +17,24 @@ type Props = {
 }
 
 const StyledNotification = styled.div`
-  background: #fff;
-  transition: 0.3s ease;
-  position: relative;
-  pointer-events: auto;
-  overflow: hidden;
-  margin: 0 0 6px;
-  padding: 30px;
-  margin-bottom: 15px;
-  width: 300px;
-  max-height: 100px;
-  border-radius: 3px 3px 3px 3px;
-  box-shadow: 0 0 10px #999;
-  color: #fff;
-  opacity: 0.9;
   background-position: 15px;
   background-repeat: no-repeat;
+  border-radius: 3px 3px 3px 3px;
+  box-shadow: 0 0 10px #333;
+  color: #fff;
   display: flex;
+  font-size: 14px;
   justify-content: space-between;
+  margin: 0 0 6px;
+  margin-bottom: 15px;
+  max-height: 100px;
+  opacity: 0.9;
+  overflow: hidden;
+  padding: 30px;
+  pointer-events: auto;
+  position: relative;
+  transition: 0.3s ease;
+  width: 300px;
 
   &:hover {
     box-shadow: 0 0 12px #fff;
@@ -61,6 +61,8 @@ const StyledNotification = styled.div`
 
 const StyledClose = styled.div`
   margin-left: 5px;
+  align-self: flex-start;
+
   img {
     width: 10px;
     opacity: 0.3;
@@ -72,6 +74,10 @@ const StyledClose = styled.div`
 `
 
 const StyledIcon = styled.div`
+  margin-right: 10px;
+  margin-left: -15px;
+  line-height: 0px;
+
   img {
     width: 30px;
     height: 30px;
@@ -80,7 +86,7 @@ const StyledIcon = styled.div`
 
 const CustomNotification: FC<Props> = ({ appearance, children, onDismiss }) => (
   <StyledNotification className={`notification ${appearance}`}>
-    <div>
+    <div style={{ display: 'flex', alignItems: 'center' }}>
       <StyledIcon>
         <img
           onClick={() => onDismiss()}
