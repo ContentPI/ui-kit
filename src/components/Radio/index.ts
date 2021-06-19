@@ -1,1 +1,1 @@
-export { default } from './Radio'
+export { default, initialProps, Props } from './Radio'

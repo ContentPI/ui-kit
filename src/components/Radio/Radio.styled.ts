@@ -1,20 +1,40 @@
 // Dependencies
-import styled from 'styled-components'
+import styled, { CSSObject } from 'styled-components'
 
 // Theme
-import { themeCssVars } from '../../theme'
+import { generateCss, generateStyles, themeCssVars } from '../../theme'
+
+// Types
+import { StatusColor, StatusColors } from '../../types'
 
 // Base Class Name
 export const BASE_CLASS_NAME = 'radio'
 
+// Functions
+const getBorderCss = (colorType: StatusColor) => {
+  const { main } = themeCssVars.palette[colorType]
+  const cssProps: CSSObject = {
+    border: `1px solid ${main}`
+  }
+
+  return generateCss(cssProps)
+}
+
+const getBallCss = (colorType: StatusColor) => {
+  const { main } = themeCssVars.palette[colorType]
+  const cssProps: CSSObject = {
+    background: main
+  }
+
+  return generateCss(cssProps)
+}
+
+const radioBorderStyles = () => generateStyles(StatusColors, BASE_CLASS_NAME, getBorderCss)
+const radioBallStyles = () => generateStyles(StatusColors, BASE_CLASS_NAME, getBallCss)
+
 // Styles
 export const radioBaseStyles = `
   background: ${themeCssVars.global?.background.paper};
-  border: 1px solid ${themeCssVars.palette.primary.main};
-`
-
-export const radioBallStyles = `
-  background: ${themeCssVars.palette.primary.main}
 `
 
 export const RadioBase = styled.div`
@@ -25,6 +45,7 @@ export const RadioBase = styled.div`
   margin-top: 3rem;
 
   ${radioBaseStyles}
+  ${radioBorderStyles()}
 `
 
 export const RadioBall = styled.div`
@@ -36,9 +57,9 @@ export const RadioBall = styled.div`
   border-radius: 100%;
   opacity: 0;
   transition: all 0.3s ease-in-out;
-  &.show {
+  &.radio-show {
     opacity: 1;
   }
 
-  ${radioBallStyles}
+  ${radioBallStyles()}
 `
