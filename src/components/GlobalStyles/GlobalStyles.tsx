@@ -1,3 +1,4 @@
+// Dependencies
 import { css, createGlobalStyle } from 'styled-components'
 
 // Theme
@@ -61,6 +62,7 @@ const htmlReset = css`
     outline: none;
   }
   body {
+    font-family: 'Poppins';
     margin: 0;
     background-color: ${themeCssVars.global?.background.dark};
   }
@@ -78,7 +80,6 @@ const htmlReset = css`
 const GlobalStyles = createGlobalStyle`
   ${htmlReset}
   ${fontStyles}
-
   ${themeRootVars}
   ${themeVariants}
 `
