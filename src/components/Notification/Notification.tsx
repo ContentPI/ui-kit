@@ -44,7 +44,7 @@ const Notification: FC<Props> = ({
       components={{ Toast: CustomNotification }}
       autoDismiss={duration > 0}
       placement={position}
-      autoDismissTimeout={duration}
+      autoDismissTimeout={duration < 999 ? duration * 1000 : duration}
     >
       <NotificationWrapper
         id={id}
