@@ -1,5 +1,5 @@
 // Dependencies
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect } from 'react'
 import { ToastProvider, useToasts, AppearanceTypes, Placement } from 'react-toast-notifications'
 
 // Custom Notification
@@ -14,15 +14,16 @@ type Props = {
   type: AppearanceTypes
   position?: Placement
   duration?: number
+  maxNotifications?: number
 }
 
-const NotificationWrapper: FC<Props> = ({ id, message, type }) => {
+const NotificationWrapper: FC<Props> = ({ id, message, type, maxNotifications = 5 }) => {
   const { addToast } = useToasts()
   const prevProps: any = usePrevious({ id })
   const notifications = document.querySelectorAll('.notification') || []
 
   useEffect(() => {
-    if (prevProps && prevProps.id !== id && notifications.length < 5) {
+    if (prevProps && prevProps.id !== id && notifications.length < maxNotifications) {
       addToast(message, { appearance: type })
     }
   }, [id, prevProps])
@@ -30,7 +31,14 @@ const NotificationWrapper: FC<Props> = ({ id, message, type }) => {
   return null
 }
 
-const Notification: FC<Props> = ({ id, message, type, position = 'top-right', duration = 0 }) => {
+const Notification: FC<Props> = ({
+  id,
+  message,
+  type,
+  position = 'top-right',
+  duration = 0,
+  maxNotifications
+}) => {
   return (
     <ToastProvider
       components={{ Toast: CustomNotification }}
@@ -38,7 +46,12 @@ const Notification: FC<Props> = ({ id, message, type, position = 'top-right', du
       placement={position}
       autoDismissTimeout={duration}
     >
-      <NotificationWrapper id={id} message={message} type={type} />
+      <NotificationWrapper
+        id={id}
+        message={message}
+        type={type}
+        maxNotifications={maxNotifications}
+      />
     </ToastProvider>
   )
 }
