@@ -20,9 +20,9 @@ const NotificationWrapper: FC<Props> = ({ id, message, type }) => {
   const { addToast } = useToasts()
   const prevProps: any = usePrevious({ id })
   const notifications = document.querySelectorAll('.notification') || []
-  console.log('notifications', notifications)
+
   useEffect(() => {
-    if (prevProps && prevProps.id !== id && notifications.length <= 5) {
+    if (prevProps && prevProps.id !== id && notifications.length < 5) {
       addToast(message, { appearance: type })
     }
   }, [id, prevProps])
