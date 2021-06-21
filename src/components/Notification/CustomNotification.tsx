@@ -20,7 +20,7 @@ const StyledNotification = styled.div`
   background-position: 15px;
   background-repeat: no-repeat;
   border-radius: 3px 3px 3px 3px;
-  box-shadow: 0 0 10px #333;
+  box-shadow: 0 0 12px #fff;
   color: #fff;
   display: flex;
   font-size: 14px;
@@ -28,19 +28,14 @@ const StyledNotification = styled.div`
   margin: 0 0 6px;
   margin-bottom: 15px;
   max-height: 100px;
-  opacity: 0.9;
+  opacity: 1;
+  cursor: pointer;
   overflow: hidden;
   padding: 30px;
   pointer-events: auto;
   position: relative;
   transition: 0.3s ease;
   width: 300px;
-
-  &:hover {
-    box-shadow: 0 0 12px #fff;
-    opacity: 1;
-    cursor: pointer;
-  }
 
   &.error {
     background-color: #f44237;
