@@ -1,21 +1,20 @@
-const mediaQueries = ['xSmall', 'small', 'medium', 'large', 'xLarge'] as const
-
+const mediaQueries = ['xs', 'sm', 'md', 'lg', 'xl'] as const
 export type MediaQueries = typeof mediaQueries[number]
 
-export const sizeUnits = ['px', 'rem'] as const
-export type SizeUnits = typeof sizeUnits[number]
+export const units = ['px', 'rem'] as const
+export type Units = typeof units[number]
 
 export interface IKeys {
-  xSmall: number | string
-  small: number | string
-  medium: number | string
-  large: number | string
-  xLarge: number | string
+  xs: number | string
+  sm: number | string
+  md: number | string
+  lg: number | string
+  xl: number | string
 }
 
 export interface IBreakpoints {
   keys: IKeys
-  unit: SizeUnits
+  unit: Units
   step: number | string
   up: (key: MediaQueries) => string
   down: (key: MediaQueries) => string

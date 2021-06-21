@@ -1,13 +1,12 @@
 export interface ITextColor {
-  primary: string
-  secondary: string
-  disabled: string
-  hint: string
-  placeholder?: string
+  textPrimary: string
+  textSecondary: string
+  textDisabled: string
+  textHint: string
+  textPlaceholder: string
 }
 
 export interface IColor {
-  alternativeText: string
   main: string
   light: string
   dark: string

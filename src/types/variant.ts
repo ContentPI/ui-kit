@@ -15,3 +15,11 @@ export const ButtonVariant = {
 
 export type ButtonVariant = ValueOf<typeof ButtonVariant>
 export const ButtonVariants = Object.keys(ButtonVariant)
+
+export const AvatarVariant = {
+  rounded: 'rounded',
+  circle: 'circle'
+} as const
+
+export type AvatarVariant = ValueOf<typeof AvatarVariant>
+export const AvatarVariants = Object.keys(AvatarVariant)

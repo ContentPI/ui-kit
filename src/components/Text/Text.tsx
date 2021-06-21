@@ -8,28 +8,30 @@ import { StatusColor, Typography, TypographyTag, TextColor, TextAlign } from '..
 // Styles
 import { TextBase, BASE_CLASS_NAME } from './Text.styled'
 
-interface IProps {
+export interface TextProps {
   align?: TextAlign
+  className?: string
   color?: TextColor
   component?: keyof JSX.IntrinsicElements
   status?: StatusColor
   variant?: Typography
 }
 
-const Text: FC<IProps> = props => {
+const Text: FC<TextProps> = props => {
   const {
-    children,
     align = TextAlign.left,
-    color = TextColor.primary,
+    children,
+    className,
+    color = TextColor.textPrimary,
     component = undefined,
     status = '',
     variant = Typography.paragraph1,
     ...restProps
   } = props
-
   const classNames = cxGenerator({
     ccn: BASE_CLASS_NAME,
-    data: [status || color, variant, align]
+    data: [status || color, variant, align],
+    className
   })
 
   const cpmTag = component || TypographyTag[variant]
