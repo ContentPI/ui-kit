@@ -10,10 +10,11 @@ export const BASE_CLASS_NAME = 'badge'
 
 // Functions
 const getColorCss = (colorType: StatusColor) => {
-  const { main } = themeCssVars.palette[colorType]
+  const { main, light, dark } = themeCssVars.palette[colorType]
   const cssProps: CSSObject = {
-    color: main,
+    color: dark,
     border: `1px solid ${main}`,
+    backgroundColor: light,
     padding: `${calc(CalcType.padding, [0.5, 2])}`
   }
 
