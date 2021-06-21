@@ -1,5 +1,5 @@
 // Dependencies
-import React, { FC, useEffect } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { ToastProvider, useToasts, AppearanceTypes, Placement } from 'react-toast-notifications'
 
 // Custom Notification
@@ -32,13 +32,15 @@ const NotificationWrapper: FC<Props> = ({ id, message, type, maxNotifications = 
 }
 
 const Notification: FC<Props> = ({
-  id,
   message,
   type,
   position = 'top-right',
   duration = 0,
   maxNotifications
 }) => {
+  const [id, setId] = useState(Math.random())
+
+  console.log('id', id)
   return (
     <ToastProvider
       components={{ Toast: CustomNotification }}
