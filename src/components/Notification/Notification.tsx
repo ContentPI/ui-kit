@@ -9,7 +9,7 @@ import CustomNotification from './CustomNotification'
 import usePrevious from '../../usePrevious'
 
 type Props = {
-  id: number
+  id?: number
   message: string
   type: AppearanceTypes
   position?: Placement
