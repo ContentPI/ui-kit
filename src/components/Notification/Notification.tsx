@@ -9,26 +9,22 @@ import CustomNotification from './CustomNotification'
 import usePrevious from '../../usePrevious'
 
 type Props = {
-  id?: number
+  id: number
   message: string
   type: AppearanceTypes
   position?: Placement
   duration?: number
   maxNotifications?: number
-  setId?: any
 }
 
-const NotificationWrapper: FC<Props> = ({ id, message, type, maxNotifications = 5, setId }) => {
+const NotificationWrapper: FC<Props> = ({ id, message, type, maxNotifications = 5 }) => {
   const { addToast } = useToasts()
   const prevProps: any = usePrevious({ id })
   const notifications = document.querySelectorAll('.notification') || []
 
   useEffect(() => {
     if (!prevProps || (prevProps.id !== id && notifications.length < maxNotifications)) {
-      console.log('ENTRA', id)
       addToast(message, { appearance: type })
-      setId(Math.random())
-      console.log('GENERATING NEW ID')
     }
   }, [id, prevProps])
 
@@ -36,15 +32,13 @@ const NotificationWrapper: FC<Props> = ({ id, message, type, maxNotifications = 
 }
 
 const Notification: FC<Props> = ({
+  id,
   message,
   type,
   position = 'top-right',
   duration = 0,
   maxNotifications
 }) => {
-  const [id, setId] = useState(Math.random())
-
-  console.log('id==', id)
   return (
     <ToastProvider
       components={{ Toast: CustomNotification }}
@@ -57,7 +51,6 @@ const Notification: FC<Props> = ({
         message={message}
         type={type}
         maxNotifications={maxNotifications}
-        setId={setId}
       />
     </ToastProvider>
   )
