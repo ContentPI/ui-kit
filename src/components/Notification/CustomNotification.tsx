@@ -21,6 +21,7 @@ const StyledNotification = styled.div`
   background-repeat: no-repeat;
   border-radius: 3px 3px 3px 3px;
   box-shadow: 0 0 12px #fff;
+  color: #fff;
   display: flex;
   font-size: 14px;
   justify-content: space-between;
