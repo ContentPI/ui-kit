@@ -23,7 +23,10 @@ const NotificationWrapper: FC<Props> = ({ id, message, type, maxNotifications = 
   const notifications = document.querySelectorAll('.notification') || []
 
   useEffect(() => {
-    if (prevProps && prevProps.id !== id && notifications.length < maxNotifications) {
+    if (
+      !prevProps ||
+      (prevProps && prevProps.id !== id && notifications.length < maxNotifications)
+    ) {
       addToast(message, { appearance: type })
     }
   }, [id, prevProps])
