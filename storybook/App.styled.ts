@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 
 export const BodyStyles = createGlobalStyle`
   body {
-    background-image: url("https://doc-0c-1g-docs.googleusercontent.com/docs/securesc/iprdrqsb6adh9fio2kkesco3ek4a0ee1/jm1vc4o5u9klnh80r1gqe693lhlaviuj/1624405050000/15210038916844597607/15210038916844597607/1RSnrLd-iSBue1pegk_UKvx8vTL5slAao?e=view&authuser=0") !important;
+    background-image: url("http://learntechsystems.com/wp-content/uploads/2021/06/bg.png") !important;
     background-position: left;
     background-repeat: repeat-y;
   }
