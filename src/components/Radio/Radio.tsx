@@ -1,24 +1,26 @@
-import React, { useState, FC } from 'react'
+import React, { FC } from 'react'
 import { cxGenerator } from '@contentpi/lib'
 import { StatusColor, StatusColors } from '../../types'
 import { RadioBase, RadioBall, BASE_CLASS_NAME } from './Radio.styled'
 
 export interface IProps {
-  color?: StatusColor
+  color?: StatusColor,
+  checked?: boolean
 }
 
 export const Props = {
-  color: StatusColors
+  color: StatusColors,
+  checked: false
 }
 
 export const initialProps = {
-  color: 'danger'
+  color: 'danger',
 }
 
 const Radio: FC<IProps> = props => {
-  const { color = StatusColor.primary } = props
-  const [showBall, setShowBall] = useState('')
-  const radioData = [color, showBall]
+  const { color = StatusColor.primary, checked = false } = props
+  const checkedClass = checked ? 'checked' : ''
+  const radioData = [color, checkedClass]
 
   const classNames = cxGenerator({
     ccn: BASE_CLASS_NAME,
@@ -26,7 +28,7 @@ const Radio: FC<IProps> = props => {
   })
 
   return (
-    <RadioBase className={classNames} onClick={() => setShowBall('show')}>
+    <RadioBase className={classNames}>
       <RadioBall className={classNames} />
     </RadioBase>
   )

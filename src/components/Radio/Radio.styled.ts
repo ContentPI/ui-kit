@@ -37,6 +37,12 @@ export const radioBaseStyles = `
   background: ${themeCssVars.global?.background.paper};
 `
 
+export const selectedStyles = `
+  &.${BASE_CLASS_NAME}-checked {
+    opacity: 1;
+  }
+`
+
 export const RadioBase = styled.div`
   width: 14px;
   height: 14px;
@@ -57,9 +63,6 @@ export const RadioBall = styled.div`
   border-radius: 100%;
   opacity: 0;
   transition: all 0.3s ease-in-out;
-  &.radio-show {
-    opacity: 1;
-  }
-
   ${radioBallStyles()}
+  ${selectedStyles}
 `
