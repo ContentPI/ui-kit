@@ -10,7 +10,6 @@ export interface IProps {
   total: number
   rowsPerPage?: number
   href: string
-  as?: string
   Link?: any
 }
 
@@ -18,8 +17,7 @@ export const Props = {
   page: 0,
   total: 0,
   rowsPerPage: 0,
-  href: '',
-  as: ''
+  href: ''
 }
 
 export const initialProps = {
@@ -106,7 +104,7 @@ const Pagination: FC<IProps> = ({ Link, href, as, rowsPerPage, page, total }) =>
       } else if (Link) {
         pageNav.push(
           <StyledLi key={i}>
-            <Link href={`${href}${pge}`} as={`${as}${pge}`}>
+            <Link to={`${href}${pge}`}>
               <StyledLink>{pge}</StyledLink>
             </Link>
           </StyledLi>
@@ -130,7 +128,7 @@ const Pagination: FC<IProps> = ({ Link, href, as, rowsPerPage, page, total }) =>
       if (Link) {
         return (
           <StyledLi>
-            <Link href={`${href}${currentPage + 1}`} as={`${as}${currentPage + 1}`}>
+            <Link to={`${href}${currentPage + 1}`}>
               <StyledLink className="next">
                 <Icon type="fas fa-chevron-right" />
               </StyledLink>
@@ -158,7 +156,7 @@ const Pagination: FC<IProps> = ({ Link, href, as, rowsPerPage, page, total }) =>
       if (Link) {
         return (
           <StyledLi>
-            <Link href={`${href}${currentPage - 1}`} as={`${as}${currentPage - 1}`}>
+            <Link to={`${href}${currentPage - 1}`}>
               <StyledLink className="previous">
                 <Icon type="fas fa-chevron-left" />
               </StyledLink>
