@@ -138,6 +138,7 @@ export const buttonStyle = `
     }
 
     &.${BASE_CLASS_NAME}-full-width {
+      display: block;
       width: 100%;
     }
   }

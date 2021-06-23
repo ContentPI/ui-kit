@@ -8,15 +8,35 @@ const StyledMenu = styled.ul`
   list-style: none;
 
   li {
-    padding: 10px;
     width: 280px;
+
+    h2 {
+      text-align: center;
+    }
+
+    &:first-child {
+      border: none;
+    }
 
     &:first-letter {
       text-transform: capitalize;
     }
 
-    .item {
-      color: #222;
+    a {
+      color: #444;
+      font-size: 14px;
+      text-decoration: none;
+      display: block;
+      pading-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+      height: 40px;
+      line-height: 50px;
+      width: 280px;
+
+      &:hover {
+        background-color: #fff;
+      }
     }
   }
 `

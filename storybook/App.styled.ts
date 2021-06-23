@@ -6,6 +6,7 @@ export const BodyStyles = createGlobalStyle`
     background-image: url("http://learntechsystems.com/wp-content/uploads/2021/06/bg.png") !important;
     background-position: left;
     background-repeat: repeat-y;
+    background-color: #fff !important;
   }
 `
 
@@ -18,7 +19,7 @@ export const StyledApp = styled.div`
   font-size: 1rem;
   margin-left: 20px;
   padding-bottom: 500px;
-  width: 800px;
+  width: 850px;
   h2 {
     font-weight: 600;
     margin: 0;
@@ -38,10 +39,13 @@ export const StyledBlock = styled.div`
   .block {
     min-width: 100%;
     strong {
+      display: inline-block;
+      margin-top: 5px;
       border-radius: 5px;
       font-weight: 500;
       padding: 4px;
-      background: #eee;
+      background: #000;
+      color: #fff;
     }
   }
   .render {
