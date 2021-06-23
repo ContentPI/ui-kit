@@ -38,12 +38,13 @@ export const StyledBlock = styled.div`
 
   .block {
     min-width: 100%;
+    font-size: 14px;
     strong {
       display: inline-block;
       margin-top: 5px;
       border-radius: 5px;
       font-weight: 500;
-      padding: 4px;
+      padding: 5px;
       background: #000;
       color: #fff;
     }

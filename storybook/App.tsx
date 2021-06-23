@@ -28,7 +28,7 @@ const App: FC = () => {
 
   useEffect(() => {
     Prism.highlightAll()
-  }, [])
+  }, [showCode])
 
   return (
     <>
@@ -44,14 +44,14 @@ const App: FC = () => {
                 exact
                 children={(props: any) => (
                   <Content
-                    currentComponent={components[props.match?.params.currentComponent || 'button']}
+                    currentComponent={components[props.match?.params.currentComponent]}
                     handleShowCode={handleShowCode}
                     showCode={showCode}
                   />
                 )}
               />
               <Route
-                children={(props: any) => (
+                children={() => (
                   <Content
                     currentComponent={components.button}
                     handleShowCode={handleShowCode}
