@@ -65,7 +65,7 @@ const StyledLink = styled.span`
   }
 `
 
-const Pagination: FC<IProps> = ({ Link, href, as, rowsPerPage, page, total }) => {
+const Pagination: FC<IProps> = ({ Link, href, rowsPerPage, page, total }) => {
   const maxElementsPerPage = rowsPerPage || 10
   const increment = 5
 
