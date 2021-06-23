@@ -28,6 +28,7 @@ const Text: FC<TextProps> = props => {
     variant = Typography.paragraph1,
     ...restProps
   } = props
+
   const classNames = cxGenerator({
     ccn: BASE_CLASS_NAME,
     data: [status || color, variant, align],

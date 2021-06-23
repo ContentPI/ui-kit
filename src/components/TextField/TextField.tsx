@@ -56,20 +56,6 @@ const ValidateLength = ({ length, value }: IValidateLength): string | null => {
   return null
 }
 
-export const Props = {
-  label: '',
-  helperText: '',
-  placeholder: '',
-  type: '',
-  error: false,
-  fullWidth: false,
-  textArea: false
-}
-
-export const initialProps = {
-  type: 'text'
-}
-
 const TextField: FC<TextFieldInputProps & TextFieldAreaProps> = props => {
   const {
     label,
@@ -83,6 +69,7 @@ const TextField: FC<TextFieldInputProps & TextFieldAreaProps> = props => {
     value = '',
     ...restProps
   } = props
+
   const isInput = !textArea && type
   const status: StatusColor | undefined = error ? 'danger' : undefined
   const fullWidthClass = fullWidth ? 'full-width' : ''

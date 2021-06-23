@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { createGlobalStyle } from 'styled-components'
+import { rtl } from '../src/theme/rtl'
 
 export const BodyStyles = createGlobalStyle`
   body {
@@ -7,6 +8,10 @@ export const BodyStyles = createGlobalStyle`
     background-position: left;
     background-repeat: repeat-y;
     background-color: #fff !important;
+
+    ${rtl(`
+      background-position: right;
+    `)}
   }
 `
 
@@ -19,13 +24,28 @@ export const StyledApp = styled.div`
   font-size: 1rem;
   margin-left: 20px;
   padding-bottom: 500px;
-  width: 850px;
+  width: 75%;
+
   h2 {
     font-weight: 600;
     margin: 0;
+
+    ${rtl(`
+      margin-right: 10px;
+    `)}
   }
+
   button {
     margin-right: 5px;
+  }
+
+  .rtl {
+    float: right;
+    margin-top: 5px;
+
+    ${rtl(`
+      float: left;
+    `)}
   }
 `
 
@@ -39,6 +59,7 @@ export const StyledBlock = styled.div`
   .block {
     min-width: 100%;
     font-size: 14px;
+
     strong {
       display: inline-block;
       margin-top: 5px;
@@ -49,9 +70,11 @@ export const StyledBlock = styled.div`
       color: #fff;
     }
   }
+
   .render {
     margin-top: 20px;
   }
+
   pre {
     margin-top: 25px;
     min-width: 750px;

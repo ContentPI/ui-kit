@@ -151,12 +151,20 @@ export const StyledButton = styled.button`
     position: absolute;
     top: 11px;
     left: 14px;
+
+    *[dir='rtl'] & {
+      right: 14px;
+    }
   }
 
   &.${BASE_CLASS_NAME}-xSmall {
     img {
       top: -1px;
       left: 4px;
+
+      *[dir='rtl'] & {
+        right: 4px;
+      }
     }
   }
 
@@ -164,6 +172,10 @@ export const StyledButton = styled.button`
     img {
       top: 7px;
       left: 10px;
+
+      *[dir='rtl'] & {
+        right: 10px;
+      }
     }
   }
 
@@ -171,6 +183,10 @@ export const StyledButton = styled.button`
     img {
       top: 15px;
       left: 14px;
+
+      *[dir='rtl'] & {
+        right: 14px;
+      }
     }
   }
 
@@ -178,6 +194,10 @@ export const StyledButton = styled.button`
     img {
       top: 20px;
       left: 14px;
+
+      *[dir='rtl'] & {
+        right: 14px;
+      }
     }
   }
 
@@ -200,6 +220,10 @@ export const StyledLinkButton = styled.span`
       position: absolute;
       top: -1px;
       left: -6px;
+
+      *[dir='rtl'] & {
+        right: -6px;
+      }
     }
   }
 

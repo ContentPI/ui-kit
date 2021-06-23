@@ -3,6 +3,7 @@ import InputStories from '../src/components/Input/Input.stories'
 import PaginationStories from '../src/components/Pagination/Pagination.stories'
 import TextAreaStories from '../src/components/TextArea/TextArea.stories'
 import RenderIfStories from '../src/components/RenderIf/RenderIf.stories'
+import Text from '../src/components/Text/Text.stories'
 import TextFieldStories from '../src/components/TextField/TextField.stories'
 
 const stories: any = {
@@ -11,6 +12,7 @@ const stories: any = {
   pagination: PaginationStories,
   textarea: TextAreaStories,
   renderif: RenderIfStories,
+  text: Text,
   textfield: TextFieldStories
 }
 

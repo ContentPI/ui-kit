@@ -6,59 +6,59 @@ const stories = {
   stories: [
     {
       name: 'TextField',
-      description: 'Text Input',
+      description: 'text, password, number or email',
       render: <TextField type="text" placeholder="Placeholder" />,
-      prop: false,
+      prop: 'type',
       code: `
       <TextField type="text" placeholder="Placeholder" />
       `
     },
     {
       name: 'TextField with error',
-      description: 'Error',
+      description: 'boolean (false by default)',
       render: <TextField type="text" error />,
-      prop: false,
+      prop: 'error',
       code: `
       <TextField type="text" error />
       `
     },
     {
       name: 'TextField fullWidth',
-      description: 'Full width',
+      description: 'boolean (false by default)',
       render: <TextField type="text" fullWidth />,
-      prop: false,
+      prop: 'fullWidth',
       code: `
       <TextField type="text" fullWidth />
       `
     },
     {
       name: 'TextField with helperText',
-      description: 'Helper text',
+      description: 'string',
       render: <TextField type="text" helperText="Helper text" />,
-      prop: false,
+      prop: 'helperText',
       code: `
       <TextField type="text" helperText="Helper text" />
       `
     },
     {
       name: 'TextField as textarea',
-      description: 'Textarea',
+      description: 'boolean (false by default)',
       render: <TextField type="text" textArea />,
-      prop: false,
+      prop: 'textArea',
       code: `
       <TextField type="text" textArea />
       `
     },
     {
       name: 'TextField with min & max length',
-      description: 'Min & max length',
+      description: 'number',
       render: (
         <>
           <TextField type="text" minLength={10} />
           <TextField type="text" maxLength={20} />
         </>
       ),
-      prop: false,
+      prop: 'minLenght | maxLength',
       code: `
       <TextField type="text" minLength={10} />
       <TextField type="text" maxLength={20} />
