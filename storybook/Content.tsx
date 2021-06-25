@@ -11,6 +11,25 @@ const Content: FC<Props> = ({ currentComponent, handleShowCode, showCode }) => {
   return (
     <>
       <h2>{currentComponent.component}</h2>
+      <div className="props">
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+
+          {currentComponent.props.map((prop: any) => (
+            <tr key={prop}>
+              <td>{prop.name}</td>
+              <td>{prop.type}</td>
+              <td>{prop.default}</td>
+              <td>{prop.description}</td>
+            </tr>
+          ))}
+        </table>
+      </div>
 
       {currentComponent.stories.map((props: any, i: number) => (
         <StyledBlock key={`block-${i}`}>

@@ -35,6 +35,15 @@ export const StyledApp = styled.div`
     `)}
   }
 
+  .props {
+    border: 1px solid red;
+
+    span {
+      border: 1px solid blue;
+      display: block;
+    }
+  }
+
   button {
     margin-right: 5px;
   }
