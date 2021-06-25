@@ -13,19 +13,6 @@ export interface ITextAreaProps extends ComponentPropsWithoutRef<'textarea'> {
   status?: StatusColor
 }
 
-export const Props = {
-  status: '',
-  value: '',
-  cols: 0,
-  rows: 0,
-  fullWidth: false
-}
-
-export const initialProps = {
-  cols: 30,
-  rows: 2
-}
-
 const TextArea: FC<ITextAreaProps> = props => {
   const { status = '', fullWidth = false, ...restProps } = props
 

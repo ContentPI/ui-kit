@@ -35,24 +35,6 @@ export interface IProps extends ComponentPropsWithoutRef<'button'> {
   loadingText?: string
 }
 
-export const Props = {
-  children: '',
-  href: '',
-  loadingText: '',
-  color: StatusColors,
-  variant: ButtonVariants,
-  size: ButtonSizes,
-  shape: Shapes,
-  disabled: false,
-  isLoading: false,
-  fullWidth: false
-}
-
-export const initialProps = {
-  children: 'Button',
-  color: 'danger'
-}
-
 const Button: FC<IProps> = props => {
   const {
     color = Color.primary,

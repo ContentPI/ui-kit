@@ -1,1 +1,1 @@
-export { default, Props, initialProps } from './RenderIf'
+export { default } from './RenderIf'

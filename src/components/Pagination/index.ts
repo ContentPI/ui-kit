@@ -1,1 +1,1 @@
-export { default, Props, initialProps } from './Pagination'
+export { default } from './Pagination'

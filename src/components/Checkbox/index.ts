@@ -1,1 +1,1 @@
-export { default, Props, initialProps } from './Checkbox'
+export { default } from './Checkbox'

@@ -8,23 +8,6 @@ import Text from '../Text'
 // Styles
 import { BreadcrumbBase, BreadcrumbDivider, BASE_CLASS_NAME } from './Breadcrumb.styled'
 
-export const initialProps = {
-  labels: [
-    {
-      title: 'Schema',
-      link: '/schema'
-    },
-    {
-      title: 'Models',
-      link: '/models'
-    },
-    {
-      title: 'User',
-      link: '/user'
-    }
-  ]
-}
-
 type labelBody = {
   title: string
   link?: string

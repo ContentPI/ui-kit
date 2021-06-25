@@ -1,1 +1,1 @@
-export { default, ITextAreaProps, Props, initialProps } from './TextArea'
+export { default, ITextAreaProps } from './TextArea'

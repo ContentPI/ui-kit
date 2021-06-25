@@ -1,1 +1,1 @@
-export { default, initialProps } from './Breadcrumb'
+export { default } from './Breadcrumb'

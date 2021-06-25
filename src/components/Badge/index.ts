@@ -1,1 +1,1 @@
-export { default, Props, initialProps } from './Badge'
+export { default } from './Badge'
