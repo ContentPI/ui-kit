@@ -7,11 +7,11 @@ const stories = {
     {
       name: 'Pagination',
       description: 'Simple pagination',
-      render: <Pagination page={1} total={200} rowsPerPage={10} href="/blog/" />,
+      render: <Pagination page={3} total={200} rowsPerPage={10} href="/blog/" />,
       prop: false,
       code: `
       <Pagination
-        page={1}
+        page={3}
         total={200}
         rowsPerPage={10}
         href="/blog/"

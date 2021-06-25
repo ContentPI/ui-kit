@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
@@ -34,6 +34,14 @@ const StyledMenu = styled.ul`
       line-height: 50px;
       width: 280px;
 
+      &.active {
+        background-color: #fff;
+      }
+
+      *[dir='rtl'] & {
+        padding-right: 5px;
+      }
+
       &:hover {
         background-color: #fff;
       }
@@ -43,9 +51,10 @@ const StyledMenu = styled.ul`
 
 type Props = {
   components: any
+  match: any
 }
 
-const Sidebar: FC<Props> = ({ components }) => {
+const Sidebar: FC<Props> = ({ components, match }) => {
   return (
     <>
       <StyledMenu>
@@ -53,9 +62,13 @@ const Sidebar: FC<Props> = ({ components }) => {
           <h2>ContentPI Storybook</h2>
         </li>
         {Object.keys(components).map((component: any) => {
+          const url = `/${component.toLowerCase()}`
+
           return (
             <li key={component} className="item">
-              <Link to={`/${component.toLowerCase()}`}>{component}</Link>
+              <Link to={url} className={url === match.url ? 'active' : ''}>
+                {component}
+              </Link>
             </li>
           )
         })}

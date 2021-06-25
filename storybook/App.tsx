@@ -5,6 +5,7 @@ import 'prismjs/components/prism-jsx.min'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 // Components
+import Switcher from '../src/components/Switcher'
 import Sidebar from './Sidebar'
 import Content from './Content'
 
@@ -17,6 +18,7 @@ import { StyledWrapper, StyledApp, BodyStyles } from './App.styled'
 
 const App: FC = () => {
   const [showCode, setShowCode] = useState<boolean | number>(false)
+  const [isRtl, setIsRtl] = useState(false)
 
   const handleShowCode = (code: number) => {
     if (showCode !== code) {
@@ -24,6 +26,13 @@ const App: FC = () => {
     } else {
       setShowCode(false)
     }
+  }
+
+  const handleRtl = () => {
+    const dir = !isRtl ? 'rtl' : 'ltr'
+    document.documentElement.dir = dir
+
+    setIsRtl(!isRtl)
   }
 
   useEffect(() => {
@@ -36,31 +45,53 @@ const App: FC = () => {
       <BodyStyles />
       <StyledWrapper>
         <Router>
-          <Sidebar components={components} />
-          <StyledApp>
-            <Switch>
-              <Route
-                path="/:currentComponent"
-                exact
-                children={(props: any) => (
-                  <Content
-                    currentComponent={components[props.match?.params.currentComponent]}
-                    handleShowCode={handleShowCode}
-                    showCode={showCode}
-                  />
-                )}
-              />
-              <Route
-                children={() => (
-                  <Content
-                    currentComponent={components.button}
-                    handleShowCode={handleShowCode}
-                    showCode={showCode}
-                  />
-                )}
-              />
-            </Switch>
-          </StyledApp>
+          <Switch>
+            <Route
+              path="/:currentComponent"
+              exact
+              children={(props: any) => (
+                <>
+                  <Sidebar components={components} {...props} />
+                  <StyledApp>
+                    <span className="rtl">
+                      <Switcher
+                        label="Switch to RTL"
+                        checked={isRtl}
+                        onChange={() => handleRtl()}
+                      />
+                    </span>
+
+                    <Content
+                      currentComponent={components[props.match?.params.currentComponent]}
+                      handleShowCode={handleShowCode}
+                      showCode={showCode}
+                    />
+                  </StyledApp>
+                </>
+              )}
+            />
+            <Route
+              children={(props: any) => (
+                <>
+                  <Sidebar components={components} {...props} />
+                  <StyledApp>
+                    <span className="rtl">
+                      <Switcher
+                        label="Switch to RTL"
+                        checked={isRtl}
+                        onChange={() => handleRtl()}
+                      />
+                    </span>
+                    <Content
+                      currentComponent={components.button}
+                      handleShowCode={handleShowCode}
+                      showCode={showCode}
+                    />
+                  </StyledApp>
+                </>
+              )}
+            />
+          </Switch>
         </Router>
       </StyledWrapper>
     </>

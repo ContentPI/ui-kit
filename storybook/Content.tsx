@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC } from 'react'
 import { StyledBlock, StyledPre, StyledShowCode } from './App.styled'
 
 type Props = {
@@ -45,6 +45,3 @@ const Content: FC<Props> = ({ currentComponent, handleShowCode, showCode }) => {
 }
 
 export default Content
-/*
-
-    */
