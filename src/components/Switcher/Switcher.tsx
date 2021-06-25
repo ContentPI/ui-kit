@@ -20,23 +20,6 @@ interface IProps {
   onClick?(e: MouseEvent<HTMLInputElement>): void
 }
 
-export const Props = {
-  label: '',
-  checked: false,
-  type: '',
-  readOnly: false,
-  onChange: () => null,
-  onClick: () => null
-}
-
-export const initialProps = {
-  label: 'Turn on',
-  checked: false,
-  type: 'round',
-  onChange: () => console.log('Change'),
-  onClick: () => console.log('Click')
-}
-
 const Switcher: FC<IProps> = ({ label = '', type, readOnly, onChange, checked = false }) => (
   <>
     <StyledSwitcher>

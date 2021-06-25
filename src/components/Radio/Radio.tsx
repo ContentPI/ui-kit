@@ -8,15 +8,6 @@ export interface IProps {
   checked?: boolean
 }
 
-export const Props = {
-  color: StatusColors,
-  checked: false
-}
-
-export const initialProps = {
-  color: 'danger',
-}
-
 const Radio: FC<IProps> = props => {
   const { color = StatusColor.primary, checked = false } = props
   const checkedClass = checked ? 'checked' : ''

@@ -1,1 +1,1 @@
-export { default, Props, initialProps } from './Switcher'
+export { default } from './Switcher'

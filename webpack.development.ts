@@ -6,7 +6,7 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import common from './webpack.common'
 
 export default merge(common, {
-  entry: './sandbox/index.tsx',
+  entry: './storybook/index.tsx',
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
@@ -20,8 +20,8 @@ export default merge(common, {
     new ForkTsCheckerWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebPackPlugin({
-      title: 'Sandbox',
-      template: './sandbox/index.html',
+      title: 'Storybook',
+      template: './storybook/index.html',
       filename: './index.html'
     })
   ]

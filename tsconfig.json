@@ -33,6 +33,6 @@
     "src/components/Notification/index.ts",
     "src/index.ts"
   ],
-  "include": ["src/**/*", "sandbox/*"],
+  "include": ["src/**/*", "storybook/*"],
   "exclude": ["node_modules", "**/__tests__/*", ".vscode"]
 }

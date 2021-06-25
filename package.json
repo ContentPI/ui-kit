@@ -4,8 +4,7 @@
   "main": "dist/index.js",
   "types": "dist/src/index.d.ts",
   "scripts": {
-    "sandbox": "webpack serve --config webpack.development.ts",
-    "storybook": "webpack serve --config webpack.storybook.ts",
+    "storybook": "webpack serve --config webpack.development.ts",
     "clean": "rm -rf ./dist",
     "build:dev": "npm run clean && webpack -w -d --config webpack.development.ts",
     "build": "npm run clean && tsc && cross-env NODE_ENV=production webpack --config webpack.production.ts",

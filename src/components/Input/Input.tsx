@@ -18,20 +18,6 @@ export interface IProps extends ComponentPropsWithoutRef<'input'> {
   status?: StatusColor
 }
 
-export const Props = {
-  fullWidth: '',
-  leftIcon: '',
-  rightIcon: '',
-  status: '',
-  type: '',
-  value: ''
-}
-
-export const initialProps = {
-  type: 'text',
-  value: 'Placeholder'
-}
-
 const Input: FC<IProps> = props => {
   const { status = '', type = 'text', leftIcon, rightIcon, fullWidth = false, ...restProps } = props
 
