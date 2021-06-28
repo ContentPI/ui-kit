@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, Fragment } from 'react'
 import { StyledBlock, StyledPre, StyledShowCode } from './App.styled'
 
 type Props = {
@@ -19,15 +19,26 @@ const Content: FC<Props> = ({ currentComponent, handleShowCode, showCode }) => {
             <th>Default</th>
             <th>Description</th>
           </tr>
-
-          {currentComponent.props.map((prop: any) => (
-            <tr key={prop}>
-              <td>{prop.name}</td>
-              <td>{prop.type}</td>
-              <td>{prop.default}</td>
-              <td>{prop.description}</td>
-            </tr>
-          ))}
+          <tbody>
+            {currentComponent.props.map((prop: any) => (
+              <Fragment key={prop}>
+                <tr>
+                  <td>
+                    <span>{prop.name}</span>
+                  </td>
+                  <td>
+                    <span>{prop.type}</span>
+                  </td>
+                  <td>
+                    <span>{prop.default}</span>
+                  </td>
+                  <td>
+                    <span>{prop.description}</span>
+                  </td>
+                </tr>
+              </Fragment>
+            ))}
+          </tbody>
         </table>
       </div>
 

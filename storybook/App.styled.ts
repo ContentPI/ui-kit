@@ -36,11 +36,25 @@ export const StyledApp = styled.div`
   }
 
   .props {
-    border: 1px solid red;
-
+    table {
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th {
+      padding: 0.2rem 2rem;
+      text-decoration: bold;
+    }
     span {
-      border: 1px solid blue;
       display: block;
+    }
+    td {
+      border-bottom: thin solid lightgray;
+      padding: 1rem 2rem;
+    }
+    tr {
+      margin: 0.7rem 2rem;
+
+      padding: 1rem 2rem;
     }
   }
 

@@ -3,6 +3,62 @@ import Button from './index'
 
 const stories = {
   component: 'Button',
+  props: [
+    {
+      name: 'children',
+      type: 'Node',
+      default: 'null',
+      description: 'The content of the component'
+    },
+    {
+      name: 'color',
+      type: 'StatusColor',
+      default: 'primary',
+      description: 'The color of the button'
+    },
+    {
+      name: 'href',
+      type: 'reference',
+      default: 'null',
+      description: 'The reference of the button '
+    },
+    {
+      name: 'disabled',
+      type: 'boolean',
+      default: 'false',
+      description: 'Disable the button '
+    },
+    {
+      name: 'isLoading',
+      type: 'boolean',
+      default: 'false',
+      description: 'Displays a loading animation along with loading text'
+    },
+    {
+      name: 'loadingText',
+      type: 'string',
+      default: 'null',
+      description: 'Text to be displayed with the loading animation'
+    },
+    {
+      name: 'size',
+      type: 'Size variants',
+      default: 'medium',
+      description: 'The size of the button'
+    },
+    {
+      name: 'variant',
+      type: 'variant',
+      default: 'contained',
+      description: 'The variant style of the button'
+    },
+    {
+      name: 'fullWidth',
+      type: 'boolean',
+      default: 'false',
+      description: 'Enables the full width of the button'
+    }
+  ],
   stories: [
     {
       name: 'Button (<button>)',

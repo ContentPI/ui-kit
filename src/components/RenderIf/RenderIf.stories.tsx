@@ -3,6 +3,20 @@ import RenderIf from './index'
 
 const stories = {
   component: 'RenderIf',
+  props: [
+    {
+      name: 'children',
+      type: 'ReactElement | string',
+      default: 'Null',
+      description: 'The content of the component'
+    },
+    {
+      name: 'isTrue',
+      type: 'boolean',
+      default: 'false',
+      description: 'Define if the component should be displayed or not'
+    }
+  ],
   stories: [
     {
       name: 'RenderIf',
