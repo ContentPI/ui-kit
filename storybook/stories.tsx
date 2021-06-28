@@ -15,7 +15,8 @@ const stories: any = {
   renderif: RenderIfStories,
   textarea: TextAreaStories,
   text: Text,
-  textfield: TextFieldStories
+  textfield: TextFieldStories,
+  bagde: BadgeStories
 }
 
 export default stories
