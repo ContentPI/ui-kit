@@ -39,6 +39,7 @@ const Content: FC<Props> = ({ currentComponent, handleShowCode, showCode }) => {
               </Fragment>
             ))}
           </tbody>
+
         </table>
       </div>
 
