@@ -8,15 +8,14 @@ import TextFieldStories from '../src/components/TextField/TextField.stories'
 import BadgeStories from '../src/components/Badge/Badge.stories'
 
 const stories: any = {
-  bagde: BadgeStories,
+  badge: BadgeStories,
   button: ButtonStories,
   input: InputStories,
   pagination: PaginationStories,
   renderif: RenderIfStories,
   textarea: TextAreaStories,
   text: Text,
-  textfield: TextFieldStories,
-  bagde: BadgeStories
+  textfield: TextFieldStories
 }
 
 export default stories
