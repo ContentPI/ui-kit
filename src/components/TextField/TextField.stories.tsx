@@ -3,6 +3,50 @@ import TextField from './index'
 
 const stories = {
   component: 'TextField',
+  props: [
+    {
+      name: 'label',
+      type: 'string',
+      default: ' ',
+      description: 'The label of the Text Field'
+    },
+    {
+      name: 'helperText',
+      type: 'string',
+      default: ' ',
+      description: 'A helper text that will be displayed with the Text Fiel component'
+    },
+    {
+      name: 'error',
+      type: 'boolean',
+      default: 'false',
+      description: 'Set a error color status on the component'
+    },
+    {
+      name: 'fullWidth',
+      type: 'boolean',
+      default: 'false',
+      description: 'The content of the Text Field'
+    },
+    {
+      name: 'textArea',
+      type: 'boolean',
+      default: 'false',
+      description: 'Set the Text Field as a Text Area'
+    },
+    {
+      name: 'minLength',
+      type: 'number',
+      default: 'undefined',
+      description: 'Sets the ming length of the Text Field'
+    },
+    {
+      name: 'maxLength',
+      type: 'number',
+      default: 'undefined',
+      description: 'Sets the max length of the Text Field'
+    }
+  ],
   stories: [
     {
       name: 'TextField',
