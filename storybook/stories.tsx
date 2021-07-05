@@ -6,6 +6,7 @@ import RenderIfStories from '../src/components/RenderIf/RenderIf.stories'
 import Text from '../src/components/Text/Text.stories'
 import TextFieldStories from '../src/components/TextField/TextField.stories'
 import BadgeStories from '../src/components/Badge/Badge.stories'
+import SwitcherStories from '../src/components/Switcher/Switcher.stories'
 
 const stories: any = {
   badge: BadgeStories,
@@ -15,7 +16,8 @@ const stories: any = {
   renderif: RenderIfStories,
   textarea: TextAreaStories,
   text: Text,
-  textfield: TextFieldStories
+  textfield: TextFieldStories,
+  switcher: SwitcherStories
 }
 
 export default stories
