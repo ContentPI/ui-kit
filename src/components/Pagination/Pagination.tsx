@@ -1,13 +1,18 @@
 // Dependencies
 import React, { FC, ReactNode, ReactElement } from 'react'
+import { cxGenerator } from '@contentpi/lib'
 
 // Components
 import Icon from '../Icon'
 
+// Types
+import { StatusColor, Color } from '../../types'
+
 // Styles
-import { StyledUl, StyledLi, StyledLink } from './Pagination.styled'
+import { StyledUl, StyledLi, StyledLink, BASE_CLASS_NAME } from './Pagination.styled'
 
 export interface IProps {
+  color?: StatusColor
   page: number
   total: number
   rowsPerPage?: number
@@ -15,7 +20,18 @@ export interface IProps {
   Link?: any
 }
 
-const Pagination: FC<IProps> = ({ Link, href, rowsPerPage, page, total }) => {
+const Pagination: FC<IProps> = ({
+  Link,
+  href,
+  rowsPerPage,
+  page,
+  total,
+  color = Color.primary
+}) => {
+  const classNames = cxGenerator({
+    ccn: BASE_CLASS_NAME,
+    data: [color]
+  })
   const maxElementsPerPage = rowsPerPage || 10
   const increment = 5
 
@@ -186,7 +202,7 @@ const Pagination: FC<IProps> = ({ Link, href, rowsPerPage, page, total }) => {
     }
 
     return (
-      <StyledUl className="Pagination">
+      <StyledUl className={classNames}>
         {pagePrevious}
         {pageNav}
         {pageNext}
