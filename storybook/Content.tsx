@@ -27,7 +27,7 @@ const Content: FC<Props> = ({ currentComponent, handleShowCode, showCode }) => {
                     <span>{prop.name}</span>
                   </td>
                   <td>
-                    <span>{prop.type}</span>
+                    <span className="type">{prop.type}</span>
                   </td>
                   <td>
                     <span>{prop.default}</span>

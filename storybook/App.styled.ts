@@ -39,21 +39,31 @@ export const StyledApp = styled.div`
     table {
       border-collapse: collapse;
       text-align: left;
+      margin-top: 40px;
     }
+
     th {
       padding: 0.2rem 2rem;
       text-decoration: bold;
+      font-size: 16px;
     }
+
     span {
       display: block;
+
+      &.type {
+        color: var(--palette-primary-main);
+      }
     }
+
     td {
       border-bottom: thin solid lightgray;
       padding: 1rem 2rem;
+      font-size: 14px;
     }
+
     tr {
       margin: 0.7rem 2rem;
-
       padding: 1rem 2rem;
     }
   }
