@@ -35,12 +35,12 @@ const stories = {
       prop: 'labels',
       code: `
       <Breadcrumb
-          labels={[
-            { title: 'item1', link: '#' },
-            { title: 'item2', link: '#' },
-            { title: 'item3', link: '#' }
-          ]}
-        >
+        labels={[
+          { title: 'item1', link: '#' },
+          { title: 'item2', link: '#' },
+          { title: 'item3', link: '#' }
+        ]}
+      >
       `
     }
   ]

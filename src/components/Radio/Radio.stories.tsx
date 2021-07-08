@@ -21,7 +21,7 @@ const stories = {
     {
       name: 'Radio',
       description: 'Simple Radio',
-      render: <Radio> </Radio>,
+      render: <Radio />,
       prop: '',
       code: `
         <Radio>
@@ -31,7 +31,7 @@ const stories = {
     {
       name: 'Radio Checked',
       description: 'Radio with checked prop',
-      render: <Radio checked> </Radio>,
+      render: <Radio checked />,
       prop: 'checked',
       code: `
         <Radio checked>
@@ -43,22 +43,20 @@ const stories = {
       description: 'Radio with color status',
       render: (
         <>
-          <Radio color="primary"> </Radio>
-          <Radio color="success"> </Radio>
-          <Radio color="warning"> </Radio>
-          <Radio color="info"> </Radio>
-          <Radio color="danger"> </Radio>
+          <Radio color="primary" />
+          <Radio color="success" />
+          <Radio color="warning" />
+          <Radio color="info" />
+          <Radio color="danger" />
         </>
       ),
       prop: 'color',
       code: `
-      <>
-      <Radio color="primary"> </Radio>
-      <Radio color="success"> </Radio>
-      <Radio color="warning"> </Radio>
-      <Radio color="info"> </Radio>
-      <Radio color="danger"> </Radio>
-    </>
+      <Radio color="primary" />
+      <Radio color="success" />
+      <Radio color="warning" />
+      <Radio color="info" />
+      <Radio color="danger" />
       `
     }
   ]
