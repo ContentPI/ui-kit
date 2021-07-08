@@ -7,6 +7,7 @@ import Text from '../src/components/Text/Text.stories'
 import TextFieldStories from '../src/components/TextField/TextField.stories'
 import BadgeStories from '../src/components/Badge/Badge.stories'
 import BreadcrumbStories from '../src/components/Breadcrumb/Breadcrumb.stories'
+import RadioStories from '../src/components/Radio/Radio.stories'
 
 const stories: any = {
   badge: BadgeStories,
@@ -17,7 +18,8 @@ const stories: any = {
   renderif: RenderIfStories,
   textarea: TextAreaStories,
   text: Text,
-  textfield: TextFieldStories
+  textfield: TextFieldStories,
+  radio: RadioStories
 }
 
 export default stories
