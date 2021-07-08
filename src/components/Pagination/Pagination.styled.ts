@@ -1,4 +1,32 @@
-import styled from 'styled-components'
+import styled, { CSSObject } from 'styled-components'
+
+// Types
+import { generateCss, generateStyles, themeCssVars } from '../../theme'
+import { StatusColor, StatusColors } from '../../types'
+
+// Base Class Name
+export const BASE_CLASS_NAME = 'pagination'
+
+// Functions
+const getColorCss = (colorType: StatusColor) => {
+  const { main, contrastText } = themeCssVars.palette[colorType]
+  const cssProps: CSSObject = {
+    '& > li > a > span': {
+      '&.active': {
+        color: contrastText,
+        backgroundColor: main,
+      },
+      '&:hover': {
+        color: contrastText,
+        backgroundColor: main
+      }
+    }
+  }
+
+  return generateCss(cssProps)
+}
+
+const paginationColorStyles = () => generateStyles(StatusColors, BASE_CLASS_NAME, getColorCss)
 
 export const StyledUl = styled.ul`
   list-style: none;
@@ -9,6 +37,8 @@ export const StyledUl = styled.ul`
   margin-top: 90px;
   margin-bottom: 50px;
   width: 100%;
+
+  ${paginationColorStyles()}
 `
 
 export const StyledLi = styled.li`
@@ -26,20 +56,6 @@ export const StyledLink = styled.span`
   i {
     *[dir='rtl'] & {
       transform: rotateY(180deg);
-    }
-  }
-
-  &:hover {
-    background: #555;
-    color: #fff;
-  }
-
-  &.active {
-    background: #00aeef;
-    color: white;
-    &:hover {
-      background: #23bff3;
-      color: white;
     }
   }
 `

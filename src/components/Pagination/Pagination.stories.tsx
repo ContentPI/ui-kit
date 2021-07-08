@@ -5,6 +5,12 @@ const stories = {
   component: 'Pagination',
   props: [
     {
+      name: 'color',
+      type: 'StatusColor',
+      default: 'primary',
+      description: 'The color of the badge'
+    },
+    {
       name: 'page',
       type: 'number',
       default: '1',
@@ -37,6 +43,57 @@ const stories = {
         href="/blog/"
       />
     `
+    },
+    {
+      name: 'Pagination with color',
+      description: 'Pagination with a color status',
+      render: (
+        <>
+          <Pagination page={3} total={200} rowsPerPage={10} href="/blog/" color="primary" />
+          <Pagination page={3} total={200} rowsPerPage={10} href="/blog/" color="info" />
+          <Pagination page={3} total={200} rowsPerPage={10} href="/blog/" color="success" />
+          <Pagination page={3} total={200} rowsPerPage={10} href="/blog/" color="danger" />
+          <Pagination page={3} total={200} rowsPerPage={10} href="/blog/" color="warning" />
+        </>
+      ),
+      prop: 'color',
+      code: `
+      <Pagination
+        page={3}
+        total={200}
+        rowsPerPage={10}
+        href="/blog/"
+        color="primary"
+      />
+      <Pagination
+        page={3}
+        total={200}
+        rowsPerPage={10}
+        href="/blog/"
+        color="info"
+      />
+      <Pagination
+        page={3}
+        total={200}
+        rowsPerPage={10}
+        href="/blog/"
+        color="success"
+      />
+      <Pagination
+        page={3}
+        total={200}
+        rowsPerPage={10}
+        href="/blog/"
+        color="danger"
+      />
+      <Pagination
+        page={3}
+        total={200}
+        rowsPerPage={10}
+        href="/blog/"
+        color="warning"
+      />
+      `
     }
   ]
 }

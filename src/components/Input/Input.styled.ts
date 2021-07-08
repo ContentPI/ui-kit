@@ -40,6 +40,8 @@ export const InputWrapper = styled.div`
   box-sizing: border-box;
   box-shadow: 0px 7px 64px rgba(0, 0, 0, 0.07);
   border-radius: ${calc(CalcType.spacing, 2)};
+  width: 250px;
+
   &::placeholder {
     color: ${themeCssVars.palette.text.textPlaceholder};
     opacity: 1;

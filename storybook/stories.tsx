@@ -7,17 +7,21 @@ import Text from '../src/components/Text/Text.stories'
 import TextFieldStories from '../src/components/TextField/TextField.stories'
 import BadgeStories from '../src/components/Badge/Badge.stories'
 import SwitcherStories from '../src/components/Switcher/Switcher.stories'
+import BreadcrumbStories from '../src/components/Breadcrumb/Breadcrumb.stories'
+import RadioStories from '../src/components/Radio/Radio.stories'
 
 const stories: any = {
   badge: BadgeStories,
   button: ButtonStories,
+  breadcrumb: BreadcrumbStories,
   input: InputStories,
   pagination: PaginationStories,
   renderif: RenderIfStories,
   textarea: TextAreaStories,
   text: Text,
   textfield: TextFieldStories,
-  switcher: SwitcherStories
+  switcher: SwitcherStories,
+  radio: RadioStories
 }
 
 export default stories
