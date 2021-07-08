@@ -6,8 +6,8 @@ const globalFontFamily = "'Poppins'"
 const palette: IPalette = {
   primary: {
     main: '#00BDE5',
-    light: '#00BDE5',
-    dark: '#00BDE5',
+    light: '#65f0ff',
+    dark: '#008db3',
     contrastText: '#fff'
   },
   info: {
