@@ -6,6 +6,7 @@ import RenderIfStories from '../src/components/RenderIf/RenderIf.stories'
 import Text from '../src/components/Text/Text.stories'
 import TextFieldStories from '../src/components/TextField/TextField.stories'
 import BadgeStories from '../src/components/Badge/Badge.stories'
+import SwitcherStories from '../src/components/Switcher/Switcher.stories'
 import BreadcrumbStories from '../src/components/Breadcrumb/Breadcrumb.stories'
 import RadioStories from '../src/components/Radio/Radio.stories'
 
@@ -19,6 +20,7 @@ const stories: any = {
   textarea: TextAreaStories,
   text: Text,
   textfield: TextFieldStories,
+  switcher: SwitcherStories,
   radio: RadioStories
 }
 
