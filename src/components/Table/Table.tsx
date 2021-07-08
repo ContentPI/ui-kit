@@ -1,5 +1,5 @@
 // Dependencies
-import React from 'react'
+import React, { FC } from 'react'
 
 // Styled
 import {
@@ -11,27 +11,32 @@ import {
   TableCol
 } from './Table.styled'
 
-const Table = () => {
+interface ITableProps {
+  data: {
+    columns: string[]
+    rows: Array<string[]>
+  }
+}
+
+const Table: FC<ITableProps> = props => {
+  const { data } = props
   return (
     <TableBase>
       <TableHeader>
         <TableRow>
-          <TableHeaderCol>#</TableHeaderCol>
-          <TableHeaderCol>Name</TableHeaderCol>
-          <TableHeaderCol>Price</TableHeaderCol>
+          {data.columns.map(header => {
+            return <TableHeaderCol>{header}</TableHeaderCol>
+          })}
         </TableRow>
       </TableHeader>
       <TableBody>
-        <TableRow>
-          <TableCol>1</TableCol>
-          <TableCol>Redmi 9A</TableCol>
-          <TableCol>$ 90</TableCol>
-        </TableRow>
-        <TableRow>
-          <TableCol>2</TableCol>
-          <TableCol>Redmi 9</TableCol>
-          <TableCol>$ 140</TableCol>
-        </TableRow>
+        {data.rows.map(item => (
+          <TableRow>
+            {item.map(row => (
+              <TableCol>{row}</TableCol>
+            ))}
+          </TableRow>
+        ))}
       </TableBody>
     </TableBase>
   )
