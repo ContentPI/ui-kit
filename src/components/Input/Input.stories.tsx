@@ -1,5 +1,10 @@
 import React from 'react'
+import Icon from '../Icon'
 import Input from './index'
+
+const icon = () => {
+  return <Icon library="feather" type="search" width={20} />
+}
 
 const stories = {
   component: 'Input',
@@ -39,10 +44,14 @@ const stories = {
     {
       name: 'Input',
       description: 'Text Input',
-      render: <Input type="text" placeholder="Placeholder" />,
+      render: <Input type="text" placeholder="Placeholder" leftIcon={icon} />,
       prop: false,
       code: `
-      <Input type="text" placeholder="Placeholder" />
+      const icon = () => {
+        return <Icon library="feather" type="search" width={20} />
+      }
+
+      <Input type="text" placeholder="Placeholder" leftIcon={icon} />
       `
     },
     {

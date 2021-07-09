@@ -1,8 +1,7 @@
 import React, { FC } from 'react'
 import { cxGenerator } from '@contentpi/lib'
 
-// Icons
-import { Layout, Server, Link, Globe } from 'react-feather'
+import Icon from '../Icon'
 
 // Types
 import { BackgroundColor } from '../../types'
@@ -39,7 +38,7 @@ const SideNav: FC<SideNavProps> = props => {
       <NavWrapper>
         <NavItem>
           <NavItemIconWrapper>
-            <Layout size={16} />
+            <Icon library="feather" type="layout" width={16} />
           </NavItemIconWrapper>
           <NavItemLabel component="h3" variant="subtitle2">
             Dashboard
@@ -47,7 +46,7 @@ const SideNav: FC<SideNavProps> = props => {
         </NavItem>
         <NavItem>
           <NavItemIconWrapper>
-            <Server size={16} />
+            <Icon library="feather" type="server" width={16} />
           </NavItemIconWrapper>
           <NavItemLabel component="h3" variant="subtitle2">
             Schema
@@ -55,7 +54,7 @@ const SideNav: FC<SideNavProps> = props => {
         </NavItem>
         <NavItem>
           <NavItemIconWrapper>
-            <Link size={16} />
+            <Icon library="feather" type="link" width={16} />
           </NavItemIconWrapper>
           <NavItemLabel component="h3" variant="subtitle2">
             Collections
@@ -63,7 +62,7 @@ const SideNav: FC<SideNavProps> = props => {
         </NavItem>
         <NavItem>
           <NavItemIconWrapper>
-            <Globe size={16} />
+            <Icon library="feather" type="globe" width={16} />
           </NavItemIconWrapper>
           <NavItemLabel component="h3" variant="subtitle2">
             i18n
@@ -71,7 +70,7 @@ const SideNav: FC<SideNavProps> = props => {
         </NavItem>
         <NavItem>
           <NavItemIconWrapper>
-            <Link size={16} />
+            <Icon library="feather" type="link" width={16} />
           </NavItemIconWrapper>
           <NavItemLabel component="h3" variant="subtitle2">
             Playground
@@ -82,7 +81,7 @@ const SideNav: FC<SideNavProps> = props => {
       <NavWrapper>
         <NavItem>
           <NavItemIconWrapper>
-            <Server size={16} />
+            <Icon library="feather" type="server" width={16} />
           </NavItemIconWrapper>
           <NavItemLabel component="h3" variant="subtitle2">
             Token API
@@ -90,7 +89,7 @@ const SideNav: FC<SideNavProps> = props => {
         </NavItem>
         <NavItem>
           <NavItemIconWrapper>
-            <Server size={16} />
+            <Icon library="feather" type="server" width={16} />
           </NavItemIconWrapper>
           <NavItemLabel component="h3" variant="subtitle2">
             Webhooks
