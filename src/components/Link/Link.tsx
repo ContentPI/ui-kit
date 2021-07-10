@@ -12,7 +12,7 @@ type Props = {
   title?: any
   target?: '_blank' | '_self' | '_parent' | '_top'
   external?: boolean
-  language?: boolean
+  withLanguage?: boolean
 }
 
 const Link: FC<Props> = ({
@@ -23,7 +23,7 @@ const Link: FC<Props> = ({
   title = undefined,
   target = undefined,
   external = false,
-  language = false
+  withLanguage = false
 }) => {
   const currentLanguage = getCurrentLanguage()
   let href = to
@@ -33,7 +33,7 @@ const Link: FC<Props> = ({
     target
   }
 
-  if (language) {
+  if (withLanguage) {
     const slash = href.charAt(0) === '/' ? '' : '/'
     href = `${currentLanguage}${slash}${href}`
   }
