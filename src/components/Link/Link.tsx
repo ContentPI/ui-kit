@@ -34,7 +34,8 @@ const Link: FC<Props> = ({
   }
 
   if (language) {
-    href = `${currentLanguage}/${href}`
+    const slash = href.charAt(0) === '/' ? '' : '/'
+    href = `${currentLanguage}${slash}${href}`
   }
 
   if (isString(children)) {
