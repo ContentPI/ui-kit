@@ -18,6 +18,7 @@ export default merge(common, {
       commonjs2: 'react-dom',
       amd: 'ReactDOM',
       root: 'ReactDOM'
-    }
+    },
+    'react-router-dom': 'react-router-dom'
   }
 })

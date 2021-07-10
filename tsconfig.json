@@ -22,6 +22,7 @@
     "src/components/GlobalStyles/index.ts",
     "src/components/Icon/index.ts",
     "src/components/Input/index.ts",
+    "src/components/Link/index.ts",
     "src/components/Modal/index.ts",
     "src/components/Pagination/index.ts",
     "src/components/Paper/index.ts",
