@@ -2,7 +2,7 @@
 import React, { FC, ReactElement } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 import { isString, getCurrentLanguage } from '@contentpi/lib'
-import { languages } from 'prismjs'
+import styled from 'styled-components'
 
 type Props = {
   children: ReactElement | string
@@ -14,6 +14,14 @@ type Props = {
   external?: boolean
   withLanguage?: boolean
 }
+
+const StyledLink = styled.a`
+  text-decoration: none;
+`
+
+const StyledRouterLink = styled(RouterLink)`
+  text-decoration: none;
+`
 
 const Link: FC<Props> = ({
   to,
@@ -35,8 +43,6 @@ const Link: FC<Props> = ({
 
   if (withLanguage) {
     const slash = href.charAt(0) === '/' ? '' : '/'
-    console.log('currentLanguage==', currentLanguage)
-    console.log('href===', href)
     href = `${currentLanguage}${slash}${href}`
   }
 
@@ -52,18 +58,18 @@ const Link: FC<Props> = ({
     linkProps.href = href
 
     return (
-      <a {...linkProps} title={title}>
+      <StyledLink {...linkProps} title={title}>
         {children}
-      </a>
+      </StyledLink>
     )
   }
 
   linkProps.to = href
 
   return (
-    <RouterLink {...linkProps} title={title}>
+    <StyledRouterLink {...linkProps} title={title}>
       {children}
-    </RouterLink>
+    </StyledRouterLink>
   )
 }
 
