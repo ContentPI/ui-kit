@@ -35,6 +35,8 @@ const Link: FC<Props> = ({
 
   if (withLanguage) {
     const slash = href.charAt(0) === '/' ? '' : '/'
+    console.log('currentLanguage==', currentLanguage)
+    console.log('href===', href)
     href = `${currentLanguage}${slash}${href}`
   }
 
