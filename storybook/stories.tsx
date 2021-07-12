@@ -10,6 +10,7 @@ import BadgeStories from '../src/components/Badge/Badge.stories'
 import SwitcherStories from '../src/components/Switcher/Switcher.stories'
 import BreadcrumbStories from '../src/components/Breadcrumb/Breadcrumb.stories'
 import RadioStories from '../src/components/Radio/Radio.stories'
+import TagsStories from '../src/components/Tags/Tags.stories'
 
 const stories: any = {
   badge: BadgeStories,
@@ -23,7 +24,8 @@ const stories: any = {
   text: Text,
   textfield: TextFieldStories,
   switcher: SwitcherStories,
-  radio: RadioStories
+  radio: RadioStories,
+  tags: TagsStories
 }
 
 export default stories
