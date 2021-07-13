@@ -91,8 +91,8 @@ const typography: ITypography = {
   },
   subtitle1: {
     fontFamily: globalFontFamily,
-    fontWeight: 600,
-    fontSize: '0.938rem',
+    fontWeight: 500,
+    fontSize: '1.125rem',
     lineHeight: '24px',
     letterSpacing: '0.75px'
   },
@@ -132,7 +132,7 @@ const typography: ITypography = {
   },
   label: {
     fontFamily: globalFontFamily,
-    fontWeight: 600,
+    fontWeight: 500,
     fontSize: '0.875rem',
     lineHeight: '24px',
     letterSpacing: '0.75px'

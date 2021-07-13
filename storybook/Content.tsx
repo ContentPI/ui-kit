@@ -57,7 +57,9 @@ const Content: FC<Props> = ({ currentComponent, handleShowCode, showCode }) => {
               {props.description}
             </p>
 
-            <div className="render">{props.render}</div>
+            <div className="render">
+              {typeof props.render === 'function' ? props.render() : props.render}
+            </div>
 
             <StyledPre className={showCode === i ? 'show' : ''}>
               <code className="language-jsx">{props.code}</code>
