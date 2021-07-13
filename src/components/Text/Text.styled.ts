@@ -82,7 +82,8 @@ export const TextBase = styled.p`
   &.${BASE_CLASS_NAME} {
     font-weight: ${FontWeight.bold};
     margin: 0;
-    display: block;
+    display: flex;
+    align-items: center;
   }
   ${textVariantStyles()}
   ${textColorStyles()}

@@ -6,13 +6,15 @@ const generateWrapper = (id: string) => {
   const wrapper = document.createElement('div')
   wrapper.id = id
 
-  wrapper.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'
-  wrapper.style.position = 'absolute'
+  wrapper.style.position = 'fixed'
   wrapper.style.zIndex = '1'
-  wrapper.style.left = '0'
-  wrapper.style.right = '0'
-  wrapper.style.top = '0'
-  wrapper.style.bottom = '0'
+  wrapper.style.left = '0px'
+  wrapper.style.right = '0px'
+  wrapper.style.top = '0px'
+  wrapper.style.bottom = '0px'
+  wrapper.style.display = 'flex'
+  wrapper.style.justifyContent = 'center'
+  wrapper.style.alignItems = 'center'
 
   return wrapper
 }
@@ -20,7 +22,7 @@ const generateWrapper = (id: string) => {
 const htmlBody = document.getElementsByTagName('body')[0]
 
 interface IModalProps {
-  open?: boolean
+  open: boolean
 }
 
 const Modal: React.FC<IModalProps> = ({ open = false, children }) => {
