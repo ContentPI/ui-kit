@@ -32,6 +32,7 @@
     "src/components/Text/index.ts",
     "src/components/TextField/index.ts",
     "src/components/Notification/index.ts",
+    "src/components/Dialog/index.ts",
     "src/index.ts"
   ],
   "include": ["src/**/*", "storybook/*"],

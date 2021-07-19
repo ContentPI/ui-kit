@@ -2,8 +2,7 @@
 import React, { FC, ComponentPropsWithoutRef, useState } from 'react'
 import { cxGenerator } from '@contentpi/lib'
 
-// Icons
-import { Eye, EyeOff } from 'react-feather'
+import Icon from '../Icon'
 
 // Types
 import { StatusColor } from '../../types'
@@ -42,8 +41,15 @@ const Input: FC<IProps> = props => {
     size: 20
   }
 
+  const eye = () => {
+    return <Icon library="feather" type="eye" width={20} />
+  }
+  const eyeOff = () => {
+    return <Icon library="feather" type="eye-off" width={20} />
+  }
+
   const LeftIcon = leftIcon
-  const RightIcon = (isPassword && (showValue ? Eye : EyeOff)) || rightIcon
+  const RightIcon = (isPassword && (showValue ? eye : eyeOff)) || rightIcon
 
   return (
     <InputWrapper className={classNames}>

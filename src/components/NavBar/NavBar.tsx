@@ -1,8 +1,7 @@
 import React, { FC } from 'react'
 import { cxGenerator } from '@contentpi/lib'
 
-// Icons
-import { Menu, Search, MessageCircle, Bell, Globe } from 'react-feather'
+import Icon from '../Icon'
 
 // Types
 import { BackgroundColor } from '../../types'
@@ -37,16 +36,16 @@ const NavBar: FC<NavBarProps> = props => {
   return (
     <NavBarBase className={classNames} {...restProps}>
       <NavBarButton>
-        <Menu size={20} />
+        <Icon library="feather" type="menu" width={20} />
       </NavBarButton>
       <NavBarTitle component="h1" variant="subtitle2">
         Dashboard
       </NavBarTitle>
       <NavBarActions>
-        <Search size={20} />
-        <MessageCircle size={20} />
-        <Bell size={20} />
-        <Globe size={20} />
+        <Icon library="feather" type="search" width={20} />
+        <Icon library="feather" type="message-circle" width={20} />
+        <Icon library="feather" type="bell" width={20} />
+        <Icon library="feather" type="globe" width={20} />
       </NavBarActions>
       <NavBarUserWrapper>
         <Avatar />
