@@ -1,5 +1,6 @@
 import React, { FC, Fragment } from 'react'
 import { StyledBlock, StyledPre, StyledShowCode } from './App.styled'
+import Table from '../src/components/Table/index'
 
 type Props = {
   currentComponent: any
@@ -11,36 +12,17 @@ const Content: FC<Props> = ({ currentComponent, handleShowCode, showCode }) => {
   return (
     <>
       <h2>{currentComponent.component}</h2>
-      <div className="props">
-        <table>
-          <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Default</th>
-            <th>Description</th>
-          </tr>
-          <tbody>
-            {currentComponent.props.map((prop: any) => (
-              <Fragment key={prop}>
-                <tr>
-                  <td>
-                    <span>{prop.name}</span>
-                  </td>
-                  <td>
-                    <span className="type">{prop.type}</span>
-                  </td>
-                  <td>
-                    <span>{prop.default}</span>
-                  </td>
-                  <td>
-                    <span>{prop.description}</span>
-                  </td>
-                </tr>
-              </Fragment>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <Table
+        data={{
+          columns: ['Name', 'Type', 'Default', 'Description'],
+          rows: currentComponent.props.map((prop: any) => [
+            prop.name,
+            prop.type,
+            prop.default,
+            prop.description
+          ])
+        }}
+      />
 
       {currentComponent.stories.map((props: any, i: number) => (
         <StyledBlock key={`block-${i}`}>
