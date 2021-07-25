@@ -38,9 +38,9 @@ const stories = {
       prop: 'tags',
       code: `
       <Tags
-      label="Agrega aqui"
-      getTags={tags => console.log(tags)}
-      tags={[{ option: 'opcion1', value: 'hola' }]}
+        label="Agrega aqui"
+        getTags={tags => console.log(tags)}
+        tags={[{ option: 'opcion1', value: 'hola' }]}
       />
       `
     }
