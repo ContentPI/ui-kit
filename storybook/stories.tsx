@@ -17,17 +17,17 @@ const stories: any = {
   badge: BadgeStories,
   button: ButtonStories,
   breadcrumb: BreadcrumbStories,
+  dialog: DialogStories,
   input: InputStories,
   pagination: PaginationStories,
   renderif: RenderIfStories,
+  radio: RadioStories,
+  switcher: SwitcherStories,
   table: TableStories,
   textarea: TextAreaStories,
   text: Text,
   textfield: TextFieldStories,
-  switcher: SwitcherStories,
-  radio: RadioStories,
-  tags: TagsStories,
-  dialog: DialogStories
+  tags: TagsStories
 }
 
 export default stories

@@ -9,6 +9,18 @@ const stories = {
       type: 'TagsArray',
       default: '[]',
       description: 'The tags of the component'
+    },
+    {
+      name: 'Label',
+      type: 'string',
+      default: '',
+      description: 'The label of the component'
+    },
+    {
+      name: 'getTags',
+      type: '(tags: Tag[]): void',
+      default: '',
+      description: 'The function that will get the tags'
     }
   ],
   stories: [
@@ -25,7 +37,11 @@ const stories = {
       ),
       prop: 'tags',
       code: `
-       <TextArea />
+      <Tags
+        label="Agrega aqui"
+        getTags={tags => console.log(tags)}
+        tags={[{ option: 'opcion1', value: 'hola' }]}
+      />
       `
     }
   ]
