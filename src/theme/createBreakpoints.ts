@@ -88,4 +88,6 @@ const createBreakpoints = (breakpoints = breakpointsDefaultConfig): IBreakpoints
   }
 }
 
-export default createBreakpoints
+const breakpoints = createBreakpoints()
+
+export default breakpoints
