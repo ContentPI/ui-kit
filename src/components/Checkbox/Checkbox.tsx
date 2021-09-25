@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 import { cxGenerator } from '@contentpi/lib'
-import { StatusColor, StatusColors } from '../../types'
+import { StatusColor } from '../../types'
 import { CheckboxBase, CheckboxChild, BASE_CLASS_NAME } from './Checkbox.styled'
 
 interface ICheckboxProps {
-  color?: StatusColor,
+  color?: StatusColor
   checked?: boolean
 }
 

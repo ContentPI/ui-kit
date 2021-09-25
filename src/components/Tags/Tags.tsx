@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useState, useEffect } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import slug from 'slug'
 import { StyledTags } from './Tags.styled'
 import Icon from '../Icon'

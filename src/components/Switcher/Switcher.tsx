@@ -17,7 +17,6 @@ interface IProps {
   type?: string
   readOnly?: boolean
   onChange?(e: ChangeEvent<HTMLInputElement>): void
-  onClick?(e: MouseEvent<HTMLInputElement>): void
 }
 
 const Switcher: FC<IProps> = ({ label = '', type, readOnly, onChange, checked = false }) => (

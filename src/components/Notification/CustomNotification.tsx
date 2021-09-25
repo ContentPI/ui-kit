@@ -4,16 +4,8 @@ import styled from 'styled-components'
 
 type Props = {
   appearance: AppearanceTypes
-  autoDismiss: boolean | number
-  autoDismissTimeout: number
   children: ReactNode
-  isRunning: boolean
   onDismiss: (id?: string) => void
-  onMouseEnter: () => void
-  onMouseLeave: () => void
-  placement: Placement
-  transitionDuration: number
-  transitionState: TransitionState
 }
 
 const StyledNotification = styled.div`
