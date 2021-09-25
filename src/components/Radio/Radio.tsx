@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 import { cxGenerator } from '@contentpi/lib'
-import { StatusColor, StatusColors } from '../../types'
+import { StatusColor } from '../../types'
 import { RadioBase, RadioBall, BASE_CLASS_NAME } from './Radio.styled'
 
 export interface IProps {
-  color?: StatusColor,
+  color?: StatusColor
   checked?: boolean
 }
 

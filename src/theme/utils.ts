@@ -5,7 +5,7 @@ import { css, CSSObject } from 'styled-components'
 import { themeCssVars } from './theme'
 
 // Types
-import { Theme, CalcType } from '../types'
+import { Theme, CalcType, StatusColor, ButtonVariant } from '../types'
 
 type CommonProps = {
   values: Theme
@@ -129,4 +129,65 @@ export const generateStyles = (
     .join('')
 
   return styles
+}
+
+export const getVariantCssProps = () => {
+  const { primary, info, success, warning, danger } = themeCssVars.palette
+
+  const getContainedProps = (palette: any) => ({
+    color: palette.contrastText,
+    backgroundColor: palette.main,
+    hover: {
+      backgroundColor: palette.dark,
+      color: palette.contrastText
+    }
+  })
+
+  const getOutlinedProps = (palette: any) => ({
+    color: palette.main,
+    backgroundColor: 'transparent',
+    hover: {
+      backgroundColor: palette.contrastText,
+      color: palette.main
+    }
+  })
+
+  const textProps = {
+    backgroundColor: 'white'
+  }
+
+  const cssProps: any = {
+    [StatusColor.danger]: {
+      [ButtonVariant.contained]: getContainedProps(danger),
+      [ButtonVariant.outlined]: getOutlinedProps(danger),
+      [ButtonVariant.text]: textProps,
+      default: getContainedProps(danger)
+    },
+    [StatusColor.info]: {
+      [ButtonVariant.contained]: getContainedProps(info),
+      [ButtonVariant.outlined]: getOutlinedProps(info),
+      [ButtonVariant.text]: textProps,
+      default: getContainedProps(info)
+    },
+    [StatusColor.primary]: {
+      [ButtonVariant.contained]: getContainedProps(primary),
+      [ButtonVariant.outlined]: getOutlinedProps(primary),
+      [ButtonVariant.text]: textProps,
+      default: getContainedProps(primary)
+    },
+    [StatusColor.success]: {
+      [ButtonVariant.contained]: getContainedProps(success),
+      [ButtonVariant.outlined]: getOutlinedProps(success),
+      [ButtonVariant.text]: textProps,
+      default: getContainedProps(success)
+    },
+    [StatusColor.warning]: {
+      [ButtonVariant.contained]: getContainedProps(warning),
+      [ButtonVariant.outlined]: getOutlinedProps(warning),
+      [ButtonVariant.text]: textProps,
+      default: getContainedProps(warning)
+    }
+  }
+
+  return cssProps
 }

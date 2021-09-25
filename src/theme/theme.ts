@@ -35,7 +35,6 @@ const palette: IPalette = {
     contrastText: '#fff'
   },
   text: {
-    // textPrimary: '#1E1F22',
     textPrimary: '#2E3A49',
     textSecondary: '#768191',
     textDisabled: '#768191',
@@ -43,6 +42,7 @@ const palette: IPalette = {
     textPlaceholder: '#D0C9D6'
   }
 }
+
 const typography: ITypography = {
   htmlFontSize: 16,
   fontFamily: globalFontFamily,
@@ -138,9 +138,11 @@ const typography: ITypography = {
     letterSpacing: '0.75px'
   }
 }
+
 const shape: IShapeTheme = {
   unitBase: '4px'
 }
+
 const global: IGlobal = {
   background: {
     paper: '#fff',

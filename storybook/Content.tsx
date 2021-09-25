@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react'
+import React, { FC } from 'react'
 import { StyledBlock, StyledPre, StyledShowCode } from './App.styled'
 import Table from '../src/components/Table/index'
 

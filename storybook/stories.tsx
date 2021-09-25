@@ -1,33 +1,35 @@
+import BadgeStories from '../src/components/Badge/Badge.stories'
+import BreadcrumbStories from '../src/components/Breadcrumb/Breadcrumb.stories'
 import ButtonStories from '../src/components/Button/Button.stories'
+import DialogStories from '../src/components/Dialog/Dialog.stories'
 import InputStories from '../src/components/Input/Input.stories'
 import PaginationStories from '../src/components/Pagination/Pagination.stories'
-import TextAreaStories from '../src/components/TextArea/TextArea.stories'
-import RenderIfStories from '../src/components/RenderIf/RenderIf.stories'
-import TableStories from '../src/components/Table/Table.stories'
-import Text from '../src/components/Text/Text.stories'
-import TextFieldStories from '../src/components/TextField/TextField.stories'
-import BadgeStories from '../src/components/Badge/Badge.stories'
-import SwitcherStories from '../src/components/Switcher/Switcher.stories'
-import BreadcrumbStories from '../src/components/Breadcrumb/Breadcrumb.stories'
 import RadioStories from '../src/components/Radio/Radio.stories'
+import RenderIfStories from '../src/components/RenderIf/RenderIf.stories'
+import SelectStories from '../src/components/Select/Select.stories'
+import SwitcherStories from '../src/components/Switcher/Switcher.stories'
+import TableStories from '../src/components/Table/Table.stories'
 import TagsStories from '../src/components/Tags/Tags.stories'
-import DialogStories from '../src/components/Dialog/Dialog.stories'
+import Text from '../src/components/Text/Text.stories'
+import TextAreaStories from '../src/components/TextArea/TextArea.stories'
+import TextFieldStories from '../src/components/TextField/TextField.stories'
 
 const stories: any = {
   badge: BadgeStories,
-  button: ButtonStories,
   breadcrumb: BreadcrumbStories,
+  button: ButtonStories,
   dialog: DialogStories,
   input: InputStories,
   pagination: PaginationStories,
-  renderif: RenderIfStories,
   radio: RadioStories,
+  renderif: RenderIfStories,
+  select: SelectStories,
   switcher: SwitcherStories,
   table: TableStories,
-  textarea: TextAreaStories,
+  tags: TagsStories,
   text: Text,
-  textfield: TextFieldStories,
-  tags: TagsStories
+  textarea: TextAreaStories,
+  textfield: TextFieldStories
 }
 
 export default stories

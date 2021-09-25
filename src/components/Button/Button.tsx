@@ -3,19 +3,7 @@ import React, { FC, ComponentPropsWithoutRef } from 'react'
 import { cxGenerator } from '@contentpi/lib'
 
 // Types
-import {
-  ButtonVariant,
-  ButtonSize,
-  StatusColor,
-  Size,
-  Variant,
-  Color,
-  Shape,
-  ButtonSizes,
-  StatusColors,
-  ButtonVariants,
-  Shapes
-} from '../../types'
+import { ButtonVariant, ButtonSize, StatusColor, Size, Variant, Color, Shape } from '../../types'
 
 // Components
 import Spinner from '../Spinner'

@@ -27,6 +27,7 @@
     "src/components/Pagination/index.ts",
     "src/components/Paper/index.ts",
     "src/components/RenderIf/index.ts",
+    "src/components/Select/index.ts",
     "src/components/Spinner/index.ts",
     "src/components/Switcher/index.ts",
     "src/components/Text/index.ts",
