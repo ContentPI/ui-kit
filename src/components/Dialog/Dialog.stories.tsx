@@ -27,15 +27,11 @@ const stories = {
 
         const handleOpen = () => setOpen(true)
         const handleClose = () => setOpen(false)
-        const actions = (
-          <>
-            <Button>Save</Button>
-          </>
-        )
+
         return (
           <>
             <Button onClick={handleOpen}>Open Dialog</Button>
-            <Dialog open={open} handleClose={handleClose} title="Add Model" actions={actions}>
+            <Dialog open={open} handleClose={handleClose} title="Add Model">
               <TextField
                 label="Name"
                 helperText="Name that will be displayed in GraphCMS"
@@ -89,7 +85,7 @@ const stories = {
         </>
        )
      `
-    },
+    }
   ]
 }
 

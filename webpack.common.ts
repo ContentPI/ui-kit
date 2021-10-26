@@ -17,7 +17,10 @@ const webpackConfig: any = {
         test: /\.svg$/,
         oneOf: [
           {
-            include: [resolve(__dirname, './src/icons')],
+            include: [
+              resolve(__dirname, './src/icons'),
+              resolve(__dirname, './src/components/Dialog/icons')
+            ],
             use: 'svg-url-loader'
           }
         ]
