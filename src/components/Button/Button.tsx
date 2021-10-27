@@ -40,7 +40,7 @@ const Btn: FC<IProps> = props => {
 
   let buttonText: any = children
   const fullWidthClass = fullWidth ? 'full-width' : ''
-  const buttonData = [color, size, variant, shape, fullWidthClass]
+  const buttonData = [variant, size, shape, fullWidthClass, color]
 
   if (isLoading || disabled) {
     buttonData.push('disabled')
@@ -65,14 +65,24 @@ const Btn: FC<IProps> = props => {
     }
 
     return (
-      <LinkButton className={classNames} {...linkBtnProps} disabled={isLoading || disabled}>
+      <LinkButton
+        data-component="LinkButton"
+        className={classNames}
+        {...linkBtnProps}
+        disabled={isLoading || disabled}
+      >
         <a {...linkBtnProps}>{buttonText}</a>
       </LinkButton>
     )
   }
 
   return (
-    <Button className={classNames} {...btnProps} disabled={isLoading || disabled}>
+    <Button
+      data-component="Button"
+      className={classNames}
+      {...btnProps}
+      disabled={isLoading || disabled}
+    >
       {buttonText}
     </Button>
   )

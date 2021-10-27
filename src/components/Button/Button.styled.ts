@@ -2,36 +2,35 @@
 import styled, { CSSObject } from 'styled-components'
 
 // Utils
-import { getClass, generateCss, generateStyles, themeCssVars } from '../../theme'
+import { getClass, themeCssVars } from '../../theme'
 
 // Types
-import { ButtonVariant, ButtonVariants, Color, Colors, Shape, FontWeight } from '../../types'
+import { ButtonVariant, Color, Colors, Shape, FontWeight, FontSize, Size } from '../../types'
 
 // Base Class Name
-export const BASE_CLASS_NAME = 'button'
+export const BASE_CLASS_NAME = 'btn'
 
 // Functions
-const getVariantCss = (colorType: Color, variant: ButtonVariant) => {
+const getButtonVariantStyles = (colorType: Color, variant: ButtonVariant) => {
   const { dark, main, contrastText } = themeCssVars.palette[colorType]
   const cssProps: CSSObject = {}
 
   switch (variant) {
     case ButtonVariant.contained:
-      cssProps.color = contrastText
       cssProps.backgroundColor = main
+      cssProps.color = contrastText
       cssProps['&:hover'] = {
         backgroundColor: dark,
         color: contrastText,
       }
-
       cssProps['&:hover a'] = {
         color: contrastText,
       }
       break
     case ButtonVariant.outlined:
-      cssProps.color = main
       cssProps.backgroundColor = 'transparent'
       cssProps.borderColor = main
+      cssProps.color = main
       cssProps['&:hover'] = {
         color: contrastText,
         backgroundColor: main,
@@ -42,66 +41,86 @@ const getVariantCss = (colorType: Color, variant: ButtonVariant) => {
       break
   }
 
-  return generateCss(cssProps)
+  return cssProps
 }
 
-const getVariantStyles = (variant: ButtonVariant) => {
-  const styles = generateStyles(Colors, BASE_CLASS_NAME, (color: Color) =>
-    getVariantCss(color, variant),
-  )
+// Button Variants
+const containedVariants = Colors.map((color: Color) => ({
+  [`&.${BASE_CLASS_NAME}-${Color[color]}`]: {
+    ...getButtonVariantStyles(Color[color], ButtonVariant.contained),
+  },
+}))
 
-  return styles
+const outlinedVariants = Colors.map((color: Color) => ({
+  [`&.${BASE_CLASS_NAME}-${Color[color]}`]: {
+    ...getButtonVariantStyles(Color[color], ButtonVariant.outlined),
+  },
+}))
+
+const buttonVariants: CSSObject = {
+  [`&.${BASE_CLASS_NAME}-${ButtonVariant.contained}`]: Object.assign({}, ...containedVariants),
+  [`&.${BASE_CLASS_NAME}-${ButtonVariant.outlined}`]: Object.assign({}, ...outlinedVariants),
 }
-
-const buttonVariantStyles = generateStyles(ButtonVariants, BASE_CLASS_NAME, getVariantStyles)
 
 // Button Sizes
 const buttonSizes: CSSObject = {
-  [`&.${BASE_CLASS_NAME}-xSmall`]: {
+  fontSize: FontSize.regular,
+  lineHeight: '16px',
+  [`&.${BASE_CLASS_NAME}-${Size.xSmall}`]: {
     img: {
-      top: '-1px',
       left: '4px',
-
+      top: '-1px',
       "*[dir='rtl'] &": {
         right: '4px',
       },
     },
+    fontSize: FontSize.small,
+    lineHeight: '14px',
+    padding: '0.2rem 0.7rem',
   },
-  [`&.${BASE_CLASS_NAME}-small`]: {
+  [`&.${BASE_CLASS_NAME}-${Size.small}`]: {
     img: {
-      top: '7px',
       left: '10px',
-
+      top: '7px',
       "*[dir='rtl'] &": {
         right: '10px',
       },
     },
+    padding: '0.27rem 0.8rem',
   },
-  [`&.${BASE_CLASS_NAME}-large`]: {
+  [`&.${BASE_CLASS_NAME}-${Size.medium}`]: {
+    padding: '0.5rem 1rem',
+  },
+  [`&.${BASE_CLASS_NAME}-${Size.large}`]: {
     img: {
       top: '15px',
       left: '14px',
-
       "*[dir='rtl'] &": {
         right: '14px',
       },
     },
+    padding: '0.75rem 1.1rem',
+  },
+  [`&.${BASE_CLASS_NAME}-${Size.xLarge}`]: {
+    img: {
+      top: '15px',
+      left: '14px',
+      "*[dir='rtl'] &": {
+        right: '14px',
+      },
+    },
+    padding: '1rem 1.5rem',
   },
 }
 
 // Button Styles
 const buttonStyles: CSSObject = {
   [`&.${BASE_CLASS_NAME}`]: {
-    userSelect: 'none',
-    fontWeight: FontWeight.normal,
     border: '1px solid transparent',
+    fontWeight: FontWeight.normal,
     textAlign: 'center',
+    userSelect: 'none',
     verticalAlign: 'middle',
-    transition: `color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out`,
-  },
-  '&:not(:disabled)': {
-    cursor: 'pointer',
   },
   [`&.${BASE_CLASS_NAME}-disabled`]: {
     pointerEvents: 'none',
@@ -111,16 +130,19 @@ const buttonStyles: CSSObject = {
     display: 'block',
     width: '100%',
   },
+  '&:not(:disabled)': {
+    cursor: 'pointer',
+  },
 }
 
 // Button Shapes
 const buttonShapes: CSSObject = {
-  borderRadius: '3px',
+  borderRadius: '0.25rem',
   [`&.${getClass(BASE_CLASS_NAME, Shape.round)}`]: {
-    borderRadius: '30px',
+    borderRadius: '1rem',
   },
   [`&.${getClass(BASE_CLASS_NAME, Shape.square)}`]: {
-    borderRadius: '0px',
+    borderRadius: 0,
   },
 }
 
@@ -128,38 +150,36 @@ export const Button = styled.button({
   position: 'relative',
   img: {
     position: 'absolute',
-    top: '11px',
-    left: '14px',
-
+    left: '11px',
+    top: '7px',
     ["*[dir='rtl'] &"]: {
       right: '14px',
     },
   },
-  buttonVariantStyles,
+  ...buttonShapes,
   ...buttonSizes,
   ...buttonStyles,
-  ...buttonShapes,
+  ...buttonVariants,
 })
 
 export const LinkButton = styled.span({
   marginRight: '5px',
   a: {
     color: 'inherit',
-    position: 'relative',
     display: 'inline-block',
+    position: 'relative',
     textDecoration: 'none',
     img: {
       position: 'absolute',
       top: '-1px',
       left: '-6px',
-
       "*[dir='rtl'] &": {
         right: '-6px',
       },
     },
-    buttonVariantStyles,
-    ...buttonSizes,
-    ...buttonStyles,
-    ...buttonShapes,
   },
+  ...buttonShapes,
+  ...buttonSizes,
+  ...buttonStyles,
+  ...buttonVariants,
 })
