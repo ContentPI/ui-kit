@@ -1,12 +1,11 @@
 // Dependencies
 import styled from 'styled-components'
-import { colors } from '../../theme'
 
 // Base Class Name
 export const BASE_CLASS_NAME = 'table'
 
 export const tableStyle = `
-  border: 1px solid ${colors.graySuit};
+  border: 1px solid #D0C9D6;
 
   border-left: none;
   border-right: none;

@@ -3,16 +3,16 @@ import React, { FC, ComponentPropsWithoutRef } from 'react'
 import { cxGenerator } from '@contentpi/lib'
 
 // Types
-import { ButtonVariant, ButtonSize, StatusColor, Size, Variant, Color, Shape } from '../../types'
+import { ButtonVariant, ButtonSize, Color, Size, Variant, Shape } from '../../types'
 
 // Components
 import Spinner from '../Spinner'
 
 // Styles
-import { StyledButton, StyledLinkButton, BASE_CLASS_NAME } from './Button.styled'
+import { Button, LinkButton, BASE_CLASS_NAME } from './Button.styled'
 
 export interface IProps extends ComponentPropsWithoutRef<'button'> {
-  color?: StatusColor
+  color?: Color
   fullWidth?: boolean
   size?: ButtonSize
   variant?: ButtonVariant
@@ -23,7 +23,7 @@ export interface IProps extends ComponentPropsWithoutRef<'button'> {
   loadingText?: string
 }
 
-const Button: FC<IProps> = props => {
+const Btn: FC<IProps> = props => {
   const {
     color = Color.primary,
     children,
@@ -37,9 +37,10 @@ const Button: FC<IProps> = props => {
     fullWidth = false,
     ...btnProps
   } = props
+
   let buttonText: any = children
   const fullWidthClass = fullWidth ? 'full-width' : ''
-  const buttonData = [color, size, variant, color, shape, fullWidthClass]
+  const buttonData = [color, size, variant, shape, fullWidthClass]
 
   if (isLoading || disabled) {
     buttonData.push('disabled')
@@ -47,7 +48,7 @@ const Button: FC<IProps> = props => {
 
   const classNames = cxGenerator({
     ccn: BASE_CLASS_NAME,
-    data: buttonData
+    data: buttonData,
   })
 
   if (isLoading) {
@@ -60,21 +61,21 @@ const Button: FC<IProps> = props => {
 
   if (href) {
     const linkBtnProps: any = {
-      href
+      href,
     }
 
     return (
-      <StyledLinkButton className={classNames} {...linkBtnProps} disabled={isLoading || disabled}>
+      <LinkButton className={classNames} {...linkBtnProps} disabled={isLoading || disabled}>
         <a {...linkBtnProps}>{buttonText}</a>
-      </StyledLinkButton>
+      </LinkButton>
     )
   }
 
   return (
-    <StyledButton className={classNames} {...btnProps} disabled={isLoading || disabled}>
+    <Button className={classNames} {...btnProps} disabled={isLoading || disabled}>
       {buttonText}
-    </StyledButton>
+    </Button>
   )
 }
 
-export default Button
+export default Btn

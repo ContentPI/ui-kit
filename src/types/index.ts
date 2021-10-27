@@ -1,7 +1,5 @@
 import { IBreakpoints } from './breakpoints'
-import { IGlobal } from './global'
-import { IPalette, IPaletteGlobal } from './palette'
-import { IShapeTheme } from './shape'
+import { IPalette } from './palette'
 import { ITypography } from './typography'
 
 export * from './breakpoints'
@@ -19,14 +17,11 @@ export * from './utils'
 export * from './variant'
 
 export interface CustomTheme {
-  global: IGlobal
-  palette?: IPaletteGlobal
+  palette?: IPalette
 }
 
 export default interface Theme {
   breakpoints?: IBreakpoints
-  global?: IGlobal
   palette: IPalette
-  shape?: IShapeTheme
   typography?: ITypography
 }

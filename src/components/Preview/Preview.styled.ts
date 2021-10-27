@@ -1,24 +1,9 @@
 // Dependencies
 import styled from 'styled-components'
 
-// Colors
-import { colors } from '../../theme/colors'
-
-const {
-  white,
-  grandis,
-  easternBlue,
-  greenHaze,
-  slateGray,
-  mineShaft,
-  iron,
-  outerSpace,
-  mako
-} = colors
-
 export const StyledPreview = styled.div`
-  background-color: ${white};
-  border: 1px solid ${mineShaft};
+  background-color: white;
+  border: 1px solid #333;
   display: grid;
   grid-template-columns: 250px 1fr;
   width: 100%;
@@ -42,11 +27,11 @@ export const StyledMenu = styled.div`
 export const StyledMenuItem = styled.a`
   padding: 1rem;
   border-bottom: 1px solid #eaeaea;
-  color: ${mako};
+  color: #555;
   text-decoration: none;
 
   &:hover {
-    color: ${easternBlue};
+    color: blue;
   }
 `
 export const StyledContainer = styled.div`
@@ -70,13 +55,13 @@ export const StyledComponentWrapper = styled.div`
 `
 
 export const StyledPreviewProps = styled.div`
-  border-left: 1px solid ${mineShaft};
-  background-color: ${white};
+  border-left: 1px solid #333;
+  background-color: white;
 
   h2 {
     margin: 0;
     padding: 0;
-    background-color: ${mineShaft};
+    background-color: #333;
     color: white;
     font-size: 16px;
     text-align: center;
@@ -99,10 +84,10 @@ export const StyledPreviewProps = styled.div`
     li {
       p {
         margin: 0;
-        background-color: ${iron};
+        background-color: #666;
         padding-left: 10px;
         font-size: 14px;
-        color: ${outerSpace};
+        color: white;
       }
 
       div {
@@ -115,30 +100,30 @@ export const StyledPreviewProps = styled.div`
 
 export const StyledPreviewCode = styled.pre`
   font-family: 'Ubuntu Mono', sans-serif;
-  color: ${white};
-  background: ${mineShaft};
+  color: white;
+  background: #333;
   min-height: 60px;
   padding-top: 20px;
   padding-bottom: 20px;
   margin: 0;
 
   .red {
-    color: ${easternBlue};
+    color: red;
   }
 
   .green {
-    color: ${greenHaze};
+    color: green;
   }
 
   .white {
-    color: ${slateGray};
+    color: white;
   }
 `
 
 export const StyledYellow = styled.span`
-  color: ${grandis};
+  color: yellow;
 `
 
 export const StyledWhite = styled.span`
-  color: ${slateGray};
+  color: #444;
 `

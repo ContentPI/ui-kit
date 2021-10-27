@@ -1,1 +1,1 @@
-export { default, IProps } from './Input'
+// export { default, IProps } from './Input'

@@ -1,9 +1,8 @@
-import { Base, Blue, Gray, Green, Red, Yellow } from './color'
-import { ValueOf } from './utils'
+import { Base, Blue, Gray, Green, Red, Yellow } from '../types/color'
 
 export type ColorPalette = Base | Blue | Gray | Green | Red | Yellow
 
-type Palette = {
+export type Palette = {
   main: ColorPalette
   light: ColorPalette
   dark: ColorPalette
@@ -66,32 +65,7 @@ export const DarkPalette: Palette = {
   contrastText: Base.WHITE,
 }
 
-export interface IPalette {
-  primary: Palette
-  secondary: Palette
-  success: Palette
-  info: Palette
-  warning: Palette
-  danger: Palette
-  light: Palette
-  dark: Palette
-}
-
-export const Color = {
-  primary: 'primary',
-  secondary: 'secondary',
-  success: 'success',
-  info: 'info',
-  warning: 'warning',
-  danger: 'danger',
-  light: 'light',
-  dark: 'dark',
-} as const
-
-export type Color = ValueOf<typeof Color>
-export const Colors = Object.keys(Color)
-
-const palette: IPalette = {
+const palette = {
   primary: PrimaryPalette,
   secondary: SecondaryPalette,
   success: SuccessPalette,

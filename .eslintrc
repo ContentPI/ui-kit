@@ -83,6 +83,7 @@
     "guard-for-in": "off",
     "@typescript-eslint/ban-ts-comment": "off",
     "implicit-arrow-linebreak": "off",
-    "import/no-duplicates": "off"
+    "import/no-duplicates": "off",
+    "no-useless-computed-key": "off"
   }
 }

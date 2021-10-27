@@ -14,5 +14,5 @@ export const PaperBase = styled.div`
   width: max-content;
   padding: ${calc(CalcType.spacing, 6)};
   border-radius: ${calc(CalcType.spacing, 2)};
-  background-color: ${themeCssVars.global?.background.paper};
+  background-color: #fff;
 `

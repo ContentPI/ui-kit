@@ -1,41 +1,37 @@
-import { ValueOf } from '../types'
+export enum Base {
+  WHITE = '#FFF',
+  BLACK = '#000',
+  TRANSPARENT = 'transparent',
+}
 
-export const Color = {
-  danger: 'danger',
-  info: 'info',
-  primary: 'primary',
-  success: 'success',
-  warning: 'warning'
-} as const
+export enum Blue {
+  V100 = '#4AA3FF',
+  V200 = '#3F8BD9',
+}
 
-export type Color = ValueOf<typeof Color>
-export const Colors = Object.keys(Color)
+export enum Gray {
+  V100 = '#EFF2F7',
+  V200 = '#F1F4F8',
+  V300 = '#74788D',
+  V400 = '#636678',
+  V500 = '#343A40',
+  V600 = '#2C3136',
+}
 
-export const StatusColor = {
-  danger: 'danger',
-  info: 'info',
-  primary: 'primary',
-  success: 'success',
-  warning: 'warning'
-} as const
+export enum Green {
+  V100 = '#0AC074',
+  V200 = '#0BB197',
+  V300 = '#09A363',
+  V400 = '#099680',
+  V500 = '#089A5D',
+}
 
-export type StatusColor = ValueOf<typeof StatusColor>
-export const StatusColors = Object.keys(Color)
+export enum Red {
+  V100 = '#FF3D60',
+  V200 = '#D93452',
+}
 
-export const TextColor = {
-  textPrimary: 'textPrimary',
-  textSecondary: 'textSecondary',
-  textDisabled: 'textDisabled',
-  textHint: 'textHint'
-} as const
-export type TextColor = ValueOf<typeof TextColor>
-export const TextColors = Object.keys(TextColor)
-
-export const BackgroundColor = {
-  paper: 'paper',
-  main: 'main',
-  light: 'light',
-  dark: 'dark'
-} as const
-export type BackgroundColor = ValueOf<typeof BackgroundColor>
-export const BackgroundColors = Object.keys(BackgroundColor)
+export enum Yellow {
+  V100 = '#FCB92C',
+  V200 = '#D69D25',
+}

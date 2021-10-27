@@ -8,56 +8,56 @@ const stories = {
       name: 'children',
       type: 'Node',
       default: 'null',
-      description: 'The content of the component'
+      description: 'The content of the component',
     },
     {
       name: 'color',
       type: 'StatusColor',
       default: 'primary',
-      description: 'The color of the button'
+      description: 'The color of the button',
     },
     {
       name: 'href',
       type: 'reference',
       default: 'null',
-      description: 'The reference of the button '
+      description: 'The reference of the button ',
     },
     {
       name: 'disabled',
       type: 'boolean',
       default: 'false',
-      description: 'Disable the button '
+      description: 'Disable the button ',
     },
     {
       name: 'isLoading',
       type: 'boolean',
       default: 'false',
-      description: 'Displays a loading animation along with loading text'
+      description: 'Displays a loading animation along with loading text',
     },
     {
       name: 'loadingText',
       type: 'string',
       default: 'null',
-      description: 'Text to be displayed with the loading animation'
+      description: 'Text to be displayed with the loading animation',
     },
     {
       name: 'size',
       type: 'Size variants',
       default: 'medium',
-      description: 'The size of the button'
+      description: 'The size of the button',
     },
     {
       name: 'variant',
       type: 'variant',
       default: 'contained',
-      description: 'The variant style of the button'
+      description: 'The variant style of the button',
     },
     {
       name: 'fullWidth',
       type: 'boolean',
       default: 'false',
-      description: 'Enables the full width of the button'
-    }
+      description: 'Enables the full width of the button',
+    },
   ],
   stories: [
     {
@@ -69,7 +69,7 @@ const stories = {
     <Button>
       Standard Button
     </Button>
-    `
+    `,
     },
     {
       name: 'Button (<a>)',
@@ -80,7 +80,7 @@ const stories = {
     <Button href="#">
       Standard Button
     </Button>
-    `
+    `,
     },
     {
       name: 'Emphasis (<button>)',
@@ -95,7 +95,7 @@ const stories = {
       code: `
       <Button color="primary">Save</Button>
       <Button>Cancel</Button>
-      `
+      `,
     },
     {
       name: 'Emphasis (<a>)',
@@ -112,7 +112,7 @@ const stories = {
       code: `
       <Button color="primary" href="#">Save</Button>
       <Button href="#">Cancel</Button>
-      `
+      `,
     },
     {
       name: 'Colors (<button>)',
@@ -133,7 +133,7 @@ const stories = {
       <Button color="success">Success</Button>
       <Button color="warning">Warning</Button>
       <Button color="danger">Danger</Button>
-      `
+      `,
     },
     {
       name: 'Colors (<a>)',
@@ -164,7 +164,7 @@ const stories = {
       <Button color="success" href="#">Success</Button>
       <Button color="warning" href="#">Warning</Button>
       <Button color="danger" href="#">Danger</Button>
-      `
+      `,
     },
     {
       name: 'Disabled (<button>)',
@@ -205,7 +205,7 @@ const stories = {
       <Button color="danger" disabled>
         Danger
       </Button>
-      `
+      `,
     },
     {
       name: 'Disabled (<a>)',
@@ -246,7 +246,7 @@ const stories = {
       <Button color="danger" href="#" disabled>
         Danger
       </Button>
-      `
+      `,
     },
     {
       name: 'Variant Outlined (<button>)',
@@ -277,7 +277,7 @@ const stories = {
       <Button color="success" variant="outlined">Success</Button>
       <Button color="warning" variant="outlined">Warning</Button>
       <Button color="danger" variant="outlined">Danger</Button>
-      `
+      `,
     },
     {
       name: 'Variant Outlined (<a>)',
@@ -308,7 +308,7 @@ const stories = {
       <Button color="success" variant="outlined" href="#">Success</Button>
       <Button color="warning" variant="outlined" href="#">Warning</Button>
       <Button color="danger" variant="outlined" href="#">Danger</Button>
-      `
+      `,
     },
     {
       name: 'Sizes (<button>)',
@@ -356,7 +356,7 @@ const stories = {
       <Button color="primary" variant="outlined" size="medium">Primary</Button>
       <Button color="primary" variant="outlined" size="large">Primary</Button>
       <Button color="primary" variant="outlined" size="xLarge">Primary</Button>
-      `
+      `,
     },
     {
       name: 'Sizes (<a>)',
@@ -405,7 +405,7 @@ const stories = {
       <Button color="primary" variant="outlined" size="md" href="#">Primary</Button>
       <Button color="primary" variant="outlined" size="lg" href="#">Primary</Button>
       <Button color="primary" variant="outlined" size="xl" href="#">Primary</Button>
-      `
+      `,
     },
     {
       name: 'Block (<button>)',
@@ -429,7 +429,7 @@ const stories = {
       code: `
       <Button color="primary" fullWidth>Block level button</Button>
       <Button color="secondary" fullWidth>Block level button</Button>
-      `
+      `,
     },
     {
       name: 'FullWidth (<a>)',
@@ -453,7 +453,7 @@ const stories = {
       code: `
       <Button color="primary" fullWidth>Block level button</Button>
       <Button color="secondary" fullWidth>Block level button</Button>
-      `
+      `,
     },
     {
       name: 'Button with Loading Text (<button>)',
@@ -514,7 +514,7 @@ const stories = {
       <Button color="danger" loadingText="Creating" isLoading>
         Create
       </Button>
-      `
+      `,
     },
     {
       name: 'Button with Loading Text (<a>)',
@@ -576,9 +576,9 @@ const stories = {
       <Button color="danger" href="#" loadingText="Creating" isLoading>
         Create
       </Button>
-      `
-    }
-  ]
+      `,
+    },
+  ],
 }
 
 export default stories

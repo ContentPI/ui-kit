@@ -1,27 +1,17 @@
 // Dependencies
 import styled, { CSSObject } from 'styled-components'
 
-// Theme
-import { themeCssVars, calc, getClass, generateCss, generateStyles } from '../../theme'
+// Utils
+import { getClass, generateCss, generateStyles, themeCssVars } from '../../theme'
 
 // Types
-import {
-  ButtonSize,
-  ButtonSizes,
-  ButtonVariant,
-  ButtonVariants,
-  StatusColor,
-  StatusColors,
-  CalcType,
-  Shape,
-  FontWeight
-} from '../../types'
+import { ButtonVariant, ButtonVariants, Color, Colors, Shape, FontWeight } from '../../types'
 
 // Base Class Name
 export const BASE_CLASS_NAME = 'button'
 
 // Functions
-const getVariantCss = (colorType: StatusColor, variant: ButtonVariant) => {
+const getVariantCss = (colorType: Color, variant: ButtonVariant) => {
   const { dark, main, contrastText } = themeCssVars.palette[colorType]
   const cssProps: CSSObject = {}
 
@@ -31,13 +21,12 @@ const getVariantCss = (colorType: StatusColor, variant: ButtonVariant) => {
       cssProps.backgroundColor = main
       cssProps['&:hover'] = {
         backgroundColor: dark,
-        color: contrastText
+        color: contrastText,
       }
 
       cssProps['&:hover a'] = {
-        color: contrastText
+        color: contrastText,
       }
-
       break
     case ButtonVariant.outlined:
       cssProps.color = main
@@ -45,49 +34,11 @@ const getVariantCss = (colorType: StatusColor, variant: ButtonVariant) => {
       cssProps.borderColor = main
       cssProps['&:hover'] = {
         color: contrastText,
-        backgroundColor: main
+        backgroundColor: main,
       }
-
       break
     case ButtonVariant.text:
       cssProps.backgroundColor = 'white'
-
-      break
-  }
-
-  return generateCss(cssProps)
-}
-
-const getSizesCss = (size: ButtonSize) => {
-  const cssProps: CSSObject = {
-    fontWeight: 600,
-    letterSpacing: '0.75px',
-    borderRadius: calc(CalcType.spacing, 2)
-  }
-
-  switch (size) {
-    case ButtonSize.small:
-      cssProps.padding = `${calc(CalcType.padding, [2, 4])}`
-      cssProps.fontSize = '12px'
-      cssProps.lineHeight = '16px'
-      break
-
-    case ButtonSize.medium:
-      cssProps.padding = `${calc(CalcType.padding, [3, 5])}`
-      cssProps.fontSize = '14px'
-      cssProps.lineHeight = '16px'
-      break
-
-    case ButtonSize.large:
-      cssProps.padding = `${calc(CalcType.padding, [3.5, 5])}`
-      cssProps.fontSize = '16px'
-      cssProps.lineHeight = '20px'
-      break
-
-    case ButtonSize.xLarge:
-      cssProps.padding = `${calc(CalcType.padding, [4, 6])}`
-      cssProps.fontSize = '18px'
-      cssProps.lineHeight = '24px'
       break
   }
 
@@ -95,140 +46,120 @@ const getSizesCss = (size: ButtonSize) => {
 }
 
 const getVariantStyles = (variant: ButtonVariant) => {
-  const styles = generateStyles(StatusColors, BASE_CLASS_NAME, (color: StatusColor) =>
-    getVariantCss(color, variant)
+  const styles = generateStyles(Colors, BASE_CLASS_NAME, (color: Color) =>
+    getVariantCss(color, variant),
   )
 
   return styles
 }
 
-// Styles
-const buttonVariantStyles = () => generateStyles(ButtonVariants, BASE_CLASS_NAME, getVariantStyles)
-const buttonSizesStyles = () => generateStyles(ButtonSizes, BASE_CLASS_NAME, getSizesCss)
+const buttonVariantStyles = generateStyles(ButtonVariants, BASE_CLASS_NAME, getVariantStyles)
 
-const buttonShapeStyles = `
-  border-radius: 3px;
+// Button Sizes
+const buttonSizes: CSSObject = {
+  [`&.${BASE_CLASS_NAME}-xSmall`]: {
+    img: {
+      top: '-1px',
+      left: '4px',
 
-  &.${getClass(BASE_CLASS_NAME, Shape.round)} {
-    border-radius: 30px;
-  }
+      "*[dir='rtl'] &": {
+        right: '4px',
+      },
+    },
+  },
+  [`&.${BASE_CLASS_NAME}-small`]: {
+    img: {
+      top: '7px',
+      left: '10px',
 
-  &.${getClass(BASE_CLASS_NAME, Shape.square)} {
-    border-radius: 0px;
-  }
-`
+      "*[dir='rtl'] &": {
+        right: '10px',
+      },
+    },
+  },
+  [`&.${BASE_CLASS_NAME}-large`]: {
+    img: {
+      top: '15px',
+      left: '14px',
 
-export const buttonStyle = `
-  &.${BASE_CLASS_NAME} {
-    user-select: none;
-    font-weight: ${FontWeight.semibold};
-    border: 1px solid transparent;
-    text-align: center;
-    vertical-align: middle;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      "*[dir='rtl'] &": {
+        right: '14px',
+      },
+    },
+  },
+}
 
-    &:not(:disabled) {
-      cursor: pointer;
-    }
+// Button Styles
+const buttonStyles: CSSObject = {
+  [`&.${BASE_CLASS_NAME}`]: {
+    userSelect: 'none',
+    fontWeight: FontWeight.normal,
+    border: '1px solid transparent',
+    textAlign: 'center',
+    verticalAlign: 'middle',
+    transition: `color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out`,
+  },
+  '&:not(:disabled)': {
+    cursor: 'pointer',
+  },
+  [`&.${BASE_CLASS_NAME}-disabled`]: {
+    pointerEvents: 'none',
+    opacity: 0.5,
+  },
+  [`&.${BASE_CLASS_NAME}-full-width`]: {
+    display: 'block',
+    width: '100%',
+  },
+}
 
-    &.${BASE_CLASS_NAME}-disabled {
-      pointer-events: none;
-      opacity: 0.5;
-    }
+// Button Shapes
+const buttonShapes: CSSObject = {
+  borderRadius: '3px',
+  [`&.${getClass(BASE_CLASS_NAME, Shape.round)}`]: {
+    borderRadius: '30px',
+  },
+  [`&.${getClass(BASE_CLASS_NAME, Shape.square)}`]: {
+    borderRadius: '0px',
+  },
+}
 
-    &.${BASE_CLASS_NAME}-full-width {
-      display: block;
-      width: 100%;
-    }
-  }
-`
+export const Button = styled.button({
+  position: 'relative',
+  img: {
+    position: 'absolute',
+    top: '11px',
+    left: '14px',
 
-export const StyledButton = styled.button`
-  position: relative;
+    ["*[dir='rtl'] &"]: {
+      right: '14px',
+    },
+  },
+  buttonVariantStyles,
+  ...buttonSizes,
+  ...buttonStyles,
+  ...buttonShapes,
+})
 
-  img {
-    position: absolute;
-    top: 11px;
-    left: 14px;
+export const LinkButton = styled.span({
+  marginRight: '5px',
+  a: {
+    color: 'inherit',
+    position: 'relative',
+    display: 'inline-block',
+    textDecoration: 'none',
+    img: {
+      position: 'absolute',
+      top: '-1px',
+      left: '-6px',
 
-    *[dir='rtl'] & {
-      right: 14px;
-    }
-  }
-
-  &.${BASE_CLASS_NAME}-xSmall {
-    img {
-      top: -1px;
-      left: 4px;
-
-      *[dir='rtl'] & {
-        right: 4px;
-      }
-    }
-  }
-
-  &.${BASE_CLASS_NAME}-small {
-    img {
-      top: 7px;
-      left: 10px;
-
-      *[dir='rtl'] & {
-        right: 10px;
-      }
-    }
-  }
-
-  &.${BASE_CLASS_NAME}-large {
-    img {
-      top: 15px;
-      left: 14px;
-
-      *[dir='rtl'] & {
-        right: 14px;
-      }
-    }
-  }
-
-  &.${BASE_CLASS_NAME}-large {
-    img {
-      top: 20px;
-      left: 14px;
-
-      *[dir='rtl'] & {
-        right: 14px;
-      }
-    }
-  }
-
-  ${buttonStyle}
-  ${buttonVariantStyles()}
-  ${buttonSizesStyles()}
-  ${buttonShapeStyles}
-`
-
-export const StyledLinkButton = styled.span`
-  margin-right: 5px;
-
-  a {
-    color: inherit;
-    position: relative;
-    display: inline-block;
-    text-decoration: none;
-
-    img {
-      position: absolute;
-      top: -1px;
-      left: -6px;
-
-      *[dir='rtl'] & {
-        right: -6px;
-      }
-    }
-  }
-
-  ${buttonStyle}
-  ${buttonVariantStyles()}
-  ${buttonSizesStyles()}
-  ${buttonShapeStyles}
-`
+      "*[dir='rtl'] &": {
+        right: '-6px',
+      },
+    },
+    buttonVariantStyles,
+    ...buttonSizes,
+    ...buttonStyles,
+    ...buttonShapes,
+  },
+})

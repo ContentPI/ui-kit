@@ -2,7 +2,7 @@
 import { css, createGlobalStyle } from 'styled-components'
 
 // Theme
-import { themeRootVars, themeCssVars, themeVariants } from '../../theme'
+import { themeRootVars, themeCssVars } from '../../theme'
 
 // Fonts
 import WorkSansBlackWoff from '../../fonts/worksans/worksans-black.woff'
@@ -100,7 +100,7 @@ const htmlReset = css`
   body {
     font-family: 'WorkSans';
     margin: 0;
-    background-color: ${themeCssVars.global?.background.dark};
+    background-color: #333;
   }
   h1,
   h2,
@@ -117,7 +117,6 @@ const GlobalStyles = createGlobalStyle`
   ${htmlReset}
   ${fontStyles}
   ${themeRootVars}
-  ${themeVariants}
 `
 
 export default GlobalStyles
