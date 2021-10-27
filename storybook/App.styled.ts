@@ -20,7 +20,8 @@ export const StyledWrapper = styled.div`
 `
 
 export const StyledApp = styled.div`
-  font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: WorkSans, -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
   font-size: 1rem;
   margin-left: 20px;
   padding-bottom: 500px;

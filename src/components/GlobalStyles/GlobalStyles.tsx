@@ -5,55 +5,91 @@ import { css, createGlobalStyle } from 'styled-components'
 import { themeRootVars, themeCssVars, themeVariants } from '../../theme'
 
 // Fonts
-import Poppins400Woff from '../../fonts/poppins-v15-latin-regular.woff'
-import Poppins400Ttf from '../../fonts/poppins-v15-latin-regular.ttf'
-
-import Poppins500Woff from '../../fonts/poppins-v15-latin-500.woff'
-import Poppins500Ttf from '../../fonts/poppins-v15-latin-500.ttf'
-
-import Poppins600Woff from '../../fonts/poppins-v15-latin-600.woff'
-import Poppins600Ttf from '../../fonts/poppins-v15-latin-600.ttf'
-
-import Poppins700Woff from '../../fonts/poppins-v15-latin-700.woff'
-import Poppins700Ttf from '../../fonts/poppins-v15-latin-700.ttf'
-
-import Poppins800Woff from '../../fonts/poppins-v15-latin-800.woff'
-import Poppins800Ttf from '../../fonts/poppins-v15-latin-800.ttf'
+import WorkSansBlackWoff from '../../fonts/worksans/worksans-black.woff'
+import WorkSansBlackWoff2 from '../../fonts/worksans/worksans-black.woff2'
+import WorkSansExtraBoldWoff from '../../fonts/worksans/worksans-extrabold.woff'
+import WorkSansExtraBoldWoff2 from '../../fonts/worksans/worksans-extrabold.woff2'
+import WorkSansBoldWoff from '../../fonts/worksans/worksans-bold.woff'
+import WorkSansBoldWoff2 from '../../fonts/worksans/worksans-bold.woff2'
+import WorkSansSemiboldWoff from '../../fonts/worksans/worksans-semibold.woff'
+import WorkSansSemiboldWoff2 from '../../fonts/worksans/worksans-semibold.woff2'
+import WorkSansMediumWoff from '../../fonts/worksans/worksans-medium.woff'
+import WorkSansMediumWoff2 from '../../fonts/worksans/worksans-medium.woff2'
+import WorkSansRegularWoff from '../../fonts/worksans/worksans-regular.woff'
+import WorkSansRegularWoff2 from '../../fonts/worksans/worksans-regular.woff2'
+import WorkSansLightWoff from '../../fonts/worksans/worksans-light.woff'
+import WorkSansLightWoff2 from '../../fonts/worksans/worksans-light.woff2'
+import WorkSansExtraLightWoff from '../../fonts/worksans/worksans-extralight.woff'
+import WorkSansExtraLightWoff2 from '../../fonts/worksans/worksans-extralight.woff2'
+import WorkSansThinWoff from '../../fonts/worksans/worksans-thin.woff'
+import WorkSansThinWoff2 from '../../fonts/worksans/worksans-thin.woff2'
 
 const fontStyles = css`
   @font-face {
-    font-family: 'Poppins';
+    font-family: 'WorkSans';
     font-style: normal;
-    font-weight: 400;
-    src: url('${Poppins400Woff}') format('woff'), url('${Poppins400Ttf}') format('truetype');
+    font-weight: 900;
+    src: url('${WorkSansBlackWoff}') format('woff'), url('${WorkSansBlackWoff2}') format('woff2');
   }
 
   @font-face {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    src: url('${Poppins500Woff}') format('woff'), url('${Poppins500Ttf}') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
-    src: url('${Poppins600Woff}') format('woff'), url('${Poppins600Ttf}') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    src: url('${Poppins700Woff}') format('woff'), url('${Poppins700Ttf}') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'Poppins';
+    font-family: 'WorkSans';
     font-style: normal;
     font-weight: 800;
-    src: url('${Poppins800Woff}') format('woff'), url('${Poppins800Ttf}') format('truetype');
+    src: url('${WorkSansExtraBoldWoff}') format('woff'),
+      url('${WorkSansExtraBoldWoff2}') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'WorkSans';
+    font-style: normal;
+    font-weight: 700;
+    src: url('${WorkSansBoldWoff}') format('woff'), url('${WorkSansBoldWoff2}') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'WorkSans';
+    font-style: normal;
+    font-weight: 600;
+    src: url('${WorkSansSemiboldWoff}') format('woff'),
+      url('${WorkSansSemiboldWoff2}') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'WorkSans';
+    font-style: normal;
+    font-weight: 500;
+    src: url('${WorkSansMediumWoff}') format('woff'), url('${WorkSansMediumWoff2}') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'WorkSans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('${WorkSansRegularWoff}') format('woff'),
+      url('${WorkSansRegularWoff2}') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'WorkSans';
+    font-style: normal;
+    font-weight: 300;
+    src: url('${WorkSansLightWoff}') format('woff'), url('${WorkSansLightWoff2}') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'WorkSans';
+    font-style: normal;
+    font-weight: 200;
+    src: url('${WorkSansExtraLightWoff}') format('woff'),
+      url('${WorkSansExtraLightWoff2}') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'WorkSans';
+    font-style: normal;
+    font-weight: 100;
+    src: url('${WorkSansThinWoff}') format('woff'), url('${WorkSansThinWoff2}') format('woff2');
   }
 `
 
@@ -62,7 +98,7 @@ const htmlReset = css`
     outline: none;
   }
   body {
-    font-family: 'Poppins';
+    font-family: 'WorkSans';
     margin: 0;
     background-color: ${themeCssVars.global?.background.dark};
   }

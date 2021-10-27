@@ -1,7 +1,7 @@
 import Theme, { IPalette, ITypography, IShapeTheme, IGlobal, CustomTheme } from '../types'
 import { generateVarNames, generateThemeVars, getRootVars } from './utils'
 
-const globalFontFamily = "'Poppins'"
+const globalFontFamily = "'WorkSans'"
 
 const palette: IPalette = {
   primary: {
