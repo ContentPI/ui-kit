@@ -6,7 +6,7 @@
 // import Text from '../Text'
 
 // // Styles
-// import { BreadcrumbBase, BreadcrumbDivider, BASE_CLASS_NAME } from './Breadcrumb.styled'
+// import { Breadcrumb, BreadcrumbDivider, BASE_CLASS_NAME } from './Breadcrumb.styled'
 
 // type labelBody = {
 //   title: string
@@ -18,12 +18,12 @@
 //   Link?: any
 // }
 
-// const Breadcrumb: FC<IProps> = props => {
+// const BreadcrumbComponent: FC<IProps> = props => {
 //   const { labels, Link } = props
 
 //   const classNames = cxGenerator({
 //     ccn: BASE_CLASS_NAME,
-//     data: []
+//     data: [],
 //   })
 
 //   const items = labels.map((item, index) => {
@@ -54,7 +54,8 @@
 //       </Fragment>
 //     )
 //   })
-//   return <BreadcrumbBase className={classNames}>{items}</BreadcrumbBase>
+
+//   return <Breadcrumb className={classNames}>{items}</Breadcrumb>
 // }
 
-// export default Breadcrumb
+// export default BreadcrumbComponent

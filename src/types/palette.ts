@@ -10,7 +10,7 @@ type Palette = {
     contrastText: ColorPalette
     transparent: ColorPalette
   }
-  button: {
+  common: {
     main: ColorPalette
     light: ColorPalette
     dark: ColorPalette
@@ -26,7 +26,7 @@ export const PrimaryPalette: Palette = {
     contrastText: Green.V500,
     transparent: Base.TRANSPARENT,
   },
-  button: {
+  common: {
     main: Green.V250,
     light: Green.V200,
     dark: Green.V300,
@@ -42,7 +42,7 @@ export const SecondaryPalette: Palette = {
     contrastText: Gray.V300,
     transparent: Base.TRANSPARENT,
   },
-  button: {
+  common: {
     main: Gray.V150,
     light: Gray.V200,
     dark: Gray.V200,
@@ -58,7 +58,7 @@ export const SuccessPalette: Palette = {
     contrastText: Green.V500,
     transparent: Base.TRANSPARENT,
   },
-  button: {
+  common: {
     main: Green.V200,
     light: Green.V250,
     dark: Green.V300,
@@ -74,7 +74,7 @@ export const InfoPalette: Palette = {
     contrastText: Blue.V250,
     transparent: Base.TRANSPARENT,
   },
-  button: {
+  common: {
     main: Blue.V150,
     light: Blue.V200,
     dark: Blue.V200,
@@ -90,7 +90,7 @@ export const WarningPalette: Palette = {
     contrastText: Yellow.V250,
     transparent: Base.TRANSPARENT,
   },
-  button: {
+  common: {
     main: Yellow.V150,
     light: Yellow.V200,
     dark: Yellow.V200,
@@ -106,7 +106,7 @@ export const DangerPalette: Palette = {
     contrastText: Red.V250,
     transparent: Base.TRANSPARENT,
   },
-  button: {
+  common: {
     main: Red.V150,
     light: Red.V200,
     dark: Red.V200,
@@ -122,7 +122,7 @@ export const LightPalette: Palette = {
     contrastText: Gray.V300,
     transparent: Base.TRANSPARENT,
   },
-  button: {
+  common: {
     main: Gray.V100,
     light: Gray.V100,
     dark: Gray.V050,
@@ -138,7 +138,7 @@ export const DarkPalette: Palette = {
     contrastText: Gray.V050,
     transparent: Base.TRANSPARENT,
   },
-  button: {
+  common: {
     main: Gray.V300,
     light: Gray.V250,
     dark: Base.BLACK,

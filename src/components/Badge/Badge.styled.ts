@@ -5,7 +5,7 @@ import styled, { CSSObject } from 'styled-components'
 import { getClass, themeCssVars } from '../../theme'
 
 // Types
-import { Color, Colors, Shape, FontSize, FontWeight } from '../../types'
+import { Color, Colors, Shape, FontWeight } from '../../types'
 
 // Base Class Name
 export const BASE_CLASS_NAME = 'badge'
@@ -13,7 +13,7 @@ export const BASE_CLASS_NAME = 'badge'
 // Functions
 const getBadgeColorStyles = (colorType: Color) => {
   const {
-    button: { dark, main, contrastText },
+    common: { dark, main, contrastText },
   } = themeCssVars.palette[colorType]
 
   const cssProps: CSSObject = {

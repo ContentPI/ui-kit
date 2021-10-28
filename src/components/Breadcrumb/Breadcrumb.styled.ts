@@ -4,13 +4,13 @@
 // // Base Class Name
 // export const BASE_CLASS_NAME = 'breadcrumb'
 
-// export const BreadcrumbBase = styled.div`
-//   display: flex;
+// export const Breadcrumb = styled.div({
+//   display: 'flex',
+//   '& > a': {
+//     textDecoration: 'none',
+//   },
+// })
 
-//   & > a {
-//     text-decoration: none;
-//   }
-// `
-// export const BreadcrumbDivider = styled.div`
-//   margin: 0 0.5rem;
-// `
+// export const BreadcrumbDivider = styled.div({
+//   margin: '0 0.5rem',
+// })

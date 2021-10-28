@@ -8,14 +8,14 @@
 //       name: 'Labels',
 //       type: 'Array<labelBody>',
 //       default: ' ',
-//       description: 'The text and the link of each label of the Breadcrumb'
+//       description: 'The text and the link of each label of the Breadcrumb',
 //     },
 //     {
 //       name: 'Link',
 //       type: 'any',
 //       default: ' ',
-//       description: 'The reference ot the Breadcrumb'
-//     }
+//       description: 'The reference ot the Breadcrumb',
+//     },
 //   ],
 //   stories: [
 //     {
@@ -26,7 +26,7 @@
 //           labels={[
 //             { title: 'item1', link: '#item1' },
 //             { title: 'item2', link: '#item2' },
-//             { title: 'item3', link: '#item3' }
+//             { title: 'item3', link: '#item3' },
 //           ]}
 //         >
 //           Foo
@@ -41,9 +41,9 @@
 //           { title: 'item3', link: '#' }
 //         ]}
 //       >
-//       `
-//     }
-//   ]
+//       `,
+//     },
+//   ],
 // }
 
 // export default stories

@@ -12,7 +12,7 @@ export const BASE_CLASS_NAME = 'btn'
 
 // Variant
 const variantStyles: CSSObject = {
-  [`&.${BASE_CLASS_NAME}-${ButtonVariant.contained}`]: mapColorStyles(
+  [`&.${BASE_CLASS_NAME}-${ButtonVariant.outlined}`]: mapColorStyles(
     Colors,
     BASE_CLASS_NAME,
     themeCssVars,
@@ -28,7 +28,7 @@ const variantStyles: CSSObject = {
       },
     },
   ),
-  [`&.${BASE_CLASS_NAME}-${ButtonVariant.outlined}`]: mapColorStyles(
+  [`&.${BASE_CLASS_NAME}-${ButtonVariant.contained}`]: mapColorStyles(
     Colors,
     BASE_CLASS_NAME,
     themeCssVars,

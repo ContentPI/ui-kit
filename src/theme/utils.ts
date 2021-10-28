@@ -193,12 +193,9 @@ export const getVariantCssProps = () => {
   return cssProps
 }
 
-export const getColorStyles = (
-  { colorType, variant }: any,
-  baseClassName: string,
-  themeCssVars: any,
-) => {
-  const palette: any = themeCssVars.palette[colorType][baseClassName]
+export const getColorStyles = (colorType: any, baseClassName: string, themeCssVars: any) => {
+  const paletteType: any = themeCssVars.palette[colorType]
+  const palette: any = paletteType[baseClassName] ?? paletteType.common
 
   return (cssProps: any) => {
     const newCssProps = { ...cssProps }

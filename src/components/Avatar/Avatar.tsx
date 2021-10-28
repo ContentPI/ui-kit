@@ -6,14 +6,14 @@ import { cxGenerator } from '@contentpi/lib'
 import { AvatarVariant, Color } from '../../types'
 
 // Styles
-import { AvatarBase, BASE_CLASS_NAME } from './Avatar.styled'
+import { Avatar, BASE_CLASS_NAME } from './Avatar.styled'
 
 interface IProps {
   color?: Color
   variant?: AvatarVariant
 }
 
-const Avatar: FC<IProps> = ({
+const AvatarComponent: FC<IProps> = ({
   children,
   color = Color.primary,
   variant = AvatarVariant.circle,
@@ -25,10 +25,10 @@ const Avatar: FC<IProps> = ({
   })
 
   return (
-    <AvatarBase className={classNames} {...restProps}>
+    <Avatar className={classNames} {...restProps}>
       {children}
-    </AvatarBase>
+    </Avatar>
   )
 }
 
-export default Avatar
+export default AvatarComponent
