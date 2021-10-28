@@ -2,6 +2,7 @@ import { IBreakpoints } from './breakpoints'
 import { IPalette } from './palette'
 import { ITypography } from './typography'
 
+export * from './alignment'
 export * from './breakpoints'
 export * from './calc'
 export * from './color'

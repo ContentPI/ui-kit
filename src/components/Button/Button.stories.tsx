@@ -121,10 +121,13 @@ const stories = {
       render: (
         <>
           <Button color="primary">Primary</Button>
+          <Button color="secondary">Secondary</Button>
           <Button color="info">Info</Button>
           <Button color="success">Success</Button>
           <Button color="warning">Warning</Button>
           <Button color="danger">Danger</Button>
+          <Button color="light">Light</Button>
+          <Button color="dark">Dark</Button>
         </>
       ),
       code: `
@@ -144,6 +147,9 @@ const stories = {
           <Button color="primary" href="#">
             Primary
           </Button>
+          <Button color="secondary" href="#">
+            Secondary
+          </Button>
           <Button color="info" href="#">
             Info
           </Button>
@@ -155,6 +161,12 @@ const stories = {
           </Button>
           <Button color="danger" href="#">
             Danger
+          </Button>
+          <Button color="light" href="#">
+            Light
+          </Button>
+          <Button color="dark" href="#">
+            Dark
           </Button>
         </>
       ),

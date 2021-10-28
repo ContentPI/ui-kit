@@ -12,7 +12,9 @@ export const BASE_CLASS_NAME = 'btn'
 
 // Functions
 const getButtonVariantStyles = (colorType: Color, variant: ButtonVariant) => {
-  const { dark, main, contrastText } = themeCssVars.palette[colorType]
+  const {
+    button: { dark, main, contrastText },
+  } = themeCssVars.palette[colorType]
   const cssProps: CSSObject = {}
 
   switch (variant) {
@@ -146,6 +148,7 @@ const buttonShapes: CSSObject = {
   },
 }
 
+// Button component
 export const Button = styled.button({
   position: 'relative',
   img: {
@@ -162,6 +165,7 @@ export const Button = styled.button({
   ...buttonVariants,
 })
 
+// LinkButton component
 export const LinkButton = styled.span({
   marginRight: '5px',
   a: {

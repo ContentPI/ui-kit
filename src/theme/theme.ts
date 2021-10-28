@@ -1,6 +1,6 @@
 import Theme, { ITypography } from '../types'
 import { generateVarNames, getRootVars } from './utils'
-import palette from './palette'
+import palette from '../types/palette'
 
 const globalFontFamily = "'WorkSans'"
 

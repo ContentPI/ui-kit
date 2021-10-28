@@ -3,7 +3,7 @@ import React, { FC, ComponentPropsWithoutRef } from 'react'
 import { cxGenerator } from '@contentpi/lib'
 
 // Types
-import { ButtonVariant, ButtonSize, Color, Size, Variant, Shape } from '../../types'
+import { ButtonVariant, Color, Size, Variant, Shape } from '../../types'
 
 // Components
 import Spinner from '../Spinner'
@@ -11,10 +11,10 @@ import Spinner from '../Spinner'
 // Styles
 import { Button, LinkButton, BASE_CLASS_NAME } from './Button.styled'
 
-export interface IProps extends ComponentPropsWithoutRef<'button'> {
+interface IProps extends ComponentPropsWithoutRef<'button'> {
   color?: Color
   fullWidth?: boolean
-  size?: ButtonSize
+  size?: Size
   variant?: ButtonVariant
   href?: string
   shape?: Shape
@@ -23,32 +23,30 @@ export interface IProps extends ComponentPropsWithoutRef<'button'> {
   loadingText?: string
 }
 
-const Btn: FC<IProps> = props => {
-  const {
-    color = Color.primary,
-    children,
-    href = undefined,
-    disabled = undefined,
-    isLoading = undefined,
-    loadingText = undefined,
-    shape = '',
-    size = Size.medium,
-    variant = Variant.contained,
-    fullWidth = false,
-    ...btnProps
-  } = props
-
+const ButtonComponent: FC<IProps> = ({
+  color = Color.primary,
+  children,
+  href = undefined,
+  disabled = undefined,
+  isLoading = undefined,
+  loadingText = undefined,
+  shape = Shape.regular,
+  size = Size.medium,
+  variant = Variant.contained,
+  fullWidth = false,
+  ...btnProps
+}) => {
   let buttonText: any = children
   const fullWidthClass = fullWidth ? 'full-width' : ''
-  const buttonData = [variant, size, shape, fullWidthClass, color]
+  const classes = [variant, size, shape, fullWidthClass, color]
 
   if (isLoading || disabled) {
-    buttonData.push('disabled')
+    classes.push('disabled')
   }
 
   const classNames = cxGenerator({
     ccn: BASE_CLASS_NAME,
-    data: buttonData,
+    data: classes,
   })
 
   if (isLoading) {
@@ -88,4 +86,4 @@ const Btn: FC<IProps> = props => {
   )
 }
 
-export default Btn
+export default ButtonComponent

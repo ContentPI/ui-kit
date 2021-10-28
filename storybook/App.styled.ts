@@ -94,7 +94,7 @@ export const StyledBlock = styled.div`
     min-width: 100%;
     font-size: 14px;
 
-    strong {
+    .strong {
       display: inline-block;
       margin-top: 5px;
       border-radius: 5px;
