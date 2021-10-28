@@ -1,38 +1,62 @@
-// // Dependencies
-// import styled, { CSSObject } from 'styled-components'
+// Dependencies
+import styled, { CSSObject } from 'styled-components'
 
-// // Types
-// import { generateCss, generateStyles, themeCssVars, calc } from '../../theme'
-// import { StatusColor, StatusColors, CalcType } from '../../types'
+// Utils
+import { getClass, themeCssVars } from '../../theme'
 
-// // Base Class Name
-// export const BASE_CLASS_NAME = 'badge'
+// Types
+import { Color, Colors, Shape, FontSize, FontWeight } from '../../types'
 
-// // Functions
-// const getColorCss = (colorType: StatusColor) => {
-//   const { main, light, dark } = themeCssVars.palette[colorType]
-//   const cssProps: CSSObject = {
-//     color: 'white',
-//     border: `1px solid ${main}`,
-//     backgroundColor: light,
-//     padding: `${calc(CalcType.padding, [0.5, 2])}`
-//   }
+// Base Class Name
+export const BASE_CLASS_NAME = 'badge'
 
-//   return generateCss(cssProps)
-// }
+// Functions
+const getBadgeColorStyles = (colorType: Color) => {
+  const {
+    button: { dark, main, contrastText },
+  } = themeCssVars.palette[colorType]
 
-// const badgeColorStyles = () => generateStyles(StatusColors, BASE_CLASS_NAME, getColorCss)
+  const cssProps: CSSObject = {
+    backgroundColor: main,
+    borderColor: dark,
+    color: contrastText,
+  }
 
-// // Styles
-// export const BadgeBase = styled.div`
-//   display: inline-block;
-//   border-radius: 0.25rem;
-//   border: 1px solid inherit;
-//   font-size: 13px;
-//   font-weight: 500;
-//   line-height: 16px;
-//   padding: 0.25em 0.4em;
-//   vertical-align: baseline;
+  return cssProps
+}
 
-//   ${badgeColorStyles()}
-// `
+// Badge colors
+const badgeColors = Colors.map((color: Color) => ({
+  [`&.${BASE_CLASS_NAME}-${Color[color]}`]: {
+    ...getBadgeColorStyles(Color[color]),
+  },
+}))
+
+const badgeColorStyles: CSSObject = Object.assign({}, ...badgeColors)
+
+// Badge Shapes
+const badgeShapes: CSSObject = {
+  borderRadius: '0.25rem',
+  [`&.${getClass(BASE_CLASS_NAME, Shape.round)}`]: {
+    borderRadius: '1rem',
+  },
+  [`&.${getClass(BASE_CLASS_NAME, Shape.square)}`]: {
+    borderRadius: 0,
+  },
+}
+
+// Styles
+export const Badge = styled.span({
+  border: '1px solid inherit',
+  borderRadius: '0.25rem',
+  display: 'inline-block',
+  fontSize: '75%',
+  fontWeight: FontWeight.normal,
+  lineHeight: 1,
+  padding: '0.3em 0.45em',
+  verticalAlign: 'baseline',
+  textAlign: 'center',
+  whiteSpace: 'nowrap',
+  ...badgeColorStyles,
+  ...badgeShapes,
+})

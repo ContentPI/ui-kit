@@ -44,7 +44,7 @@ const alertColors = Colors.map((color: Color) => ({
 const alertColorStyles: CSSObject = Object.assign({}, ...alertColors)
 
 // Alert Shapes
-const alertShapes: CSSObject = {
+const alertShapesStyles: CSSObject = {
   borderRadius: '0.25rem',
   [`&.${getClass(BASE_CLASS_NAME, Shape.round)}`]: {
     borderRadius: '1rem',
@@ -55,7 +55,7 @@ const alertShapes: CSSObject = {
 }
 
 // Alert Alignment
-const alertAlignment: CSSObject = {
+const alertAlignmentStyles: CSSObject = {
   textAlign: Alignment.left,
   [`&.${getClass(BASE_CLASS_NAME, Alignment.center)}`]: {
     textAlign: Alignment.center,
@@ -66,7 +66,7 @@ const alertAlignment: CSSObject = {
 }
 
 // Alert component
-export const Alert = styled.button({
+export const Alert = styled.div({
   border: '1px solid transparent',
   borderRadius: '0.25rem',
   fontSize: FontSize.regular,
@@ -74,7 +74,7 @@ export const Alert = styled.button({
   padding: '0.75rem 1.25rem',
   position: 'relative',
   width: '100%',
-  ...alertShapes,
+  ...alertAlignmentStyles,
   ...alertColorStyles,
-  ...alertAlignment,
+  ...alertShapesStyles,
 })

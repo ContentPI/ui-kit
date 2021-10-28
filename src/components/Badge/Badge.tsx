@@ -1,21 +1,31 @@
-// import React, { FC } from 'react'
-// import { cxGenerator } from '@contentpi/lib'
-// import { StatusColor } from '../../types'
-// import { BadgeBase, BASE_CLASS_NAME } from './Badge.styled'
+// Dependencies
+import React, { FC } from 'react'
+import { cxGenerator } from '@contentpi/lib'
 
-// interface IBadgeProps {
-//   color?: StatusColor
-// }
+// Types
+import { Color, Shape } from '../../types'
 
-// const Badge: FC<IBadgeProps> = props => {
-//   const { children, color = StatusColor.primary } = props
+// Styles
+import { Badge, BASE_CLASS_NAME } from './Badge.styled'
 
-//   const classNames = cxGenerator({
-//     ccn: BASE_CLASS_NAME,
-//     data: [color]
-//   })
+interface IProps {
+  color?: Color
+  shape?: Shape
+}
 
-//   return <BadgeBase className={classNames}>{children}</BadgeBase>
-// }
+const BadgeComponent: FC<IProps> = ({ children, color = Color.primary, shape = Shape.regular }) => {
+  const classes = [shape, color]
 
-// export default Badge
+  const classNames = cxGenerator({
+    ccn: BASE_CLASS_NAME,
+    data: classes,
+  })
+
+  return (
+    <Badge data-component="Badge" className={classNames}>
+      {children}
+    </Badge>
+  )
+}
+
+export default BadgeComponent

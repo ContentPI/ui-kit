@@ -59,13 +59,13 @@ const outlinedVariants = Colors.map((color: Color) => ({
   },
 }))
 
-const buttonVariants: CSSObject = {
+const buttonVariantsStyles: CSSObject = {
   [`&.${BASE_CLASS_NAME}-${ButtonVariant.contained}`]: Object.assign({}, ...containedVariants),
   [`&.${BASE_CLASS_NAME}-${ButtonVariant.outlined}`]: Object.assign({}, ...outlinedVariants),
 }
 
 // Button Sizes
-const buttonSizes: CSSObject = {
+const buttonSizesStyles: CSSObject = {
   fontSize: FontSize.regular,
   lineHeight: '16px',
   [`&.${BASE_CLASS_NAME}-${Size.xSmall}`]: {
@@ -138,7 +138,7 @@ const buttonStyles: CSSObject = {
 }
 
 // Button Shapes
-const buttonShapes: CSSObject = {
+const buttonShapesStyles: CSSObject = {
   borderRadius: '0.25rem',
   [`&.${getClass(BASE_CLASS_NAME, Shape.round)}`]: {
     borderRadius: '1rem',
@@ -159,10 +159,10 @@ export const Button = styled.button({
       right: '14px',
     },
   },
-  ...buttonShapes,
-  ...buttonSizes,
+  ...buttonShapesStyles,
+  ...buttonSizesStyles,
   ...buttonStyles,
-  ...buttonVariants,
+  ...buttonVariantsStyles,
 })
 
 // LinkButton component
@@ -182,8 +182,8 @@ export const LinkButton = styled.span({
       },
     },
   },
-  ...buttonShapes,
-  ...buttonSizes,
+  ...buttonShapesStyles,
+  ...buttonSizesStyles,
   ...buttonStyles,
-  ...buttonVariants,
+  ...buttonVariantsStyles,
 })

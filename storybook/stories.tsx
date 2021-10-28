@@ -1,5 +1,5 @@
 import AlertStories from '../src/components/Alert/Alert.stories'
-// import BadgeStories from '../src/components/Badge/Badge.stories'
+import BadgeStories from '../src/components/Badge/Badge.stories'
 // import BreadcrumbStories from '../src/components/Breadcrumb/Breadcrumb.stories'
 import ButtonStories from '../src/components/Button/Button.stories'
 // import DialogStories from '../src/components/Dialog/Dialog.stories'
@@ -17,7 +17,7 @@ import ButtonStories from '../src/components/Button/Button.stories'
 
 const stories: any = {
   alert: AlertStories,
-  // badge: BadgeStories,
+  badge: BadgeStories,
   // breadcrumb: BreadcrumbStories,
   button: ButtonStories,
   // dialog: DialogStories,
