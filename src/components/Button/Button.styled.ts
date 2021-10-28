@@ -120,7 +120,7 @@ const buttonStyles: CSSObject = {
 const shapeStyles: CSSObject = {
   borderRadius: '0.25rem',
   [`&.${getClass(BASE_CLASS_NAME, Shape.round)}`]: {
-    borderRadius: '1rem',
+    borderRadius: '2rem',
   },
   [`&.${getClass(BASE_CLASS_NAME, Shape.square)}`]: {
     borderRadius: 0,

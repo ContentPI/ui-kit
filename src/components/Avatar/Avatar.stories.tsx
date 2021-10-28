@@ -29,21 +29,13 @@ const stories = {
       description: 'Avatar colors',
       render: (
         <>
-          <Avatar color="primary" variant="circle">
-            A
-          </Avatar>
+          <Avatar color="primary">A</Avatar>
 
-          <Avatar color="primary" variant="rounded">
-            B
-          </Avatar>
+          <Avatar color="primary">B</Avatar>
 
-          <Avatar color="secondary" variant="rounded">
-            C
-          </Avatar>
+          <Avatar color="secondary">C</Avatar>
 
-          <Avatar color="success" variant="circle">
-            D
-          </Avatar>
+          <Avatar color="success">D</Avatar>
 
           <Avatar color="info">D</Avatar>
 

@@ -198,35 +198,44 @@ export const getColorStyles = (colorType: any, baseClassName: string, themeCssVa
   const palette: any = paletteType[baseClassName] ?? paletteType.common
 
   return (cssProps: any) => {
-    const newCssProps = { ...cssProps }
+    const css = { ...cssProps }
 
-    if (newCssProps.backgroundColor) newCssProps.backgroundColor = palette[cssProps.backgroundColor]
-    if (newCssProps.borderColor) newCssProps.borderColor = palette[cssProps.borderColor]
-    if (newCssProps.color) newCssProps.color = palette[cssProps.color]
+    if (css.backgroundColor) {
+      css.backgroundColor = palette[cssProps.backgroundColor] ?? cssProps.backgroundColor
+    }
 
-    if (newCssProps['&:hover']) {
-      newCssProps['&:hover'] = {
-        ...newCssProps['&:hover'],
-        backgroundColor: palette[cssProps['&:hover'].backgroundColor],
-        color: palette[cssProps['&:hover'].color],
+    if (css.borderColor) {
+      css.borderColor = palette[cssProps.borderColor] ?? cssProps.borderColor
+    }
+
+    if (css.color) {
+      css.color = palette[cssProps.color] ?? cssProps.color
+    }
+
+    if (css['&:hover']) {
+      css['&:hover'] = {
+        ...css['&:hover'],
+        backgroundColor:
+          palette[cssProps['&:hover'].backgroundColor] ?? cssProps['&:hover'].backgroundColor,
+        color: palette[cssProps['&:hover'].color] ?? cssProps['&:hover'].color,
       }
     }
 
-    if (newCssProps['&:hover a']) {
-      newCssProps['&:hover a'] = {
-        ...newCssProps['&:hover a'],
-        color: palette[cssProps['&:hover a'].color],
+    if (css['&:hover a']) {
+      css['&:hover a'] = {
+        ...css['&:hover a'],
+        color: palette[cssProps['&:hover a'].color] ?? cssProps['&:hover a'].color,
       }
     }
 
-    if (newCssProps.a) {
-      newCssProps.a = {
-        ...newCssProps.a,
-        color: palette[cssProps.a.color],
+    if (css.a) {
+      css.a = {
+        ...css.a,
+        color: palette[cssProps.a.color] ?? cssProps.a.color,
       }
     }
 
-    return newCssProps
+    return css
   }
 }
 
