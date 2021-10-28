@@ -1,5 +1,5 @@
 import { Base, Blue, Gray, Green, Red, Yellow } from './color'
-import { ValueOf } from './utils'
+import { ValueOf } from '../types/utils'
 
 export type ColorPalette = Base | Blue | Gray | Green | Red | Yellow
 
