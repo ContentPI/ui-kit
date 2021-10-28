@@ -1,36 +1,34 @@
-// // Dependencies
-// import React, { FC } from 'react'
-// import { cxGenerator } from '@contentpi/lib'
+// Dependencies
+import React, { FC } from 'react'
+import { cxGenerator } from '@contentpi/lib'
 
-// // Types
-// import { AvatarVariant, StatusColor } from '../../types'
+// Types
+import { AvatarVariant, Color } from '../../types'
 
-// // Styles
-// import { AvatarBase, BASE_CLASS_NAME } from './Avatar.styled'
+// Styles
+import { AvatarBase, BASE_CLASS_NAME } from './Avatar.styled'
 
-// interface AvatarProps {
-//   color?: StatusColor
-//   variant?: AvatarVariant
-// }
+interface IProps {
+  color?: Color
+  variant?: AvatarVariant
+}
 
-// const Avatar: FC<AvatarProps> = props => {
-//   const {
-//     children,
-//     color = StatusColor.primary,
-//     variant = AvatarVariant.circle,
-//     ...restProps
-//   } = props
+const Avatar: FC<IProps> = ({
+  children,
+  color = Color.primary,
+  variant = AvatarVariant.circle,
+  ...restProps
+}) => {
+  const classNames = cxGenerator({
+    ccn: BASE_CLASS_NAME,
+    data: [color, variant],
+  })
 
-//   const classNames = cxGenerator({
-//     ccn: BASE_CLASS_NAME,
-//     data: [color, variant]
-//   })
+  return (
+    <AvatarBase className={classNames} {...restProps}>
+      {children}
+    </AvatarBase>
+  )
+}
 
-//   return (
-//     <AvatarBase className={classNames} {...restProps}>
-//       {children}
-//     </AvatarBase>
-//   )
-// }
-
-// export default Avatar
+export default Avatar

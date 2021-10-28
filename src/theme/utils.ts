@@ -192,3 +192,61 @@ export const getVariantCssProps = () => {
 
   return cssProps
 }
+
+export const getColorStyles = (
+  { colorType, variant }: any,
+  baseClassName: string,
+  themeCssVars: any,
+) => {
+  const palette: any = themeCssVars.palette[colorType][baseClassName]
+
+  return (cssProps: any) => {
+    const newCssProps = { ...cssProps }
+
+    if (newCssProps.backgroundColor) newCssProps.backgroundColor = palette[cssProps.backgroundColor]
+    if (newCssProps.borderColor) newCssProps.borderColor = palette[cssProps.borderColor]
+    if (newCssProps.color) newCssProps.color = palette[cssProps.color]
+
+    if (newCssProps['&:hover']) {
+      newCssProps['&:hover'] = {
+        ...newCssProps['&:hover'],
+        backgroundColor: palette[cssProps['&:hover'].backgroundColor],
+        color: palette[cssProps['&:hover'].color],
+      }
+    }
+
+    if (newCssProps['&:hover a']) {
+      newCssProps['&:hover a'] = {
+        ...newCssProps['&:hover a'],
+        color: palette[cssProps['&:hover a'].color],
+      }
+    }
+
+    if (newCssProps.a) {
+      newCssProps.a = {
+        ...newCssProps.a,
+        color: palette[cssProps.a.color],
+      }
+    }
+
+    return newCssProps
+  }
+}
+
+export const mapColorStyles = (
+  colors: any,
+  baseClassName: string,
+  themeCssVars: any,
+  cssProps: any,
+) => {
+  const cssArray = colors.map((color: Color) => ({
+    [`&.${baseClassName}-${Color[color]}`]: {
+      ...getColorStyles(Color[color], baseClassName, themeCssVars)(cssProps),
+    },
+  }))
+
+  const cssObject = Object.assign({}, ...cssArray)
+  console.log('cssObject===', cssObject)
+
+  return cssObject
+}

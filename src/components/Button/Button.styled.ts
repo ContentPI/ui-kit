@@ -2,70 +2,49 @@
 import styled, { CSSObject } from 'styled-components'
 
 // Utils
-import { getClass, themeCssVars } from '../../theme'
+import { getClass, themeCssVars, mapColorStyles } from '../../theme'
 
 // Types
-import { ButtonVariant, Color, Colors, Shape, FontWeight, FontSize, Size } from '../../types'
+import { ButtonVariant, Colors, Shape, FontWeight, FontSize, Size } from '../../types'
 
 // Base Class Name
 export const BASE_CLASS_NAME = 'btn'
 
-// Functions
-const getButtonVariantStyles = (colorType: Color, variant: ButtonVariant) => {
-  const {
-    button: { dark, main, contrastText },
-  } = themeCssVars.palette[colorType]
-  const cssProps: CSSObject = {}
-
-  switch (variant) {
-    case ButtonVariant.contained:
-      cssProps.backgroundColor = main
-      cssProps.color = contrastText
-      cssProps['&:hover'] = {
-        backgroundColor: dark,
-        color: contrastText,
-      }
-      cssProps['&:hover a'] = {
-        color: contrastText,
-      }
-      break
-    case ButtonVariant.outlined:
-      cssProps.backgroundColor = 'transparent'
-      cssProps.borderColor = main
-      cssProps.color = main
-      cssProps['&:hover'] = {
-        color: contrastText,
-        backgroundColor: main,
-      }
-      break
-    case ButtonVariant.text:
-      cssProps.backgroundColor = 'white'
-      break
-  }
-
-  return cssProps
+// Variant
+const variantStyles: CSSObject = {
+  [`&.${BASE_CLASS_NAME}-${ButtonVariant.contained}`]: mapColorStyles(
+    Colors,
+    BASE_CLASS_NAME,
+    themeCssVars,
+    {
+      backgroundColor: 'transparent',
+      color: 'contrastText',
+      '&:hover': {
+        backgroundColor: 'dark',
+        color: 'contrastText',
+      },
+      '&:hover a': {
+        color: 'contrastText',
+      },
+    },
+  ),
+  [`&.${BASE_CLASS_NAME}-${ButtonVariant.outlined}`]: mapColorStyles(
+    Colors,
+    BASE_CLASS_NAME,
+    themeCssVars,
+    {
+      backgroundColor: 'main',
+      color: 'contrastText',
+      '&:hover': {
+        backgroundColor: 'dark',
+        color: 'contrastText',
+      },
+    },
+  ),
 }
 
-// Button Variants
-const containedVariants = Colors.map((color: Color) => ({
-  [`&.${BASE_CLASS_NAME}-${Color[color]}`]: {
-    ...getButtonVariantStyles(Color[color], ButtonVariant.contained),
-  },
-}))
-
-const outlinedVariants = Colors.map((color: Color) => ({
-  [`&.${BASE_CLASS_NAME}-${Color[color]}`]: {
-    ...getButtonVariantStyles(Color[color], ButtonVariant.outlined),
-  },
-}))
-
-const buttonVariantsStyles: CSSObject = {
-  [`&.${BASE_CLASS_NAME}-${ButtonVariant.contained}`]: Object.assign({}, ...containedVariants),
-  [`&.${BASE_CLASS_NAME}-${ButtonVariant.outlined}`]: Object.assign({}, ...outlinedVariants),
-}
-
-// Button Sizes
-const buttonSizesStyles: CSSObject = {
+// Size
+const sizeStyles: CSSObject = {
   fontSize: FontSize.regular,
   lineHeight: '16px',
   [`&.${BASE_CLASS_NAME}-${Size.xSmall}`]: {
@@ -137,8 +116,8 @@ const buttonStyles: CSSObject = {
   },
 }
 
-// Button Shapes
-const buttonShapesStyles: CSSObject = {
+// Shape
+const shapeStyles: CSSObject = {
   borderRadius: '0.25rem',
   [`&.${getClass(BASE_CLASS_NAME, Shape.round)}`]: {
     borderRadius: '1rem',
@@ -159,10 +138,10 @@ export const Button = styled.button({
       right: '14px',
     },
   },
-  ...buttonShapesStyles,
-  ...buttonSizesStyles,
+  ...shapeStyles,
+  ...sizeStyles,
   ...buttonStyles,
-  ...buttonVariantsStyles,
+  ...variantStyles,
 })
 
 // LinkButton component
@@ -182,8 +161,8 @@ export const LinkButton = styled.span({
       },
     },
   },
-  ...buttonShapesStyles,
-  ...buttonSizesStyles,
+  ...shapeStyles,
+  ...sizeStyles,
   ...buttonStyles,
-  ...buttonVariantsStyles,
+  ...variantStyles,
 })

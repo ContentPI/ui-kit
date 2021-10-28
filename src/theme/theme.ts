@@ -106,7 +106,6 @@ export const theme: Theme = {
 }
 
 export const themeCssVars = generateVarNames({ values: theme })
-
 export const themeRootVars = getRootVars(theme)
 
 export default theme
