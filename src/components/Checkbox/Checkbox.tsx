@@ -1,27 +1,43 @@
-// import React, { FC } from 'react'
-// import { cxGenerator } from '@contentpi/lib'
-// import { StatusColor } from '../../types'
-// import { CheckboxBase, CheckboxChild, BASE_CLASS_NAME } from './Checkbox.styled'
+// Dependencies
+import React, { FC, ComponentPropsWithoutRef } from 'react'
+import { cxGenerator, cx } from '@contentpi/lib'
 
-// interface ICheckboxProps {
-//   color?: StatusColor
-//   checked?: boolean
-// }
+// Types
+import { Color } from '../../types'
 
-// const Checkbox: FC<ICheckboxProps> = props => {
-//   const { color = StatusColor.primary, checked = false } = props
-//   const checkedClass = checked ? 'checked' : ''
-//   const checkedData = [color, checkedClass]
+// Styles
+import {
+  Checkbox,
+  CheckboxWrapper,
+  CheckboxChild,
+  CheckboxText,
+  BASE_CLASS_NAME,
+} from './Checkbox.styled'
 
-//   const classNames = cxGenerator({
-//     ccn: BASE_CLASS_NAME,
-//     data: checkedData
-//   })
-//   return (
-//     <CheckboxBase>
-//       <CheckboxChild className={classNames} />
-//     </CheckboxBase>
-//   )
-// }
+interface IProps extends ComponentPropsWithoutRef<'input'> {
+  color?: Color
+  checked?: boolean
+  label?: string
+  name?: string
+  onClick?: any
+  value?: string
+}
 
-// export default Checkbox
+const CheckboxComponent: FC<IProps> = ({ label, color = Color.primary, ...checkboxProps }) => {
+  const classNames = cxGenerator({
+    ccn: BASE_CLASS_NAME,
+    data: [color],
+  })
+
+  return (
+    <CheckboxWrapper data-component="Checkbox">
+      <>
+        <CheckboxText>{label}</CheckboxText>
+        <Checkbox {...checkboxProps} type="checkbox" />
+        <CheckboxChild className={cx(classNames, 'checkmark')} />
+      </>
+    </CheckboxWrapper>
+  )
+}
+
+export default CheckboxComponent

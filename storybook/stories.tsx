@@ -3,6 +3,7 @@ import AvatarStories from '../src/components/Avatar/Avatar.stories'
 import BadgeStories from '../src/components/Badge/Badge.stories'
 // import BreadcrumbStories from '../src/components/Breadcrumb/Breadcrumb.stories'
 import ButtonStories from '../src/components/Button/Button.stories'
+import CheckboxStories from '../src/components/Checkbox/Checkbox.stories'
 // import DialogStories from '../src/components/Dialog/Dialog.stories'
 // import InputStories from '../src/components/Input/Input.stories'
 // import PaginationStories from '../src/components/Pagination/Pagination.stories'
@@ -22,6 +23,7 @@ const stories: any = {
   badge: BadgeStories,
   // breadcrumb: BreadcrumbStories,
   button: ButtonStories,
+  checkbox: CheckboxStories,
   // dialog: DialogStories,
   // input: InputStories,
   // pagination: PaginationStories,

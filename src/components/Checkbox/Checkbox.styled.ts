@@ -1,52 +1,59 @@
-// // Dependencies
-// import styled, { CSSObject } from 'styled-components'
+// Dependencies
+import styled from 'styled-components'
 
-// // Types
-// import { generateCss, generateStyles, themeCssVars } from '../../theme'
-// import { StatusColor, StatusColors } from '../../types'
+// Types
+import { themeCssVars, mapColorStyles, Gray } from '../../theme'
+import { Colors } from '../../types'
 
-// // Base Class Name
-// export const BASE_CLASS_NAME = 'checkbox'
+// Base Class Name
+export const BASE_CLASS_NAME = 'checkbox'
 
-// // Functions
-// const getColorCss = (colorType: StatusColor) => {
-//   const { main } = themeCssVars.palette[colorType]
-//   const cssProps: CSSObject = {
-//     borderColor: main
-//   }
+// Color
+const colorStyles = mapColorStyles(Colors, BASE_CLASS_NAME, themeCssVars, {
+  backgroundColor: 'main',
+})
 
-//   return generateCss(cssProps)
-// }
+export const CheckboxWrapper = styled.label({
+  userSelect: 'none',
+  cursor: 'pointer',
+  display: 'block',
+  marginBottom: '12px',
+  paddingLeft: '35px',
+  position: 'relative',
+  width: 'fit-content',
+})
 
-// // Styles
-// const checkboxColorStyles = () => generateStyles(StatusColors, BASE_CLASS_NAME, getColorCss)
+export const Checkbox = styled.input({
+  position: 'absolute',
+  opacity: 0,
+  cursor: 'pointer',
+  height: 0,
+  width: 0,
+  '&:checked ~ .checkmark': {
+    ...colorStyles,
+  },
+  '&:checked ~ .checkmark:after': {
+    display: 'block',
+  },
+})
 
-// const checkedStyles = `
-//   &.${BASE_CLASS_NAME}-checked {
-//     width: 12px;
-//     height: 6px;
-//     border-width: 3px;
-//     border-top: none;
-//     border-right: none;
-//     transform: rotate(-45deg);
-//   }
-// `
+export const CheckboxChild = styled.div({
+  borderRadius: '0.1875rem',
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  height: '25px',
+  width: '25px',
+  backgroundColor: Gray.V050,
+  '&:after': {
+    content: '',
+    position: 'absolute',
+    display: 'none',
+  },
+})
 
-// export const CheckboxBase = styled.div`
-//   width: 14px;
-//   height: 14px;
-//   position: relative;
-// `
-// export const CheckboxChild = styled.div`
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   border-radius: 5px;
-//   border-width: 1px;
-//   border-style: solid;
-//   ${checkboxColorStyles()}
-//   transition: 0.2s all;
-//   ${checkedStyles}
-// `
+export const CheckboxText = styled.span({
+  height: '25px',
+  display: 'inline-block',
+  lineHeight: '25px',
+})
