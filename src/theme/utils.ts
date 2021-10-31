@@ -252,7 +252,6 @@ export const mapColorStyles = (
   }))
 
   const cssObject = Object.assign({}, ...cssArray)
-  console.log('cssObject===', cssObject)
 
   return cssObject
 }
