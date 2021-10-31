@@ -2,43 +2,26 @@
 import styled, { CSSObject } from 'styled-components'
 
 // Utils
-import { getClass, themeCssVars } from '../../theme'
+import { getClass, themeCssVars, mapColorStyles } from '../../theme'
 
 // Types
-import { Color, Colors, Shape, FontWeight } from '../../types'
+import { Colors, Shape, FontWeight } from '../../types'
 
 // Base Class Name
 export const BASE_CLASS_NAME = 'badge'
 
-// Functions
-const getBadgeColorStyles = (colorType: Color) => {
-  const {
-    common: { dark, main, contrastText },
-  } = themeCssVars.palette[colorType]
+// Color
+const colorStyles = mapColorStyles(Colors, BASE_CLASS_NAME, themeCssVars, {
+  backgroundColor: 'main',
+  borderColor: 'dark',
+  color: 'contrastText',
+})
 
-  const cssProps: CSSObject = {
-    backgroundColor: main,
-    borderColor: dark,
-    color: contrastText,
-  }
-
-  return cssProps
-}
-
-// Badge colors
-const badgeColors = Colors.map((color: Color) => ({
-  [`&.${BASE_CLASS_NAME}-${Color[color]}`]: {
-    ...getBadgeColorStyles(Color[color]),
-  },
-}))
-
-const badgeColorStyles: CSSObject = Object.assign({}, ...badgeColors)
-
-// Badge Shapes
-const badgeShapes: CSSObject = {
+// Shape
+const shapeStyles: CSSObject = {
   borderRadius: '0.25rem',
   [`&.${getClass(BASE_CLASS_NAME, Shape.round)}`]: {
-    borderRadius: '1rem',
+    borderRadius: '2rem',
   },
   [`&.${getClass(BASE_CLASS_NAME, Shape.square)}`]: {
     borderRadius: 0,
@@ -57,6 +40,6 @@ export const Badge = styled.span({
   verticalAlign: 'baseline',
   textAlign: 'center',
   whiteSpace: 'nowrap',
-  ...badgeColorStyles,
-  ...badgeShapes,
+  ...colorStyles,
+  ...shapeStyles,
 })
