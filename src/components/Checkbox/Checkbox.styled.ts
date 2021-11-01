@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 // Types
 import { themeCssVars, mapColorStyles, Gray } from '../../theme'
-import { Colors } from '../../types'
+import { Colors, Shape } from '../../types'
 
 // Base Class Name
 export const BASE_CLASS_NAME = 'checkbox'
@@ -42,18 +42,24 @@ export const CheckboxChild = styled.div({
   position: 'absolute',
   top: 0,
   left: 0,
-  height: '25px',
-  width: '25px',
+  height: '22px',
+  width: '22px',
   backgroundColor: Gray.V050,
   '&:after': {
     content: '',
     position: 'absolute',
     display: 'none',
   },
+  [`&.${BASE_CLASS_NAME}-${Shape.round}`]: {
+    borderRadius: '50%',
+  },
+  [`&.${BASE_CLASS_NAME}-${Shape.square}`]: {
+    borderRadius: 0,
+  },
 })
 
 export const CheckboxText = styled.span({
-  height: '25px',
+  height: '22px',
   display: 'inline-block',
-  lineHeight: '25px',
+  lineHeight: '22px',
 })
