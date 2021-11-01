@@ -200,6 +200,7 @@ export const getColorStyles = (colorType: any, baseClassName: string, themeCssVa
   return (cssProps: any) => {
     const css = { ...cssProps }
 
+    // Common styles
     if (css.backgroundColor) {
       css.backgroundColor = palette[cssProps.backgroundColor] ?? cssProps.backgroundColor
     }
@@ -213,18 +214,13 @@ export const getColorStyles = (colorType: any, baseClassName: string, themeCssVa
     }
 
     if (css['&:hover']) {
-      if (css['&:hover'].backgroundColor) {
-        css['&:hover'].backgroundColor =
-          palette[cssProps['&:hover'].backgroundColor] ?? cssProps['&:hover'].backgroundColor
-      }
-
-      if (css['&:hover'].color) {
-        css['&:hover'].color = palette[cssProps['&:hover'].color] ?? cssProps['&:hover'].color
-      }
-
-      if (css['&:hover'].borderColor) {
-        css['&:hover'].borderColor =
-          palette[cssProps['&:hover'].borderColor] ?? css['&:hover'].borderColor
+      css['&:hover'] = {
+        ...css['&:hover'],
+        backgroundColor:
+          palette[cssProps['&:hover'].backgroundColor] ?? cssProps['&:hover'].backgroundColor,
+        color: palette[cssProps['&:hover'].color] ?? cssProps['&:hover'].color,
+        borderColor:
+          palette[cssProps['&:hover'].borderColor] ?? cssProps['&:hover'].borderColor ?? undefined,
       }
     }
 
@@ -239,6 +235,31 @@ export const getColorStyles = (colorType: any, baseClassName: string, themeCssVa
       css.a = {
         ...css.a,
         color: palette[cssProps.a.color] ?? cssProps.a.color,
+      }
+    }
+
+    // Pagination styles
+    if (css['& > li > a > span.active']) {
+      css['& > li > a > span.active'] = {
+        ...css['& > li > a > span.active'],
+        color:
+          palette[cssProps['& > li > a > span.active'].color] ??
+          cssProps['& > li > a > span.active'].color,
+        backgroundColor:
+          palette[cssProps['& > li > a > span.active'].backgroundColor] ??
+          cssProps['& > li > a > span.active'].backgroundColor,
+      }
+    }
+
+    if (css['& > li > a > span:hover']) {
+      css['& > li > a > span:hover'] = {
+        ...css['& > li > a > span:hover'],
+        color:
+          palette[cssProps['& > li > a > span:hover'].color] ??
+          cssProps['& > li > a > span &:hover'].color,
+        backgroundColor:
+          palette[cssProps['& > li > a > span:hover'].backgroundColor] ??
+          cssProps['& > li > a > span:hover'].backgroundColor,
       }
     }
 

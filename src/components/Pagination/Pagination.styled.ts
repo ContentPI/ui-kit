@@ -1,61 +1,50 @@
-// import styled, { CSSObject } from 'styled-components'
+import styled from 'styled-components'
 
-// // Types
-// import { generateCss, generateStyles, themeCssVars } from '../../theme'
-// import { StatusColor, StatusColors } from '../../types'
+// Types
+import { mapColorStyles, themeCssVars, Gray } from '../../theme'
+import { Colors } from '../../types'
 
-// // Base Class Name
-// export const BASE_CLASS_NAME = 'pagination'
+// Base Class Name
+export const BASE_CLASS_NAME = 'pagination'
 
-// // Functions
-// const getColorCss = (colorType: StatusColor) => {
-//   const { main, contrastText } = themeCssVars.palette[colorType]
-//   const cssProps: CSSObject = {
-//     '& > li > a > span': {
-//       '&.active': {
-//         color: contrastText,
-//         backgroundColor: main,
-//       },
-//       '&:hover': {
-//         color: contrastText,
-//         backgroundColor: main
-//       }
-//     }
-//   }
+// Color
+const colorStyles = mapColorStyles(Colors, BASE_CLASS_NAME, themeCssVars, {
+  '& > li > a > span.active': {
+    color: 'contrastText',
+    backgroundColor: 'main',
+  },
+  '& > li > a > span:hover': {
+    color: 'contrastText',
+    backgroundColor: 'main',
+  },
+})
 
-//   return generateCss(cssProps)
-// }
+export const Ul = styled.ul({
+  listStyle: 'none',
+  padding: 0,
+  display: 'flex',
+  justifyContent: 'center',
+  margin: '500 auto',
+  marginTop: '90px',
+  marginBottom: '50px',
+  width: '100%',
+  ...colorStyles,
+})
 
-// const paginationColorStyles = () => generateStyles(StatusColors, BASE_CLASS_NAME, getColorCss)
+export const Li = styled.li({
+  margin: '5px',
+  a: {
+    color: Gray.V250,
+    textDecoration: 'none',
+  },
+})
 
-// export const StyledUl = styled.ul`
-//   list-style: none;
-//   padding: 0;
-//   display: flex;
-//   justify-content: center;
-//   margin: 500 auto;
-//   margin-top: 90px;
-//   margin-bottom: 50px;
-//   width: 100%;
-
-//   ${paginationColorStyles()}
-// `
-
-// export const StyledLi = styled.li`
-//   margin: 5px;
-//   a {
-//     color: #777;
-//     text-decoration: none;
-//   }
-// `
-
-// export const StyledLink = styled.span`
-//   padding: 15px 20px;
-//   border-radius: 5px;
-
-//   i {
-//     *[dir='rtl'] & {
-//       transform: rotateY(180deg);
-//     }
-//   }
-// `
+export const SpanLink = styled.span({
+  padding: '15px 20px',
+  borderRadius: '5px',
+  i: {
+    '*[dir="rtl"] &': {
+      transform: 'rotateY(180deg)',
+    },
+  },
+})
