@@ -43,22 +43,20 @@ const Notification: FC<Props> = ({
   type,
   position = 'top-right',
   duration = 0,
-  maxNotifications
-}) => {
-  return (
-    <ToastProvider
-      components={{ Toast: CustomNotification }}
-      autoDismiss={duration > 0}
-      placement={position}
-      autoDismissTimeout={duration < 999 ? duration * 1000 : duration}
-    >
-      <NotificationWrapper
-        notification={notification}
-        type={type}
-        maxNotifications={maxNotifications}
-      />
-    </ToastProvider>
-  )
-}
+  maxNotifications,
+}) => (
+  <ToastProvider
+    components={{ Toast: CustomNotification }}
+    autoDismiss={duration > 0}
+    placement={position}
+    autoDismissTimeout={duration < 999 ? duration * 1000 : duration}
+  >
+    <NotificationWrapper
+      notification={notification}
+      type={type}
+      maxNotifications={maxNotifications}
+    />
+  </ToastProvider>
+)
 
 export default Notification

@@ -6,6 +6,7 @@ import ButtonStories from '../src/components/Button/Button.stories'
 import CheckboxStories from '../src/components/Checkbox/Checkbox.stories'
 // import DialogStories from '../src/components/Dialog/Dialog.stories'
 import InputStories from '../src/components/Input/Input.stories'
+import NotificationStories from '../src/components/Notification/Notification.stories'
 // import PaginationStories from '../src/components/Pagination/Pagination.stories'
 // import RadioStories from '../src/components/Radio/Radio.stories'
 // import RenderIfStories from '../src/components/RenderIf/RenderIf.stories'
@@ -26,6 +27,7 @@ const stories: any = {
   checkbox: CheckboxStories,
   // dialog: DialogStories,
   input: InputStories,
+  notification: NotificationStories,
   // pagination: PaginationStories,
   // radio: RadioStories,
   // renderif: RenderIfStories,

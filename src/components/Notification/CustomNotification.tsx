@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react'
-import { AppearanceTypes, Placement, TransitionState } from 'react-toast-notifications'
+import { AppearanceTypes } from 'react-toast-notifications'
 import styled from 'styled-components'
 
 type Props = {
