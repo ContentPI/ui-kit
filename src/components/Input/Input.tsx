@@ -44,12 +44,13 @@ const Input: FC<IProps> = ({
 
   const iconProps = {
     size: 20,
+    color: 'red',
   }
 
   const eye = () => <Icon library="feather" type="eye" width={20} />
 
   const eyeOff = () => <Icon library="feather" type="eye-off" width={20} />
-  console.log('LEFT===', leftIcon)
+
   const LeftIcon = leftIcon
   const RightIcon = (isPassword && (showValue ? eye : eyeOff)) || rightIcon
 

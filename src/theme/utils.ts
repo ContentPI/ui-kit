@@ -219,8 +219,11 @@ export const getColorStyles = (colorType: any, baseClassName: string, themeCssVa
         backgroundColor:
           palette[cssProps['&:hover'].backgroundColor] ?? cssProps['&:hover'].backgroundColor,
         color: palette[cssProps['&:hover'].color] ?? cssProps['&:hover'].color,
-        borderColor:
-          palette[cssProps['&:hover'].borderColor] ?? cssProps['&:hover'].borderColor ?? undefined,
+      }
+
+      if (css['&:hover'].borderColor) {
+        css['&:hover'].borderColor =
+          palette[cssProps['&:hover'].borderColor] ?? cssProps['&:hover'].borderColor
       }
     }
 

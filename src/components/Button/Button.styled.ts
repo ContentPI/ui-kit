@@ -18,7 +18,8 @@ const variantStyles: CSSObject = {
     themeCssVars,
     {
       backgroundColor: 'transparent',
-      color: 'contrastText',
+      color: 'main',
+      borderColor: 'main',
       '&:hover': {
         backgroundColor: 'dark',
         color: 'contrastText',
