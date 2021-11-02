@@ -2,7 +2,7 @@
 import styled from 'styled-components'
 
 // Theme
-import { themeCssVars, calc, mapColorStyles, Base } from '../../theme'
+import { themeCssVars, calc, mapColorStyles, Base, Gray } from '../../theme'
 
 // Types
 import { CalcType, Colors, FontSize } from '../../types'
@@ -76,7 +76,7 @@ export const InputIcon = styled.div({
     cursor: 'pointer',
   },
   '& > svg': {
-    color: Base.WHITE,
+    color: Gray.V250,
     minHeight: '18px',
     minWidth: '18px',
   },
