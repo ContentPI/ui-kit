@@ -1,35 +1,45 @@
 // Dependencies
 import styled, { CSSObject } from 'styled-components'
 
+// Utils
+import { getClass, themeCssVars, mapColorStyles } from '../../theme'
+
 // Types
-import { generateCss, generateStyles, themeCssVars, calc } from '../../theme'
-import { StatusColor, StatusColors, CalcType } from '../../types'
+import { Colors, Shape, FontWeight } from '../../types'
 
 // Base Class Name
 export const BASE_CLASS_NAME = 'badge'
 
-// Functions
-const getColorCss = (colorType: StatusColor) => {
-  const { main, light, dark } = themeCssVars.palette[colorType]
-  const cssProps: CSSObject = {
-    color: dark,
-    border: `1px solid ${main}`,
-    backgroundColor: light,
-    padding: `${calc(CalcType.padding, [0.5, 2])}`
-  }
+// Color
+const colorStyles = mapColorStyles(Colors, BASE_CLASS_NAME, themeCssVars, {
+  backgroundColor: 'main',
+  borderColor: 'dark',
+  color: 'contrastText',
+})
 
-  return generateCss(cssProps)
+// Shape
+const shapeStyles: CSSObject = {
+  borderRadius: '0.25rem',
+  [`&.${getClass(BASE_CLASS_NAME, Shape.round)}`]: {
+    borderRadius: '2rem',
+  },
+  [`&.${getClass(BASE_CLASS_NAME, Shape.square)}`]: {
+    borderRadius: 0,
+  },
 }
 
-const badgeColorStyles = () => generateStyles(StatusColors, BASE_CLASS_NAME, getColorCss)
-
 // Styles
-export const BadgeBase = styled.div`
-  display: inline-block;
-  border-radius: 3px;
-  border: 1px solid inherit;
-  font-size: 14px;
-  line-height: 16px;
-
-  ${badgeColorStyles()}
-`
+export const Badge = styled.span({
+  border: '1px solid inherit',
+  borderRadius: '0.25rem',
+  display: 'inline-block',
+  fontSize: '75%',
+  fontWeight: FontWeight.normal,
+  lineHeight: 1,
+  padding: '0.3em 0.45em',
+  verticalAlign: 'baseline',
+  textAlign: 'center',
+  whiteSpace: 'nowrap',
+  ...colorStyles,
+  ...shapeStyles,
+})

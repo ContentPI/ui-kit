@@ -9,7 +9,7 @@ const webpackConfig: any = {
     libraryTarget: 'umd',
     library: 'lib',
     umdNamedDefine: true,
-    globalObject: 'this'
+    globalObject: 'this',
   },
   module: {
     rules: [
@@ -19,11 +19,11 @@ const webpackConfig: any = {
           {
             include: [
               resolve(__dirname, './src/icons'),
-              resolve(__dirname, './src/components/Dialog/icons')
+              resolve(__dirname, './src/components/Dialog/icons'),
             ],
-            use: 'svg-url-loader'
-          }
-        ]
+            use: 'svg-url-loader',
+          },
+        ],
       },
       {
         test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
@@ -33,10 +33,10 @@ const webpackConfig: any = {
             options: {
               name: '[name].[ext]',
               outputPath: 'fonts/',
-              esModule: false
-            }
-          }
-        ]
+              esModule: false,
+            },
+          },
+        ],
       },
       {
         test: /\.(tsx|ts)$/,
@@ -48,39 +48,39 @@ const webpackConfig: any = {
               createStyledComponentsTransformer(program, {
                 setComponentId: true,
                 setDisplayName: true,
-                minify: true
-              })
-            ]
-          })
-        }
+                minify: true,
+              }),
+            ],
+          }),
+        },
       },
       {
         test: /\.svg$/,
         oneOf: [
           {
             include: [resolve(__dirname, './src/components/Spinner/loaders')],
-            use: 'svg-url-loader'
+            use: 'svg-url-loader',
           },
           {
-            include: resolve(__dirname, './src/components/Icon'),
-            use: '@svgr/webpack'
-          }
-        ]
-      }
-    ]
+            include: resolve(__dirname, './src/components/Icon/icons'),
+            use: '@svgr/webpack',
+          },
+        ],
+      },
+    ],
   },
   resolve: {
     extensions: ['*', '.ts', '.tsx', '.js', '.jsx'],
     alias: {
       react: resolve(__dirname, './node_modules/react'),
-      'react-dom': resolve(__dirname, './node_modules/react-dom')
+      'react-dom': resolve(__dirname, './node_modules/react-dom'),
     },
     fallback: {
       buffer: require.resolve('buffer/'),
       crypto: require.resolve('crypto-browserify'),
-      stream: require.resolve('stream-browserify')
-    }
-  }
+      stream: require.resolve('stream-browserify'),
+    },
+  },
 }
 
 export default webpackConfig

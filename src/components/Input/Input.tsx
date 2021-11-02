@@ -1,25 +1,30 @@
 // Dependencies
-import React, { FC, ComponentPropsWithoutRef, useState } from 'react'
+import React, { FC, ComponentPropsWithoutRef, useState, ElementType } from 'react'
 import { cxGenerator } from '@contentpi/lib'
 
 import Icon from '../Icon'
 
 // Types
-import { StatusColor } from '../../types'
+import { Color } from '../../types'
 
 // Styles
 import { InputWrapper, InputBase, BASE_CLASS_NAME, InputIcon } from './Input.styled'
 
 export interface IProps extends ComponentPropsWithoutRef<'input'> {
   fullWidth?: boolean
-  leftIcon?: React.ElementType
-  rightIcon?: React.ElementType
-  status?: StatusColor
+  leftIcon?: ElementType
+  rightIcon?: ElementType
+  status?: Color
 }
 
-const Input: FC<IProps> = props => {
-  const { status = '', type = 'text', leftIcon, rightIcon, fullWidth = false, ...restProps } = props
-
+const Input: FC<IProps> = ({
+  status = '',
+  type = 'text',
+  leftIcon,
+  rightIcon,
+  fullWidth = false,
+  ...restProps
+}) => {
   const [hasFocus, setHasFocus] = useState(false)
   const [showValue, setShowValue] = useState(false)
 
@@ -30,7 +35,7 @@ const Input: FC<IProps> = props => {
 
   const classNames = cxGenerator({
     ccn: BASE_CLASS_NAME,
-    data: [status, focusClass, fullWidthClass]
+    data: [status, focusClass, fullWidthClass],
   })
 
   const handleShowPassword = () => {
@@ -38,15 +43,13 @@ const Input: FC<IProps> = props => {
   }
 
   const iconProps = {
-    size: 20
+    size: 20,
+    color: 'red',
   }
 
-  const eye = () => {
-    return <Icon library="feather" type="eye" width={20} />
-  }
-  const eyeOff = () => {
-    return <Icon library="feather" type="eye-off" width={20} />
-  }
+  const eye = () => <Icon library="feather" type="eye" width={20} />
+
+  const eyeOff = () => <Icon library="feather" type="eye-off" width={20} />
 
   const LeftIcon = leftIcon
   const RightIcon = (isPassword && (showValue ? eye : eyeOff)) || rightIcon

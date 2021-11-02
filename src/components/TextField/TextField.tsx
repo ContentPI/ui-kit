@@ -10,7 +10,6 @@ import Text from '../Text'
 // Types
 import { IProps as InputProps } from '../Input'
 import { ITextAreaProps } from '../TextArea'
-import { StatusColor } from '../../types'
 
 // Styles
 import { TextFieldBase, TextFieldHelpersWrapper, BASE_CLASS_NAME } from './TextField.styled'
@@ -60,7 +59,6 @@ const TextField: FC<TextFieldInputProps & TextFieldAreaProps> = props => {
   const {
     label,
     helperText,
-    error,
     fullWidth = false,
     textArea = false,
     type = 'text',
@@ -71,7 +69,6 @@ const TextField: FC<TextFieldInputProps & TextFieldAreaProps> = props => {
   } = props
 
   const isInput = !textArea && type
-  const status: StatusColor | undefined = error ? 'danger' : undefined
   const fullWidthClass = fullWidth ? 'full-width' : ''
   const helperTextClass = helperText ? 'helper-text' : ''
   const [inputValue, setInputValue] = useState(value)
@@ -79,29 +76,22 @@ const TextField: FC<TextFieldInputProps & TextFieldAreaProps> = props => {
   const errorMsg = ValidateLength({
     length: {
       min: minLength,
-      max: maxLength
+      max: maxLength,
     },
-    value: formatValue
+    value: formatValue,
   })
-
-  const statusColor: StatusColor | undefined = errorMsg || error ? 'danger' : status
 
   const classNames = cxGenerator({
     ccn: BASE_CLASS_NAME,
-    data: [fullWidthClass, helperTextClass]
+    data: [fullWidthClass, helperTextClass],
   })
 
   return (
     <TextFieldBase className={classNames}>
-      {label && (
-        <Text variant="label" status={statusColor}>
-          {label}
-        </Text>
-      )}
+      {label && <Text variant="label">{label}</Text>}
 
       {isInput ? (
         <Input
-          status={status}
           fullWidth={fullWidth}
           type={type}
           onChange={e => setInputValue(e.target.value)}
@@ -113,13 +103,9 @@ const TextField: FC<TextFieldInputProps & TextFieldAreaProps> = props => {
 
       {(maxLength || errorMsg || helperText) && (
         <TextFieldHelpersWrapper>
-          <Text variant="caption1" color="textSecondary" status={statusColor}>
-            {errorMsg || helperText}
-          </Text>
+          <Text variant="caption1">{errorMsg || helperText}</Text>
           {maxLength && (
-            <Text variant="caption1" color="textSecondary" status={statusColor}>
-              {maxLength && `${formatValue.length}/${maxLength}`}
-            </Text>
+            <Text variant="caption1">{maxLength && `${formatValue.length}/${maxLength}`}</Text>
           )}
         </TextFieldHelpersWrapper>
       )}

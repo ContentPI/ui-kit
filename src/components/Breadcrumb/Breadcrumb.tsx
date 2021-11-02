@@ -6,7 +6,7 @@ import { cxGenerator } from '@contentpi/lib'
 import Text from '../Text'
 
 // Styles
-import { BreadcrumbBase, BreadcrumbDivider, BASE_CLASS_NAME } from './Breadcrumb.styled'
+import { Breadcrumb, BreadcrumbDivider, BASE_CLASS_NAME } from './Breadcrumb.styled'
 
 type labelBody = {
   title: string
@@ -18,12 +18,12 @@ interface IProps {
   Link?: any
 }
 
-const Breadcrumb: FC<IProps> = props => {
+const BreadcrumbComponent: FC<IProps> = props => {
   const { labels, Link } = props
 
   const classNames = cxGenerator({
     ccn: BASE_CLASS_NAME,
-    data: []
+    data: [],
   })
 
   const items = labels.map((item, index) => {
@@ -33,28 +33,23 @@ const Breadcrumb: FC<IProps> = props => {
       <Fragment key={item.title}>
         {Link ? (
           <Link href={item.link}>
-            <Text variant="subtitle2" color={isLast ? 'textPrimary' : 'textDisabled'}>
-              {item.title}
-            </Text>
+            <Text variant="subtitle2">{item.title}</Text>
           </Link>
         ) : (
           <a href={item.link}>
-            <Text variant="subtitle2" color={isLast ? 'textPrimary' : 'textDisabled'}>
-              {item.title}
-            </Text>
+            <Text variant="subtitle2">{item.title}</Text>
           </a>
         )}
         {!isLast && (
           <BreadcrumbDivider>
-            <Text variant="subtitle2" color="textDisabled">
-              /
-            </Text>
+            <Text variant="subtitle2">/</Text>
           </BreadcrumbDivider>
         )}
       </Fragment>
     )
   })
-  return <BreadcrumbBase className={classNames}>{items}</BreadcrumbBase>
+
+  return <Breadcrumb className={classNames}>{items}</Breadcrumb>
 }
 
-export default Breadcrumb
+export default BreadcrumbComponent

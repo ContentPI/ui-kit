@@ -5,7 +5,7 @@ import { css, CSSObject } from 'styled-components'
 import { themeCssVars } from './theme'
 
 // Types
-import { Theme, CalcType, StatusColor, ButtonVariant } from '../types'
+import { Theme, CalcType, Color, ButtonVariant } from '../types'
 
 type CommonProps = {
   values: Theme
@@ -58,6 +58,7 @@ export const generateVarNames = ({ values, prefix = '-' }: CommonProps): Theme =
       vars.push([key, `var(${prefix}-${key})`])
     }
   }
+
   const themeObject = Object.fromEntries(vars)
   const themeVars: Theme = { ...values, ...themeObject }
 
@@ -76,7 +77,7 @@ export const generateThemeVars = (themes: Record<string, any>) => {
   return allCss
 }
 
-const _calc = (number: number) => `calc(${themeCssVars.shape?.unitBase} * ${number})`
+const _calc = (number: number) => `calc(4px * ${number})`
 
 export const calc = (type: CalcType, data: number | number[]) => {
   let calcData = ''
@@ -116,7 +117,7 @@ export const generateCss = (cssStyles: CSSObject) => css(cssStyles).join('')
 export const generateStyles = (
   data: string[],
   baseName: string,
-  cb: (...args: any[]) => string
+  cb: (...args: any[]) => string,
 ) => {
   const styles = data
     .map(
@@ -124,7 +125,7 @@ export const generateStyles = (
       &.${getClass(baseName, name)} {
         ${cb(name)}
       }
-    `
+    `,
     )
     .join('')
 
@@ -139,8 +140,8 @@ export const getVariantCssProps = () => {
     backgroundColor: palette.main,
     hover: {
       backgroundColor: palette.dark,
-      color: palette.contrastText
-    }
+      color: palette.contrastText,
+    },
   })
 
   const getOutlinedProps = (palette: any) => ({
@@ -148,46 +149,140 @@ export const getVariantCssProps = () => {
     backgroundColor: 'transparent',
     hover: {
       backgroundColor: palette.contrastText,
-      color: palette.main
-    }
+      color: palette.main,
+    },
   })
 
   const textProps = {
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   }
 
   const cssProps: any = {
-    [StatusColor.danger]: {
+    [Color.danger]: {
       [ButtonVariant.contained]: getContainedProps(danger),
       [ButtonVariant.outlined]: getOutlinedProps(danger),
       [ButtonVariant.text]: textProps,
-      default: getContainedProps(danger)
+      default: getContainedProps(danger),
     },
-    [StatusColor.info]: {
+    [Color.info]: {
       [ButtonVariant.contained]: getContainedProps(info),
       [ButtonVariant.outlined]: getOutlinedProps(info),
       [ButtonVariant.text]: textProps,
-      default: getContainedProps(info)
+      default: getContainedProps(info),
     },
-    [StatusColor.primary]: {
+    [Color.primary]: {
       [ButtonVariant.contained]: getContainedProps(primary),
       [ButtonVariant.outlined]: getOutlinedProps(primary),
       [ButtonVariant.text]: textProps,
-      default: getContainedProps(primary)
+      default: getContainedProps(primary),
     },
-    [StatusColor.success]: {
+    [Color.success]: {
       [ButtonVariant.contained]: getContainedProps(success),
       [ButtonVariant.outlined]: getOutlinedProps(success),
       [ButtonVariant.text]: textProps,
-      default: getContainedProps(success)
+      default: getContainedProps(success),
     },
-    [StatusColor.warning]: {
+    [Color.warning]: {
       [ButtonVariant.contained]: getContainedProps(warning),
       [ButtonVariant.outlined]: getOutlinedProps(warning),
       [ButtonVariant.text]: textProps,
-      default: getContainedProps(warning)
-    }
+      default: getContainedProps(warning),
+    },
   }
 
   return cssProps
+}
+
+export const getColorStyles = (colorType: any, baseClassName: string, themeCssVars: any) => {
+  const paletteType: any = themeCssVars.palette[colorType]
+  const palette: any = paletteType[baseClassName] ?? paletteType.common
+
+  return (cssProps: any) => {
+    const css = { ...cssProps }
+
+    // Common styles
+    if (css.backgroundColor) {
+      css.backgroundColor = palette[cssProps.backgroundColor] ?? cssProps.backgroundColor
+    }
+
+    if (css.borderColor) {
+      css.borderColor = palette[cssProps.borderColor] ?? cssProps.borderColor
+    }
+
+    if (css.color) {
+      css.color = palette[cssProps.color] ?? cssProps.color
+    }
+
+    if (css['&:hover']) {
+      css['&:hover'] = {
+        ...css['&:hover'],
+        backgroundColor:
+          palette[cssProps['&:hover'].backgroundColor] ?? cssProps['&:hover'].backgroundColor,
+        color: palette[cssProps['&:hover'].color] ?? cssProps['&:hover'].color,
+      }
+
+      if (css['&:hover'].borderColor) {
+        css['&:hover'].borderColor =
+          palette[cssProps['&:hover'].borderColor] ?? cssProps['&:hover'].borderColor
+      }
+    }
+
+    if (css['&:hover a']) {
+      css['&:hover a'] = {
+        ...css['&:hover a'],
+        color: palette[cssProps['&:hover a'].color] ?? cssProps['&:hover a'].color,
+      }
+    }
+
+    if (css.a) {
+      css.a = {
+        ...css.a,
+        color: palette[cssProps.a.color] ?? cssProps.a.color,
+      }
+    }
+
+    // Pagination styles
+    if (css['& > li > a > span.active']) {
+      css['& > li > a > span.active'] = {
+        ...css['& > li > a > span.active'],
+        color:
+          palette[cssProps['& > li > a > span.active'].color] ??
+          cssProps['& > li > a > span.active'].color,
+        backgroundColor:
+          palette[cssProps['& > li > a > span.active'].backgroundColor] ??
+          cssProps['& > li > a > span.active'].backgroundColor,
+      }
+    }
+
+    if (css['& > li > a > span:hover']) {
+      css['& > li > a > span:hover'] = {
+        ...css['& > li > a > span:hover'],
+        color:
+          palette[cssProps['& > li > a > span:hover'].color] ??
+          cssProps['& > li > a > span &:hover'].color,
+        backgroundColor:
+          palette[cssProps['& > li > a > span:hover'].backgroundColor] ??
+          cssProps['& > li > a > span:hover'].backgroundColor,
+      }
+    }
+
+    return css
+  }
+}
+
+export const mapColorStyles = (
+  colors: any,
+  baseClassName: string,
+  themeCssVars: any,
+  cssProps: any,
+) => {
+  const cssArray = colors.map((color: Color) => ({
+    [`&.${baseClassName}-${Color[color]}`]: {
+      ...getColorStyles(Color[color], baseClassName, themeCssVars)(cssProps),
+    },
+  }))
+
+  const cssObject = Object.assign({}, ...cssArray)
+
+  return cssObject
 }

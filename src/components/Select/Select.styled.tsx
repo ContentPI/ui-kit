@@ -2,83 +2,76 @@
 import styled from 'styled-components'
 
 // Theme
-import { getVariantCssProps } from '../../theme'
+import { Base, Gray, mapColorStyles, themeCssVars } from '../../theme'
 
 // Types
-import { StatusColor } from '../../types'
+import { Colors, FontSize } from '../../types'
 
 interface IStyledProps {
-  color: StatusColor
   top?: string
 }
 
 // Base Class Name
 export const BASE_CLASS_NAME = 'select'
 
-const variants = getVariantCssProps()
+// Color
+const colorStyles = mapColorStyles(Colors, BASE_CLASS_NAME, themeCssVars, {
+  backgroundColor: 'main',
+  color: 'contrastText',
+})
 
-export const StyledSelect = styled.div<IStyledProps>`
-  width: fit-content;
-  min-width: 200px;
-  position: relative;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-
-  a {
-    background: ${({ color }) => variants[color].default.backgroundColor};
-    color: ${({ color }) => variants[color].default.color};
-    display: flex;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    width: fit-content;
-    div {
-      i {
-        margin-left: 20px;
-        cursor: pointer;
-      }
-    }
-  }
-  ul {
-    background: white;
-    -ms-overflow-style: none;
-    border-radius: 3px;
-    border: 1px solid #000;
-    list-style-type: none;
-    margin: 0;
-    max-height: 150px;
-    overflow: auto;
-    padding: 0;
-    scrollbar-width: none;
-    top: ${({ top }) => (top ? `-${top}` : '45px')};
-    width: 130%;
-    z-index: 1;
-    position: absolute;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-    li {
-      font-size: 14px;
-      padding: 10px;
-      padding-left: 20px;
-      -webkit-touch-callout: none;
-      -webkit-user-select: none;
-      -khtml-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      border-bottom: 1px solid #666;
-      &:last-child {
-        border-bottom: none;
-      }
-      &:hover {
-        background: ${({ color }) => variants[color].default.hover.backgroundColor};
-        color: ${({ color }) => variants[color].default.hover.color};
-      }
-    }
-  }
-`
+export const Select = styled.div<IStyledProps>(({ top }) => ({
+  minWidth: '200px',
+  position: 'relative',
+  touchCallout: 'none',
+  userSelect: 'none',
+  width: 'fit-content',
+  a: {
+    ...colorStyles,
+    borderRadius: '5px',
+    display: 'flex',
+    padding: '10px 20px',
+    textDecoration: 'none',
+    width: 'fit-content',
+    div: {
+      i: {
+        cursor: 'pointer',
+        marginLeft: '20px',
+      },
+    },
+  },
+  ul: {
+    background: Base.WHITE,
+    border: `1px solid ${Base.BLACK}`,
+    borderRadius: '3px',
+    listStyleType: 'none',
+    margin: 0,
+    maxHeight: '150px',
+    overflow: 'auto',
+    overflowStyle: 'none',
+    padding: 0,
+    position: 'absolute',
+    scrollbarWidth: 'none',
+    top: top ? `-${top}` : '45px',
+    width: '130%',
+    zIndex: 1,
+    '&::-webkit-scrollbar': {
+      display: 'none',
+    },
+    li: {
+      borderBottom: `1px solid ${Gray.V200}`,
+      fontSize: FontSize.regular,
+      padding: '10px',
+      paddingLeft: '20px',
+      touchCallout: 'none',
+      userSelect: 'none',
+      '&:last-child': {
+        borderBottom: 'none',
+      },
+      '&:hover': {
+        background: Gray.V100,
+        color: Gray.V250,
+      },
+    },
+  },
+}))

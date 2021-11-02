@@ -1,33 +1,37 @@
+// Dependencies
 import styled from 'styled-components'
-import { colors } from '../../theme'
 
-export const StyledSwitcher = styled.div`
+// Theme
+import { Base, Gray, Green } from '../../theme'
+
+export const Switcher = styled.div`
   display: inline-block;
   line-height: 34px;
+  margin-bottom: 30px;
 `
 
-export const StyledText = styled.span`
+export const Text = styled.span`
   padding-left: 15px;
   font-size: 15px;
-  color: ${colors.mineShaft};
+  color: ${Gray.V300};
 `
 
-export const StyledLabel = styled.label`
+export const Label = styled.label`
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
 `
 
-export const StyledInput = styled.input`
+export const Input = styled.input`
   opacity: 0;
   width: 0px;
   height: 0px;
   &:checked + .slider {
-    background-color: ${colors.dodgerBlue};
+    background-color: ${Green.V300};
   }
   &:focus + .slider {
-    box-shadow: 0 0 1px ${colors.dodgerBlue};
+    box-shadow: 0 0 1px ${Green.V300};
   }
   &:checked + .slider:before {
     -webkit-transform: translateX(26px);
@@ -36,14 +40,14 @@ export const StyledInput = styled.input`
   }
 `
 
-export const StyledSquareSpan = styled.span`
+export const SquareSpan = styled.span`
   position: absolute;
   cursor: pointer;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: ${colors.silver};
+  background-color: ${Gray.V200};
   -webkit-transition: 0.4s;
   transition: 0.4s;
   &:before {
@@ -53,13 +57,13 @@ export const StyledSquareSpan = styled.span`
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: ${colors.white};
+    background-color: ${Base.WHITE};
     -webkit-transition: 0.4s;
     transition: 0.4s;
   }
 `
 
-export const StyledRoundSpan = styled(StyledSquareSpan)`
+export const RoundSpan = styled(SquareSpan)`
   border-radius: 34px;
   &:before {
     border-radius: 50%;

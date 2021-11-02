@@ -3,34 +3,32 @@ import React, { FC } from 'react'
 import { cxGenerator } from '@contentpi/lib'
 
 // Types
-import { AvatarVariant, StatusColor } from '../../types'
+import { Shape, Color } from '../../types'
 
 // Styles
-import { AvatarBase, BASE_CLASS_NAME } from './Avatar.styled'
+import { Avatar, BASE_CLASS_NAME } from './Avatar.styled'
 
-interface AvatarProps {
-  color?: StatusColor
-  variant?: AvatarVariant
+interface IProps {
+  color?: Color
+  shape?: Shape
 }
 
-const Avatar: FC<AvatarProps> = props => {
-  const {
-    children,
-    color = StatusColor.primary,
-    variant = AvatarVariant.circle,
-    ...restProps
-  } = props
-
+const AvatarComponent: FC<IProps> = ({
+  children,
+  color = Color.primary,
+  shape = Shape.round,
+  ...restProps
+}) => {
   const classNames = cxGenerator({
     ccn: BASE_CLASS_NAME,
-    data: [color, variant]
+    data: [color, shape],
   })
 
   return (
-    <AvatarBase className={classNames} {...restProps}>
+    <Avatar className={classNames} {...restProps}>
       {children}
-    </AvatarBase>
+    </Avatar>
   )
 }
 
-export default Avatar
+export default AvatarComponent

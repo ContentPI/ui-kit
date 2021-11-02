@@ -19,8 +19,8 @@ const Content: FC<Props> = ({ currentComponent, handleShowCode, showCode }) => {
             prop.name,
             prop.type,
             prop.default,
-            prop.description
-          ])
+            prop.description,
+          ]),
         }}
       />
 
@@ -31,7 +31,7 @@ const Content: FC<Props> = ({ currentComponent, handleShowCode, showCode }) => {
             <p>
               {props.prop ? (
                 <>
-                  <strong>{props.prop}</strong>:
+                  <span className="strong">{props.prop}</span>:
                 </>
               ) : (
                 ''

@@ -1,28 +1,44 @@
-import React, { FC } from 'react'
-import { cxGenerator } from '@contentpi/lib'
-import { StatusColor } from '../../types'
-import { RadioBase, RadioBall, BASE_CLASS_NAME } from './Radio.styled'
+// Dependencies
+import React, { FC, ComponentPropsWithoutRef } from 'react'
+import { cxGenerator, cx } from '@contentpi/lib'
 
-export interface IProps {
-  color?: StatusColor
+// Types
+import { Color, Shape } from '../../types'
+
+// Styles
+import { Radio, RadioWrapper, RadioChild, RadioText, BASE_CLASS_NAME } from './Radio.styled'
+
+interface IProps extends ComponentPropsWithoutRef<'input'> {
+  color?: Color
   checked?: boolean
+  label?: string
+  name?: string
+  onClick?: any
+  value?: string
+  shape?: Shape
 }
 
-const Radio: FC<IProps> = props => {
-  const { color = StatusColor.primary, checked = false } = props
-  const checkedClass = checked ? 'checked' : ''
-  const radioData = [color, checkedClass]
-
+const RadioComponent: FC<IProps> = ({
+  label,
+  checked,
+  color = Color.primary,
+  shape = Shape.round,
+  ...checkboxProps
+}) => {
   const classNames = cxGenerator({
     ccn: BASE_CLASS_NAME,
-    data: radioData
+    data: [color, shape],
   })
 
   return (
-    <RadioBase className={classNames}>
-      <RadioBall className={classNames} />
-    </RadioBase>
+    <RadioWrapper data-component="Checkbox">
+      <>
+        <RadioText>{label}</RadioText>
+        <Radio {...checkboxProps} type="radio" checked={checked} />
+        <RadioChild className={cx(classNames, 'checkmark')} />
+      </>
+    </RadioWrapper>
   )
 }
 
-export default Radio
+export default RadioComponent

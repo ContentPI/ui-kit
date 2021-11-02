@@ -1,15 +1,8 @@
 // Dependencies
-import React, { FC, ChangeEvent, MouseEvent } from 'react'
+import React, { FC, ChangeEvent } from 'react'
 
 // Styles
-import {
-  StyledSwitcher,
-  StyledLabel,
-  StyledInput,
-  StyledRoundSpan,
-  StyledSquareSpan,
-  StyledText
-} from './Switcher.styled'
+import { Switcher, Label, Input, RoundSpan, SquareSpan, Text } from './Switcher.styled'
 
 interface IProps {
   label?: string
@@ -19,21 +12,23 @@ interface IProps {
   onChange?(e: ChangeEvent<HTMLInputElement>): void
 }
 
-const Switcher: FC<IProps> = ({ label = '', type, readOnly, onChange, checked = false }) => (
+const SwitcherComponent: FC<IProps> = ({
+  label = '',
+  type,
+  readOnly,
+  onChange,
+  checked = false,
+}) => (
   <>
-    <StyledSwitcher>
-      <StyledLabel>
-        <StyledInput type="checkbox" onChange={onChange} checked={checked} readOnly={readOnly} />
-        {type === 'round' ? (
-          <StyledRoundSpan className="slider" />
-        ) : (
-          <StyledSquareSpan className="slider" />
-        )}
-      </StyledLabel>
+    <Switcher data-component="Switcher">
+      <Label>
+        <Input type="checkbox" onChange={onChange} checked={checked} readOnly={readOnly} />
+        {type === 'round' ? <RoundSpan className="slider" /> : <SquareSpan className="slider" />}
+      </Label>
       &nbsp;
-      <StyledText>{label}</StyledText>
-    </StyledSwitcher>
+      <Text>{label}</Text>
+    </Switcher>
   </>
 )
 
-export default Switcher
+export default SwitcherComponent

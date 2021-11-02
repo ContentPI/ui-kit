@@ -2,9 +2,7 @@ import React from 'react'
 import Icon from '../Icon'
 import Input from './index'
 
-const icon = () => {
-  return <Icon library="feather" type="search" width={20} />
-}
+const icon = () => <Icon library="feather" type="search" width={20} />
 
 const stories = {
   component: 'Input',
@@ -13,32 +11,32 @@ const stories = {
       name: 'status',
       type: 'StatusColor',
       default: 'none',
-      description: 'The color of the input'
+      description: 'The color of the input',
     },
     {
       name: 'type',
       type: 'Input types',
       default: 'text',
-      description: 'The type of the input'
+      description: 'The type of the input',
     },
     {
       name: 'leftIcon',
       type: 'React Element',
       default: 'Null',
-      description: 'An icon that will be displayed on the left of the input'
+      description: 'An icon that will be displayed on the left of the input',
     },
     {
       name: 'rightIcon',
       type: 'React Element',
       default: 'Null',
-      description: 'An icon that will be displayed on the right of the input'
+      description: 'An icon that will be displayed on the right of the input',
     },
     {
       name: 'fullWidth',
       type: 'boolean',
       default: 'false',
-      description: 'Enables the full width of the button'
-    }
+      description: 'Enables the full width of the button',
+    },
   ],
   stories: [
     {
@@ -52,7 +50,7 @@ const stories = {
       }
 
       <Input type="text" placeholder="Placeholder" leftIcon={icon} />
-      `
+      `,
     },
     {
       name: 'Password',
@@ -61,9 +59,9 @@ const stories = {
       prop: false,
       code: `
       <Input type="password" />
-      `
-    }
-  ]
+      `,
+    },
+  ],
 }
 
 export default stories

@@ -1,16 +1,15 @@
 import { IBreakpoints } from './breakpoints'
-import { IGlobal } from './global'
-import { IPalette, IPaletteGlobal } from './palette'
-import { IShapeTheme } from './shape'
+import { IPalette } from '../theme/palette'
 import { ITypography } from './typography'
 
+export * from './alignment'
 export * from './breakpoints'
 export * from './calc'
-export * from './color'
+export * from '../theme/color'
 export * from './fontSize'
 export * from './fontWeight'
 export * from './global'
-export * from './palette'
+export * from '../theme/palette'
 export * from './shape'
 export * from './size'
 export * from './theme'
@@ -19,14 +18,11 @@ export * from './utils'
 export * from './variant'
 
 export interface CustomTheme {
-  global: IGlobal
-  palette?: IPaletteGlobal
+  palette?: IPalette
 }
 
 export default interface Theme {
   breakpoints?: IBreakpoints
-  global?: IGlobal
   palette: IPalette
-  shape?: IShapeTheme
   typography?: ITypography
 }

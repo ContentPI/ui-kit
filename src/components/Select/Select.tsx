@@ -1,15 +1,15 @@
 // Dependencies
 import React, { FC, ReactElement, useState, useEffect, useRef, MutableRefObject } from 'react'
-import { cx } from '@contentpi/lib'
+import { cxGenerator } from '@contentpi/lib'
 
 // Types
-import { StatusColor } from '../../types'
+import { Color } from '../../types'
 
 // Components
 import Icon from '../Icon'
 
 // Styles
-import { StyledSelect } from './Select.styled'
+import { Select, BASE_CLASS_NAME } from './Select.styled'
 
 type Option = {
   option: string
@@ -18,28 +18,33 @@ type Option = {
 }
 
 interface IProps {
-  className?: string
   children?: ReactElement
+  className?: string
+  color?: Color
   id?: string
+  label?: string
   name?: string
   noWrapper?: boolean
-  label?: string
   onClick(e: any): any
   options?: Option[]
   style?: any
-  color?: StatusColor
   top?: string
 }
 
-const Select: FC<IProps> = props => {
-  const {
-    label = '',
-    options = null,
-    onClick,
-    color = StatusColor.primary,
-    className = '',
-    top = false
-  } = props
+const SelectComponent: FC<IProps> = ({
+  className = '',
+  color = Color.primary,
+  label = '',
+  onClick,
+  options = null,
+  ...selectProps
+}) => {
+  const classes = [color]
+
+  const classNames = cxGenerator({
+    ccn: BASE_CLASS_NAME,
+    data: classes,
+  })
 
   const [open, setOpen] = useState(false)
   const [selectedOption, setValue] = useState({ option: '', value: '' })
@@ -59,7 +64,7 @@ const Select: FC<IProps> = props => {
     if (option) {
       setValue({
         option,
-        value
+        value,
       })
 
       onClick({ option, value })
@@ -89,17 +94,20 @@ const Select: FC<IProps> = props => {
                 onClick={(): void => selectOption(option, value)}
                 style={{
                   background: `${
-                    selectedOption.value === value ? `var(--palette-${color}-dark)` : ''
+                    selectedOption.value === value ? `var(--palette-${color}-common-main)` : ''
                   }`,
                   color: `${
-                    selectedOption.value === value ? `var(--palette-${color}-contrastText)` : ''
-                  }`
+                    selectedOption.value === value
+                      ? `var(--palette-${color}-common-contrastText)`
+                      : ''
+                  }`,
                 }}
+                className={className}
               >
                 {option}
               </li>
             )
-          }
+          },
         )}
       </ul>
     )
@@ -119,21 +127,20 @@ const Select: FC<IProps> = props => {
 
   return (
     <div ref={node} style={{ marginTop: '5px', marginBottom: '20px' }}>
-      <StyledSelect {...props} color={color} className={cx('select', className)}>
-        {top && renderList()}
-
-        <a onClick={handleOpenOnClick}>
-          <div>{selectedOption.option || label}</div>
-          <div>
-            &nbsp;
-            <Icon type={`fas fa-caret-${!top ? 'down' : 'up'}`} />
-          </div>
-        </a>
-
-        {!top && renderList()}
-      </StyledSelect>
+      <Select data-component="Select" color={color} className={className} {...selectProps}>
+        <>
+          <a onClick={handleOpenOnClick} className={classNames}>
+            <div>{selectedOption.option || label}</div>
+            <div>
+              &nbsp;
+              <Icon type={`fas fa-caret-${!selectProps.top ? 'down' : 'up'}`} />
+            </div>
+          </a>
+          {renderList()}
+        </>
+      </Select>
     </div>
   )
 }
 
-export default Select
+export default SelectComponent

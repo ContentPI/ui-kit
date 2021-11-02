@@ -1,59 +1,42 @@
 // Dependencies
 import styled, { CSSObject } from 'styled-components'
 
-// Theme
-import { themeCssVars, generateCss, generateStyles } from '../../theme'
+// Utils
+import { getClass, themeCssVars, mapColorStyles } from '../../theme'
 
 // Types
-import { AvatarVariant, AvatarVariants, StatusColor, StatusColors } from '../../types'
+import { Colors, Shape, FontSize, FontWeight } from '../../types'
 
 // Base Class Name
-export const BASE_CLASS_NAME = 'avatar'
+export const BASE_CLASS_NAME = 'alert'
 
-// Functions
-const getVariantCss = (variant: AvatarVariant) => {
-  const cssProps: CSSObject = {}
+// Color
+const colorStyles = mapColorStyles(Colors, BASE_CLASS_NAME, themeCssVars, {
+  backgroundColor: 'main',
+  color: 'contrastText',
+})
 
-  switch (variant) {
-    case AvatarVariant.rounded:
-      cssProps.borderRadius = '12px'
-
-      break
-    case AvatarVariant.circle:
-      cssProps.borderRadius = '50px'
-      break
-  }
-
-  return generateCss(cssProps)
+// Shape
+const shapeStyles: CSSObject = {
+  borderRadius: '0.25rem',
+  [`&.${getClass(BASE_CLASS_NAME, Shape.round)}`]: {
+    borderRadius: '2rem',
+  },
+  [`&.${getClass(BASE_CLASS_NAME, Shape.square)}`]: {
+    borderRadius: 0,
+  },
 }
 
-const getColorCss = (colorType: StatusColor) => {
-  const { main } = themeCssVars.palette[colorType]
-  const cssProps: CSSObject = {
-    backgroundColor: main
-  }
-
-  return generateCss(cssProps)
-}
-
-const getVariantStyles = () => {
-  const styles = generateStyles(AvatarVariants, BASE_CLASS_NAME, getVariantCss)
-  return styles
-}
-
-const getColorStyles = () => {
-  const styles = generateStyles(StatusColors, BASE_CLASS_NAME, (color: StatusColor) =>
-    getColorCss(color)
-  )
-  return styles
-}
-
-export const AvatarBase = styled.div`
-  &.${BASE_CLASS_NAME} {
-    width: 36px;
-    height: 36px;
-  }
-
-  ${getVariantStyles()}
-  ${getColorStyles()}
-`
+// Component
+export const Avatar = styled.div({
+  fontSize: FontSize.medium,
+  fontWeight: FontWeight.heavy,
+  height: '40px',
+  lineHeight: '40px',
+  marginBottom: '1rem',
+  textAlign: 'center',
+  textTransform: 'uppercase',
+  width: '40px',
+  ...colorStyles,
+  ...shapeStyles,
+})

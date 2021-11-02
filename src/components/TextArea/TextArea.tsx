@@ -2,19 +2,15 @@
 import React, { FC, ComponentPropsWithoutRef, useState } from 'react'
 import { cxGenerator } from '@contentpi/lib'
 
-// Types
-import { StatusColor } from '../../types'
-
 // Styles
-import { InputWrapper, InputBase, BASE_CLASS_NAME } from '../Input/Input.styled'
+import { TextArea, TextAreaWrapper, BASE_CLASS_NAME } from './TextArea.styled'
 
-export interface ITextAreaProps extends ComponentPropsWithoutRef<'textarea'> {
+export interface IProps extends ComponentPropsWithoutRef<'textarea'> {
   fullWidth?: boolean
-  status?: StatusColor
 }
 
-const TextArea: FC<ITextAreaProps> = props => {
-  const { status = '', fullWidth = false, ...restProps } = props
+const TextAreaComponent: FC<IProps> = props => {
+  const { fullWidth = false, ...restProps } = props
 
   const [hasFocus, setHasFocus] = useState(false)
 
@@ -23,19 +19,18 @@ const TextArea: FC<ITextAreaProps> = props => {
 
   const classNames = cxGenerator({
     ccn: BASE_CLASS_NAME,
-    data: [status, focusClass, fullWidthClass]
+    data: [focusClass, fullWidthClass],
   })
 
   return (
-    <InputWrapper className={classNames}>
-      <InputBase
-        as="textarea"
+    <TextAreaWrapper className={classNames}>
+      <TextArea
         onFocus={() => setHasFocus(true)}
         onBlur={() => setHasFocus(false)}
         {...restProps}
       />
-    </InputWrapper>
+    </TextAreaWrapper>
   )
 }
 
-export default TextArea
+export default TextAreaComponent

@@ -8,38 +8,35 @@ import {
   TableBody,
   TableRow,
   TableHeaderCol,
-  TableCol
+  TableCol,
 } from './Table.styled'
 
-interface ITableProps {
+interface IProps {
   data: {
     columns: string[]
     rows: Array<string[]>
   }
 }
 
-const Table: FC<ITableProps> = props => {
-  const { data } = props
-  return (
-    <TableBase>
-      <TableHeader>
-        <TableRow>
-          {data.columns.map(header => {
-            return <TableHeaderCol>{header}</TableHeaderCol>
-          })}
+const Table: FC<IProps> = ({ data }) => (
+  <TableBase>
+    <TableHeader>
+      <TableRow>
+        {data.columns.map(header => {
+          return <TableHeaderCol key={`header-${header}`}>{header}</TableHeaderCol>
+        })}
+      </TableRow>
+    </TableHeader>
+    <TableBody>
+      {data.rows.map((item, i) => (
+        <TableRow key={`row-${i}`}>
+          {item.map((row, j) => (
+            <TableCol key={`col-${j}`}>{row}</TableCol>
+          ))}
         </TableRow>
-      </TableHeader>
-      <TableBody>
-        {data.rows.map(item => (
-          <TableRow>
-            {item.map(row => (
-              <TableCol>{row}</TableCol>
-            ))}
-          </TableRow>
-        ))}
-      </TableBody>
-    </TableBase>
-  )
-}
+      ))}
+    </TableBody>
+  </TableBase>
+)
 
 export default Table

@@ -5,61 +5,35 @@ const stories = {
   component: 'Radio',
   props: [
     {
-      name: 'checked',
-      type: 'boolean',
-      default: 'false',
-      description: 'Enables the checked option of the radio'
+      name: 'children',
+      type: 'Node',
+      default: '',
+      description: 'The content of the component',
     },
     {
       name: 'color',
-      type: 'StatusColor',
+      type: 'Color',
       default: 'primary',
-      description: 'The color of the radio'
-    }
+      description: 'The color of the badge',
+    },
   ],
   stories: [
     {
       name: 'Radio',
       description: 'Simple Radio',
-      render: <Radio />,
-      prop: '',
-      code: `
-        <Radio>
-        </Radio>
-      `
-    },
-    {
-      name: 'Radio Checked',
-      description: 'Radio with checked prop',
-      render: <Radio checked />,
-      prop: 'checked',
-      code: `
-        <Radio checked>
-        </Radio>
-      `
-    },
-    {
-      name: 'Radio with color',
-      description: 'Radio with color status',
       render: (
         <>
-          <Radio color="primary" />
-          <Radio color="success" />
-          <Radio color="warning" />
-          <Radio color="info" />
-          <Radio color="danger" />
+          <Radio name="radio" label="My Radio Option 1" />
+          <Radio name="radio" label="My Radio Option 2" />
         </>
       ),
-      prop: 'color',
+      prop: false,
       code: `
-      <Radio color="primary" />
-      <Radio color="success" />
-      <Radio color="warning" />
-      <Radio color="info" />
-      <Radio color="danger" />
-      `
-    }
-  ]
+      <Radio name="radio" label="My Radio Option 1" />
+      <Radio name="radio" label="My Radio Option 2" />
+      `,
+    },
+  ],
 }
 
 export default stories

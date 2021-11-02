@@ -7,32 +7,32 @@ const stories = {
     {
       name: 'top',
       type: 'string',
-      description: ''
+      description: '',
     },
     {
       name: 'name',
       type: 'string',
       default: '',
-      description: ''
+      description: '',
     },
     {
       name: 'label',
       type: 'string',
       default: '',
-      description: ''
+      description: '',
     },
     {
       name: 'onClick',
       type: 'function',
       default: '',
-      description: ''
+      description: '',
     },
     {
       name: 'options',
       type: 'Option',
       default: '',
-      description: ''
-    }
+      description: '',
+    },
   ],
   stories: [
     {
@@ -49,33 +49,33 @@ const stories = {
           options={[
             {
               option: 'English',
-              value: 'en'
+              value: 'en',
             },
             {
               option: 'Spanish',
-              value: 'es'
+              value: 'es',
             },
             {
               option: 'French',
               value: 'fr',
-              selected: true
+              selected: true,
             },
             {
               option: 'German',
-              value: 'ge'
+              value: 'ge',
             },
             {
               option: 'Japan',
-              value: 'jp'
+              value: 'jp',
             },
             {
               option: 'Chinese',
-              value: 'ch'
+              value: 'ch',
             },
             {
               option: 'Korean',
-              value: 'kr'
-            }
+              value: 'kr',
+            },
           ]}
         />
       ),
@@ -120,7 +120,7 @@ const stories = {
             }
           ]}
         />
-      `
+      `,
     },
     {
       name: 'Select with Booleans',
@@ -128,7 +128,7 @@ const stories = {
       render: (
         <Select
           name="published"
-          color="success"
+          color="dark"
           label="Published"
           onClick={({ option, value }: { option: string; value: any }): void => {
             console.log(option, value)
@@ -136,13 +136,13 @@ const stories = {
           options={[
             {
               option: 'Yes',
-              value: true
+              value: true,
             },
             {
               option: 'No',
               value: false,
-              selected: true
-            }
+              selected: true,
+            },
           ]}
         />
       ),
@@ -166,9 +166,9 @@ const stories = {
             }
           ]}
         />
-      `
-    }
-  ]
+      `,
+    },
+  ],
 }
 
 export default stories

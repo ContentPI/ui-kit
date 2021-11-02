@@ -1,49 +1,52 @@
+// Dependencies
 import styled from 'styled-components'
 
-export const StyledTags = styled.div`
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  border: none;
-  padding: 20px 5px 20px 2px;
-  width: 100%;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  div.label {
-    color: #666;
-    font-size: 14px;
-    padding-left: 5px;
-    margin-top: -15px;
-    margin-bottom: 5px;
-  }
-  div.tag {
-    display: inline-block;
-    cursor: pointer;
-    color: #888;
-    border-radius: 5px;
-    height: 30px;
-    line-height: 30px;
-    padding-left: 15px;
-    padding-right: 10px;
-    margin-left: 5px;
-    margin-bottom: 8px;
-    background: #eee;
-    &:hover {
-      background: #ddd;
-    }
-    i {
-      font-size: 13px;
-      color: #666;
-      margin-left: 10px;
-    }
-  }
-  input {
-    margin-left: 10px;
-    border: none;
-    outline: none;
-  }
-`
+// Theme
+import { Gray } from '../../theme'
+
+// Types
+import { FontSize } from '../../types'
+
+export const Tags = styled.div({
+  backgroundColor: 'white',
+  border: 'none',
+  display: 'flex',
+  flexDirection: 'column',
+  padding: '20px 5px 20px 2px',
+  touchCallout: 'none',
+  userSelect: 'none',
+  width: '100%',
+  'div.label': {
+    color: Gray.V200,
+    fontSize: FontSize.regular,
+    marginBottom: '5px',
+    marginTop: '-15px',
+    paddingLeft: '5px',
+  },
+  'div.tag': {
+    background: Gray.V050,
+    borderRadius: '5px',
+    color: Gray.V250,
+    cursor: 'pointer',
+    display: 'inline-block',
+    height: '30px',
+    lineHeight: '30px',
+    marginBottom: '8px',
+    marginLeft: '5px',
+    paddingLeft: '15px',
+    paddingRight: '10px',
+    '&:hover': {
+      background: Gray.V100,
+    },
+    i: {
+      fontSize: FontSize.regular,
+      color: Gray.V200,
+      marginLeft: '10px',
+    },
+  },
+  input: {
+    marginLeft: '10px',
+    border: 'none',
+    outline: 'none',
+  },
+})
