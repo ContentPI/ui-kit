@@ -14,7 +14,7 @@ import RenderIfStories from '../src/components/RenderIf/RenderIf.stories'
 import SelectStories from '../src/components/Select/Select.stories'
 import SwitcherStories from '../src/components/Switcher/Switcher.stories'
 import TableStories from '../src/components/Table/Table.stories'
-// import TagsStories from '../src/components/Tags/Tags.stories'
+import TagsStories from '../src/components/Tags/Tags.stories'
 // import Text from '../src/components/Text/Text.stories'
 // import TextAreaStories from '../src/components/TextArea/TextArea.stories'
 // import TextFieldStories from '../src/components/TextField/TextField.stories'
@@ -36,7 +36,7 @@ const stories: any = {
   select: SelectStories,
   switcher: SwitcherStories,
   table: TableStories,
-  // tags: TagsStories,
+  tags: TagsStories,
   // text: Text,
   // textarea: TextAreaStories,
   // textfield: TextFieldStories

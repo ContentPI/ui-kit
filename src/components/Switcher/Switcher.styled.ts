@@ -1,4 +1,7 @@
+// Dependencies
 import styled from 'styled-components'
+
+// Theme
 import { Base, Gray, Green } from '../../theme'
 
 export const Switcher = styled.div`

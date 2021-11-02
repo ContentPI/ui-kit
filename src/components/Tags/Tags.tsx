@@ -1,7 +1,12 @@
+// Dependencies
 import React, { FC, useState, useEffect } from 'react'
 import slug from 'slug'
-import { StyledTags } from './Tags.styled'
+
+// Components
 import Icon from '../Icon'
+
+// Styles
+import { Tags } from './Tags.styled'
 
 type Tag = {
   option: string
@@ -14,7 +19,7 @@ interface IProps {
   getTags(tags: Tag[]): void
 }
 
-const Tags: FC<IProps> = props => {
+const TagsComponent: FC<IProps> = props => {
   const { tags = [], getTags, label = 'Add new tag' } = props
   const [tagsArr, setTags] = useState(tags)
   const [newTag, setTag] = useState('')
@@ -61,7 +66,7 @@ const Tags: FC<IProps> = props => {
 
   return (
     <div style={{ marginTop: '5px', marginBottom: '20px' }}>
-      <StyledTags className="Tags">
+      <Tags className="Tags">
         <div className="container">
           {tagsArr.map((tag, index) => (
             <div key={`${tag.value}-${index}`} className="tag">
@@ -78,9 +83,9 @@ const Tags: FC<IProps> = props => {
             value={newTag}
           />
         </div>
-      </StyledTags>
+      </Tags>
     </div>
   )
 }
 
-export default Tags
+export default TagsComponent

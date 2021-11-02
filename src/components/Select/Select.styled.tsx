@@ -1,7 +1,7 @@
 // Dependencies
 import styled from 'styled-components'
 
-// Types
+// Theme
 import { Base, Gray, mapColorStyles, themeCssVars } from '../../theme'
 
 // Types
