@@ -5,7 +5,7 @@ import 'prismjs/components/prism-jsx.min'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 // Components
-// import Switcher from '../src/components/Switcher'
+import Switcher from '../src/components/Switcher'
 import Sidebar from './Sidebar'
 import Content from './Content'
 
@@ -54,11 +54,11 @@ const App: FC = () => {
                   <Sidebar components={components} {...props} />
                   <StyledApp>
                     <span className="rtl">
-                      {/* <Switcher
+                      <Switcher
                         label="Switch to RTL"
                         checked={isRtl}
                         onChange={() => handleRtl()}
-                      /> */}
+                      />
                     </span>
 
                     <Content
@@ -76,11 +76,11 @@ const App: FC = () => {
                   <Sidebar components={components} {...props} />
                   <StyledApp>
                     <span className="rtl">
-                      {/* <Switcher
+                      <Switcher
                         label="Switch to RTL"
                         checked={isRtl}
                         onChange={() => handleRtl()}
-                      /> */}
+                      />
                     </span>
                     <Content
                       currentComponent={components.button}
