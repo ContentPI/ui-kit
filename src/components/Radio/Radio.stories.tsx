@@ -29,7 +29,8 @@ const stories = {
       ),
       prop: false,
       code: `
-      <Checkbox color="primary" /> Foo
+      <Radio name="radio" label="My Radio Option 1" />
+      <Radio name="radio" label="My Radio Option 2" />
       `,
     },
   ],
