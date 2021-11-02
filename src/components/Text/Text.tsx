@@ -1,47 +1,41 @@
-// // Dependencies
-// import React, { FC } from 'react'
-// import { cxGenerator } from '@contentpi/lib'
+// Dependencies
+import React, { FC } from 'react'
+import { cxGenerator } from '@contentpi/lib'
 
-// // Types
-// import { Palette, Typography, TypographyTag, /* TextColor, */ TextAlign } from '../../types'
+// Types
+import { Color, Typography, TextAlign } from '../../types'
 
-// // Styles
-// import { TextBase, BASE_CLASS_NAME } from './Text.styled'
+// Styles
+import { Text, BASE_CLASS_NAME } from './Text.styled'
 
-// export interface TextProps {
-//   align?: TextAlign
-//   className?: string
-//   color?: string // TextColor
-//   component?: keyof JSX.IntrinsicElements
-//   status?: Palette
-//   variant?: Typography
-// }
+export interface TextProps {
+  align?: TextAlign
+  className?: string
+  color?: Color
+  component?: keyof JSX.IntrinsicElements
+  variant?: Typography
+}
 
-// const Text: FC<TextProps> = props => {
-//   const {
-//     align = TextAlign.left,
-//     children,
-//     className,
-//     color = TextColor.textPrimary,
-//     component = undefined,
-//     status = '',
-//     variant = Typography.paragraph1,
-//     ...restProps
-//   } = props
+const TextComponent: FC<TextProps> = ({
+  align = TextAlign.left,
+  children,
+  className,
+  component = undefined,
+  ...restProps
+}) => {
+  const classNames = cxGenerator({
+    ccn: BASE_CLASS_NAME,
+    data: [align],
+    className,
+  })
 
-//   const classNames = cxGenerator({
-//     ccn: BASE_CLASS_NAME,
-//     data: [status || color, variant, align],
-//     className,
-//   })
+  const cpmTag = component
 
-//   const cpmTag = component || TypographyTag[variant]
+  return (
+    <Text as={cpmTag} className={classNames} {...restProps}>
+      {children}
+    </Text>
+  )
+}
 
-//   return (
-//     <TextBase as={cpmTag} className={classNames} {...restProps}>
-//       {children}
-//     </TextBase>
-//   )
-// }
-
-// export default Text
+export default TextComponent
