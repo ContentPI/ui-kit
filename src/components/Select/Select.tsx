@@ -1,139 +1,146 @@
-// // Dependencies
-// import React, { FC, ReactElement, useState, useEffect, useRef, MutableRefObject } from 'react'
-// import { cx } from '@contentpi/lib'
+// Dependencies
+import React, { FC, ReactElement, useState, useEffect, useRef, MutableRefObject } from 'react'
+import { cxGenerator } from '@contentpi/lib'
 
-// // Types
-// import { StatusColor } from '../../types'
+// Types
+import { Color } from '../../types'
 
-// // Components
-// import Icon from '../Icon'
+// Components
+import Icon from '../Icon'
 
-// // Styles
-// import { StyledSelect } from './Select.styled'
+// Styles
+import { Select, BASE_CLASS_NAME } from './Select.styled'
 
-// type Option = {
-//   option: string
-//   value: any
-//   selected?: boolean
-// }
+type Option = {
+  option: string
+  value: any
+  selected?: boolean
+}
 
-// interface IProps {
-//   className?: string
-//   children?: ReactElement
-//   id?: string
-//   name?: string
-//   noWrapper?: boolean
-//   label?: string
-//   onClick(e: any): any
-//   options?: Option[]
-//   style?: any
-//   color?: StatusColor
-//   top?: string
-// }
+interface IProps {
+  children?: ReactElement
+  className?: string
+  color?: Color
+  id?: string
+  label?: string
+  name?: string
+  noWrapper?: boolean
+  onClick(e: any): any
+  options?: Option[]
+  style?: any
+  top?: string
+}
 
-// const Select: FC<IProps> = props => {
-//   const {
-//     label = '',
-//     options = null,
-//     onClick,
-//     color = StatusColor.primary,
-//     className = '',
-//     top = false
-//   } = props
+const SelectComponent: FC<IProps> = ({
+  className = '',
+  color = Color.primary,
+  label = '',
+  onClick,
+  options = null,
+  ...selectProps
+}) => {
+  const classes = [color]
 
-//   const [open, setOpen] = useState(false)
-//   const [selectedOption, setValue] = useState({ option: '', value: '' })
-//   const node = useRef() as MutableRefObject<HTMLInputElement>
+  const classNames = cxGenerator({
+    ccn: BASE_CLASS_NAME,
+    data: classes,
+  })
 
-//   const handleClickOutside = (e: any) => {
-//     if (node.current.contains(e.target)) {
-//       return
-//     }
+  const [open, setOpen] = useState(false)
+  const [selectedOption, setValue] = useState({ option: '', value: '' })
+  const node = useRef() as MutableRefObject<HTMLInputElement>
 
-//     setOpen(false)
-//   }
+  const handleClickOutside = (e: any) => {
+    if (node.current.contains(e.target)) {
+      return
+    }
 
-//   const handleOpenOnClick = () => setOpen(!open)
+    setOpen(false)
+  }
 
-//   const selectOption = (option: string, value: string) => {
-//     if (option) {
-//       setValue({
-//         option,
-//         value
-//       })
+  const handleOpenOnClick = () => setOpen(!open)
 
-//       onClick({ option, value })
+  const selectOption = (option: string, value: string) => {
+    if (option) {
+      setValue({
+        option,
+        value,
+      })
 
-//       if (open) {
-//         setOpen(false)
-//       }
-//     }
-//   }
+      onClick({ option, value })
 
-//   if (!options) {
-//     return <div />
-//   }
+      if (open) {
+        setOpen(false)
+      }
+    }
+  }
 
-//   const renderList = () => {
-//     return (
-//       <ul style={{ display: open ? 'block' : 'none' }}>
-//         {options.map(
-//           ({ option, value, selected }: { option: string; value: string; selected: boolean }) => {
-//             if (selected && selectedOption.value === '') {
-//               selectOption(option, value)
-//             }
+  if (!options) {
+    return <div />
+  }
 
-//             return (
-//               <li
-//                 key={`option-${value}`}
-//                 onClick={(): void => selectOption(option, value)}
-//                 style={{
-//                   background: `${
-//                     selectedOption.value === value ? `var(--palette-${color}-dark)` : ''
-//                   }`,
-//                   color: `${
-//                     selectedOption.value === value ? `var(--palette-${color}-contrastText)` : ''
-//                   }`
-//                 }}
-//               >
-//                 {option}
-//               </li>
-//             )
-//           }
-//         )}
-//       </ul>
-//     )
-//   }
+  const renderList = () => {
+    return (
+      <ul style={{ display: open ? 'block' : 'none' }}>
+        {options.map(
+          ({ option, value, selected }: { option: string; value: string; selected: boolean }) => {
+            if (selected && selectedOption.value === '') {
+              selectOption(option, value)
+            }
 
-//   useEffect(() => {
-//     if (open) {
-//       document.addEventListener('mousedown', handleClickOutside)
-//     } else {
-//       document.removeEventListener('mousedown', handleClickOutside)
-//     }
+            return (
+              <li
+                key={`option-${value}`}
+                onClick={(): void => selectOption(option, value)}
+                style={{
+                  background: `${
+                    selectedOption.value === value ? `var(--palette-${color}-common-main)` : ''
+                  }`,
+                  color: `${
+                    selectedOption.value === value
+                      ? `var(--palette-${color}-common-contrastText)`
+                      : ''
+                  }`,
+                }}
+                className={className}
+              >
+                {option}
+              </li>
+            )
+          },
+        )}
+      </ul>
+    )
+  }
 
-//     return () => {
-//       document.removeEventListener('mousedown', handleClickOutside)
-//     }
-//   }, [open])
+  useEffect(() => {
+    if (open) {
+      document.addEventListener('mousedown', handleClickOutside)
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
 
-//   return (
-//     <div ref={node} style={{ marginTop: '5px', marginBottom: '20px' }}>
-//       <StyledSelect {...props} color={color} className={cx('select', className)}>
-//         {top && renderList()}
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [open])
 
-//         <a onClick={handleOpenOnClick}>
-//           <div>{selectedOption.option || label}</div>
-//           <div>
-//             &nbsp;
-//             <Icon type={`fas fa-caret-${!top ? 'down' : 'up'}`} />
-//           </div>
-//         </a>
+  return (
+    <div ref={node} style={{ marginTop: '5px', marginBottom: '20px' }}>
+      <Select data-component="Select" color={color} className={className} {...selectProps}>
+        <>
+          <a onClick={handleOpenOnClick} className={classNames}>
+            <div>{selectedOption.option || label}</div>
+            <div>
+              &nbsp;
+              <Icon type={`fas fa-caret-${!selectProps.top ? 'down' : 'up'}`} />
+            </div>
+          </a>
+          {renderList()}
+        </>
+      </Select>
+    </div>
+  )
+}
 
-//         {!top && renderList()}
-//       </StyledSelect>
-//     </div>
-//   )
-// }
-
-// export default Select
+export default SelectComponent

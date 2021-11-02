@@ -10,8 +10,8 @@ import NotificationStories from '../src/components/Notification/Notification.sto
 import PaginationStories from '../src/components/Pagination/Pagination.stories'
 import PaperStories from '../src/components/Paper/Paper.stories'
 import RadioStories from '../src/components/Radio/Radio.stories'
-// import RenderIfStories from '../src/components/RenderIf/RenderIf.stories'
-// import SelectStories from '../src/components/Select/Select.stories'
+import RenderIfStories from '../src/components/RenderIf/RenderIf.stories'
+import SelectStories from '../src/components/Select/Select.stories'
 // import SwitcherStories from '../src/components/Switcher/Switcher.stories'
 // import TableStories from '../src/components/Table/Table.stories'
 // import TagsStories from '../src/components/Tags/Tags.stories'
@@ -32,8 +32,8 @@ const stories: any = {
   pagination: PaginationStories,
   paper: PaperStories,
   radio: RadioStories,
-  // renderif: RenderIfStories,
-  // select: SelectStories,
+  renderif: RenderIfStories,
+  select: SelectStories,
   // switcher: SwitcherStories,
   // table: TableStories,
   // tags: TagsStories,
