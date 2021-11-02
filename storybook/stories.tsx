@@ -1,7 +1,7 @@
 import AlertStories from '../src/components/Alert/Alert.stories'
 import AvatarStories from '../src/components/Avatar/Avatar.stories'
 import BadgeStories from '../src/components/Badge/Badge.stories'
-// import BreadcrumbStories from '../src/components/Breadcrumb/Breadcrumb.stories'
+import BreadcrumbStories from '../src/components/Breadcrumb/Breadcrumb.stories'
 import ButtonStories from '../src/components/Button/Button.stories'
 import CheckboxStories from '../src/components/Checkbox/Checkbox.stories'
 import DialogStories from '../src/components/Dialog/Dialog.stories'
@@ -23,7 +23,7 @@ const stories: any = {
   alert: AlertStories,
   avatar: AvatarStories,
   badge: BadgeStories,
-  // breadcrumb: BreadcrumbStories,
+  breadcrumb: BreadcrumbStories,
   button: ButtonStories,
   checkbox: CheckboxStories,
   dialog: DialogStories,
