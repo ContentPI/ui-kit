@@ -4,7 +4,7 @@ import BadgeStories from '../src/components/Badge/Badge.stories'
 // import BreadcrumbStories from '../src/components/Breadcrumb/Breadcrumb.stories'
 import ButtonStories from '../src/components/Button/Button.stories'
 import CheckboxStories from '../src/components/Checkbox/Checkbox.stories'
-// import DialogStories from '../src/components/Dialog/Dialog.stories'
+import DialogStories from '../src/components/Dialog/Dialog.stories'
 import InputStories from '../src/components/Input/Input.stories'
 import NotificationStories from '../src/components/Notification/Notification.stories'
 import PaginationStories from '../src/components/Pagination/Pagination.stories'
@@ -26,7 +26,7 @@ const stories: any = {
   // breadcrumb: BreadcrumbStories,
   button: ButtonStories,
   checkbox: CheckboxStories,
-  // dialog: DialogStories,
+  dialog: DialogStories,
   input: InputStories,
   notification: NotificationStories,
   pagination: PaginationStories,

@@ -59,7 +59,6 @@ const TextField: FC<TextFieldInputProps & TextFieldAreaProps> = props => {
   const {
     label,
     helperText,
-    error,
     fullWidth = false,
     textArea = false,
     type = 'text',
