@@ -11,14 +11,14 @@ import {
   TableCol,
 } from './Table.styled'
 
-interface ITableProps {
+interface IProps {
   data: {
     columns: string[]
     rows: Array<string[]>
   }
 }
 
-const Table: FC<ITableProps> = ({ data }) => (
+const Table: FC<IProps> = ({ data }) => (
   <TableBase>
     <TableHeader>
       <TableRow>
