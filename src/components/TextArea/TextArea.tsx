@@ -1,41 +1,36 @@
-// // Dependencies
-// import React, { FC, ComponentPropsWithoutRef, useState } from 'react'
-// import { cxGenerator } from '@contentpi/lib'
+// Dependencies
+import React, { FC, ComponentPropsWithoutRef, useState } from 'react'
+import { cxGenerator } from '@contentpi/lib'
 
-// // Types
-// import { StatusColor } from '../../types'
+// Styles
+import { TextArea, TextAreaWrapper, BASE_CLASS_NAME } from './TextArea.styled'
 
-// // Styles
-// import { InputWrapper, InputBase, BASE_CLASS_NAME } from '../Input/Input.styled'
+export interface IProps extends ComponentPropsWithoutRef<'textarea'> {
+  fullWidth?: boolean
+}
 
-// export interface ITextAreaProps extends ComponentPropsWithoutRef<'textarea'> {
-//   fullWidth?: boolean
-//   status?: StatusColor
-// }
+const TextAreaComponent: FC<IProps> = props => {
+  const { fullWidth = false, ...restProps } = props
 
-// const TextArea: FC<ITextAreaProps> = props => {
-//   const { status = '', fullWidth = false, ...restProps } = props
+  const [hasFocus, setHasFocus] = useState(false)
 
-//   const [hasFocus, setHasFocus] = useState(false)
+  const focusClass = hasFocus ? 'focus' : ''
+  const fullWidthClass = fullWidth ? 'full-width' : ''
 
-//   const focusClass = hasFocus ? 'focus' : ''
-//   const fullWidthClass = fullWidth ? 'full-width' : ''
+  const classNames = cxGenerator({
+    ccn: BASE_CLASS_NAME,
+    data: [focusClass, fullWidthClass],
+  })
 
-//   const classNames = cxGenerator({
-//     ccn: BASE_CLASS_NAME,
-//     data: [status, focusClass, fullWidthClass]
-//   })
+  return (
+    <TextAreaWrapper className={classNames}>
+      <TextArea
+        onFocus={() => setHasFocus(true)}
+        onBlur={() => setHasFocus(false)}
+        {...restProps}
+      />
+    </TextAreaWrapper>
+  )
+}
 
-//   return (
-//     <InputWrapper className={classNames}>
-//       <InputBase
-//         as="textarea"
-//         onFocus={() => setHasFocus(true)}
-//         onBlur={() => setHasFocus(false)}
-//         {...restProps}
-//       />
-//     </InputWrapper>
-//   )
-// }
-
-// export default TextArea
+export default TextAreaComponent
