@@ -1,68 +1,65 @@
-// // Dependencies
-// import styled, { CSSObject } from 'styled-components'
+// Dependencies
+import styled from 'styled-components'
 
-// // Theme
-// import { generateCss, generateStyles, themeCssVars } from '../../theme'
+// Types
+import { themeCssVars, mapColorStyles, Gray } from '../../theme'
+import { Colors, Shape } from '../../types'
 
-// // Types
-// import { StatusColor, StatusColors } from '../../types'
+// Base Class Name
+export const BASE_CLASS_NAME = 'radio'
 
-// // Base Class Name
-// export const BASE_CLASS_NAME = 'radio'
+// Color
+const colorStyles = mapColorStyles(Colors, BASE_CLASS_NAME, themeCssVars, {
+  backgroundColor: 'main',
+})
 
-// // Functions
-// const getBorderCss = (colorType: StatusColor) => {
-//   const { main } = themeCssVars.palette[colorType]
-//   const cssProps: CSSObject = {
-//     border: `1px solid ${main}`
-//   }
+export const RadioWrapper = styled.label({
+  userSelect: 'none',
+  cursor: 'pointer',
+  display: 'block',
+  marginBottom: '12px',
+  paddingLeft: '35px',
+  position: 'relative',
+  width: 'fit-content',
+})
 
-//   return generateCss(cssProps)
-// }
+export const Radio = styled.input({
+  position: 'absolute',
+  opacity: 0,
+  cursor: 'pointer',
+  height: 0,
+  width: 0,
+  '&:checked ~ .checkmark': {
+    ...colorStyles,
+  },
+  '&:checked ~ .checkmark:after': {
+    display: 'block',
+  },
+})
 
-// const getBallCss = (colorType: StatusColor) => {
-//   const { main } = themeCssVars.palette[colorType]
-//   const cssProps: CSSObject = {
-//     background: main
-//   }
+export const RadioChild = styled.div({
+  borderRadius: '0.1875rem',
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  height: '22px',
+  width: '22px',
+  backgroundColor: Gray.V050,
+  '&:after': {
+    content: '',
+    position: 'absolute',
+    display: 'none',
+  },
+  [`&.${BASE_CLASS_NAME}-${Shape.round}`]: {
+    borderRadius: '50%',
+  },
+  [`&.${BASE_CLASS_NAME}-${Shape.square}`]: {
+    borderRadius: 0,
+  },
+})
 
-//   return generateCss(cssProps)
-// }
-
-// const radioBorderStyles = () => generateStyles(StatusColors, BASE_CLASS_NAME, getBorderCss)
-// const radioBallStyles = () => generateStyles(StatusColors, BASE_CLASS_NAME, getBallCss)
-
-// // Styles
-// export const radioBaseStyles = `
-//   background: ${themeCssVars.global?.background.paper};
-// `
-
-// export const selectedStyles = `
-//   &.${BASE_CLASS_NAME}-checked {
-//     opacity: 1;
-//   }
-// `
-
-// export const RadioBase = styled.div`
-//   width: 14px;
-//   height: 14px;
-//   border-radius: 100%;
-//   position: relative;
-//   margin-top: 3rem;
-
-//   ${radioBaseStyles}
-//   ${radioBorderStyles()}
-// `
-
-// export const RadioBall = styled.div`
-//   position: absolute;
-//   width: 8px;
-//   height: 8px;
-//   top: 3px;
-//   left: 3px;
-//   border-radius: 100%;
-//   opacity: 0;
-//   transition: all 0.3s ease-in-out;
-//   ${radioBallStyles()}
-//   ${selectedStyles}
-// `
+export const RadioText = styled.span({
+  height: '22px',
+  display: 'inline-block',
+  lineHeight: '22px',
+})
