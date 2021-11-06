@@ -100,7 +100,7 @@ const htmlReset = css`
   body {
     font-family: 'WorkSans';
     margin: 0;
-    background-color: #333;
+    padding: 0;
   }
   h1,
   h2,
@@ -110,6 +110,7 @@ const htmlReset = css`
   h6,
   p {
     margin: 0;
+    padding: 0;
   }
 `
 
