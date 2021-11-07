@@ -24,12 +24,13 @@ export const TableRow = styled.tr({
 })
 
 export const TableHeaderCol = styled.th({
-  textAlign: 'left',
+  textAlign: 'center',
   padding: '1rem',
 })
 
 export const TableBody = styled.tbody({})
 
 export const TableCol = styled.td({
+  textAlign: 'center',
   padding: '1rem',
 })
