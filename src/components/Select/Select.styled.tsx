@@ -21,6 +21,7 @@ const colorStyles = mapColorStyles(Colors, BASE_CLASS_NAME, themeCssVars, {
 })
 
 export const Select = styled.div<IStyledProps>(({ top }) => ({
+  minWidth: '200px',
   position: 'relative',
   touchCallout: 'none',
   userSelect: 'none',
