@@ -1,9 +1,10 @@
 // Dependencies
 import React, { FC, ReactElement, useState, useEffect, useRef, MutableRefObject } from 'react'
 import { cxGenerator } from '@contentpi/lib'
+import { CSSObject } from 'styled-components'
 
 // Types
-import { Color } from '../../types'
+import { Color, Size } from '../../types'
 
 // Components
 import Icon from '../Icon'
@@ -29,6 +30,7 @@ interface IProps {
   options?: Option[]
   style?: any
   top?: string
+  size?: Size
 }
 
 const SelectComponent: FC<IProps> = ({
@@ -37,6 +39,7 @@ const SelectComponent: FC<IProps> = ({
   label = '',
   onClick,
   options = null,
+  size = Size.small,
   ...selectProps
 }) => {
   const classes = [color]
@@ -76,12 +79,30 @@ const SelectComponent: FC<IProps> = ({
   }
 
   if (!options) {
-    return <div />
+    return null
   }
 
   const renderList = () => {
+    const style: CSSObject = { display: open ? 'block' : 'none' }
+
+    if (size === Size.xSmall || size === Size.small) {
+      style.maxHeight = '120px'
+    }
+
+    if (size === Size.medium) {
+      style.maxHeight = '150px'
+    }
+
+    if (size === Size.large) {
+      style.maxHeight = '300px'
+    }
+
+    if (size === Size.xLarge) {
+      style.maxHeight = '600px'
+    }
+
     return (
-      <ul style={{ display: open ? 'block' : 'none' }}>
+      <ul style={style}>
         {options.map(
           ({ option, value, selected }: { option: string; value: string; selected: boolean }) => {
             if (selected && selectedOption.value === '') {

@@ -21,7 +21,6 @@ const colorStyles = mapColorStyles(Colors, BASE_CLASS_NAME, themeCssVars, {
 })
 
 export const Select = styled.div<IStyledProps>(({ top }) => ({
-  minWidth: '200px',
   position: 'relative',
   touchCallout: 'none',
   userSelect: 'none',
@@ -46,13 +45,12 @@ export const Select = styled.div<IStyledProps>(({ top }) => ({
     borderRadius: '3px',
     listStyleType: 'none',
     margin: 0,
-    maxHeight: '150px',
     overflow: 'auto',
     overflowStyle: 'none',
     padding: 0,
     position: 'absolute',
     scrollbarWidth: 'none',
-    top: top ? `-${top}` : '45px',
+    top: top ? `-${top}` : '0px',
     width: '130%',
     zIndex: 1,
     '&::-webkit-scrollbar': {

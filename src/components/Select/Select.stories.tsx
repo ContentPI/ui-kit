@@ -40,7 +40,7 @@ const stories = {
       description: 'Language',
       render: (
         <Select
-          top="160px"
+          top="125px"
           name="language"
           label="Select language"
           onClick={({ option, value }: { option: string; value: any }): void => {

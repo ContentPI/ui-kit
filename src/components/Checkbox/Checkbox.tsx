@@ -1,5 +1,5 @@
 // Dependencies
-import React, { FC, ComponentPropsWithoutRef } from 'react'
+import React, { FC, ComponentPropsWithoutRef, MouseEvent } from 'react'
 import { cxGenerator, cx } from '@contentpi/lib'
 
 // Types
@@ -19,7 +19,7 @@ interface IProps extends ComponentPropsWithoutRef<'input'> {
   checked?: boolean
   label?: string
   name?: string
-  onClick?: any
+  onClick?: (e: MouseEvent<HTMLElement>) => void
   value?: string
   shape?: Shape
 }

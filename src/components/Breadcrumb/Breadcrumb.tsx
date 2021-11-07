@@ -1,6 +1,7 @@
 // Dependencies
 import React, { FC, Fragment } from 'react'
 import { cxGenerator } from '@contentpi/lib'
+import { LinkProps } from 'react-router-dom'
 
 // Components
 import Text from '../Text'
@@ -15,7 +16,7 @@ type labelBody = {
 
 interface IProps {
   labels: Array<labelBody>
-  Link?: any
+  Link?: LinkProps | any
 }
 
 const BreadcrumbComponent: FC<IProps> = props => {

@@ -1,5 +1,5 @@
 // Dependencies
-import React, { FC, ComponentPropsWithoutRef } from 'react'
+import React, { FC, ComponentPropsWithoutRef, ReactNode } from 'react'
 import { cxGenerator } from '@contentpi/lib'
 
 // Types
@@ -36,7 +36,7 @@ const ButtonComponent: FC<IProps> = ({
   fullWidth = false,
   ...btnProps
 }) => {
-  let buttonText: any = children
+  let buttonText: ReactNode[] | ReactNode | string = children
   const fullWidthClass = fullWidth ? 'full-width' : ''
   const classes = [variant, size, shape, fullWidthClass, color]
 

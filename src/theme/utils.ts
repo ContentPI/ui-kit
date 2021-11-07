@@ -77,7 +77,7 @@ export const generateThemeVars = (themes: Record<string, any>) => {
   return allCss
 }
 
-const _calc = (number: number) => `calc(4px * ${number})`
+const _calc = (number: number | string) => `calc(4px * ${Number(number)})`
 
 export const calc = (type: CalcType, data: number | number[]) => {
   let calcData = ''
@@ -91,7 +91,7 @@ export const calc = (type: CalcType, data: number | number[]) => {
 
     case CalcType.padding:
       if (Array.isArray(data)) {
-        const padding = []
+        const padding: Array<string> = []
 
         const top = data[0]
         const right = data[1]

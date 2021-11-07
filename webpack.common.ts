@@ -1,7 +1,8 @@
 import { resolve } from 'path'
 import createStyledComponentsTransformer from 'typescript-styled-components-plugin'
+import { Configuration } from 'webpack'
 
-const webpackConfig: any = {
+const webpackConfig: Configuration = {
   entry: './src/index.ts',
   output: {
     path: resolve(__dirname, 'dist'),

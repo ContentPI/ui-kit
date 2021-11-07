@@ -1,8 +1,9 @@
 import React, { FC, ReactElement } from 'react'
+import { CSSObject } from 'styled-components'
 
 interface Props {
   spinner: string
-  style: any
+  style: CSSObject
 }
 
 const Spinner: FC<Props> = ({ spinner = 'puff', style = {} }): ReactElement => {

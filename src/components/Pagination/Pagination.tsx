@@ -1,6 +1,7 @@
 // Dependencies
 import React, { FC, ReactNode, ReactElement } from 'react'
 import { cxGenerator } from '@contentpi/lib'
+import { LinkProps } from 'react-router-dom'
 
 // Components
 import Icon from '../Icon'
@@ -17,7 +18,7 @@ export interface IProps {
   total: number
   rowsPerPage?: number
   href: string
-  Link?: any
+  Link?: LinkProps | any
 }
 
 const Pagination: FC<IProps> = ({
@@ -43,7 +44,7 @@ const Pagination: FC<IProps> = ({
     start: number,
     end: number,
   ): ReactNode[] => {
-    const pageNav = []
+    const pageNav: ReactElement[] = []
 
     for (let i = firstPage; i < lastPage; i += 1) {
       const pge = i + 1

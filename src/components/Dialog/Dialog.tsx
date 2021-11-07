@@ -7,8 +7,8 @@ import { GlobalStyle, Dialog, Img, Content, Container, Close } from './Dialog.st
 // Interfaces
 interface iProps {
   open: boolean
-  onOpen?(): any
-  handleClose?(): any
+  onOpen?(): void
+  handleClose?(): void
   title?: string
   children: ReactElement | ReactElement[]
   options?: {

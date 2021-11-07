@@ -13,7 +13,7 @@ interface IProps extends ComponentPropsWithoutRef<'input'> {
   checked?: boolean
   label?: string
   name?: string
-  onClick?: any
+  onClick?(): void
   value?: string
   shape?: Shape
 }

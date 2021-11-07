@@ -1,18 +1,27 @@
 // Dependencies
 import React, { FC, ReactElement } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
-import { isString, getCurrentLanguage } from '@contentpi/lib'
+import { getCurrentLanguage } from '@contentpi/lib'
 import styled from 'styled-components'
 
 type Props = {
   children: ReactElement | string
   to: string
   className?: string
-  onClick?(): any
-  title?: any
+  onClick?(): void
+  title?: string
   target?: '_blank' | '_self' | '_parent' | '_top'
   external?: boolean
   withLanguage?: boolean
+}
+
+type LinkProps = {
+  onClick?(): void
+  className?: string
+  target?: '_blank' | '_self' | '_parent' | '_top'
+  rel?: string
+  href?: string
+  to?: string
 }
 
 const StyledLink = styled.a`
@@ -28,17 +37,17 @@ const Link: FC<Props> = ({
   children,
   className,
   onClick,
-  title = undefined,
+  title = '',
   target = undefined,
   external = false,
-  withLanguage = false
+  withLanguage = false,
 }) => {
   const currentLanguage = getCurrentLanguage()
   let href = to
-  const linkProps: any = {
+  const linkProps: LinkProps = {
     onClick,
     className,
-    target
+    target,
   }
 
   if (withLanguage) {
@@ -46,7 +55,7 @@ const Link: FC<Props> = ({
     href = `${currentLanguage}${slash}${href}`
   }
 
-  if (isString(children)) {
+  if (typeof children === 'string') {
     title = children
   }
 
@@ -64,10 +73,8 @@ const Link: FC<Props> = ({
     )
   }
 
-  linkProps.to = href
-
   return (
-    <StyledRouterLink {...linkProps} title={title}>
+    <StyledRouterLink to={href} title={title} {...linkProps}>
       {children}
     </StyledRouterLink>
   )
