@@ -21,6 +21,7 @@ const colorStyles = mapColorStyles(Colors, BASE_CLASS_NAME, themeCssVars, {
 export const InputWrapper = styled.div({
   padding: calc(CalcType.padding, [3.25, 4]),
   margin: calc(CalcType.spacing, [2, 0]),
+  marginBottom: '20px',
   background: Base.WHITE,
   border: `1px solid ${Base.WHITE}`,
   boxSizing: 'border-box',
