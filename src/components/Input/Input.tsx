@@ -23,6 +23,7 @@ const Input: FC<IProps> = ({
   leftIcon,
   rightIcon,
   fullWidth = false,
+  value = '',
   ...restProps
 }) => {
   const [hasFocus, setHasFocus] = useState(false)
@@ -64,6 +65,7 @@ const Input: FC<IProps> = ({
         type={inputType}
         onFocus={() => setHasFocus(true)}
         onBlur={() => setHasFocus(false)}
+        value={value || ''}
         {...restProps}
       />
       {RightIcon &&
