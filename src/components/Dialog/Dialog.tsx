@@ -28,7 +28,7 @@ const DialogComponent: FC<iProps> = ({
 }) => {
   let width = '500px'
   let height = ''
-  const margin = `${options.position === 'top' ? '2%' : '14%'} auto`
+  const margin = `${options.position === 'top' ? '0.5%' : '14%'} auto`
 
   if (!open) {
     return null
