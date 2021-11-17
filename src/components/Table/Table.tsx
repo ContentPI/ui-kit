@@ -1,5 +1,5 @@
 // Dependencies
-import React, { FC } from 'react'
+import React, { FC, ReactElement } from 'react'
 
 // Styled
 import {
@@ -14,7 +14,7 @@ import {
 interface IProps {
   data: {
     columns: string[]
-    rows: Array<string[]>
+    rows: Array<string[] | ReactElement[]>
   }
 }
 
